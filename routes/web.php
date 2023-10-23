@@ -44,6 +44,12 @@ Route::get('#laravel-examples', function () {
     return view('pages.laravel-examples.app');
 })->name('#laravel-examples');
 Route::get('sign-up', function () {return redirect('sign-in');})->middleware('guest');
+<<<<<<< HEAD
+=======
+
+
+// Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
+>>>>>>> e9f844f758529631fed83f110162cf2d0f54f957
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('sign-up', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('sign-up', [RegisterController::class, 'store'])->middleware('guest');

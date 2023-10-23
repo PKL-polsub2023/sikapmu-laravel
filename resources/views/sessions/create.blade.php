@@ -47,6 +47,7 @@
                                         <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
                                     </div>
                                     <div class="text-center">
+<<<<<<< HEAD
                                         <button type="submit" class="btn w-100 my-4 mb-2" style="background-color: #0057FF;">
                                             <i class="text-sm text-white">Sign In</i>
                                         </button>
@@ -56,17 +57,30 @@
                                             <i class="text-sm text-white">Kembali Ke Login</i>
                                         </a>
                                     </div>
+=======
+                                        <button type="submit" class="btn w-100 my-4 mb-2"
+                                            style="background-color: #0057FF;"><i class="text-sm text-white">Sign
+                                                Up</i></button>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="close" class="btn btn-lg bg- btn-lg w-100 mt-4 mb-0"
+                                            style="background-color: #000000;"><i class="text-sm text-white">Kembali Ke
+                                                Login</i></button>
+                                    </div>
+
+
+>>>>>>> e9f844f758529631fed83f110162cf2d0f54f957
                                 </form>
 
                             </div>
                         </div>
                     </div>
                     <div
-                                class="col-4 d-lg-flex d-none my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-end flex-column">
-                                <div class="position-relative   border-radius-lg d-flex flex-column justify-content-center">
-                                    <img src="{{ asset('assets/img/bg_up.png') }}" alt="profile-img" class="text-center" />
-                                </div>
-                            </div>
+                        class="col-4 d-lg-flex d-none my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-end flex-column">
+                        <div class="position-relative   border-radius-lg d-flex flex-column justify-content-center">
+                            <img src="{{ asset('assets/img/bg_up.png') }}" alt="profile-img" class="text-center" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
