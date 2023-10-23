@@ -23,34 +23,41 @@
                                     @if (Session::has('status'))
                                         <div class="alert alert-success alert-dismissible text-white" role="alert">
                                             <span class="text-sm">{{ Session::get('status') }}</span>
-                                            <button type="button" class="btn-close text-lg py-3 opacity-10"
-                                                data-bs-dismiss="alert" aria-label="Close">
+                                            <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                     @endif
                                     <div class="input-group input-group-outline mt-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" name="email"
-                                            value="{{ 'admin@material.com' }}">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}">
                                     </div>
                                     @error('email')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                     <div class="input-group input-group-outline mt-3">
-                                        <label class="form-label">Password</label>
-                                        <input type="password" class="form-control" name="password"
-                                            value='{{ 'secret' }}'>
+                                        <label class="form-label" for="password">Password</label>
+                                        <input type="password" class="form-control" name="password" id="password">
                                     </div>
                                     @error('password')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                     <div class="form-check form-switch d-flex align-items-center my-3">
-                                        <input class="form-check-input" type="checkbox" id="rememberMe">
-                                        <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember
-                                            me</label>
+                                        <input class="form-check-input" type="checkbox" id="rememberMe" name="remember">
+                                        <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
                                     </div>
                                     <div class="text-center">
+<<<<<<< HEAD
+                                        <button type="submit" class="btn w-100 my-4 mb-2" style="background-color: #0057FF;">
+                                            <i class="text-sm text-white">Sign In</i>
+                                        </button>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="{{ route('login') }}" class="btn btn-lg w-100 mt-4 mb-0" style="background-color: #000000;">
+                                            <i class="text-sm text-white">Kembali Ke Login</i>
+                                        </a>
+                                    </div>
+=======
                                         <button type="submit" class="btn w-100 my-4 mb-2"
                                             style="background-color: #0057FF;"><i class="text-sm text-white">Sign
                                                 Up</i></button>
@@ -62,7 +69,9 @@
                                     </div>
 
 
+>>>>>>> e9f844f758529631fed83f110162cf2d0f54f957
                                 </form>
+
                             </div>
                         </div>
                     </div>

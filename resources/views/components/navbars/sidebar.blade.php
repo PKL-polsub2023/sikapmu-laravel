@@ -64,8 +64,7 @@
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs fixed-start custom-bg" id="sidenav-main">
     <div class="sidenav-header">
         <a href="{{ route('dashboard') }}" class="nav-link" id="dashboard">
-            <div class="profile-img"
-                style="width: 60px; height: 60px; display: flex; justify-content: center; margin: 0 auto;">
+            <div class="profile-img" style=" height: 60px; display: flex; justify-content: center; margin: 0 auto;">
                 <img src="{{ asset('assets/logo.png') }}" alt="profile-img" />
             </div>
         </a>
