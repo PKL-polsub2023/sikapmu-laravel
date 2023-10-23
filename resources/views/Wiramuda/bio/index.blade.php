@@ -21,10 +21,10 @@
                     <div class="col-auto my-auto">
                         <div class="h-100">
                             <h5 class="mb-1">
-                                {{ auth()->user()->name }}
+                                {{ auth()->user()->nama }}
                             </h5>
                             <p class="mb-0 font-weight-normal text-sm">
-                                CEO / Co-Founder
+                                Wirausaha Muda
                             </p>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                     <div class="card-header pb-0 p-3">
                         <div class="row">
                             <div class="col-md-8 d-flex align-items-center">
-                                <h6 class="mb-3">Profile Information</h6>
+                                <h6 class="mb-3">Update BIO</h6>
                             </div>
                         </div>
                     </div>
@@ -90,8 +90,35 @@
                         <form method='POST' action='{{ route('user-profile') }}'>
                             @csrf
                             <div class="row">
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label">Nama Depan</label>
+                                    <input type="text" name="name" class="form-control border border-2 p-2"
+                                        value='{{ old('name', auth()->user()->name) }}'>
+                                    @error('name')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
 
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label">Nama Belakang</label>
+                                    <input type="text" name="name" class="form-control border border-2 p-2"
+                                        value='{{ old('name', auth()->user()->name) }}'>
+                                    @error('name')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3 col-md-8">
+                                    <label class="form-label">Umur</label>
+                                    <input type="text" name="name" class="form-control border border-2 p-2"
+                                        value='{{ old('name', auth()->user()->umur) }}'>
+                                    @error('name')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
+
+
+                                <div class="mb-3 col-md-8">
                                     <label class="form-label">Email address</label>
                                     <input type="email" name="email" class="form-control border border-2 p-2"
                                         value='{{ old('email', auth()->user()->email) }}'>
@@ -100,14 +127,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" name="name" class="form-control border border-2 p-2"
-                                        value='{{ old('name', auth()->user()->name) }}'>
-                                    @error('name')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
+
 
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Phone</label>

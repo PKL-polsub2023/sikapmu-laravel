@@ -47,7 +47,7 @@ Route::get('landingberita', function () {
 Route::get('sign-up', function () {return redirect('sign-in');})->middleware('guest');
 
 
-Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
+// Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('sign-up', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('sign-up', [RegisterController::class, 'store'])->middleware('guest');
