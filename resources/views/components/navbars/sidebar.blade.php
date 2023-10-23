@@ -199,26 +199,39 @@
                 </a>
             </li>
         @endif
-        
+
         @if (Auth::user()->role == 'wm')
             {{-- Sidebar Wirausaha Muda --}}
-        <li class="nav-item">
-            <a class="nav-link text-white {{ $activePage == 'wiramuda.bio' ? ' active-page' : '' }}  "
-                href="{{ route('wiramuda.bio') }}">
-                <div class="card {{ $activePage == 'wiramuda.bio' ? 'bg-4FD1C5' : 'bg-white' }}">
-                    <div class="text-white text-center  d-flex align-items-center justify-content-center">
-                        <i class="fas fa-rocket {{ $activePage == 'wiramuda.bio' ? 'text-white' : 'text-4FD1C5' }}"
-                            style="font-size: 1rem;"></i>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'wiramuda.bio' ? ' active-page' : '' }}  "
+                    href="{{ route('wiramuda.bio') }}">
+                    <div class="card {{ $activePage == 'wiramuda.bio' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'wiramuda.bio' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
                     </div>
-                </div>
-                <span class="nav-link-text ms-1">Update Bio</span>
-            </a>
-        </li>
-        {{-- End Sidebar Wirausaha Muda --}}
+                    <span class="nav-link-text ms-1">Update Bio</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'wiramuda.bio' ? ' active-page' : '' }}  "
+                    href="{{ route('wiramuda.bio') }}">
+                    <div class="card {{ $activePage == 'wiramuda.bio' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'wiramuda.bio' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
+                    </div>
+                    <span class="nav-link-text ms-1">Data Usaha</span>
+                </a>
+            </li>
+            {{-- End Sidebar Wirausaha Muda --}}
         @endif
 
         @if (Auth::user()->role == 'u')
-        {{-- <li class="nav-item has-sub ">
+            {{-- <li class="nav-item has-sub ">
         <a href="#" class='nav-link text-white '>
             <i class="bi bi-stack"></i>
             <span>Data Master</span>
@@ -233,36 +246,36 @@
         </ul>
         </li> --}}
             {{-- Sidebar User Umum --}}
-        <li class="nav-item">
-            <a class="nav-link text-white {{ $activePage == 'umum.bio' ? ' active-page' : '' }}  "
-                href="{{ route('umum.bio') }}">
-                <div class="card {{ $activePage == 'umum.bio' ? 'bg-4FD1C5' : 'bg-white' }}">
-                    <div class="text-white text-center  d-flex align-items-center justify-content-center">
-                        <i class="fas fa-rocket {{ $activePage == 'umum.bio' ? 'text-white' : 'text-4FD1C5' }}"
-                            style="font-size: 1rem;"></i>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'umum.bio' ? ' active-page' : '' }}  "
+                    href="{{ route('umum.bio') }}">
+                    <div class="card {{ $activePage == 'umum.bio' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'umum.bio' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
                     </div>
-                </div>
-                <span class="nav-link-text ms-1">Update Bio</span>
-            </a>
-        </li>
-       
-        {{-- End Sidebar User Umum --}}
+                    <span class="nav-link-text ms-1">Update Bio</span>
+                </a>
+            </li>
+
+            {{-- End Sidebar User Umum --}}
         @endif
-        @if (Auth::user()->role <> 'admin')
-        <li class="nav-item">
-            <a class="nav-link text-white {{ $activePage == 'data' ? ' active-page' : '' }}  "
-                href="{{ route('data') }}">
-                <div class="card {{ $activePage == 'data' ? 'bg-4FD1C5' : 'bg-white' }}">
-                    <div class="text-white text-center  d-flex align-items-center justify-content-center">
-                        <i class="fas fa-rocket {{ $activePage == 'data' ? 'text-white' : 'text-4FD1C5' }}"
-                            style="font-size: 1rem;"></i>
+        @if (Auth::user()->role != 'admin')
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'data' ? ' active-page' : '' }}  "
+                    href="{{ route('data') }}">
+                    <div class="card {{ $activePage == 'data' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'data' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
                     </div>
-                </div>
-                <span class="nav-link-text ms-1">Data Pendukung</span>
-            </a>
-        </li>
+                    <span class="nav-link-text ms-1">Data Pendukung</span>
+                </a>
+            </li>
         @endif
-        
+
     </ul>
 
 

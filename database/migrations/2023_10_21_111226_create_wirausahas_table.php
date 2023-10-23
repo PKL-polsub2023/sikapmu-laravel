@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id('id_wirausaha');
             $table->string('foto')->nullable();
             $table->string('ttl')->nullable();
-            $table->string('nama_belakang')->nullable();
             $table->integer('umur')->nullable();
             $table->string('alamat')->nullable();
+            $table->string('nama_wirausaha')->nullable();
             $table->bigInteger('id_user')->nullable();
             $table->bigInteger('id_data')->nullable();
-            $table->bigInteger('id_usaha')->nullable();
+            // $table->bigInteger('id_usaha')->nullable();
             $table->timestamps();
         });
     }

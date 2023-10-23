@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\m_user;
+use App\Models\wirausaha;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -15,6 +16,7 @@ class c_wiramuda extends Controller
     public function __construct()
     {
         $this->user = new m_user();
+        $this->wirausaha = new wirausaha();
     }
 
     public function index()
@@ -58,6 +60,11 @@ class c_wiramuda extends Controller
                 'role' => "wm",
             ];
             $this->user->addData($data);
+
+            $data2 = [
+                'id_user' => $idBaru,
+            ];
+            $this->wirausaha->addData($data2);
             return response()->json(['success' => true]);
         }
     

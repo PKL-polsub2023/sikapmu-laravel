@@ -150,6 +150,7 @@ Route::controller(c_wiramuda::class)->group(function () {
 // WIRAUSAHA MUDA
 Route::controller(c_bio::class)->group(function () {
     Route::get('wiramuda/bio', 'index')->name('wiramuda.bio');
+	Route::post('wiramuda/updatebio', 'updateBio')->name('wiramuda.updatebio');
 });
 
 // END WIRAUSAHA MUDA

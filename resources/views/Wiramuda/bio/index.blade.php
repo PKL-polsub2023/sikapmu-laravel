@@ -6,6 +6,11 @@
         <x-navbars.navs.auth titlePage='User Profile'></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
+            @if (session()->has('success'))
+                <div id="error-messages" class="alert alert-primary alert-dismissible text-white" role="alert">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
             <div class="page-header min-height-300 border-radius-xl mt-4"
                 style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
                 <span class="mask  bg-gradient-primary  opacity-6"></span>
@@ -14,7 +19,7 @@
                 <div class="row gx-4 mb-2">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
-                            <img src="{{ asset('assets') }}/img/bruce-mars.jpg" alt="profile_image"
+                            <img src="{{ asset('foto/wiramuda/' . $wirausaha->foto) }}" alt="profile_image"
                                 class="w-100 border-radius-lg shadow-sm">
                         </div>
                     </div>
@@ -87,31 +92,40 @@
                                 </div>
                             </div>
                         @endif
-                        <form method='POST' action='{{ route('user-profile') }}'>
+                        <form method="POST" action="{{ route('wiramuda.updatebio') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="mb-3 col-md-4">
                                     <label class="form-label">Nama Depan</label>
-                                    <input type="text" name="name" class="form-control border border-2 p-2"
-                                        value='{{ old('name', auth()->user()->name) }}'>
-                                    @error('name')
+                                    <input type="text" name="namaDepan" class="form-control border border-2 p-2"
+                                        value='{{ old('namaDepan', $namaDepan) }}'>
+                                    @error('namaDepan')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
 
                                 <div class="mb-3 col-md-4">
                                     <label class="form-label">Nama Belakang</label>
-                                    <input type="text" name="name" class="form-control border border-2 p-2"
-                                        value='{{ old('name', auth()->user()->name) }}'>
-                                    @error('name')
+                                    <input type="text" name="namaBelakang" class="form-control border border-2 p-2"
+                                        value='{{ old('namaBelakang', $namaBelakang) }}'>
+                                    @error('namaBelakang')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3 col-md-8">
+                                    <label class="form-label">TTL</label>
+                                    <input type="text" name="ttl" class="form-control border border-2 p-2"
+                                        value='{{ old('ttl', $wirausaha->ttl) }}'>
+                                    @error('ttl')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
 
                                 <div class="mb-3 col-md-8">
                                     <label class="form-label">Umur</label>
-                                    <input type="text" name="name" class="form-control border border-2 p-2"
-                                        value='{{ old('name', auth()->user()->umur) }}'>
+                                    <input type="number" name="umur" class="form-control border border-2 p-2"
+                                        value='{{ old('umur', $wirausaha->umur) }}'>
                                     @error('name')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -127,31 +141,37 @@
                                     @enderror
                                 </div>
 
-
-
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Phone</label>
-                                    <input type="number" name="phone" class="form-control border border-2 p-2"
-                                        value='{{ old('phone', auth()->user()->phone) }}'>
-                                    @error('phone')
+                                <div class="mb-3 col-md-8">
+                                    <label class="form-label">No Hp</label>
+                                    <input type="number" name="kontak" class="form-control border border-2 p-2"
+                                        value='{{ old('kontak', Auth::user()->kontak) }}'>
+                                    @error('kontak')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
 
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Location</label>
-                                    <input type="text" name="location" class="form-control border border-2 p-2"
-                                        value='{{ old('location', auth()->user()->location) }}'>
-                                    @error('location')
+
+                                <div class="mb-3 col-md-8">
+                                    <label for="floatingTextarea2">Nama Wirausaha</label>
+                                    <textarea class="form-control border border-2 p-2" placeholder="Nama Wirausaha" id="floatingTextarea2"
+                                        name="nama_wirausaha" rows="4" cols="50">{{ old('nama_wirausaha', $wirausaha->nama_wirausaha) }}</textarea>
+                                    @error('nama_wirausaha')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
-
-                                <div class="mb-3 col-md-12">
-                                    <label for="floatingTextarea2">About</label>
-                                    <textarea class="form-control border border-2 p-2" placeholder=" Say something about yourself" id="floatingTextarea2"
-                                        name="about" rows="4" cols="50">{{ old('about', auth()->user()->about) }}</textarea>
-                                    @error('about')
+                                <div class="mb-3 col-md-8">
+                                    <label for="floatingTextarea2">Alamat</label>
+                                    <textarea class="form-control border border-2 p-2" placeholder="Alamat Lengkap" id="floatingTextarea2"
+                                        name="alamat" rows="4" cols="50">{{ old('alamat', $wirausaha->alamat) }}</textarea>
+                                    @error('alamat')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
+                                <div class="mb-3 col-md-8">
+                                    <label for="floatingTextarea2">Foto</label>
+                                    <input type="file" name="foto" class="form-control border border-2 p-2"
+                                        value='{{ old('foto', Auth::user()->foto) }}'>
+                                    @error('foto')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
