@@ -1,191 +1,136 @@
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
 
     <x-navbars.sidebar activePage="user-profile"></x-navbars.sidebar>
-    <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <x-navbars.navs.auth titlePage='User Profile'></x-navbars.navs.auth>
+        <x-navbars.navs.navok titlePage="Update Bio"></x-navbars.navs.navok>
         <!-- End Navbar -->
-        <div class="container-fluid px-2 px-md-4">
-            @if (session()->has('success'))
-                <div id="error-messages" class="alert alert-primary alert-dismissible text-white" role="alert">
-                    {{ session()->get('success') }}
+        <div class="container-fluid my-5 mt-5">
+
+            <div class="row">
+                <div class="col-1 d-flex align-items-center">
+                    <i class="fas fa-user" style="font-size: 1rem; color: black; "></i>
                 </div>
-            @endif
-            <div class="page-header min-height-300 border-radius-xl mt-4"
-                style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
-                <span class="mask  bg-gradient-primary  opacity-6"></span>
-            </div>
-            <div class="card card-body mx-3 mx-md-4 mt-n6">
-                <div class="row gx-4 mb-2">
-                    <div class="col-auto">
-                        <div class="avatar avatar-xl position-relative">
-                            <img src="{{ asset('foto/wiramuda/' . $wirausaha->foto) }}" alt="profile_image"
-                                class="w-100 border-radius-lg shadow-sm">
-                        </div>
-                    </div>
-                    <div class="col-auto my-auto">
-                        <div class="h-100">
-                            <h5 class="mb-1">
-                                {{ auth()->user()->nama }}
-                            </h5>
-                            <p class="mb-0 font-weight-normal text-sm">
-                                Wirausaha Muda
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-                        <div class="nav-wrapper position-relative end-0">
-                            <ul class="nav nav-pills nav-fill p-1" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link mb-0 px-0 py-1 active " data-bs-toggle="tab" href="javascript:;"
-                                        role="tab" aria-selected="true">
-                                        <i class="material-icons text-lg position-relative">home</i>
-                                        <span class="ms-1">App</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="javascript:;"
-                                        role="tab" aria-selected="false">
-                                        <i class="material-icons text-lg position-relative">email</i>
-                                        <span class="ms-1">Messages</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="javascript:;"
-                                        role="tab" aria-selected="false">
-                                        <i class="material-icons text-lg position-relative">settings</i>
-                                        <span class="ms-1">Settings</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-plain h-100">
-                    <div class="card-header pb-0 p-3">
-                        <div class="row">
-                            <div class="col-md-8 d-flex align-items-center">
-                                <h6 class="mb-3">Update BIO</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body p-3">
-                        @if (session('status'))
-                            <div class="row">
-                                <div class="alert alert-success alert-dismissible text-white" role="alert">
-                                    <span class="text-sm">{{ Session::get('status') }}</span>
-                                    <button type="button" class="btn-close text-lg py-3 opacity-10"
-                                        data-bs-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            </div>
-                        @endif
-                        @if (Session::has('demo'))
-                            <div class="row">
-                                <div class="alert alert-danger alert-dismissible text-white" role="alert">
-                                    <span class="text-sm">{{ Session::get('demo') }}</span>
-                                    <button type="button" class="btn-close text-lg py-3 opacity-10"
-                                        data-bs-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            </div>
-                        @endif
-                        <form method="POST" action="{{ route('wiramuda.updatebio') }}" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row">
-                                <div class="mb-3 col-md-4">
-                                    <label class="form-label">Nama Depan</label>
-                                    <input type="text" name="namaDepan" class="form-control border border-2 p-2"
-                                        value='{{ old('namaDepan', $namaDepan) }}'>
-                                    @error('namaDepan')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-3 col-md-4">
-                                    <label class="form-label">Nama Belakang</label>
-                                    <input type="text" name="namaBelakang" class="form-control border border-2 p-2"
-                                        value='{{ old('namaBelakang', $namaBelakang) }}'>
-                                    @error('namaBelakang')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-3 col-md-8">
-                                    <label class="form-label">TTL</label>
-                                    <input type="text" name="ttl" class="form-control border border-2 p-2"
-                                        value='{{ old('ttl', $wirausaha->ttl) }}'>
-                                    @error('ttl')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-3 col-md-8">
-                                    <label class="form-label">Umur</label>
-                                    <input type="number" name="umur" class="form-control border border-2 p-2"
-                                        value='{{ old('umur', $wirausaha->umur) }}'>
-                                    @error('name')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
-
-
-                                <div class="mb-3 col-md-8">
-                                    <label class="form-label">Email address</label>
-                                    <input type="email" name="email" class="form-control border border-2 p-2"
-                                        value='{{ old('email', auth()->user()->email) }}'>
-                                    @error('email')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-3 col-md-8">
-                                    <label class="form-label">No Hp</label>
-                                    <input type="number" name="kontak" class="form-control border border-2 p-2"
-                                        value='{{ old('kontak', Auth::user()->kontak) }}'>
-                                    @error('kontak')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
-
-
-                                <div class="mb-3 col-md-8">
-                                    <label for="floatingTextarea2">Nama Wirausaha</label>
-                                    <textarea class="form-control border border-2 p-2" placeholder="Nama Wirausaha" id="floatingTextarea2"
-                                        name="nama_wirausaha" rows="4" cols="50">{{ old('nama_wirausaha', $wirausaha->nama_wirausaha) }}</textarea>
-                                    @error('nama_wirausaha')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
-                                <div class="mb-3 col-md-8">
-                                    <label for="floatingTextarea2">Alamat</label>
-                                    <textarea class="form-control border border-2 p-2" placeholder="Alamat Lengkap" id="floatingTextarea2"
-                                        name="alamat" rows="4" cols="50">{{ old('alamat', $wirausaha->alamat) }}</textarea>
-                                    @error('alamat')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
-                                <div class="mb-3 col-md-8">
-                                    <label for="floatingTextarea2">Foto</label>
-                                    <input type="file" name="foto" class="form-control border border-2 p-2"
-                                        value='{{ old('foto', Auth::user()->foto) }}'>
-                                    @error('foto')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
-                            </div>
-                            <button type="submit" class="btn bg-gradient-dark">Submit</button>
-                        </form>
-
-                    </div>
+                <div class="col-3 text-start">
+                    <h1 class="d-flex text-start align-items-start"
+                        style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold; margin-right: 5px;">
+                        Update Bio
+                    </h1>
                 </div>
             </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ route('wiramuda.updatebio') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="input-group input-group-outline mt-3">
+                                        <label class="form-label">Nama Depan</label>
+                                        <input type="text"
+                                            class="form-control @error('namaDepan') is-invalid @enderror"
+                                            name="namaDepan" value="{{ $namaDepan }}">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group input-group-outline mt-3">
+                                        <label class="form-label">Nama Belakang</label>
+                                        <input type="text"
+                                            class="form-control @error('namaBelakang') is-invalid @enderror"
+                                            name="namaBelakang" value="{{ $namaBelakang }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="input-group input-group-outline mt-3">
+                                        <label class="form-label">Umur</label>
+                                        <input type="text" class="form-control @error('umur') is-invalid @enderror"
+                                            name="umur" value="{{ $wirausaha->umur }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group input-group-outline mt-3">
+                                <label class="form-label">TTL</label>
+                                <input type="text" class="form-control @error('ttl') is-invalid @enderror"
+                                    name="ttl" value="{{ $wirausaha->ttl }}">
+                            </div>
+                            <div class="input-group input-group-outline mt-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ $wirausaha->email }}">
+                            </div>
+                            <div class="input-group input-group-outline mt-3">
+                                <label class="form-label">No Hp</label>
+                                <input type="text" class="form-control @error('kontak') is-invalid @enderror"
+                                    name="kontak" value="{{ $wirausaha->kontak }}">
+                            </div>
+
+                            {{-- <div class="row">
+                                <div class="col-6">
+                                    <label class="form-label my-3">Nama Desa/Kelurahan :</label>
+                                    <div class="input-group input-group-outline ">
+
+                                        <select class="form-select" name="role" required>
+                                            <option value="">Pilih jenis...</option>
+                                            <option value="Pemuda Pelopor">Dangdeur 1</option>
+                                            <option value="Wirausaha Muda">dangdeur 2</option>
+                                            <option value="OKP">dangdeur 3</option>
+                                            <option value="Admin">dangdeur 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label my-3">Kecamatan :</label>
+                                    <div class="input-group input-group-outline ">
+
+                                        <select class="form-select" name="role" required>
+                                            <option value="">Pilih jenis...</option>
+                                            <option value="Pemuda Pelopor">Subang 1</option>
+                                            <option value="Wirausaha Muda">Subang 2</option>
+                                            <option value="OKP">Subang 3</option>
+                                            <option value="Admin">Subang 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            <div class="input-group input-group-outline mt-3 h-300px">
+                                <label class="form-label">Alamat Lengkap</label>
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror"
+                                    name="alamat" value="{{ $wirausaha->alamat }}">
+                            </div>
+
+                            <label class="form-label my-3">Foto Profile :</label>
+                            <div class="input-group input-group-outline ">
+                                <div class="d-flex align-items-center">
+                                    <input type="file" class="form-control" id="foto" name="foto"
+                                        accept=".jpg, .jpeg, .png">
+
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100 mt-5"
+                                    style="background-color: #0057FF;">SIMPAN</button>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                </form>
+
+
+            </div>
+        </div>
+
+
 
         </div>
+
         <x-footers.auth></x-footers.auth>
-    </div>
+        </div>
+    </main>
     <x-plugins></x-plugins>
 
 </x-layout>

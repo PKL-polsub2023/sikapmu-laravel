@@ -36,19 +36,20 @@ class SessionsController extends Controller
 
         session()->regenerate();
 
-        if ($user->role === 'Admin') {
-            return redirect('/dashboard'); // Jika peran admin
-        } elseif($user->role === 'OKP') {
-            return redirect('/index2'); // Jika peran bukan admin
-        }elseif($user->role === 'Pemuda Pelopor') {
-            return redirect('/biopemuda'); // Jika peran bukan admin
-        }elseif($user->role === 'Wirausaha Muda') {
-            return redirect('/biouserw'); // Jika peran bukan admin
-        }elseif($user->role === 'User Umum') {
-            return redirect('/biouser'); // Jika peran bukan admin
-        }else{
-            return redirect('/landingpage');
-        }
+        return redirect('/dashboard');
+        // if ($user->role === 'Admin') {
+        //     return redirect('/dashboard'); // Jika peran admin
+        // } elseif($user->role === 'OKP') {
+        //     return redirect('/index2'); // Jika peran bukan admin
+        // }elseif($user->role === 'Pemuda Pelopor') {
+        //     return redirect('/biopemuda'); // Jika peran bukan admin
+        // }elseif($user->role === 'Wirausaha Muda') {
+        //     return redirect('/biouserw'); // Jika peran bukan admin
+        // }elseif($user->role === 'User Umum') {
+        //     return redirect('/biouser'); // Jika peran bukan admin
+        // }else{
+        //     return redirect('/landingpage');
+        // }
     }
 
 
