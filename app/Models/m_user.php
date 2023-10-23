@@ -20,25 +20,10 @@ class m_user extends Model
     }
     public function id($email)
     {
-        return DB::table('users')->where('email', $email)->first();
+        DB::table('users')->where('email', $email)->first();
     }
     public function deleteData($id)
     {
         DB::table('users')->where('id', $id)->delete();
-    }
-
-    public function allData()
-    {
-        return DB::table('users')->whereNot('role', "Admin")->get();
-    }
-
-    public function detailData($id)
-    {
-        DB::table('users')->where('id', $id)->first();
-    }
-
-    public function checkID()
-    {
-        return DB::table('users')->max('id');
     }
 }

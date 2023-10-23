@@ -10,28 +10,28 @@
                     <img src="{{ asset('assets/img/icon_black.png') }}" alt="profile-img" />
                 </div>
             </div>
-            <div class="col-2"></div>
+            <div class="col-1"></div>
             <div class="col-1 text-end">
-                <a class="fw-bold " href="/" style="font-size: 11px;">Home</a>
+                <a class="fw-bold " href="/" style="font-size: 11px; color: #000;">Home</a>
             </div>
-            <div class="col-1 text-end">
-                <a class=" fw-bold" style="font-size: 11px;" href="landingwiramuda">Wirausaha Muda
+            <div class="col-2 text-end">
+                <a class=" fw-bold" style="font-size: 11px; color: #000;" href="landingwiramuda">Wirausaha Muda
                 </a>
             </div>
             <div class="col-1 text-end">
-                <a class=" fw-bold" href="landingpemuda" style="font-size: 11px;">Pemuda Pelopor
-                </a>
-            </div>
-            <div class="col-1 text-center">
-                <a class=" fw-bold" href="landingokp" style="font-size: 11px;">Pemuda OKP
+                <a class=" fw-bold" href="landingpemuda" style="font-size: 10px; color: #000;">Pemuda Pelopor
                 </a>
             </div>
             <div class="col-1 text-center">
-                <a class=" fw-bold" href="landingloker" style="font-size: 11px;">Loker
+                <a class=" fw-bold" href="landingokp" style="font-size: 10px; color: #000;">Pemuda OKP
+                </a>
+            </div>
+            <div class="col-1 text-center">
+                <a class=" fw-bold" href="landingloker" style="font-size: 11px; color: #000;">Loker
                 </a>
             </div>
             <div class="col-1 text-start">
-                <a class=" fw-bold" href="landingberita" style="font-size: 11px;">Berita
+                <a class=" fw-bold" href="landingberita" style="font-size: 11px; color: #000;">Berita
                 </a>
             </div>
             <div class="text-center mt-4 mx-1 mb-1">

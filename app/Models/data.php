@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use Auth;
 
 class data extends Model
 {
@@ -13,22 +12,14 @@ class data extends Model
 
     public function allData()
     {
-        return DB::table('data')->where('id_user', Auth::user()->id)->get();
-    }
-    public function detailData($id)
-    {
-        return DB::table('data')->where('id_data', $id)->first();
-    }
-    public function jumlahData()
-    {
-        return DB::table('data')->where('id_user', Auth::user()->id)->count();
+        return DB::table('datas')->where('id_user', Auth::users()->id)->get();
     }
     public function addData($data)
     {
-        DB::table('data')->insert($data);
+        DB::table('datas')->insert($data);
     }
     public function deleteData($id)
     {
-        DB::table('data')->where('id_data', $id)->delete();
+        DB::table('datas')->where('id_data', $id)->delete();
     }
 }

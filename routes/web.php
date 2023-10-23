@@ -21,10 +21,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
-use App\Http\Controllers\Admin\c_wiramuda;
-use App\Http\Controllers\Wiramuda\c_bio;
-use App\Http\Controllers\c_user_umum;
-use App\Http\Controllers\c_data;
 
 Route::get('/', function () {
     return view('pages.laravel-examples.landingpage');
@@ -44,10 +40,10 @@ Route::get('landingwiramuda', function () {
 Route::get('landingberita', function () {
     return view('pages.laravel-examples.landingberita');
 })->name('landingberita');
+Route::get('#laravel-examples', function () {
+    return view('pages.laravel-examples.app');
+})->name('#laravel-examples');
 Route::get('sign-up', function () {return redirect('sign-in');})->middleware('guest');
-
-
-Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('sign-up', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('sign-up', [RegisterController::class, 'store'])->middleware('guest');
@@ -129,40 +125,70 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('addberita', function () {
 		return view('pages.laravel-examples.addberita');
 	})->name('addberita');
+    Route::get('index2', function () {
+		return view('dashboard.index2');
+	})->name('index2');
+    Route::get('updateorgan', function () {
+		return view('pages.laravel-view.updateorgansisasi');
+	})->name('updateorgan');
+    Route::get('dataketua', function () {
+		return view('pages.laravel-view.dataketua');
+	})->name('dataketua');
+    Route::get('datasekretaris', function () {
+		return view('pages.laravel-view.datasekretaris');
+	})->name('datasekretaris');
+    Route::get('databendahara', function () {
+		return view('pages.laravel-view.databendahara');
+	})->name('databendahara');
+    Route::get('datalain', function () {
+		return view('pages.laravel-view.datalain');
+	})->name('datalain');
+    Route::get('datapendukung', function () {
+		return view('pages.laravel-view.datapendukung');
+	})->name('datapendukung');
+    Route::get('biouserw', function () {
+		return view('pages.laravel-wira.biouser');
+	})->name('biouserw');
+    Route::get('datapendukungw', function () {
+		return view('pages.laravel-wira.datapendukung');
+	})->name('datapendukungw');
+    Route::get('datausaha', function () {
+		return view('pages.laravel-wira.datausaha');
+	})->name('datausaha');
+    Route::get('updatebio', function () {
+		return view('pages.laravel-wira.updatebio');
+	})->name('updatebio');
+    Route::get('event', function () {
+		return view('pages.laravel-wira.event');
+	})->name('event');
+    Route::get('seemore', function () {
+		return view('pages.laravel-wira.seemore');
+	})->name('seemore');
+
+    Route::get('biopemuda', function () {
+		return view('pages.laravel-pemuda.biopemuda');
+	})->name('biopemuda');
+    Route::get('datapendukungp', function () {
+		return view('pages.laravel-pemuda.datapendukung');
+	})->name('datapendukungp');
+    Route::get('updatebiop', function () {
+		return view('pages.laravel-pemuda.updatebio');
+	})->name('updatebiop');
+    Route::get('biouser', function () {
+		return view('pages.laravel-user.biouser');
+	})->name('biouser');
+    Route::get('updatebiou', function () {
+		return view('pages.laravel-user.updatebio');
+	})->name('updatebiou');
+    Route::get('datapendukungu', function () {
+		return view('pages.laravel-user.datapendukung');
+	})->name('datapendukungu');
+    Route::get('loker', function () {
+		return view('pages.laravel-user.loker');
+	})->name('loker');
+    Route::get('seemorel', function () {
+		return view('pages.laravel-user.seemore');
+	})->name('seemorel');
 
 });
 
-
-
-// DATA WIRAUSAHA MUDA ADMIN
-Route::controller(c_wiramuda::class)->group(function () {
-    Route::get('wiramuda', 'index')->name('wiramuda.index');
-    Route::get('wiramuda/create', 'create')->name('wiramuda.create');
-    Route::post('wiramuda/store', 'store')->name('wiramuda.store');
-    Route::get('wiramuda/edit/{id}', 'edit')->name('wiramuda.edit');
-	Route::post('wiramuda/update/{id}', 'update')->name('wiramuda.update');
-	Route::get('wiramuda/verifikasi/{id}', 'verifikasi')->name('wiramuda.verifikasi');
-});
-
-// END DATA WIRAUSAHA MUDA ADMIN
-
-
-// WIRAUSAHA MUDA
-Route::controller(c_bio::class)->group(function () {
-    Route::get('wiramuda/bio', 'index')->name('wiramuda.bio');
-});
-
-// END WIRAUSAHA MUDA
-
-// User Umum
-Route::controller(c_user_umum::class)->group(function () {
-    Route::get('umum/bio', 'bio')->name('umum.bio');
-	Route::post('umum/updatebio', 'updatebio')->name('umum.updatebio');
-});
-// Data Pendukung
-Route::controller(c_data::class)->group(function () {
-    Route::get('datadukung', 'index')->name('data');
-	Route::get('data/destroy/{id}', 'destroy')->name('data.destroy');
-	Route::post('data/store', 'store')->name('data.store');
-});
-// END User Umum

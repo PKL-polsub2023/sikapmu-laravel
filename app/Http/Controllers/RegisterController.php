@@ -1,64 +1,44 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\m_user;
-use App\Models\okp;
-use App\Models\pemuda_pelopor;
-use App\Models\user_umum;
-use App\Models\wirausaha;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    public function __construct()
-    {
-        $this->user = new m_user();
-        $this->okp = new okp();
-        $this->pp = new pemuda_pelopor();
-        $this->uu = new user_umum();
-        $this->wirausaha = new wirausaha();
-    }
-
     public function create()
     {
         return view('register.create');
     }
 
-    public function store(Request $request){
+    public function store(){
 
         $attributes = request()->validate([
-            'name' => 'required|max:255',
+            'username' => 'required',
+            'nama' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users,email',
-            'username' => 'required|unique:users,username',
             'password' => 'required|min:5|max:255',
+            'kontak' =>'required',
+            'role' =>'required'
         ]);
-        $data = ['nama' => $request->name,
-                 'username' => $request->username,
-                 'password' => Hash::make($request->password),
-                 'email' => $request->email,
-                 'kontak' => $request->kontak,
-                 'role' => $request->role,];
-        $log = $this->user->addData($data);
-        $id = $this->user->id($request->email);
+        $attributes['password'] = Hash::make($attributes['password']);
+        $user = User::create($attributes);
+        auth()->login($user);
 
-        $data = ['id_user' => $id->id];
-        switch ($request->role) {
-            case 'okp':
-                $this->okp->addData($data);
-                break;
-            case 'wm':
-                $this->wirausaha->addData($data);
-                break;
-            case 'pp':
-                $this->pp->addData($data);
-                break;
-            case 'u':
-                $this->uu->addData($data);
-                break;
+        if ($user->role === 'Admin') {
+            return redirect('/dashboard'); // Jika peran admin
+        } elseif($user->role === 'OKP') {
+            return redirect('/index2'); // Jika peran bukan admin
+        }elseif($user->role === 'Pemuda Pelopor') {
+            return redirect('/biopemuda'); // Jika peran bukan admin
+        }elseif($user->role === 'Wirausaha Muda') {
+            return redirect('/biouserw'); // Jika peran bukan admin
+        }elseif($user->role === 'User Umum') {
+            return redirect('/biouser'); // Jika peran bukan admin
+        }else{
+            return redirect('/landingpage');
         }
-        
-        return redirect('/');
-    } 
+    }
 }
