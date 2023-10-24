@@ -15,14 +15,7 @@
                                     <div class="card-body">
                                         <form method="POST" action="{{ route('register') }}">
                                             @csrf
-                                            <div class="input-group input-group-outline mt-3">
-                                                <label class="form-label">Username</label>
-                                                <input type="text" class="form-control" name="username"
-                                                    value="{{ old('username') }}">
-                                            </div>
-                                            @error('username')
-                                                <p class='text-danger inputerror'>{{ $message }} </p>
-                                            @enderror
+                                           
                                             <div class="input-group input-group-outline mt-3">
                                                 <label class="form-label">Nama</label>
                                                 <input type="text" class="form-control" name="nama"
@@ -63,12 +56,11 @@
                                             @enderror
                                             <div class="input-group input-group-outline mb-3 mt-3">
                                                 <select class="form-control" name="role" required>
-                                                    <option value="">Pilih jenis...</option>
-                                                    <option value="Pemuda Pelopor">Pemuda Pelopor</option>
-                                                    <option value="Wirausaha Muda">Wirausaha Muda</option>
-                                                    <option value="OKP">OKP</option>
-                                                    <option value="Admin">Admin</option>
-                                                    <option value="Admin">User Umum</option>
+                                                    <option selected disabled>Pilih jenis...</option>
+                                                    <option value="pp">Pemuda Pelopor</option>
+                                                    <option value="wm">Wirausaha Muda</option>
+                                                    <option value="okp">OKP</option>
+                                                    <option value="uu">User Umum</option>
                                                 </select>
                                             </div>
 
