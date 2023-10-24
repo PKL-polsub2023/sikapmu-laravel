@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('data_lokers', function (Blueprint $table) {
             $table->id('id_loker');
             $table->string('judul')->nullable();
+            $table->string('instansi')->nullable();
             $table->string('deskripsi')->nullable();
             $table->string('persyaratan')->nullable();
             $table->string('foto')->nullable();
