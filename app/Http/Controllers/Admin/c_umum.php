@@ -6,33 +6,33 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\m_user;
-use App\Models\wirausaha;
+use App\Models\user_umum;
 use Illuminate\Support\Facades\Hash;
 
 
 
-class c_pelopor extends Controller
+class c_umum extends Controller
 {
     public function __construct()
     {
         $this->user = new m_user();
-        $this->wirausaha = new wirausaha();
+        $this->umum = new user_umum();
     }
 
     public function index()
     {
         
         $data = [
-            'wiramuda' => $this->wirausaha->allData(),
+            'umum' => $this->umum->allData(),
         ];
 
-        foreach ($data['wiramuda'] as &$user) {
+        foreach ($data['umum'] as &$user) {
             $fullName = $user->nama; 
             $namaParts = explode(' ', $fullName);
             $user->namaDepan = $namaParts[0];
             $user->namaBelakang = implode(' ', array_slice($namaParts, 1));
         }
-        return view ('Admin.wiramuda.index', $data);
+        return view ('Admin.umum.index', $data);
     }
 
     public function store(Request $request)
@@ -57,14 +57,14 @@ class c_pelopor extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'kontak' => $request->kontak,
-                'role' => "wm",
+                'role' => "umum",
             ];
             $this->user->addData($data);
 
             $data2 = [
                 'id_user' => $idBaru,
             ];
-            $this->wirausaha->addData($data2);
+            $this->umum->addData($data2);
             return response()->json(['success' => true]);
         }
     
