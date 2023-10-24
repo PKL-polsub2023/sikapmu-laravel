@@ -31,7 +31,7 @@ use App\Http\Controllers\Wiramuda\c_bio;
 use App\Http\Controllers\c_user_umum;
 use App\Http\Controllers\c_pemuda_pelopor;
 use App\Http\Controllers\c_data;
-use App\Http\Controllers\c_okp;
+use App\Http\Controllers\c_okpu;
 
 Route::get('/', function () {
     return view('pages.laravel-examples.landingpage');
@@ -230,7 +230,7 @@ Route::controller(c_pemuda_pelopor::class)->group(function () {
 });
 
 // OKP
-Route::controller(c_okp::class)->group(function () {
+Route::controller(c_okpu::class)->group(function () {
     Route::get('okp/bio', 'bio')->name('okp.bio');
 	Route::post('okp/updatebio', 'updatebio')->name('okp.updatebio');
 });
