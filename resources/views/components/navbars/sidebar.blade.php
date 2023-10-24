@@ -229,7 +229,7 @@
             {{-- End Sidebar Wirausaha Muda --}}
         @endif
 
-        @if (Auth::user()->role == 'u')
+        @if (Auth::user()->role == 'uu')
             {{-- <li class="nav-item has-sub ">
         <a href="#" class='nav-link text-white '>
             <i class="bi bi-stack"></i>

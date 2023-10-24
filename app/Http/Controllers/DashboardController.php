@@ -26,7 +26,7 @@ class DashboardController extends Controller
             'wirausaha' => $this->wirausaha->detailData(Auth::user()->id),
         ];
         return view ('Wiramuda.dashboard', $data);
-       }elseif(Auth::user()->role == "umum"){
+       }elseif(Auth::user()->role == "uu"){
         return view ('umum.dashboard');
        }
     }
