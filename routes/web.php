@@ -23,6 +23,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\Admin\c_wiramuda;
 use App\Http\Controllers\Admin\c_okp;
+use App\Http\Controllers\Admin\c_pelopor;
+use App\Http\Controllers\Admin\c_umum;
 use App\Http\Controllers\Wiramuda\c_bio;
 use App\Http\Controllers\c_user_umum;
 use App\Http\Controllers\c_data;
@@ -156,7 +158,31 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('okp/verifikasi/{id}', 'verifikasi')->name('okp.verifikasi');
 	});
 	// END DATA OKP ADMIN
+
+	// DATA PELOPOR MUDA ADMIN
+	Route::controller(c_pelopor::class)->group(function () {
+		Route::get('pelopor', 'index')->name('pelopor.index');
+		Route::get('pelopor/create', 'create')->name('pelopor.create');
+		Route::post('pelopor/store', 'store')->name('pelopor.store');
+		Route::get('pelopor/edit/{id}', 'edit')->name('pelopor.edit');
+		Route::post('pelopor/update/{id}', 'update')->name('pelopor.update');
+		Route::get('pelopor/verifikasi/{id}', 'verifikasi')->name('pelopor.verifikasi');
+	});
+	// END DATA PELOPOR MUDA ADMIN
+
+	// DATA PELOPOR MUDA ADMIN
+	Route::controller(c_umum::class)->group(function () {
+		Route::get('umum', 'index')->name('umum.index');
+		Route::get('umum/create', 'create')->name('umum.create');
+		Route::post('umum/store', 'store')->name('umum.store');
+		Route::get('umum/edit/{id}', 'edit')->name('umum.edit');
+		Route::post('umum/update/{id}', 'update')->name('umum.update');
+		Route::get('umum/verifikasi/{id}', 'verifikasi')->name('umum.verifikasi');
+	});
+	// END DATA PELOPOR MUDA ADMIN
 // END KHUSUS ADMIN
+
+
 
 // WIRAUSAHA MUDA
 Route::controller(c_bio::class)->group(function () {
