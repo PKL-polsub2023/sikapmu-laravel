@@ -22,6 +22,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\Admin\c_wiramuda;
+use App\Http\Controllers\Admin\c_okp;
 use App\Http\Controllers\Wiramuda\c_bio;
 use App\Http\Controllers\c_user_umum;
 use App\Http\Controllers\c_data;
@@ -133,27 +134,38 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
+// KHUSUS ADMIN
+	// DATA WIRAUSAHA MUDA ADMIN
+	Route::controller(c_wiramuda::class)->group(function () {
+		Route::get('wiramuda', 'index')->name('wiramuda.index');
+		Route::get('wiramuda/create', 'create')->name('wiramuda.create');
+		Route::post('wiramuda/store', 'store')->name('wiramuda.store');
+		Route::get('wiramuda/edit/{id}', 'edit')->name('wiramuda.edit');
+		Route::post('wiramuda/update/{id}', 'update')->name('wiramuda.update');
+		Route::get('wiramuda/verifikasi/{id}', 'verifikasi')->name('wiramuda.verifikasi');
+	});
+	// END DATA WIRAUSAHA MUDA ADMIN
 
-// DATA WIRAUSAHA MUDA ADMIN
-Route::controller(c_wiramuda::class)->group(function () {
-    Route::get('wiramuda', 'index')->name('wiramuda.index');
-    Route::get('wiramuda/create', 'create')->name('wiramuda.create');
-    Route::post('wiramuda/store', 'store')->name('wiramuda.store');
-    Route::get('wiramuda/edit/{id}', 'edit')->name('wiramuda.edit');
-	Route::post('wiramuda/update/{id}', 'update')->name('wiramuda.update');
-	Route::get('wiramuda/verifikasi/{id}', 'verifikasi')->name('wiramuda.verifikasi');
-});
-
-// END DATA WIRAUSAHA MUDA ADMIN
-
+	// DATA OKP ADMIN
+	Route::controller(c_okp::class)->group(function () {
+		Route::get('okp', 'index')->name('okp.index');
+		Route::get('okp/create', 'create')->name('okp.create');
+		Route::post('okp/store', 'store')->name('okp.store');
+		Route::get('okp/edit/{id}', 'edit')->name('okp.edit');
+		Route::post('okp/update/{id}', 'update')->name('okp.update');
+		Route::get('okp/verifikasi/{id}', 'verifikasi')->name('okp.verifikasi');
+	});
+	// END DATA OKP ADMIN
+// END KHUSUS ADMIN
 
 // WIRAUSAHA MUDA
 Route::controller(c_bio::class)->group(function () {
-    Route::get('wiramuda/bio', 'index')->name('wiramuda.bio');
+	Route::get('wiramuda/bio', 'index')->name('wiramuda.bio');
 	Route::post('wiramuda/updatebio', 'updateBio')->name('wiramuda.updatebio');
 });
 
 // END WIRAUSAHA MUDA
+
 
 // User Umum
 Route::controller(c_user_umum::class)->group(function () {

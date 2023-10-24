@@ -6,40 +6,38 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\m_user;
-use App\Models\wirausaha;
+use App\Models\okp;
+use App\Models\data_ketua_okp;
+use App\Models\data_sekretaris_okp;
+use App\Models\data_bendahara_okp;
 use Illuminate\Support\Facades\Hash;
 
 
 
-class c_wiramuda extends Controller
+class c_okp extends Controller
 {
     public function __construct()
     {
         $this->user = new m_user();
-        $this->wirausaha = new wirausaha();
+        $this->okp = new okp();
+        $this->ketua = new data_ketua_okp();
+        $this->sekretaris = new data_sekretaris_okp();
+        $this->bendahara = new data_bendahara_okp();
     }
 
     public function index()
     {
         
         $data = [
-            'wiramuda' => $this->wirausaha->allData(),
+            'okp' => $this->okp->allData(),
         ];
-
-        foreach ($data['wiramuda'] as &$user) {
-            $fullName = $user->nama; 
-            $namaParts = explode(' ', $fullName);
-            $user->namaDepan = $namaParts[0];
-            $user->namaBelakang = implode(' ', array_slice($namaParts, 1));
-        }
-        return view ('Admin.wiramuda.index', $data);
+        return view ('Admin.okp.index', $data);
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama_depan' => 'required',
-            'nama_belakang' => 'required',
+            'nama' => 'required',
             'email' => 'required|email',
             'password' => 'required',
             'kpassword' => 'required|same:password',
@@ -53,18 +51,59 @@ class c_wiramuda extends Controller
             $idBaru = $checkID + 1;
             $data = [
                 'id' => $idBaru,
-                'nama' => $request->nama_depan." ".$request->nama_belakang,
+                'nama' => $request->nama,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'kontak' => $request->kontak,
-                'role' => "wm",
+                'role' => "okp",
             ];
             $this->user->addData($data);
 
-            $data2 = [
+            $checkID_Ketua = $this->ketua->checkID();
+            $checkID_Sekretaris = $this->sekretaris->checkID();
+            $checkID_Bendahara = $this->bendahara->checkID();
+        
+            if($this->ketua->checkID() <> null){
+                $idKetua = $checkID_Ketua + 1;
+            }else{
+                $idKetua = 1;
+            }
+
+            if($this->bendahara->checkID() <> null){
+                $idBendahara = $checkID_Bendahara + 1;
+            }else{
+                $idBendahara = 1;
+            }
+
+            if($this->sekretaris->checkID() <> null){
+                $idSekretaris = $checkID_Sekretaris + 1;
+            }else{
+                $idSekretaris = 1;
+            }
+
+            $okps = [
                 'id_user' => $idBaru,
+                'id_ket_umum' => $idKetua,
+                'id_skre_umum' => $idSekretaris,
+                'id_bend_umum' => $idBendahara,
             ];
-            $this->wirausaha->addData($data2);
+            $this->okp->addData($okps);
+
+            $ketua = [
+                'id_ket_umum' => $idKetua,
+            ];
+            $this->ketua->addData($ketua);
+
+            $sekretaris = [
+                'id_skre_umum' => $idSekretaris,
+            ];
+            $this->sekretaris->addData($sekretaris);
+
+            $bendahara = [
+                'id_bend_umum' => $idBendahara,
+            ];
+            $this->bendahara->addData($bendahara);
+
             return response()->json(['success' => true]);
         }
     

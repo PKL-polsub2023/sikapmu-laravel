@@ -26,4 +26,9 @@ class m_user extends Model
     {
         DB::table('users')->where('id', $id)->delete();
     }
+
+    public function checkID()
+    {
+        return DB::table('users')->max('id');
+    }
 }
