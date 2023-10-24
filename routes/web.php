@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\c_loker;
 use App\Http\Controllers\Admin\c_event;
 use App\Http\Controllers\Wiramuda\c_bio;
 use App\Http\Controllers\c_user_umum;
+use App\Http\Controllers\c_pemuda_pelopor;
 use App\Http\Controllers\c_data;
 
 Route::get('/', function () {
@@ -219,6 +220,12 @@ Route::controller(c_bio::class)->group(function () {
 Route::controller(c_user_umum::class)->group(function () {
     Route::get('umum/bio', 'bio')->name('umum.bio');
 	Route::post('umum/updatebio', 'updatebio')->name('umum.updatebio');
+});
+
+// User Umum
+Route::controller(c_pemuda_pelopor::class)->group(function () {
+    Route::get('pelopor/bio', 'bio')->name('pelopor.bio');
+	Route::post('pelopor/updatebio', 'updatebio')->name('pelopor.updatebio');
 });
 // Data Pendukung
 Route::controller(c_data::class)->group(function () {

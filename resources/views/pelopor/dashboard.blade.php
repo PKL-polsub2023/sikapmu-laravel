@@ -2,14 +2,13 @@
     <x-navbars.sidebar activePage='dashboard'></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-
-        <x-navbars.navs.auth titlePage='User Profile'></x-navbars.navs.auth>
+        <x-navbars.navs.auth titlePage='dashboard'></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid py-4">
             <div class="col-3 text-start">
                 <h1 class="d-flex text-start align-items-start"
                     style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold; margin-right: 5px;">
-                    Bio Wirausahawan
+                    Bio Pemuda Pelopor
                 </h1>
             </div>
             <div class="card py-4 px-4" style="border-radius: 10px; background-color: #293679; position:relative;">
@@ -51,7 +50,7 @@
                 <a class="nav-link text-start p-0" id="profile" style="margin-left: 500px;">
                     <div class="position-relative"
                         style="width: 180px; height: 180px; overflow: hidden; border-radius: 50%; border: 5px solid white;">
-                        <img src="{{ asset('foto/umum/' . $user->foto) }}" alt="profile-img"
+                        <img src="{{ asset('foto/pelopor/' . $user->foto) }}" alt="profile-img"
                             class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
                     </div>
                 </a>
