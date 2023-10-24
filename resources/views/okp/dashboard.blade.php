@@ -20,7 +20,7 @@
                             {{ Auth::user()->nama }}
                         </h1>
                         <h1 class="d-flex text-center align-items-center"
-                            style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">{{ $user->ttl }}
+                            style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">
                         </h1>
                     </div>
                     <div class="col-6">
@@ -35,7 +35,7 @@
                                 <div class="container" >
                                     <h1 class="text-start mb-4"
                                         style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
-                                        Lokasi Terkini : {{ $user->alamat }}
+                                        Lokasi Terkini : {{ $user->alamat_jln }},{{ $user->kota }}
                                     </h1>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                 <a class="nav-link text-start p-0" id="profile" style="margin-left: 500px;">
                     <div class="position-relative"
                         style="width: 180px; height: 180px; overflow: hidden; border-radius: 50%; border: 5px solid white;">
-                        <img src="{{ asset('foto/pelopor/' . $user->foto) }}" alt="profile-img"
+                        <img src="{{ asset('logo/okp/' . $user->logo) }}" alt="profile-img"
                             class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
                     </div>
                 </a>
@@ -66,19 +66,21 @@
                             </h1>
                         </div>
                     </div>
-                    <div class="col-4 text-center">
-                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                            <h1 class="d-flex justify-content-center align-items-center"
-                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Banyak usaha : 1
-                            </h1>
-                        </div>
-                    </div>
+                   
                     <div class="col-4 text-center">
                         <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                             <h1 class="d-flex justify-content-center align-items-center"
                                 style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
                                 Kelengkapan Data : 100 %
+                            </h1>
+                        </div>
+                    </div>
+
+                    <div class="col-4 text-center">
+                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
+                            <h1 class="d-flex justify-content-center align-items-center"
+                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
+                                Joint Event : 20
                             </h1>
                         </div>
                     </div>
@@ -91,14 +93,7 @@
                     <div class="col-4 text-center">
 
                     </div>
-                    <div class="col-4 text-center">
-                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                            <h1 class="d-flex justify-content-center align-items-center"
-                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Joint Event : 20
-                            </h1>
-                        </div>
-                    </div>
+                    
                     <div class="col-4 text-center">
 
                     </div>

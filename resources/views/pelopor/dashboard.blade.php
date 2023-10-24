@@ -66,11 +66,12 @@
                             </h1>
                         </div>
                     </div>
+                   
                     <div class="col-4 text-center">
                         <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                             <h1 class="d-flex justify-content-center align-items-center"
                                 style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Banyak usaha : 1
+                                Kelengkapan Data : 100 %
                             </h1>
                         </div>
                     </div>
@@ -78,7 +79,7 @@
                         <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                             <h1 class="d-flex justify-content-center align-items-center"
                                 style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Kelengkapan Data : 100 %
+                                Joint Event : 20
                             </h1>
                         </div>
                     </div>
@@ -91,14 +92,7 @@
                     <div class="col-4 text-center">
 
                     </div>
-                    <div class="col-4 text-center">
-                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                            <h1 class="d-flex justify-content-center align-items-center"
-                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Joint Event : 20
-                            </h1>
-                        </div>
-                    </div>
+                    
                     <div class="col-4 text-center">
 
                     </div>

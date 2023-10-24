@@ -8,6 +8,7 @@ use App\Models\wirausaha;
 use App\Models\pemuda_pelopor;
 use App\Models\user_umum;
 use App\Models\m_user;
+use App\Models\okp;
 
 class DashboardController extends Controller
 {
@@ -16,6 +17,7 @@ class DashboardController extends Controller
         $this->user = new m_user();
         $this->pemuda_pelopor = new pemuda_pelopor();
         $this->user_umum = new user_umum();
+        $this->okp = new okp();
         $this->wirausaha = new wirausaha();
     }
 
@@ -40,6 +42,12 @@ class DashboardController extends Controller
             'user' => $this->pemuda_pelopor->detailData(Auth::user()->id),
         ];
         return view ('pelopor.dashboard', $data);
+       }
+       elseif(Auth::user()->role == "okp"){
+        $data = [
+            'user' => $this->okp->detailData(Auth::user()->id),
+        ];
+        return view ('okp.dashboard', $data);
        }
     }
 }

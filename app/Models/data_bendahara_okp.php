@@ -10,18 +10,18 @@ class data_bendahara_okp extends Model
 {
     use HasFactory;
 
-    // public function detailData($id)
-    // {
-    //     return DB::table('data_bendahara')->where('id_bend', $id)->get();
-    // }
+    public function detailData($id)
+    {
+        return DB::table('data_bendahara_okps')->where('id_bend_umum', $id)->first();
+    }
     // public function addData($data)
     // {
-    //     DB::table('data_bendahara')->insert($data);
+    //     DB::table('data_bendahara_okps')->insert($data);
     // }
-    // public function ditData($id, $data)
-    // {
-    //     DB::table('data_bendahara')->where('id_bend', $id)->update($data);
-    // }
+    public function editData($id, $data)
+    {
+        DB::table('data_bendahara_okps')->where('id_bend_umum', $id)->update($data);
+    }
 
     public function checkID()
     {

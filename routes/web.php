@@ -232,7 +232,16 @@ Route::controller(c_pemuda_pelopor::class)->group(function () {
 // OKP
 Route::controller(c_okpu::class)->group(function () {
     Route::get('okp/bio', 'bio')->name('okp.bio');
+	Route::get('okp/dketua', 'dketua')->name('okp.dketua');
 	Route::post('okp/updatebio', 'updatebio')->name('okp.updatebio');
+	Route::post('okp/uketua', 'uketua')->name('okp.uketua');
+	Route::get('okp/dsekretaris', 'dsekretaris')->name('okp.dsekretaris');
+	Route::post('okp/usekretaris', 'usekretaris')->name('okp.usekretaris');
+	Route::get('okp/dbendahara', 'dbendahara')->name('okp.dbendahara');
+	Route::post('okp/ubendahara', 'ubendahara')->name('okp.ubendahara');
+	Route::get('okp/dlainya', 'dlainya')->name('okp.dlainya');
+	Route::post('okp/ulainya', 'ulainya')->name('okp.ulainya');
+	
 });
 
 // Data Pendukung

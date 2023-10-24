@@ -14,7 +14,7 @@
                 <div class="row gx-4 mb-2">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
-                            <img src="{{ asset('foto/okp/' . $user->foto) }}" alt="profile_image"
+                            <img src="{{ asset('logo/okp/' . $user->logo) }}" alt="profile_image"
                                 class="w-100 border-radius-lg shadow-sm">
                         </div>
                     </div>
@@ -104,53 +104,110 @@
                                 </div>
 
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">TTL</label>
-                                    @php
-                                        $ttl = explode(", ", $user->ttl);
-                                    @endphp
-                                    <div class="input-group">
-                                        @if ($user->ttl<>"")
-                                        <input type="text" name="t" class="form-control border border-2 p-2"
-                                        value='{{ old('ttl', $ttl[0]) }}'>
-                                        <input type="date" name="tl" class="form-control border border-2 p-2"
-                                        value='{{ old('ttl', $ttl[1]) }}'>
-                                        @else
-                                        <input type="text" name="t" class="form-control border border-2 p-2"
-                                        value='{{ old('ttl') }}'>
-                                        <input type="date" name="tl" class="form-control border border-2 p-2"
-                                        value='{{ old('ttl') }}'>
-                                        @endif
-                                    
-                                      </div>
-                                   
-                                    @error('ttl')
+                                    <label class="form-label">Singkatan</label>
+                                    <input type="text" name="singkatan" class="form-control border border-2 p-2"
+                                        value='{{ old('singkatan', $user->singkatan) }}'>
+                                    @error('singkatan')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
 
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Agama</label>
-                                    <input type="text" name="agama" class="form-control border border-2 p-2"
-                                        value='{{ old('agama', $user->agama) }}'>
-                                    @error('agama')
+                                    <label class="form-label">Nama Jenjang</label>
+                                    <input type="text" name="nama_jenjang" class="form-control border border-2 p-2"
+                                        value='{{ old('nama_jenjang', $user->nama_jenjang) }}'>
+                                    @error('nama_jenjang')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
 
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Pendidikan Terakhir</label>
-                                    <input type="text" name="pendidikan" class="form-control border border-2 p-2"
-                                        value='{{ old('pendidikan', $user->pendidikan_akhir) }}'>
-                                    @error('pendidikan')
+                                    <label class="form-label">Kategori Organisasi Pernikahan</label>
+                                   <select name="kategori_org" class="form-control border border-2 p-2">
+                                    <option selected disabled>Kategori Organisasi</option>
+                                    <option @if ($user->kategori_org == "Kemahasiswaan")
+                                        selected
+                                    @endif value="Kemahasiswaan">Kemahasiswaan</option>
+                                    <option  @if ($user->kategori_org == "Kepelajaran")
+                                        selected
+                                    @endif value="Kepelajaran">Kepelajaran</option>
+                                    <option  @if ($user->kategori_org == "Kepemudaan")
+                                        selected
+                                    @endif value="Kepemudaan">Kepemudaan</option>
+                                   </select>
+                                    @error('kategori_org')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Bentuk Organisasi</label>
+                                   <select name="bentuk_org" class="form-control border border-2 p-2">
+                                    <option selected disabled>Bentuk Organisasi</option>
+                                    <option @if ($user->bentuk_org == "Wadah Berhimpun")
+                                        selected
+                                    @endif value="Wadah Berhimpun">Wadah Berhimpun</option>
+                                    <option  @if ($user->bentuk_org == "Komunitas")
+                                        selected
+                                    @endif value="Komunitas">Komunitas</option>
+                                    <option  @if ($user->bentuk_org == "Forum Komunitas")
+                                        selected
+                                    @endif value="Forum Komunitas">Forum Komunitas</option>
+                                    <option  @if ($user->bentuk_org == "Profesi")
+                                        selected
+                                    @endif value="Profesi">Profesi</option>
+                                    <option  @if ($user->bentuk_org == "Lembaga Sosisal/Yayasan")
+                                        selected
+                                    @endif value="Lembaga Sosisal/Yayasan">Lembaga Sosisal/Yayasan</option>
+                                    <option  @if ($user->bentuk_org == "LSM")
+                                        selected
+                                    @endif value="LSM">LSM</option>
+                                   </select>
+                                    @error('bentuk_org')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
 
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Alamat Lengkap</label>
-                                    <input type="text" name="alamat" class="form-control border border-2 p-2"
-                                        value='{{ old('alamat', $user->alamat) }}'>
-                                    @error('alamat')
+                                    <label class="form-label">Berhimpun Di Wadah KNPI</label>
+                                   <select name="hinpun_knpi" class="form-control border border-2 p-2">
+                                    <option @if ($user->hinpun_knpi == "Sudah Berhimpun")
+                                        selected
+                                    @endif value="Sudah Berhimpun">Sudah Berhimpun</option>
+                                    <option  @if ($user->hinpun_knpi == "Belum Berhimpun")
+                                        selected
+                                    @endif value="Belum Berhimpun">Belum Berhimpun</option>
+                                    <option  @if ($user->hinpun_knpi == "Tidak Berhimpun")
+                                        selected
+                                    @endif value="Tidak Berhimpun">Tidak Berhimpun</option>
+                                   </select>
+                                    @error('hinpun_knpi')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Alamat Jalan</label>
+                                    <input type="text" name="alamat_jln" class="form-control border border-2 p-2"
+                                        value='{{ old('alamat_jln', $user->alamat_jln) }}'>
+                                    @error('alamat_jln')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">kota</label>
+                                    <input type="text" name="kota" class="form-control border border-2 p-2"
+                                        value='{{ old('kota', $user->kota) }}'>
+                                    @error('kota')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">provinsi</label>
+                                    <input type="text" name="provinsi" class="form-control border border-2 p-2"
+                                        value='{{ old('provinsi', $user->provinsi) }}'>
+                                    @error('provinsi')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
@@ -163,6 +220,40 @@
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">website</label>
+                                    <input type="text" name="website" class="form-control border border-2 p-2"
+                                        value='{{ old('website', $user->website) }}'>
+                                    @error('website')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
+
+                             
+                              
+
+                                
+
+                                {{-- <div class="mb-3 col-md-6">
+                                    <label class="form-label">Pendidikan Terakhir</label>
+                                    <input type="text" name="pendidikan" class="form-control border border-2 p-2"
+                                        value='{{ old('pendidikan', $user->pendidikan_akhir) }}'>
+                                    @error('pendidikan')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div> --}}
+
+                                {{-- <div class="mb-3 col-md-6">
+                                    <label class="form-label">Alamat Lengkap</label>
+                                    <input type="text" name="alamat" class="form-control border border-2 p-2"
+                                        value='{{ old('alamat', $user->alamat) }}'>
+                                    @error('alamat')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div> --}}
+
+                              
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">No Hp</label>
                                     <input type="text" name="kontak" class="form-control border border-2 p-2"
@@ -172,35 +263,20 @@
                                     @enderror
                                 </div>
 
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Status Pernikahan</label>
-                                   <select name="pernikahan" class="form-control border border-2 p-2">
-                                    <option disabled>Status Pernikahan</option>
-                                    <option @if ($user->status_nikah == "Belum Menikah")
-                                        selected
-                                    @endif value="Belum Menikah">Belum Menikah</option>
-                                    <option  @if ($user->status_nikah == "Menikah")
-                                        selected
-                                    @endif value="Menikah">Menikah</option>
-                                    
-                                   </select>
-                                    @error('pernikahan')
-                                        <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
-                                </div>
-                                <div class="mb-3 col-md-6">
+                                
+                                {{-- <div class="mb-3 col-md-6">
                                     <label class="form-label">Data Keluarga</label>
                                     <input type="text" name="keluarga" class="form-control border border-2 p-2"
                                         value='{{ old('keluarga', $user->data_keluarga) }}'>
                                     @error('keluarga')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
-                                </div>
+                                </div> --}}
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Foto</label>
-                                    <input type="file" name="foto" class="form-control border border-2 p-2"
-                                        value='{{ old('foto') }}'>
-                                    @error('foto')
+                                    <label class="form-label">Logo</label>
+                                    <input type="file" name="logo" class="form-control border border-2 p-2"
+                                        value='{{ old('logo') }}'>
+                                    @error('logo')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>

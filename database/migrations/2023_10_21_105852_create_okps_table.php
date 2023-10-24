@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('kota')->nullable();
             $table->string('provinsi')->nullable();
             $table->string('website')->nullable();
+            $table->string('kode_pos')->nullable();
+            $table->string('periode')->nullable();
             $table->string('logo')->nullable();
             $table->string('mulai_pengurusan')->nullable();
             $table->string('akhir_pengurusan')->nullable();

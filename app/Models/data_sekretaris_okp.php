@@ -10,18 +10,18 @@ class data_sekretaris_okp extends Model
 {
     use HasFactory;
 
-    // public function detailData($id)
-    // {
-    //     return DB::table('data_sekretaris')->where('id_skre', $id)->get();
-    // }
+    public function detailData($id)
+    {
+        return DB::table('data_sekretaris_okps')->where('id_skre_umum', $id)->first();
+    }
     // public function addData($data)
     // {
-    //     DB::table('data_sekretaris')->insert($data);
+    //     DB::table('data_sekretaris_okps')->insert($data);
     // }
-    // public function ditData($id, $data)
-    // {
-    //     DB::table('data_sekretaris')->where('id_skre', $id)->update($data);
-    // }
+    public function editData($id, $data)
+    {
+        DB::table('data_sekretaris_okps')->where('id_skre_umum', $id)->update($data);
+    }
 
     public function checkID()
     {

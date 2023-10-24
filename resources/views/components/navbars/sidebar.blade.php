@@ -266,6 +266,73 @@
 
             {{-- End Sidebar User Umum --}}
         @endif
+         
+        @if (Auth::user()->role == 'okp')
+           
+        
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'okp.bio' ? ' active-page' : '' }}  "
+                    href="{{ route('okp.bio') }}">
+                    <div class="card {{ $activePage == 'okp.bio' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'okp.bio' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
+                    </div>
+                    <span class="nav-link-text ms-1">Update Bio</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'okp.dketua' ? ' active-page' : '' }}  "
+                    href="{{ route('okp.dketua') }}">
+                    <div class="card {{ $activePage == 'okp.dketua' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'okp.dketua' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
+                    </div>
+                    <span class="nav-link-text ms-1">Data Ketua Umum</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'okp.dsekretaris' ? ' active-page' : '' }}  "
+                    href="{{ route('okp.dsekretaris') }}">
+                    <div class="card {{ $activePage == 'okp.dsekretaris' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'okp.dsekretaris' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
+                    </div>
+                    <span class="nav-link-text ms-1">Data Sekretaris Umum</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'okp.dbendahara' ? ' active-page' : '' }}  "
+                    href="{{ route('okp.dbendahara') }}">
+                    <div class="card {{ $activePage == 'okp.dbendahara' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'okp.dbendahara' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
+                    </div>
+                    <span class="nav-link-text ms-1">Data Bendahara Umum</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'okp.dlainya' ? ' active-page' : '' }}  "
+                    href="{{ route('okp.dlainya') }}">
+                    <div class="card {{ $activePage == 'okp.dlainya' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'okp.dlainya' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
+                    </div>
+                    <span class="nav-link-text ms-1">Data Lainya</span>
+                </a>
+            </li>
+
+            {{-- End Sidebar User Umum --}}
+        @endif
         @if (Auth::user()->role != 'admin')
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'data' ? ' active-page' : '' }}  "

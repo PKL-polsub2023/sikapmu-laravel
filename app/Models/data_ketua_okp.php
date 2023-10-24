@@ -10,18 +10,18 @@ class data_ketua_okp extends Model
 {
     use HasFactory;
 
-    // public function detailData($id)
-    // {
-    //     return DB::table('data_ketuas')->where('id_ketua', $id)->get();
-    // }
+    public function detailData($id)
+    {
+        return DB::table('data_ketua_okps')->where('id_ket_umum', $id)->first();
+    }
     // public function addData($data)
     // {
     //     DB::table('data_ketuas')->insert($data);
     // }
-    // public function ditData($id, $data)
-    // {
-    //     DB::table('data_ketuas')->where('id_ketua', $id)->update($data);
-    // }
+    public function editData($id, $data)
+    {
+        DB::table('data_ketua_okps')->where('id_ket_umum', $id)->update($data);
+    }
 
     public function checkID()
     {
