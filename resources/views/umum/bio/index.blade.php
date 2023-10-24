@@ -108,8 +108,24 @@
 
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">TTL</label>
-                                    <input type="text" name="ttl" class="form-control border border-2 p-2"
-                                        value='{{ old('ttl', $user->ttl) }}'>
+                                    @php
+                                        $ttl = explode(", ", $user->ttl);
+                                    @endphp
+                                    <div class="input-group">
+                                        @if ($user->ttl<>"")
+                                        <input type="text" name="t" class="form-control border border-2 p-2"
+                                        value='{{ old('ttl', $ttl[0]) }}'>
+                                        <input type="date" name="tl" class="form-control border border-2 p-2"
+                                        value='{{ old('ttl', $ttl[1]) }}'>
+                                        @else
+                                        <input type="text" name="t" class="form-control border border-2 p-2"
+                                        value='{{ old('ttl') }}'>
+                                        <input type="date" name="tl" class="form-control border border-2 p-2"
+                                        value='{{ old('ttl') }}'>
+                                        @endif
+                                    
+                                      </div>
+                                   
                                     @error('ttl')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -161,8 +177,16 @@
 
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Status Pernikahan</label>
-                                    <input type="text" name="pernikahan" class="form-control border border-2 p-2"
-                                        value='{{ old('pernikahan', $user->status_nikah) }}'>
+                                   <select name="pernikahan" class="form-control border border-2 p-2">
+                                    <option disabled>Status Pernikahan</option>
+                                    <option @if ($user->status_nikah == "Belum Menikah")
+                                        selected
+                                    @endif value="Belum Menikah">Belum Menikah</option>
+                                    <option  @if ($user->status_nikah == "Menikah")
+                                        selected
+                                    @endif value="Menikah">Menikah</option>
+                                    
+                                   </select>
                                     @error('pernikahan')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror

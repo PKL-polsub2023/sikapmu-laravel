@@ -39,7 +39,7 @@ class RegisterController extends Controller
         $data = [
             'nama' => request()->nama,
             'email' => request()->email,
-            'password' => Hash::make(request()->pendidikan),
+            'password' => Hash::make(request()->password),
             'kontak' => request()->kontak,
             'role' => request()->role,
         ];

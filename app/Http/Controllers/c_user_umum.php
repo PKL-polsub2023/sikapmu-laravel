@@ -33,8 +33,9 @@ class c_user_umum extends Controller
             'kontak' => $request->kontak,
         ];
         $this->user->editData($id, $data);
+        $ttl = $request->t.", ".$request->tl;
         $data = [
-            'ttl' => $request->ttl,
+            'ttl' => $ttl,
             'agama' => $request->agama,
             'pendidikan_akhir' => $request->pendidikan,
             'alamat' => $request->alamat,

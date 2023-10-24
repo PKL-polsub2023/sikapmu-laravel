@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\wirausaha;
+use App\Models\user_umum;
 use App\Models\m_user;
 
 class DashboardController extends Controller
@@ -12,6 +13,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->user = new m_user();
+        $this->user_umum = new user_umum();
         $this->wirausaha = new wirausaha();
     }
 
@@ -27,7 +29,10 @@ class DashboardController extends Controller
         ];
         return view ('Wiramuda.dashboard', $data);
        }elseif(Auth::user()->role == "uu"){
-        return view ('umum.dashboard');
+        $data = [
+            'user' => $this->user_umum->detailData(Auth::user()->id),
+        ];
+        return view ('umum.dashboard', $data);
        }
     }
 }
