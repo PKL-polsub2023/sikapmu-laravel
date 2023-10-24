@@ -9,6 +9,9 @@ use App\Models\user_umum;
 use App\Models\okp;
 use App\Models\wirausaha;
 use App\Models\pemuda_pelopor;
+use App\Models\data_ketua_okp;
+use App\Models\data_sekretaris_okp;
+use App\Models\data_bendahara_okp;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -20,6 +23,9 @@ class RegisterController extends Controller
         $this->okp = new okp();
         $this->pp = new pemuda_pelopor();
         $this->uu = new user_umum();
+        $this->ketua = new data_ketua_okp();
+        $this->sekretaris = new data_sekretaris_okp();
+        $this->bendahara = new data_bendahara_okp();
     }
 
     public function create()
@@ -39,7 +45,7 @@ class RegisterController extends Controller
         $data = [
             'nama' => request()->nama,
             'email' => request()->email,
-            'password' => Hash::make(request()->pendidikan),
+            'password' => Hash::make(request()->password),
             'kontak' => request()->kontak,
             'role' => request()->role,
         ];
@@ -58,7 +64,50 @@ class RegisterController extends Controller
                 $this->uu->addData($data);
                 break;
             case 'okp':
-                $this->okp->addData($data);
+                $checkID_Ketua = $this->ketua->checkID();
+                $checkID_Sekretaris = $this->sekretaris->checkID();
+                $checkID_Bendahara = $this->bendahara->checkID();
+            
+                if($this->ketua->checkID() <> null){
+                    $idKetua = $checkID_Ketua + 1;
+                }else{
+                    $idKetua = 1;
+                }
+    
+                if($this->bendahara->checkID() <> null){
+                    $idBendahara = $checkID_Bendahara + 1;
+                }else{
+                    $idBendahara = 1;
+                }
+    
+                if($this->sekretaris->checkID() <> null){
+                    $idSekretaris = $checkID_Sekretaris + 1;
+                }else{
+                    $idSekretaris = 1;
+                }
+    
+                $okps = [
+                    'id_user' => $id->id,
+                    'id_ket_umum' => $idKetua,
+                    'id_skre_umum' => $idSekretaris,
+                    'id_bend_umum' => $idBendahara,
+                ];
+                $this->okp->addData($okps);
+    
+                $ketua = [
+                    'id_ket_umum' => $idKetua,
+                ];
+                $this->ketua->addData($ketua);
+    
+                $sekretaris = [
+                    'id_skre_umum' => $idSekretaris,
+                ];
+                $this->sekretaris->addData($sekretaris);
+    
+                $bendahara = [
+                    'id_bend_umum' => $idBendahara,
+                ];
+                $this->bendahara->addData($bendahara);
                 break;  
            
         }

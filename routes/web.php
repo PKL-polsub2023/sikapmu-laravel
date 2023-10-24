@@ -29,7 +29,9 @@ use App\Http\Controllers\Admin\c_loker;
 use App\Http\Controllers\Admin\c_event;
 use App\Http\Controllers\Wiramuda\c_bio;
 use App\Http\Controllers\c_user_umum;
+use App\Http\Controllers\c_pemuda_pelopor;
 use App\Http\Controllers\c_data;
+use App\Http\Controllers\c_okpu;
 
 Route::get('/', function () {
     return view('pages.laravel-examples.landingpage');
@@ -220,6 +222,19 @@ Route::controller(c_user_umum::class)->group(function () {
     Route::get('umum/bio', 'bio')->name('umum.bio');
 	Route::post('umum/updatebio', 'updatebio')->name('umum.updatebio');
 });
+
+// Pemuda Pelopor
+Route::controller(c_pemuda_pelopor::class)->group(function () {
+    Route::get('pelopor/bio', 'bio')->name('pelopor.bio');
+	Route::post('pelopor/updatebio', 'updatebio')->name('pelopor.updatebio');
+});
+
+// OKP
+Route::controller(c_okpu::class)->group(function () {
+    Route::get('okp/bio', 'bio')->name('okp.bio');
+	Route::post('okp/updatebio', 'updatebio')->name('okp.updatebio');
+});
+
 // Data Pendukung
 Route::controller(c_data::class)->group(function () {
     Route::get('datadukung', 'index')->name('data');

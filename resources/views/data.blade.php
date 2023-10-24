@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col col-md-6">
                     <div class="card">
-                        Data Lampiran @if (Auth::user()->role == 'pp') Pemuda Pelopor @elseif (Auth::user()->role == 'u') Pengguna Umum @elseif (Auth::user()->role == 'wm') Wirausaha Muda @else Organisasi Kepemudaan @endif
+                        Data Lampiran @if (Auth::user()->role == 'pp') Pemuda Pelopor @elseif (Auth::user()->role == 'uu') Pengguna Umum @elseif (Auth::user()->role == 'wm') Wirausaha Muda @else Organisasi Kepemudaan @endif
                         <br>
                         <br>
                         <table style="width:100%" id="wiramuda" class="display">

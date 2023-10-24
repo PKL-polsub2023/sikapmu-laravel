@@ -14,7 +14,7 @@
                 <div class="row gx-4 mb-2">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
-                            <img src="{{ asset('foto/pelopor/' . $user->foto) }}" alt="profile_image"
+                            <img src="{{ asset('foto/okp/' . $user->foto) }}" alt="profile_image"
                                 class="w-100 border-radius-lg shadow-sm">
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                         @endif
-                        <form enctype="multipart/form-data" method='POST' action='{{ route('umum.updatebio') }}'>
+                        <form enctype="multipart/form-data" method='POST' action='{{ route('okp.updatebio') }}'>
                             @csrf
                             <div class="row">
 
@@ -185,6 +185,14 @@
                                     
                                    </select>
                                     @error('pernikahan')
+                                        <p class='text-danger inputerror'>{{ $message }} </p>
+                                    @enderror
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Data Keluarga</label>
+                                    <input type="text" name="keluarga" class="form-control border border-2 p-2"
+                                        value='{{ old('keluarga', $user->data_keluarga) }}'>
+                                    @error('keluarga')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
