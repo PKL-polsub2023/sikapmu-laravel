@@ -1,6 +1,6 @@
 <x-layout bodyClass="g-sidenav-show  bg-gray-200">
 
-    <x-navbars.sidebar activePage="Pelopor"></x-navbars.sidebar>
+    <x-navbars.sidebar activePage="Pemuda Pelopor"></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
         <x-navbars.navs.auth titlePage="Data Pemuda Pelopor"></x-navbars.navs.auth>
@@ -29,7 +29,7 @@
                     <div class="card-body px-0 pb-2">
                         <i class="text-sm text-black">Data Pemuda Pelopor</i>
                         <div class="table-responsive p-0">
-                            <table style="width:100%" id="wiramuda" class="display">
+                            <table style="width:100%" id="pelopor" class="display">
                                 <thead>
                                     <tr>
                                         <th

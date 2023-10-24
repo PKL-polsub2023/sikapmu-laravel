@@ -1,9 +1,9 @@
 <x-layout bodyClass="g-sidenav-show  bg-gray-200">
 
-    <x-navbars.sidebar activePage="dataOKP"></x-navbars.sidebar>
+    <x-navbars.sidebar activePage="DataUmum"></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <x-navbars.navs.auth titlePage="Data OKP"></x-navbars.navs.auth>
+        <x-navbars.navs.auth titlePage="Data Umum"></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid py-4">
             {{-- Alert --}}
@@ -27,9 +27,9 @@
                     </div>
 
                     <div class="card-body px-0 pb-2">
-                        <i class="text-sm text-black">Data OKP</i>
+                        <i class="text-sm text-black">Data Umum</i>
                         <div class="table-responsive p-0">
-                            <table style="width:100%" id="okp" class="display">
+                            <table style="width:100%" id="umum" class="display">
                                 <thead>
                                     <tr>
                                         <th
@@ -38,7 +38,7 @@
                                         </th>
                                         <th
                                             class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Nama OKP
+                                            Nama
                                         </th>
                                         <th
                                             class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
@@ -55,7 +55,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($okp as $data)
+                                    @foreach ($umum as $data)
                                         <tr>
                                             <td class="align-middle text-center"></td>
                                             <td class="align-middle text-center text-sm">
@@ -156,10 +156,16 @@
                 <form id="validationForm">
                     @csrf
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-5">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="nama" name="nama"
-                                    style="border: 2px solid #92929D;" placeholder="Nama Organisasi Kepemudaan">
+                                <input type="text" class="form-control" id="nama_depan" name="nama_depan"
+                                    style="border: 2px solid #92929D;" placeholder="Nama Depan">
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="nama_belakang" name="nama_belakang"
+                                    style="border: 2px solid #92929D;" placeholder="Nama Belakang">
                             </div>
                         </div>
                     </div>
@@ -191,7 +197,7 @@
 
 
 {{-- Modal Edit --}}
-@foreach ($okp as $data)
+@foreach ($umum as $data)
     <input type="text" name="id" id="id_user" value="{{ $data->id }}" hidden>
     <div class="modal fade" id="edit{{ $data->id }}" tabindex="-1" aria-labelledby="add" aria-hidden="true">
         <div class="modal-dialog">
@@ -208,11 +214,18 @@
                     <form id="validationForm-Update">
                         @csrf
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="nama" name="nama"
-                                        style="border: 2px solid #92929D;" placeholder="Nama Organisasi Kepemudaan"
-                                        value="{{ $data->nama }}">
+                                    <input type="text" class="form-control" id="nama_depan" name="nama_depan"
+                                        style="border: 2px solid #92929D;" placeholder="Nama Depan"
+                                        value="{{ $data->namaDepan }}">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="nama_belakang"
+                                        name="nama_belakang" style="border: 2px solid #92929D;"
+                                        placeholder="Nama Belakang" value="{{ $data->namaBelakang }}">
                                 </div>
                             </div>
                         </div>
@@ -247,7 +260,7 @@
 {{-- End Modal Edit --}}
 
 {{-- Modal Verifikasi --}}
-@foreach ($okp as $data)
+@foreach ($umum as $data)
     <div class="modal fade" id="verifikasi{{ $data->id }}" tabindex="-1" aria-labelledby="add"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -259,7 +272,7 @@
                 </div>
                 <div class="modal-body align-middle text-center">
                     <h6>Apakah Anda Yakin?</h6>
-                    <a href="{{ route('okp.verifikasi', $data->id) }}" class="btn btn-success">Verifikasi</a>
+                    <a href="{{ route('umum.verifikasi', $data->id) }}" class="btn btn-success">Verifikasi</a>
                     <a href="#" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Batalkan</a>
                 </div>
             </div>
@@ -268,4 +281,4 @@
 @endforeach
 {{-- End Modal Verifikasi --}}
 
-<script src="{{ asset('assets/js/pribadi/okp-admin.js') }}"></script>
+<script src="{{ asset('assets/js/pribadi/umum-admin.js') }}"></script>

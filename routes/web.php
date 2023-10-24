@@ -25,6 +25,8 @@ use App\Http\Controllers\Admin\c_wiramuda;
 use App\Http\Controllers\Admin\c_okp;
 use App\Http\Controllers\Admin\c_pelopor;
 use App\Http\Controllers\Admin\c_umum;
+use App\Http\Controllers\Admin\c_loker;
+use App\Http\Controllers\Admin\c_event;
 use App\Http\Controllers\Wiramuda\c_bio;
 use App\Http\Controllers\c_user_umum;
 use App\Http\Controllers\c_data;
@@ -180,6 +182,26 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('umum/verifikasi/{id}', 'verifikasi')->name('umum.verifikasi');
 	});
 	// END DATA PELOPOR MUDA ADMIN
+
+	// DATA LOKER ADMIN
+	Route::controller(c_loker::class)->group(function () {
+		Route::get('loker', 'index')->name('loker.index');
+		Route::get('loker/create', 'create')->name('loker.create');
+		Route::post('loker/store', 'store')->name('loker.store');
+		Route::get('loker/edit/{id}', 'edit')->name('loker.edit');
+		Route::post('loker/update/{id}', 'update')->name('loker.update');
+	});
+	// END DATA LOKER ADMIN
+
+	// DATA EVENT ADMIN
+	Route::controller(c_event::class)->group(function () {
+		Route::get('event', 'index')->name('event.index');
+		Route::get('event/create', 'create')->name('event.create');
+		Route::post('event/store', 'store')->name('event.store');
+		Route::get('event/edit/{id}', 'edit')->name('event.edit');
+		Route::post('event/update/{id}', 'update')->name('event.update');
+	});
+	// END DATA EVENT ADMIN
 // END KHUSUS ADMIN
 
 

@@ -12,7 +12,7 @@ class pemuda_pelopor extends Model
 
     public function allData()
     {
-        return DB::table('users')->join('user_pemuda_peloporsumums', 'users.id', '=', 'pemuda_pelopors.id_user')->get();
+        return DB::table('users')->join('pemuda_pelopors', 'users.id', '=', 'pemuda_pelopors.id_user')->get();
     }
     public function detailData($id)
     {

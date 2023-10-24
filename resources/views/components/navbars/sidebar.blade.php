@@ -110,11 +110,11 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ $activePage == 'DataPemudaP' ? ' active-page' : '' }} "
-                    href="{{ route('DataPemudaP') }}">
-                    <div class="card {{ $activePage == 'DataPemudaP' ? 'bg-4FD1C5' : 'bg-white' }}">
+                <a class="nav-link text-white {{ $activePage == 'Pemuda Pelopor' ? ' active-page' : '' }} "
+                    href="{{ route('pelopor.index') }}">
+                    <div class="card {{ $activePage == 'Pemuda Pelopor' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center d-flex align-items-center justify-content-center">
-                            <i class="fas fa-users {{ $activePage == 'DataPemudaP' ? 'text-white' : 'text-4FD1C5' }}"
+                            <i class="fas fa-users {{ $activePage == 'Pemuda Pelopor' ? 'text-white' : 'text-4FD1C5' }}"
                                 style="font-size: 1rem;"></i>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'DataUmum' ? ' active-page' : '' }} "
-                    href="{{ route('DataUmum') }}">
+                    href="{{ route('umum.index') }}">
                     <div class="card {{ $activePage == 'DataUmum' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center  d-flex align-items-center justify-content-center">
                             <i class="fas fa-users {{ $activePage == 'DataUmum' ? 'text-white' : 'text-4FD1C5' }}"
