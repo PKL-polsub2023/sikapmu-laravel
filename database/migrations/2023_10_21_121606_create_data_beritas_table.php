@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('isi')->nullable();
             $table->string('kategori')->nullable();
             $table->string('foto')->nullable();
+            $table->string('upload')->nullable();
             $table->timestamps();
         });
     }
