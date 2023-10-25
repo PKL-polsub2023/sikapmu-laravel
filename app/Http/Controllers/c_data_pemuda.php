@@ -50,7 +50,7 @@ class c_data_pemuda extends Controller
         return view('admin.pemuda.edit', $data);
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $jumlah = $request->pemuda_satu + $request->pemuda_dua + $request->penc_kerja + $request->pas_hiv + $request->oat_hiv + $request->wira_usaha_muda + $request->jumlah_okp + $request->angota_okp + $request->curanmor + $request->narkoba + $request->pembunuhan + $request->osis + $request->bem;
         $data = [
@@ -70,7 +70,7 @@ class c_data_pemuda extends Controller
            'bem'=> $request->bem,
            'jumlah'=> $jumlah,
         ];
-        $this->dp->editData($data);
+        $this->dp->editData($id, $data);
         return redirect('/pemuda');
     }
 
