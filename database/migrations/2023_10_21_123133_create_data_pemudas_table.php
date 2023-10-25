@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('data_pemudas', function (Blueprint $table) {
             $table->id('id_data_pemuda');
+            $table->bigInteger('tahun')->nullable();
             $table->bigInteger('pemuda_satu')->nullable();
             $table->bigInteger('pemuda_dua')->nullable();
             $table->bigInteger('penc_kerja')->nullable();
