@@ -32,6 +32,7 @@ use App\Http\Controllers\c_user_umum;
 use App\Http\Controllers\c_pemuda_pelopor;
 use App\Http\Controllers\c_data;
 use App\Http\Controllers\c_okpu;
+use App\Http\Controllers\c_lokeru;
 
 Route::get('/', function () {
     return view('pages.laravel-examples.landingpage');
@@ -246,8 +247,15 @@ Route::controller(c_okpu::class)->group(function () {
 
 // Data Pendukung
 Route::controller(c_data::class)->group(function () {
-    Route::get('datadukung', 'index')->name('data');
+    Route::get('lokeru', 'index')->name('data');
 	Route::get('data/destroy/{id}', 'destroy')->name('data.destroy');
 	Route::post('data/store', 'store')->name('data.store');
 });
+
+// Data Pendukung
+// Route::controller(c_lokeru::class)->group(function () {
+//     Route::get('lokeru', 'index')->name('lokeru');
+// 	Route::get('data/destroy/{id}', 'destroy')->name('data.destroy');
+// 	Route::post('data/store', 'store')->name('data.store');
+// });
 // END User Umum

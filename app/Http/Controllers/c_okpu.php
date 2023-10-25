@@ -21,6 +21,11 @@ class c_okpu extends Controller
         $this->data_sekretaris_okp = new data_sekretaris_okp();
         $this->data_ketua_okp = new data_ketua_okp();
     }
+    //landingpage
+    public function index()
+    {
+        $data = ['user'];
+    }
 
     //masuk menu updaet bio
     public function bio()

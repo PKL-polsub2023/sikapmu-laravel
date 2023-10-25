@@ -333,7 +333,7 @@
 
             {{-- End Sidebar User Umum --}}
         @endif
-        @if (Auth::user()->role != 'admin')
+        @if (Auth::user()->role <> 'Admin')
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'data' ? ' active-page' : '' }}  "
                     href="{{ route('data') }}">
