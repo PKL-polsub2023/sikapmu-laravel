@@ -1,61 +1,48 @@
 <x-layout bodyClass="g-sidenav-show  bg-gray-200">
 
-    <x-navbars.sidebar activePage="editevent"></x-navbars.sidebar>
+    <x-navbars.sidebar activePage="Berita"></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <x-navbars.navs.auth titlePage="Edit Post Lamaran Kerja"></x-navbars.navs.auth>
+        <x-navbars.navs.auth titlePage="Detail Berita"></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid py-4">
 
-            <div class="card ">
+            <div class="card " style="margin-right: 500px">
                 <div class="card-body">
+
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="{{ asset('foto/event' . $event->foto) }}" alt="">
+                    <center>
+                        <img src="{{ asset('foto/berita/' . $berita->foto) }}" alt="" style="width:20%">
+                    </center>
+
                     <div id="error-messages" class="alert alert-primary alert-dismissible text-white"
                         style="display: none">
                     </div>
-                    <a href="{{ route('event.index') }}" id="back" class="back" hidden> back</a>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="mb-3">
-                                <label for="">Waktu Awal</label>
-                                <input type="date" class="form-control" id="waktu_mulai" name="waktu_mulai" required
-                                    style="border: 2px solid #92929D;" placeholder="Waktu"
-                                    value="{{ $event->waktu_event }}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-9">
+                    <a href="{{ route('berita.index') }}" id="back" class="back" hidden> back</a>
+                    <div class="row mt-4">
+                        <div class="col-12">
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="judul" name="judul" required
-                                    style="border: 2px solid #92929D;" placeholder="Judul Lamaran"
-                                    value="{{ $event->judul }}">
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="jumlah_pelamar" name="jumlah_pelamar"
-                                    required style="border: 2px solid #92929D;" placeholder="Kuota Pelamar"
-                                    value="{{ $event->jumlah_pendaftar }}">
+                                    style="border: 2px solid #92929D;" placeholder="Judul Berita"
+                                    value="{{ $berita->judul }}">
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="instansi" name="instansi" required
-                            style="border: 2px solid #92929D;" placeholder="Nama Perusahaan"
-                            value="{{ $event->kategori }}">
+                        <select class="form-select" name="kategori">
+                            <option value="" selected disabled>-- Pilih Kategori --</option>
+                            <option value="Wirausaha" @if ($berita->kategori == 'Wirausaha') selected @endif>Wirausaha
+                            </option>
+                            <option value="Kepemudaan" @if ($berita->kategori == 'Kepemudaan') selected @endif>Kepemudaan
+                            </option>
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" required
-                            style="border: 2px solid #92929D;" placeholder="Deskripsi Lamaran">{{ $event->deskripsi }}</textarea>
+                        <textarea type="text" class="form-control" id="isi" name="isi" required style="border: 2px solid #92929D;"
+                            placeholder="Isi Berita">{{ $berita->isi }}</textarea>
 
-                    </div>
-                    <div class="mb-3">
-                        <textarea type="text" class="form-control" id="persyaratan" name="persyaratan" required
-                            style="border: 2px solid #92929D;" placeholder="Persyaratan">{{ $event->persyaratan }}</textarea>
                     </div>
 
 
@@ -71,5 +58,5 @@
         </div>
     </main>
     <x-plugins></x-plugins>
-    <script src="{{ asset('assets/js/pribadi/event-admin.js') }}"></script>
+    <script src="{{ asset('assets/js/pribadi/berita-admin.js') }}"></script>
 </x-layout>

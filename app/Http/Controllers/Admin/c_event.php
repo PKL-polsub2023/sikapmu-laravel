@@ -146,5 +146,14 @@ class c_event extends Controller
         return redirect()->route('event.index');
     }
 
+    public function detail(Request $request, $id)
+    {
+        $data = [
+            'event' => $this->event->detailData($id),
+        ];
+       
+        return view ('Admin.eventt.detail', $data);
+    }
+
     
 }

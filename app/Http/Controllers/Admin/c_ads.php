@@ -6,64 +6,62 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\m_user;
-use App\Models\data_loker;
+use App\Models\data_ads;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
+use DB;
 
 
 
-class c_loker extends Controller
+class c_ads extends Controller
 {
     public function __construct()
     {
         $this->user = new m_user();
-        $this->loker = new data_loker();
+        $this->ads = new data_ads();
     }
 
     public function index()
     {
         
         $data = [
-            'loker' => $this->loker->allData(),
+            'ads' => $this->ads->allData(),
         ];
 
-        return view ('Admin.loker.index', $data);
+        return view ('Admin.ads.index', $data);
     }
 
     public function create()
     {
-        return view ('Admin.loker.create');
+        return view ('Admin.ads.create');
     }
 
     public function store(Request $request)
     {
+        $now = Carbon::now()->format('Y-m-d');
+        $idAds = DB::table('data_ads')->max('id_ads');
+        if($idAds <> null)
+        {
+            $id = $idAds + 1;
+        }else{
+            $id = 1;
+        }
+
         $validator = Validator::make($request->all(), [
-            'waktu_mulai' => 'required',
-            'waktu_akhir' => 'required',
-            'judul' => 'required',
-            'instansi' => 'required',
-            'deskripsi' => 'required',
-            'persyaratan' => 'required',
             'foto' => 'required',
-            'jumlah_pelamar' => 'required',
         ]);
     
         if ($validator->fails()) {
             return response()->json(['success' => false, 'errors' => $validator->errors()]);
         }else{
             $file = $request->foto;
-            $filename = $request->instansi." loker ".$request->judul.".".$file->extension();     
-            $file->move(public_path('foto/loker'),$filename);
+            $filename = "ads".$now.".".$file->extension();     
+            $file->move(public_path('foto/ads'),$filename);
             $data = [
-                'waktu_mulai' => $request->waktu_mulai,
-                'waktu_akhir' => $request->waktu_akhir,
-                'judul' => $request->judul,
-                'instansi' => $request->instansi,
-                'deskripsi' => $request->deskripsi,
-                'persyaratan' => $request->persyaratan,
-                'jumlah_pelamar' => $request->jumlah_pelamar,
                 'foto' => $filename,
+                'id_ads' => $id,
             ];
-            $this->loker->addData($data);
+            $this->ads->addData($data);
             return response()->json(['success' => true]);
         }
     
@@ -72,22 +70,20 @@ class c_loker extends Controller
     public function edit(Request $request, $id)
     {
         $data = [
-            'loker' => $this->loker->detailData($id),
+            'ads' => $this->ads->detailData($id),
         ];
        
-        return view ('Admin.loker.edit', $data);
+        return view ('Admin.ads.edit', $data);
     }
 
     public function update(Request $request, $id)
     {
+        $now = Carbon::now()->format('Y-m-d');
         $validator = Validator::make($request->all(), [
-            'waktu_mulai' => 'required',
-            'waktu_akhir' => 'required',
             'judul' => 'required',
-            'instansi' => 'required',
-            'deskripsi' => 'required',
-            'persyaratan' => 'required',
-            'jumlah_pelamar' => 'required',
+            'kategori' => 'required',
+            'isi' => 'required',
+            'foto' => 'required',
         ]);
     
         // if ($validator->fails()) {
@@ -123,41 +119,43 @@ class c_loker extends Controller
         // }
         if($request->foto <> null){
             $file = $request->foto;
-            $filename = $request->instansi." loker ".$request->judul.".".$file->extension();     
-            $file->move(public_path('foto/loker'),$filename);
+            $filename = $request->instansi." ads ".$request->judul.".".$file->extension();     
+            $file->move(public_path('foto/ads'),$filename);
             $data = [
-                'waktu_mulai' => $request->waktu_mulai,
-                'waktu_akhir' => $request->waktu_akhir,
+                'kategori' => $request->kategori,
                 'judul' => $request->judul,
-                'instansi' => $request->instansi,
-                'deskripsi' => $request->deskripsi,
-                'persyaratan' => $request->persyaratan,
+                'isi' => $request->isi,
                 'foto' => $filename,
-                'jumlah_pelamar' => $request->jumlah_pelamar,
+                'upload' => $now,
             ];
         }else{
             $data = [
-                'waktu_mulai' => $request->waktu_mulai,
-                'waktu_akhir' => $request->waktu_akhir,
+                'kategori' => $request->kategori,
                 'judul' => $request->judul,
-                'instansi' => $request->instansi,
-                'deskripsi' => $request->deskripsi,
-                'persyaratan' => $request->persyaratan,
-                'jumlah_pelamar' => $request->jumlah_pelamar,
+                'isi' => $request->isi,
+                'upload' => $now,
             ];
         }
-        $this->loker->editData($id, $data);
-        return redirect()->route('loker.index');
+        $this->ads->editData($id, $data);
+        return redirect()->route('ads.index');
     }
 
     public function detail(Request $request, $id)
     {
         $data = [
-            'loker' => $this->loker->detailData($id),
+            'ads' => $this->ads->detailData($id),
         ];
        
-        return view ('Admin.loker.detail', $data);
+        return view ('Admin.ads.detail', $data);
     }
+
+    public function destroy ($id)
+    {
+        $this->ads->deleteData($id);
+    }
+
+
+
 
     
 }
