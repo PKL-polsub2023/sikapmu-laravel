@@ -287,9 +287,9 @@ Route::controller(c_data_pemuda::class)->group(function () {
 });
 
 // Data Pendukung
-// Route::controller(c_lokeru::class)->group(function () {
-//     Route::get('lokeru', 'index')->name('lokeru');
-// 	Route::get('data/destroy/{id}', 'destroy')->name('data.destroy');
-// 	Route::post('data/store', 'store')->name('data.store');
-// });
+Route::controller(c_lokeru::class)->group(function () {
+    Route::get('lokeru', 'index')->name('lokeru');
+	Route::get('lokeru/detail/{id}', 'detail')->name('lokeru.detail');
+	
+});
 // END User Umum
