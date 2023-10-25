@@ -27,6 +27,8 @@ use App\Http\Controllers\Admin\c_pelopor;
 use App\Http\Controllers\Admin\c_umum;
 use App\Http\Controllers\Admin\c_loker;
 use App\Http\Controllers\Admin\c_event;
+use App\Http\Controllers\Admin\c_ads;
+use App\Http\Controllers\Admin\c_berita;
 use App\Http\Controllers\Wiramuda\c_bio;
 use App\Http\Controllers\c_user_umum;
 use App\Http\Controllers\c_pemuda_pelopor;
