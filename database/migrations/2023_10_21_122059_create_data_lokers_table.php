@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('waktu_mulai')->nullable();
             $table->string('waktu_akhir')->nullable();
             $table->string('up_dokumen')->nullable();
+            $table->string('jumlah_pelamar')->nullable();
             $table->timestamps();
         });
     }

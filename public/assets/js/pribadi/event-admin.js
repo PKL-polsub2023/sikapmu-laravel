@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    var t = $('#loker').DataTable({
+    var t = $('#event').DataTable({
         rowReorder: {
             selector: 'td:nth-child(2)'
         },

@@ -6,64 +6,62 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\m_user;
-use App\Models\data_loker;
+use App\Models\data_event;
 use Illuminate\Support\Facades\Hash;
 
 
 
-class c_loker extends Controller
+class c_event extends Controller
 {
     public function __construct()
     {
         $this->user = new m_user();
-        $this->loker = new data_loker();
+        $this->event = new data_event();
     }
 
     public function index()
     {
         
         $data = [
-            'loker' => $this->loker->allData(),
+            'event' => $this->event->allData(),
         ];
 
-        return view ('Admin.loker.index', $data);
+        return view ('Admin.eventt.index', $data);
     }
 
     public function create()
     {
-        return view ('Admin.loker.create');
+        return view ('Admin.eventt.create');
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'waktu_mulai' => 'required',
-            'waktu_akhir' => 'required',
+            'waktu_event' => 'required',
+            'kategori' => 'required',
             'judul' => 'required',
-            'instansi' => 'required',
             'deskripsi' => 'required',
             'persyaratan' => 'required',
             'foto' => 'required',
-            'jumlah_pelamar' => 'required',
+            'jumlah_pendaftar' => 'required',
         ]);
     
         if ($validator->fails()) {
             return response()->json(['success' => false, 'errors' => $validator->errors()]);
         }else{
             $file = $request->foto;
-            $filename = $request->instansi." loker ".$request->judul.".".$file->extension();     
-            $file->move(public_path('foto/loker'),$filename);
+            $filename = $request->instansi." event ".$request->judul.".".$file->extension();     
+            $file->move(public_path('foto/event'),$filename);
             $data = [
-                'waktu_mulai' => $request->waktu_mulai,
-                'waktu_akhir' => $request->waktu_akhir,
+                'waktu_event' => $request->waktu_event,
+                'kategori' => $request->kategori,
                 'judul' => $request->judul,
-                'instansi' => $request->instansi,
                 'deskripsi' => $request->deskripsi,
                 'persyaratan' => $request->persyaratan,
-                'jumlah_pelamar' => $request->jumlah_pelamar,
+                'jumlah_pendaftar' => $request->jumlah_pendaftar,
                 'foto' => $filename,
             ];
-            $this->loker->addData($data);
+            $this->event->addData($data);
             return response()->json(['success' => true]);
         }
     
@@ -72,22 +70,22 @@ class c_loker extends Controller
     public function edit(Request $request, $id)
     {
         $data = [
-            'loker' => $this->loker->detailData($id),
+            'event' => $this->event->detailData($id),
         ];
        
-        return view ('Admin.loker.edit', $data);
+        return view ('Admin.eventt.edit', $data);
     }
 
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'waktu_mulai' => 'required',
-            'waktu_akhir' => 'required',
+            'waktu_event' => 'required',
+            'kategori' => 'required',
             'judul' => 'required',
-            'instansi' => 'required',
             'deskripsi' => 'required',
             'persyaratan' => 'required',
-            'jumlah_pelamar' => 'required',
+            'foto' => 'required',
+            'jumlah_pendaftar' => 'required',
         ]);
     
         // if ($validator->fails()) {
@@ -123,31 +121,29 @@ class c_loker extends Controller
         // }
         if($request->foto <> null){
             $file = $request->foto;
-            $filename = $request->instansi." loker ".$request->judul.".".$file->extension();     
-            $file->move(public_path('foto/loker'),$filename);
+            $filename = $request->instansi." event ".$request->judul.".".$file->extension();     
+            $file->move(public_path('foto/event'),$filename);
             $data = [
-                'waktu_mulai' => $request->waktu_mulai,
-                'waktu_akhir' => $request->waktu_akhir,
+                'waktu_event' => $request->waktu_event,
+                'kategori' => $request->kategori,
                 'judul' => $request->judul,
-                'instansi' => $request->instansi,
                 'deskripsi' => $request->deskripsi,
                 'persyaratan' => $request->persyaratan,
+                'jumlah_pendaftar' => $request->jumlah_pendaftar,
                 'foto' => $filename,
-                'jumlah_pelamar' => $request->jumlah_pelamar,
             ];
         }else{
             $data = [
-                'waktu_mulai' => $request->waktu_mulai,
-                'waktu_akhir' => $request->waktu_akhir,
+                'waktu_event' => $request->waktu_event,
+                'kategori' => $request->kategori,
                 'judul' => $request->judul,
-                'instansi' => $request->instansi,
                 'deskripsi' => $request->deskripsi,
                 'persyaratan' => $request->persyaratan,
-                'jumlah_pelamar' => $request->jumlah_pelamar,
+                'jumlah_pendaftar' => $request->jumlah_pendaftar,
             ];
         }
-        $this->loker->editData($id, $data);
-        return redirect()->route('loker.index');
+        $this->event->editData($id, $data);
+        return redirect()->route('event.index');
     }
 
     

@@ -16,21 +16,14 @@
                     <div id="error-messages" class="alert alert-primary alert-dismissible text-white"
                         style="display: none">
                     </div>
-                    <a href="{{ route('loker.index') }}" id="back" class="back" hidden> back</a>
+                    <a href="{{ route('event.index') }}" id="back" class="back" hidden> back</a>
                     <form id="validationForm" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <label for="">Waktu Awal</label>
-                                    <input type="date" class="form-control" id="waktu_mulai" name="waktu_mulai"
-                                        required style="border: 2px solid #92929D;" placeholder="Waktu">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="">Waktu Akhir</label>
-                                    <input type="date" class="form-control" id="waktu_akhir" name="waktu_akhir"
+                                    <label for="">Waktu Event</label>
+                                    <input type="date" class="form-control" id="waktu_mulai" name="waktu_event"
                                         required style="border: 2px solid #92929D;" placeholder="Waktu">
                                 </div>
                             </div>
@@ -39,19 +32,23 @@
                             <div class="col-9">
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="judul" name="judul" required
-                                        style="border: 2px solid #92929D;" placeholder="Judul Lamaran">
+                                        style="border: 2px solid #92929D;" placeholder="Judul Event">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="jumlah_pelamar" name="jumlah_pelamar"
-                                        required style="border: 2px solid #92929D;" placeholder="Kuota Pelamar">
+                                    <input type="text" class="form-control" id="jumlah_pelamar"
+                                        name="jumlah_pendaftar" required style="border: 2px solid #92929D;"
+                                        placeholder="Kuota Pendaftar">
                                 </div>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="instansi" name="instansi" required
-                                style="border: 2px solid #92929D;" placeholder="Nama Perusahaan">
+                            <select class="form-select" name="kategori">
+                                <option value="" selected disabled>-- Pilih Kategori --</option>
+                                <option value="Seleksi">Seleksi</option>
+                                <option value="Webinar">Webinar</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" required

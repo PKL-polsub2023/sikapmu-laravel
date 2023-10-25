@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('deskripsi')->nullable();
             $table->string('persyaratan')->nullable();
             $table->string('foto')->nullable();
-            $table->string('waktu_mulai')->nullable();
-            $table->string('waktu_akhir')->nullable();
+            $table->string('waktu_event')->nullable();
+            $table->string('kategori')->nullable();
             $table->string('up_dokumen')->nullable();
             $table->timestamps();
         });
