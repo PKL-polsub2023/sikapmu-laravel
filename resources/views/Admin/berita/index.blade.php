@@ -43,7 +43,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($event as $data)
+                                    @foreach ($berita as $data)
                                         <tr>
                                             <td class="align-middle text-center text-sm"></td>
                                             <td class="align-middle text-center text-sm">

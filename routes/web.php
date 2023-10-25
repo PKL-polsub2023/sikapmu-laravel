@@ -116,9 +116,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('DataEvent', function () {
 		return view('pages.laravel-examples.DataEvent');
 	})->name('DataEvent');
-    Route::get('Berita', function () {
-		return view('pages.laravel-examples.Berita');
-	})->name('Berita');
     Route::get('dataOKP', function () {
 		return view('pages.laravel-examples.dataOKP');
 	})->name('dataOKP');
