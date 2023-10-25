@@ -194,6 +194,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('loker/store', 'store')->name('loker.store');
 		Route::get('loker/edit/{id}', 'edit')->name('loker.edit');
 		Route::post('loker/update/{id}', 'update')->name('loker.update');
+		Route::get('loker/detail/{id}', 'detail')->name('loker.detail');
 	});
 	// END DATA LOKER ADMIN
 
@@ -204,8 +205,31 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('event/store', 'store')->name('event.store');
 		Route::get('event/edit/{id}', 'edit')->name('event.edit');
 		Route::post('event/update/{id}', 'update')->name('event.update');
+		Route::get('event/detail/{id}', 'detail')->name('event.detail');
 	});
 	// END DATA EVENT ADMIN
+
+	// DATA BERITA ADMIN
+	Route::controller(c_berita::class)->group(function () {
+		Route::get('berita', 'index')->name('berita.index');
+		Route::get('berita/create', 'create')->name('berita.create');
+		Route::post('berita/store', 'store')->name('berita.store');
+		Route::get('berita/edit/{id}', 'edit')->name('berita.edit');
+		Route::post('berita/update/{id}', 'update')->name('berita.update');
+		Route::get('berita/detail/{id}', 'detail')->name('berita.detail');
+	});
+	// END DATA BERITA ADMIN
+
+	// DATA ADS ADMIN
+	Route::controller(c_ads::class)->group(function () {
+		Route::get('ads', 'index')->name('ads.index');
+		Route::get('ads/create', 'create')->name('ads.create');
+		Route::post('ads/store', 'store')->name('ads.store');
+		Route::get('ads/edit/{id}', 'edit')->name('ads.edit');
+		Route::post('ads/update/{id}', 'update')->name('ads.update');
+		Route::get('ads/detail/{id}', 'detail')->name('ads.detail');
+	});
+	// END DATA ADS ADMIN
 // END KHUSUS ADMIN
 
 
