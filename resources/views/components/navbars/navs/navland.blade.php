@@ -6,32 +6,40 @@
             {{-- <div class="row"> --}}
             <div class="col-2">
                 <div class="profile-img"
-                    style="width: 40px; height: 40px; display: flex; justify-content: end; margin: 0 auto;">
+                    style="width: 55px; height: 55px; display: flex; justify-content: end; margin: 0 auto;">
                     <img src="{{ asset('assets/img/icon_black.png') }}" alt="profile-img" />
                 </div>
             </div>
-            <div class="col-1"></div>
+            <div class="mr-6 col-1"></div>
             <div class="col-1 text-end">
-                <a class="fw-bold " href="/" style="font-size: 11px; color: #000;">Home</a>
+                <a class="fw-bold " href="/"
+                    style="font-size: 15px; color: #000; font-family:Georgia, 'Times New Roman', Times, serif">Home</a>
             </div>
-            <div class="col-2 text-end">
-                <a class=" fw-bold" style="font-size: 11px; color: #000;" href="landingwiramuda">Wirausaha Muda
+            <div class="mr-15 ml-5 col-2 ">
+                <a class=" fw-bold"
+                    style="font-size: 15px; color: #000; font-family:Georgia, 'Times New Roman', Times, serif"
+                    href="landingwiramuda">Wirausaha
+                    Muda
                 </a>
             </div>
-            <div class="col-1 text-end">
-                <a class=" fw-bold" href="landingpemuda" style="font-size: 10px; color: #000;">Pemuda Pelopor
+            <div class="col-1 ">
+                <a class=" fw-bold" href="landingpemuda"
+                    style="font-size: 15px; color: #000; font-family:Georgia, 'Times New Roman', Times, serif">Pemuda
                 </a>
             </div>
             <div class="col-1 text-center">
-                <a class=" fw-bold" href="landingokp" style="font-size: 10px; color: #000;">Pemuda OKP
+                <a class=" fw-bold" href="pemudaokp"
+                    style="font-size: 13px; color: #000; font-family:Georgia, 'Times New Roman', Times, serif"> OKP
                 </a>
             </div>
             <div class="col-1 text-center">
-                <a class=" fw-bold" href="landingloker" style="font-size: 11px; color: #000;">Loker
+                <a class=" fw-bold" href="landingloker"
+                    style="font-size: 13px; color: #000; font-family:Georgia, 'Times New Roman', Times, serif">Loker
                 </a>
             </div>
             <div class="col-1 text-start">
-                <a class=" fw-bold" href="landingberita" style="font-size: 11px; color: #000;">Berita
+                <a class=" fw-bold" href="landingberita"
+                    style="font-size: 13px; color: #000;font-family:Georgia, 'Times New Roman', Times, serif">Berita
                 </a>
             </div>
             <div class="text-center mt-4 mx-1 mb-1">
