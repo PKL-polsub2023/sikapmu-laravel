@@ -31,6 +31,7 @@ use App\Http\Controllers\Wiramuda\c_bio;
 use App\Http\Controllers\c_user_umum;
 use App\Http\Controllers\c_pemuda_pelopor;
 use App\Http\Controllers\c_data;
+use App\Http\Controllers\c_data_pemuda;
 use App\Http\Controllers\c_okpu;
 use App\Http\Controllers\c_lokeru;
 
@@ -247,9 +248,18 @@ Route::controller(c_okpu::class)->group(function () {
 
 // Data Pendukung
 Route::controller(c_data::class)->group(function () {
-    Route::get('lokeru', 'index')->name('data');
+    Route::get('data', 'index')->name('data');
 	Route::get('data/destroy/{id}', 'destroy')->name('data.destroy');
 	Route::post('data/store', 'store')->name('data.store');
+});
+
+// Data Pendukung
+Route::controller(c_data_pemuda::class)->group(function () {
+    Route::get('pemuda', 'index')->name('pemuda');
+	Route::get('pemuda/create', 'create')->name('pemuda.create');
+	Route::post('pemuda/store', 'store')->name('pemuda.store');
+	Route::get('pemuda/edit/{id}', 'edit')->name('pemuda.edit');
+	Route::post('pemuda/update/{id}', 'update')->name('pemuda.update');
 });
 
 // Data Pendukung
