@@ -57,7 +57,7 @@ class c_umum extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'kontak' => $request->kontak,
-                'role' => "umum",
+                'role' => "uu",
             ];
             $this->user->addData($data);
 

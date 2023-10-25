@@ -138,7 +138,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'DataLoker' ? 'active-page' : '' }} "
-                    href="{{ route('DataLoker') }}">
+                    href="{{ route('loker.index') }}">
                     <div class="card {{ $activePage == 'DataLoker' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center d-flex align-items-center justify-content-center">
                             <i class="fas fa-user {{ $activePage == 'DataLoker' ? 'text-white' : 'text-4FD1C5' }}"
@@ -150,7 +150,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'DataEvent' ? ' active-page' : '' }} "
-                    href="{{ route('DataEvent') }}">
+                    href="{{ route('event.index') }}">
                     <div class="card {{ $activePage == 'DataEvent' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center d-flex align-items-center justify-content-center">
                             <i class="fas fa-file {{ $activePage == 'DataEvent' ? 'text-white' : 'text-4FD1C5' }}"
@@ -230,8 +230,6 @@
         @endif
 
         @if (Auth::user()->role == 'uu')
-           
-        
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'umum.bio' ? ' active-page' : '' }}  "
                     href="{{ route('umum.bio') }}">
@@ -247,10 +245,8 @@
 
             {{-- End Sidebar User Umum --}}
         @endif
-        
+
         @if (Auth::user()->role == 'pp')
-           
-        
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'pelopor.bio' ? ' active-page' : '' }}  "
                     href="{{ route('pelopor.bio') }}">
@@ -266,10 +262,8 @@
 
             {{-- End Sidebar User Umum --}}
         @endif
-         
+
         @if (Auth::user()->role == 'okp')
-           
-        
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'okp.bio' ? ' active-page' : '' }}  "
                     href="{{ route('okp.bio') }}">
@@ -333,7 +327,7 @@
 
             {{-- End Sidebar User Umum --}}
         @endif
-        @if (Auth::user()->role <> 'Admin')
+        @if (Auth::user()->role != 'Admin')
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'data' ? ' active-page' : '' }}  "
                     href="{{ route('data') }}">
