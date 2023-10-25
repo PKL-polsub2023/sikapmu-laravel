@@ -65,7 +65,7 @@
                                                     <div class="col-4">
                                                         <div class="me-n2 my-3 text-start">
                                                             <a class="btn btn-sm bg-warning mb-0 w-100"
-                                                                href="javascript:;" style="background-color: #0057FF;">
+                                                                href="{{ route('pemuda.edit', $data->id_data_pemuda) }}" style="background-color: #0057FF;">
                                                                 <i class="text-sm text-white">UBAH</i>
                                                             </a>
                                                         </div>
@@ -73,7 +73,7 @@
                                                     <div class="col-4">
                                                         <div class="me-n2 my-3 text-start">
                                                             <a class="btn btn-sm bg-danger mb-0 h-25 w-100"
-                                                                href="javascript:;" style="background-color: #0057FF;">
+                                                                href="" style="background-color: #0057FF;">
                                                                 <i class="text-sm text-white">HAPUS</i>
                                                             </a>
                                                         </div>
