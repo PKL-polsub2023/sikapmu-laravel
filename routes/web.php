@@ -286,6 +286,7 @@ Route::controller(c_data_pemuda::class)->group(function () {
 	Route::post('pemuda/store', 'store')->name('pemuda.store');
 	Route::get('pemuda/edit/{id}', 'edit')->name('pemuda.edit');
 	Route::post('pemuda/update/{id}', 'update')->name('pemuda.update');
+	Route::get('pemuda/destroy/{id}', 'destroy')->name('pemuda.destroy');
 });
 
 // Data Pendukung

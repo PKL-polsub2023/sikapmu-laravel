@@ -20,14 +20,14 @@ class data_pemuda extends Model
     }
     public function deleteData($id)
     {
-        DB::table('data_pemuda')->where('id_data_pemuda', $id)->delete();
+        DB::table('data_pemudas')->where('id_data_pemuda', $id)->delete();
     }
     public function detailData($id)
     {
-        DB::table('data_pemuda')->where('id_data_pemuda', $id)->first();
+        DB::table('data_pemudas')->where('id_data_pemuda', $id)->first();
     }
     public function editData($id, $data)
     {
-        DB::table('data_pemuda')->where('id_data_pemuda', $id)->update($data);
+        DB::table('data_pemudas')->where('id_data_pemuda', $id)->update($data);
     }
 }
