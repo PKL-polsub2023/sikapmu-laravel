@@ -290,6 +290,8 @@ Route::controller(c_data_pemuda::class)->group(function () {
 Route::controller(c_lokeru::class)->group(function () {
     Route::get('lokeru', 'index')->name('lokeru');
 	Route::get('lokeru/detail/{id}', 'detail')->name('lokeru.detail');
+	Route::post('lokeru/store/{id}', 'store')->name('lokeru.store');
+	Route::get('lokeru/histori', 'histori')->name('lokeru.histori');
 	
 });
 // END User Umum

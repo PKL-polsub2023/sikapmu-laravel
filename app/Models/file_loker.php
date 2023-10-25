@@ -21,7 +21,7 @@ class file_loker extends Model
     }
     public function allDataUser()
     {
-        return DB::table('file_lokers')->where('id_user', Auth::users()->id)->get();
+        return DB::table('file_lokers')->join('data_lokers', 'file_lokers.id_loker', '=', 'data_lokers.id_loker')->where('id_user', Auth::user()->id)->get();
     }
     public function detailData($id)
     {

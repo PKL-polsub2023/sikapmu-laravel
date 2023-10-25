@@ -7,7 +7,13 @@
         <!-- End Navbar -->
         <h1 class="text-start mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold; ">
             Lowongan Kerja
+            
         </h1>
+        {{-- <div class="col card-header text-right">
+            <a class="btn btn-primary float-right" href="{{ route('lokeru.histori') }}">Lamaran Saya</a>
+        </div> --}}
+        
+       
        
         <div class="container mt-3 position: relative;">
           

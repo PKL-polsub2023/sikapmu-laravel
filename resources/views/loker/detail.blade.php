@@ -23,7 +23,7 @@
 
                     </div>
                 </div>
-                <div class="card card-plain h-100">
+                <div class="card card-plain h-100 mb-3">
                     <div class="row">
 
                         <div class="col col-md-2">
@@ -31,6 +31,12 @@
                         </div>
                         <div class="col col-md-10">
                             <p>{{ $dl->deskripsi }}</p>
+                        </div>
+                        <div class="col col-md-2">
+                            <b style="color: black">Persyaratan : </b>
+                        </div>
+                        <div class="col col-md-10">
+                            <p>{{ $dl->persyaratan }}</p>
                         </div>
                     </div>
                    
@@ -45,14 +51,19 @@
                     </div>
                     <div class="card-body p-3">
                         
-                        <form enctype="multipart/form-data" method='POST' action='{{ route('pelopor.updatebio') }}'>
+                        <form enctype="multipart/form-data" method='POST' action='{{ route('lokeru.store', $dl->id_loker) }}'>
                             @csrf
                             <div class="row">
 
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Email</label>
+                                    <label class="form-label">Nama</label>
                                     <input type="text" class="form-control border border-2 p-2"
-                                        value='{{ old('location') }}' @readonly(true)>
+                                        value='{{ old('location', Auth::user()->nama) }}' @readonly(true)>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">CV</label>
+                                    <input type="file" name="cv" class="form-control border border-2 p-2"
+                                        value='{{ old('cv') }}'>
                                 </div>
                 
                             </div>
