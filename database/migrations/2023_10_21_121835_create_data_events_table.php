@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('waktu_event')->nullable();
             $table->string('kategori')->nullable();
             $table->string('up_dokumen')->nullable();
+            $table->string('jumlah_pendaftar')->nullable();
             $table->timestamps();
         });
     }

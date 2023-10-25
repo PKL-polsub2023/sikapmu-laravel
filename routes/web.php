@@ -292,6 +292,8 @@ Route::controller(c_lokeru::class)->group(function () {
 	Route::get('lokeru/detail/{id}', 'detail')->name('lokeru.detail');
 	Route::post('lokeru/store/{id}', 'store')->name('lokeru.store');
 	Route::get('lokeru/histori', 'histori')->name('lokeru.histori');
-	
+	Route::get('test', 'test')->name('test');
 });
+
+
 // END User Umum

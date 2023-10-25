@@ -3,29 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\data_loker;
-use App\Models\file_loker;
-use Auth;
+use App\Models\data_event;
+use App\Models\file_event;
 
-class c_lokeru extends Controller
+class c_eventu extends Controller
 {
     public function __construct()
     {
-        $this->fl = new file_loker();
-        $this->dl = new data_loker(); 
+        $this->fl = new file_event();
+        $this->dl = new data_event(); 
     }
 
     public function index()
     {
         $data = ['dl' => $this->dl->allData()];
         
-        return view('loker.index', $data);
+        return view('event.index', $data);
     }
     public function detail($id)
     {
         $data = ['dl' => $this->dl->detailData($id)];
         
-        return view('loker.detail', $data);
+        return view('event.detail', $data);
     }
     public function store(Request $request, $id)
     {
@@ -34,18 +33,14 @@ class c_lokeru extends Controller
         $file->move(public_path('cv'),$filename);
 
         $data = ['id_user' => Auth::user()->id,
-                 'id_loker' => $id,
+                 'id_event' => $id,
                  'file' => $filename];
         $this->fl->addData($data);
-        return redirect()->route('lokeru');
+        return redirect()->route('eventu');
     }
     public function histori()
     {
-       $data = ['loker'=> $this->fl->allDataUser()];
-       return view('loker.riwayat', $data);
-    }
-    public function test()
-    {
-        return view('test');
+       $data = ['event'=> $this->fl->allDataUser()];
+       return view('event.riwayat', $data);
     }
 }
