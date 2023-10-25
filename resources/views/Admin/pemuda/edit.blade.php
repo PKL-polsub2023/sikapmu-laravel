@@ -1,9 +1,9 @@
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
 
-    <x-navbars.sidebar activePage="Tambah Data"></x-navbars.sidebar>
+    <x-navbars.sidebar activePage="Edit Data"></x-navbars.sidebar>
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <!-- Navbar -->
-        <x-navbars.navs.auth titlePage='Tambah Data'></x-navbars.navs.auth>
+        <x-navbars.navs.auth titlePage='Edit Data'></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
             
@@ -25,7 +25,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">tahun</label>
                                     <input type="number" name="tahun" class="form-control border border-2 p-2"
-                                        value='{{ old('tahun'), $dp->tahun }}'>
+                                        value='{{ old('tahun', $dp->tahun) }}'>
                                 </div>
                                 <div class="col-md-6"></div>
                                 <div class="col-md-12">
@@ -54,7 +54,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Pasien TB HIV Positif</label>
                                     <input type="number" name="pas_hiv" class="form-control border border-2 p-2"
-                                        value='{{ old('pas_hiv'), $dp->pas_hiv }}'>
+                                        value='{{ old('pas_hiv', $dp->pas_hiv) }}'>
                                     @error('pas_hiv')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -63,7 +63,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Oat Dengan ARV</label>
                                     <input type="number" name="oat_hiv" class="form-control border border-2 p-2"
-                                        value='{{ old('oat_hiv'), $dp->oat_hiv }}'>
+                                        value='{{ old('oat_hiv', $dp->oat_hiv )}}'>
                                     @error('oat_hiv')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -71,7 +71,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Jumlah Pencari Kerja</label>
                                     <input type="number" name="penc_kerja" class="form-control border border-2 p-2"
-                                        value='{{ old('penc_kerja'), $dp->penc_kerja }}'>
+                                        value='{{ old('penc_kerja', $dp->penc_kerja) }}'>
                                     @error('penc_kerja')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -80,7 +80,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Jumlah Wira Usaha Muda</label>
                                     <input type="number" name="wira_usaha_muda" class="form-control border border-2 p-2"
-                                        value='{{ old('wira_usaha_muda'), $dp->wira_usaha_muda }}'>
+                                        value='{{ old('wira_usaha_muda', $dp->wira_usaha_muda) }}'>
                                     @error('wira_usaha_muda')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -89,7 +89,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Jumlah OKP</label>
                                     <input type="number" name="jumlah_okp" class="form-control border border-2 p-2"
-                                        value='{{ old('jumlah_okp'), $dp->jum_okp }}'>
+                                        value='{{ old('jumlah_okp', $dp->jum_okp) }}'>
                                     @error('jumlah_okp')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -98,7 +98,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Jumlah Anggota OKP</label>
                                     <input type="number" name="angota_okp" class="form-control border border-2 p-2"
-                                        value='{{ old('angota_okp'), $dp->angta_okp }}'>
+                                        value='{{ old('angota_okp', $dp->angota_okp) }}'>
                                     @error('angota_okp')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -110,7 +110,7 @@
                                 <div class="mb-3 col-md-4">
                                     <label class="form-label">Curanmor</label>
                                     <input type="number" name="curanmor" class="form-control border border-2 p-2"
-                                        value='{{ old('curanmor'), $dp->curanmor }}'>
+                                        value='{{ old('curanmor', $dp->curanmor) }}'>
                                     @error('curanmor')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -119,7 +119,7 @@
                                 <div class="mb-3 col-md-4">
                                     <label class="form-label">Narkoba</label>
                                     <input type="number" name="narkoba" class="form-control border border-2 p-2"
-                                        value='{{ old('narkoba'), $dp->narkoba }}'>
+                                        value='{{ old('narkoba', $dp->narkoba )}}'>
                                     @error('narkoba')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -127,7 +127,7 @@
                                 <div class="mb-3 col-md-4">
                                     <label class="form-label">Pembunuhan</label>
                                     <input type="number" name="pembunuhan" class="form-control border border-2 p-2"
-                                        value='{{ old('pembunuhan'), $dp->pembunuhan }}'>
+                                        value='{{ old('pembunuhan', $dp->pembunuhan) }}'>
                                     @error('pembunuhan')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -138,7 +138,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Jumlah OSIS</label>
                                     <input type="number" name="osis" class="form-control border border-2 p-2"
-                                        value='{{ old('osis'), $dp->osis }}'>
+                                        value='{{ old('osis', $dp->osis )}}'>
                                     @error('osis')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -146,7 +146,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Jumlah BEM</label>
                                     <input type="number" name="bem" class="form-control border border-2 p-2"
-                                        value='{{ old('bem'), $dp->bem }}'>
+                                        value='{{ old('bem', $dp->bem )}}'>
                                     @error('bem')
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror

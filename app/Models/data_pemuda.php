@@ -24,7 +24,7 @@ class data_pemuda extends Model
     }
     public function detailData($id)
     {
-        DB::table('data_pemudas')->where('id_data_pemuda', $id)->first();
+        return DB::table('data_pemudas')->where('id_data_pemuda', $id)->first();
     }
     public function editData($id, $data)
     {
