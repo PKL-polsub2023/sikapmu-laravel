@@ -163,7 +163,7 @@
             <hr style="border-top: 2px solid #ffffff;">
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'Berita' ? ' active-page' : '' }}  "
-                    href="{{ route('Berita') }}">
+                    href="{{ route('berita.index') }}">
                     <div class="card {{ $activePage == 'Berita' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center  d-flex align-items-center justify-content-center">
                             <i class="fas fa-file {{ $activePage == 'Berita' ? 'text-white' : 'text-4FD1C5' }}"
@@ -187,7 +187,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'Ads' ? ' active-page' : '' }}  "
-                    href="{{ route('Ads') }}">
+                    href="{{ route('ads.index') }}">
                     <div class="card {{ $activePage == 'Ads' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center d-flex align-items-center justify-content-center">
                             <i class="fas fa-file {{ $activePage == 'Ads' ? 'text-white' : 'text-4FD1C5' }}"
