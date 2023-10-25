@@ -150,5 +150,14 @@ class c_loker extends Controller
         return redirect()->route('loker.index');
     }
 
+    public function detail(Request $request, $id)
+    {
+        $data = [
+            'loker' => $this->loker->detailData($id),
+        ];
+       
+        return view ('Admin.loker.detail', $data);
+    }
+
     
 }

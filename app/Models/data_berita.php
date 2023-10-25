@@ -11,22 +11,22 @@ class data_berita extends Model
     use HasFactory;
     public function allData()
     {
-        return DB::table('data_berita')->get();
+        return DB::table('data_beritas')->get();
     }
     public function detailData($id)
     {
-        return DB::table('data_berita')->where('id_beritas', $id)->first();
+        return DB::table('data_beritas')->where('id_berita', $id)->first();
     }
     public function addData($data)
     {
-        DB::table('data_berita')->insert($data);
+        DB::table('data_beritas')->insert($data);
     }
     public function editData($id, $data)
     {
-        DB::table('data_berita')->where('id_beritas', $id)->update($data);
+        DB::table('data_beritas')->where('id_berita', $id)->update($data);
     }
     public function deleteData($id)
     {
-        DB::table('data_berita')->where('id_beritas', $id)->delete();
+        DB::table('data_beritas')->where('id_berita', $id)->delete();
     }
 }

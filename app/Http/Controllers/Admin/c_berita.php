@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\m_user;
 use App\Models\data_berita;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 
 
@@ -16,7 +17,7 @@ class c_berita extends Controller
     public function __construct()
     {
         $this->user = new m_user();
-        $this->event = new data_berita();
+        $this->berita = new data_berita();
     }
 
     public function index()
@@ -36,6 +37,7 @@ class c_berita extends Controller
 
     public function store(Request $request)
     {
+        $now = Carbon::now()->format('Y-m-d');
         $validator = Validator::make($request->all(), [
             'judul' => 'required',
             'kategori' => 'required',
@@ -54,6 +56,7 @@ class c_berita extends Controller
                 'judul' => $request->judul,
                 'isi' => $request->isi,
                 'foto' => $filename,
+                'upload' => $now,
             ];
             $this->berita->addData($data);
             return response()->json(['success' => true]);
@@ -72,6 +75,7 @@ class c_berita extends Controller
 
     public function update(Request $request, $id)
     {
+        $now = Carbon::now()->format('Y-m-d');
         $validator = Validator::make($request->all(), [
             'judul' => 'required',
             'kategori' => 'required',
@@ -132,6 +136,18 @@ class c_berita extends Controller
         $this->berita->editData($id, $data);
         return redirect()->route('berita.index');
     }
+
+    public function detail(Request $request, $id)
+    {
+        $data = [
+            'berita' => $this->berita->detailData($id),
+        ];
+       
+        return view ('Admin.berita.detail', $data);
+    }
+
+
+
 
     
 }

@@ -1,9 +1,9 @@
 <x-layout bodyClass="g-sidenav-show  bg-gray-200">
 
-    <x-navbars.sidebar activePage="addloker"></x-navbars.sidebar>
+    <x-navbars.sidebar activePage="Berita"></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <x-navbars.navs.auth titlePage="Tambah Post Lamaran Kerja"></x-navbars.navs.auth>
+        <x-navbars.navs.auth titlePage="Tambah Post Berita"></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid py-4">
 
@@ -65,5 +65,5 @@
         </div>
     </main>
     <x-plugins></x-plugins>
-    <script src="{{ asset('assets/js/pribadi/loker-admin.js') }}"></script>
+    <script src="{{ asset('assets/js/pribadi/berita-admin.js') }}"></script>
 </x-layout>

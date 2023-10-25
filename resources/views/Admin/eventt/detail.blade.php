@@ -12,7 +12,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="{{ asset('foto/event' . $event->foto) }}" alt="">
+                    <center>
+                        <img src="{{ asset('foto/event/' . $event->foto) }}" alt="" style="width:20%">
+                    </center>
                     <div id="error-messages" class="alert alert-primary alert-dismissible text-white"
                         style="display: none">
                     </div>

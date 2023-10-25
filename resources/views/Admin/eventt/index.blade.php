@@ -79,7 +79,8 @@
                                                 <div class="row">
                                                     <div class="col-4">
                                                         <div class="me-n2 my-3 text-start">
-                                                            <a class="btn btn-sm bg-0057FF mb-0 w-100" href="#"
+                                                            <a class="btn btn-sm bg-0057FF mb-0 w-100"
+                                                                href="{{ route('event.detail', $data->id_event) }}"
                                                                 style="background-color: #0057FF;">
                                                                 <i class="text-sm text-white text-center">DETAIL</i>
                                                             </a>
