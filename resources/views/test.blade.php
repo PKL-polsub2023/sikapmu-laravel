@@ -1,7 +1,7 @@
 <html>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
-<div id="bar-chart-container" style="width: 100%; height: 400px;"></div>
+<div id="bar-chart-container" style="width: 100%; height: 500px;"></div>
 
 <script>
    Highcharts.chart('bar-chart-container', {
@@ -12,7 +12,7 @@
         text: 'My Bar Chart'
     },
     xAxis: {
-        categories: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5']
+        categories: ['Usia 16 - 19 Tahun', 'Usia 20 - 30 tahun', 'Jumlah Pencari Kerja', 'Pasien TB HIV', 'OAT Dengan ARV']
     },
     yAxis: {
         title: {
