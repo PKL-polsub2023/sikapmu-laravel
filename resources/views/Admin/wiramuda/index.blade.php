@@ -43,9 +43,9 @@
                                         <th
                                             class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
                                             Email</th>
-                                        <th
+                                        {{-- <th
                                             class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Status</th>
+                                            Status</th> --}}
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Kelengkapan Data</th>
@@ -66,7 +66,7 @@
                                                 <span
                                                     class="text-secondary text-xs font-weight-bold">{{ $data->email }}</span>
                                             </td>
-                                            <td class="align-middle text-center">
+                                            {{-- <td class="align-middle text-center">
                                                 @if ($data->status_akun != 'Terverifikasi')
                                                     <span class="text-secondary text-xs font-weight-bold">Belum
                                                         Terverifikasi </span>
@@ -74,7 +74,7 @@
                                                     <span class="text-secondary text-xs font-weight-bold">
                                                         Terverifikasi</span>
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             <td class="">
                                                 <div class="progress-wrapper w-50 mx-auto text-center">
                                                     <span style="color: #4FD1C5;">60%</span>
@@ -89,7 +89,7 @@
                                             </td>
                                             <td class="align-middle text-center">
                                                 <div class="row">
-                                                    @if ($data->status_akun != 'Terverifikasi')
+                                                    {{-- @if ($data->status_akun != 'Terverifikasi')
                                                         <div class="col-4">
                                                             <div class="me-n2 my-3 text-start">
                                                                 <a data-bs-toggle="modal"
@@ -103,7 +103,7 @@
                                                                 </a>
                                                             </div>
                                                         </div>
-                                                    @endif
+                                                    @endif --}}
                                                     <div class="col-4">
                                                         <div class="me-n2 my-3 text-start">
                                                             <a onclick="reset()"
@@ -272,7 +272,7 @@
                 </div>
                 <div class="modal-body align-middle text-center">
                     <h6>Apakah Anda Yakin?</h6>
-                    <a href="{{ route('wiramuda.verifikasi', $data->id) }}" class="btn btn-success">Verifikasi</a>
+                    {{-- <a href="{{ route('wiramuda.verifikasi', $data->id) }}" class="btn btn-success">Verifikasi</a> --}}
                     <a href="#" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Batalkan</a>
                 </div>
             </div>
