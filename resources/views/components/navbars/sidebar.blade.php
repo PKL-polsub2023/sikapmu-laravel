@@ -174,6 +174,18 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'pemuda' ? ' active-page' : '' }}  "
+                    href="{{ route('pemuda') }}">
+                    <div class="card {{ $activePage == 'pemuda' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center d-flex align-items-center justify-content-center">
+                            <i class="fas fa-file {{ $activePage == 'pemuda' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
+                    </div>
+                    <span class="nav-link-text ms-1">Data Pemuda</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'Ads' ? ' active-page' : '' }}  "
                     href="{{ route('Ads') }}">
                     <div class="card {{ $activePage == 'Ads' ? 'bg-4FD1C5' : 'bg-white' }}">
