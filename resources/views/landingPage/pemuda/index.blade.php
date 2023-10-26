@@ -56,7 +56,7 @@
                             </h1>
                             <div class="text-start mx-1 mb-1">
                                 <a class="btn text-start align-items-center"
-                                    href="{{ route('pemuda.landingPage.detail', $item->id_pemuda) }}"
+                                    href="{{ route('pemuda.landingPage.detail', $item->id_user) }}"
                                     style="background-color: #4C6FFF; text-align: center;">
                                     <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
                                             class="fas fa-arrow-right"></i></i>
