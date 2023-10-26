@@ -50,16 +50,18 @@ class c_landing_page extends Controller
     }
     public function lwm()
     {
-        $data = ['wm' => $this->wm->allDatap()];
+        $sekarang = date('Y');
+        $data = ['wm' => $this->wm->allDatap(),
+        'j' => $this->dp->tahunData($sekarang),];
         return view('pages.laravel-examples.landingwm', $data);
     }
     public function wirausahadetail($id)
     {
-        $sekarang = date('Y');
+       
         $data = ['wm' => $this->wm->detailData($id),
                  'event' => $this->file_event->DetailDatau($id),
                  'usaha' => $this->data_usaha->DetailDatau($id),
-                 'j' => $this->dp->tahunData($sekarang),
+                
     ];
         return view('pages.laravel-examples.detailwm', $data);
     }

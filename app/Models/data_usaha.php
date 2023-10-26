@@ -15,6 +15,10 @@ class data_usaha extends Model
     {
         return DB::table('data_usahas')->where('id_user', Auth::user()->id)->get();
     }
+    public function DetailDatau($id)
+    {
+        return DB::table('data_usahas')->where('id_user', $id)->get();
+    }
     public function addData($data)
     {
         DB::table('data_usahas')->insert($data);
