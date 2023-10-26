@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\m_user;
 use App\Models\wirausaha;
+use App\Models\usaha;
 
 class c_bio extends Controller
 {
@@ -15,6 +16,7 @@ class c_bio extends Controller
     {
         $this->user = new m_user();
         $this->wirausaha = new wirausaha();
+        $this->usaha = new usaha();
     }
 
     public function index()
@@ -30,6 +32,12 @@ class c_bio extends Controller
             'wirausaha' => $this->wirausaha->detailData(Auth::user()->id),
         ];
         return view('Wiramuda.bio.index', $data);
+    }
+
+    public function usaha()
+    {
+        $data = ['du' => $this->usaha->allData()];
+        return view('Wiramuda.bio.daftar', $data);
     }
 
     public function updateBio(Request $request)

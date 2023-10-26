@@ -20,7 +20,7 @@
             <div class="mr-15 ml-5 col-2 ">
                 <a class=" fw-bold"
                     style="font-size: 15px; color: #000; font-family:Georgia, 'Times New Roman', Times, serif"
-                    href="landingwiramuda">Wirausaha
+                    href="lwm">Wirausaha
                     Muda
                 </a>
             </div>

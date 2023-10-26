@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('data_usahas', function (Blueprint $table) {
             $table->id('id_usaha');
+            $table->bigInteger('id_user')->nullable();
             $table->string('nama_usaha')->nullable();
             $table->string('jenis_produk')->nullable();
             $table->string('modal')->nullable();

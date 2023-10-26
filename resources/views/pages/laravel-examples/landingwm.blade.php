@@ -38,7 +38,7 @@
                         <a class="nav-link text-center p-0" id="profile">
                             <div class="position-relative"
                                 style="width: 170px; height: 170px; overflow: hidden; border-radius: 50%;">
-                                <img src="{{ asset('assets/img/orang1.jpeg') }}" alt="profile-img"
+                                <img src="{{ asset('foto/wiramuda/'.$item->foto) }}" alt="profile-img"
                                     class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
                             </div>
                         </a>

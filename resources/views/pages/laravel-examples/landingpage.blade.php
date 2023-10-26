@@ -302,7 +302,7 @@ function chart()
                type: 'bar'
            },
            title: {
-               text: 'Grafik Batang dari Database'
+               text: 'Data Kepemudaan Subang'
            },
            xAxis: {
                categories: ['Usia 16 - 19 Tahun', 'Usia 20 - 30 tahun', 'Pencari Kerja', 'Pasien TB HIV', 'OAT Dengan ARV', 'Wira Usaha Muda', 'Anggota Organisasi Kepemudaan', 'Oragnisasi Kepemudaan', 'Kriminal Curanmor', 'Kriminal Narkoba', 'Kriminal Pembunuhan', 'OSIS', 'BEM']
@@ -313,7 +313,7 @@ function chart()
                }
            },
            series: [{
-               name: 'Data Series',
+               name: 'Data Kepemudaan Subang',
                data: isi
            }]
    });

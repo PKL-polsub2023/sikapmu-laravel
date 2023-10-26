@@ -239,6 +239,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::controller(c_bio::class)->group(function () {
 	Route::get('wiramuda/bio', 'index')->name('wiramuda.bio');
 	Route::post('wiramuda/updatebio', 'updateBio')->name('wiramuda.updatebio');
+	Route::get('wiramuda/usaha', 'usaha')->name('wiramuda.usaha');
 });
 
 // END WIRAUSAHA MUDA

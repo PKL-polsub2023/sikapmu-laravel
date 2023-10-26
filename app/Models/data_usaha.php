@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class data_usaha extends Model
 {
@@ -12,7 +13,7 @@ class data_usaha extends Model
 
     public function detailData($id)
     {
-        return DB::table('usahas')->where('id_usaha', $id)->get();
+        return DB::table('usahas')->where('id_user', Auth::user()->id)->get();
     }
     public function addData($data)
     {
