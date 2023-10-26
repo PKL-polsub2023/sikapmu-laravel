@@ -43,10 +43,10 @@
                                     <center>
                                         @if ($item->logo != null)
                                             <img src="{{ asset('foto/okp/' . $item->logo) }}" alt="profile-img"
-                                                width="100%" />
+                                                width="80%" />
                                         @else
                                             <img src="{{ asset('foto/default.png') }}" alt="profile-img"
-                                                width="100%" />
+                                                width="80%" />
                                         @endif
                                     </center>
 
