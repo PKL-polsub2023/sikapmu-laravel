@@ -34,4 +34,9 @@ class data_loker extends Model
     {
         return DB::table('data_lokers')->orderBy('waktu_mulai', 'DESC')->get();
     }
+
+    public function paginate()
+    {
+        return DB::table('data_lokers')->orderBy('waktu_mulai', 'DESC')->paginate(3);
+    }
 }

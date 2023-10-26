@@ -159,5 +159,7 @@ class c_loker extends Controller
         return view ('Admin.loker.detail', $data);
     }
 
+
+
     
 }
