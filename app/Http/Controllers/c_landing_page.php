@@ -8,6 +8,7 @@ use App\Models\data_loker;
 use App\Models\data_event;
 use App\Models\data_berita;
 use App\Models\wirausaha;
+use App\Models\okp;
 use App\Models\file_event;
 use App\Models\file_loker;
 use App\Models\data_usaha;
@@ -24,6 +25,7 @@ class c_landing_page extends Controller
         $this->de = new data_event();
         $this->db = new data_berita();
         $this->wm = new wirausaha();
+        $this->okp = new okp();
         $this->file_event = new file_event();
         $this->file_loker = new file_loker();
         $this->data_usaha = new data_usaha();
@@ -158,5 +160,22 @@ class c_landing_page extends Controller
             'berita' => $this->db->detailData($id),
         ];
         return view ('landingPage.berita.detail', $data);
+    }
+
+    public function okp()
+    {
+        $data = [
+            'okp' => $this->okp->paginate(),
+        ];
+      
+        return view ('landingPage.okp.index', $data);
+    }
+
+    public function okpDetail($id)
+    {
+        $data = [
+            'okp' => $this->okp->detailData($id),
+        ];
+        return view ('landingPage.okp.detail', $data);
     }
 }

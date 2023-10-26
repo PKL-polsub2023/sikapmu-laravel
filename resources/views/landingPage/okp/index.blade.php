@@ -10,8 +10,9 @@
             <img src="{{ asset('assets/img/foto_1 (2).jpg') }}" alt="profile-img" width="100%"
                 style="opacity: 0.9;" />
             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                <h1 style="color: white; font-size: 38px; ">SELAMAT DATANG DI SIKAPMU</h1>
-                <h1 style="color: white; font-size: 24px; font-weight: 100;">Sistem Informasi Kepemudaan</h1>
+                <h1 style="color: white; font-size: 38px; ">SELAMAT DATANG DI SILAPEM</h1>
+                <h1 style="color: white; font-size: 24px; font-weight: 100;">Sistem Informasi Pelayananan Kepemudaan
+                </h1>
             </div>
         </div>
         <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">Supported By :</h1>
@@ -40,27 +41,30 @@
                                 <div class="profile-img"
                                     style="height: 200px; display: flex; align-items: center; justify-content: center;">
                                     <center>
-                                        <img src="{{ asset('foto/okp/' . $item->foto) }}" alt="profile-img"
-                                            width="100%" />
+                                        @if ($item->logo != null)
+                                            <img src="{{ asset('foto/okp/' . $item->logo) }}" alt="profile-img"
+                                                width="100%" />
+                                        @else
+                                            <img src="{{ asset('foto/default.png') }}" alt="profile-img"
+                                                width="100%" />
+                                        @endif
                                     </center>
 
                                 </div>
                             </a>
                             <h1 class="text-start mx-1 mb-4 mt-5"
                                 style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">
-                                {{ $item->nama }}
+                                {{ $item->nama }} @if ($item->singkatan != null)
+                                    ({{ $item->singkatan }})
+                                @endif
                             </h1>
                             <h1 class="text-start mx-1 mb-2"
                                 style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">
-                                {{ $item->email }}
-                            </h1>
-                            <h1 class="text-start mx-1 mb-2"
-                                style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">
-                                {{ $item->website }}
+                                {{ $item->kategori_org }}
                             </h1>
                             <div class="text-start mx-1 mb-1">
                                 <a class="btn text-start align-items-center"
-                                    href="{{ route('pemuda.landingPage.detail', $item->id_user) }}"
+                                    href="{{ route('okp.landingPage.detail', $item->id_user) }}"
                                     style="background-color: #4C6FFF; text-align: center;">
                                     <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
                                             class="fas fa-arrow-right"></i></i>
