@@ -43,4 +43,9 @@ class file_loker extends Model
     {
         DB::table('file_lokers')->where('id_file_loker', $id)->delete();
     }
+
+    public function joinLoker($id)
+    {
+        return DB::table('file_lokers')->where('id_user', $id)->count();
+    }
 }

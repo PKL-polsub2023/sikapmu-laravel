@@ -40,8 +40,13 @@
                                 <div class="profile-img"
                                     style="height: 200px; display: flex; align-items: center; justify-content: center;">
                                     <center>
-                                        <img src="{{ asset('foto/pelopor/' . $item->foto) }}" alt="profile-img"
-                                            width="100%" />
+                                        @if ($item->foto != null)
+                                            <img src="{{ asset('foto/pelopor/' . $item->foto) }}" alt="profile-img"
+                                                width="100%" />
+                                        @else
+                                            <img src="{{ asset('foto/default.png') }}" alt="profile-img"
+                                                width="100%" />
+                                        @endif
                                     </center>
 
                                 </div>
