@@ -8,6 +8,9 @@ use App\Models\data_loker;
 use App\Models\data_event;
 use App\Models\data_berita;
 use App\Models\wirausaha;
+use App\Models\file_event;
+use App\Models\file_loker;
+use App\Models\data_usaha;
 use Str;
 
 class c_landing_page extends Controller
@@ -38,6 +41,11 @@ class c_landing_page extends Controller
         return view('pages.laravel-examples.landingpage', $data);
     }
     public function lwm()
+    {
+        $data = ['wm' => $this->wm->allDatap()];
+        return view('pages.laravel-examples.landingwm', $data);
+    }
+    public function wirausahadetail($id)
     {
         $sekarang = date("Y");
         $data = ['wm' => $this->wm->allDatap(),
@@ -105,9 +113,7 @@ class c_landing_page extends Controller
         $data = [
             'pemuda' => $this->dp->paginate(),
         ];
-        foreach ($data['pemuda'] as &$pemuda) { 
-            $pemuda->deskripsi = Str::limit($pemuda->deskripsi, '25');
-        }
+        
         return view ('landingPage.pemuda.index', $data);
     }
 

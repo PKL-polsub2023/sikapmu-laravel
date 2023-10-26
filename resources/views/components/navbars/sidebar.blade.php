@@ -352,6 +352,30 @@
                     <span class="nav-link-text ms-1">Data Pendukung</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'eventu' ? ' active-page' : '' }}  "
+                    href="{{ route('eventu') }}">
+                    <div class="card {{ $activePage == 'eventu' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'eventu' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
+                    </div>
+                    <span class="nav-link-text ms-1">Event</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'lokeru' ? ' active-page' : '' }}  "
+                    href="{{ route('lokeru') }}">
+                    <div class="card {{ $activePage == 'lokeru' ? 'bg-4FD1C5' : 'bg-white' }}">
+                        <div class="text-white text-center  d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket {{ $activePage == 'lokeru' ? 'text-white' : 'text-4FD1C5' }}"
+                                style="font-size: 1rem;"></i>
+                        </div>
+                    </div>
+                    <span class="nav-link-text ms-1">Lowongan Kerja</span>
+                </a>
+            </li>
         @endif
 
     </ul>
