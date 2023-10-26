@@ -23,6 +23,10 @@ class file_loker extends Model
     {
         return DB::table('file_lokers')->join('data_lokers', 'file_lokers.id_loker', '=', 'data_lokers.id_loker')->where('id_user', Auth::user()->id)->get();
     }
+    public function DetailDatau($id)
+    {
+        return DB::table('file_lokers')->join('data_lokers', 'file_lokers.id_loker', '=', 'data_lokers.id_loker')->where('id_user', $id)->get();
+    }
     public function detailData($id)
     {
         return DB::table('file_lokers')->where('file_lokers.id', $id)->first();
