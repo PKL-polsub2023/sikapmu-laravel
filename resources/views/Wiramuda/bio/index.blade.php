@@ -3,7 +3,7 @@
     <x-navbars.sidebar activePage="user-profile"></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <x-navbars.navs.navok titlePage="Update Bio"></x-navbars.navs.navok>
+        <x-navbars.navs.auth titlePage="Data Umum"></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid my-5 mt-5">
 

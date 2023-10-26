@@ -20,7 +20,7 @@ class file_event extends Model
     }
     public function allDataUser()
     {
-        return DB::table('file_events')->where('id_user', Auth::users()->id)->get();
+        return DB::table('file_events')->join('data_events', 'file_events.id_event', '=', 'data_events.id_event')->where('id_user', Auth::user()->id)->get();
     }
     public function detailData($id)
     {

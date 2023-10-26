@@ -36,6 +36,7 @@ use App\Http\Controllers\c_data;
 use App\Http\Controllers\c_data_pemuda;
 use App\Http\Controllers\c_okpu;
 use App\Http\Controllers\c_lokeru;
+use App\Http\Controllers\c_eventu;
 
 // Route::get('/', function () {
 //     return view('pages.laravel-examples.landingpage');
@@ -295,6 +296,14 @@ Route::controller(c_lokeru::class)->group(function () {
 	Route::post('lokeru/store/{id}', 'store')->name('lokeru.store');
 	Route::get('lokeru/histori', 'histori')->name('lokeru.histori');
 	Route::get('test', 'test')->name('test');
+});
+
+// Data Event
+Route::controller(c_eventu::class)->group(function () {
+    Route::get('eventu', 'index')->name('eventu');
+	Route::get('eventu/detail/{id}', 'detail')->name('eventu.detail');
+	Route::post('eventu/store/{id}', 'store')->name('eventu.store');
+	Route::get('eventu/histori', 'histori')->name('eventu.histori');
 });
 
 
