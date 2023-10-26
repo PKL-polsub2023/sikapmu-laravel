@@ -138,7 +138,9 @@ class c_landing_page extends Controller
         $data = [
             'pelopor' => $this->pp->detailData($id),
             'event' => $this->file_event->DetailDatau($id),
-            'loker' => $this->file_loker->DetailDatau($id)
+            'loker' => $this->file_loker->DetailDatau($id),
+            'join_loker' => $this->file_loker->joinLoker($id),
+            'join_event' => $this->file_event->joinEvent($id),
         ];
         return view ('landingPage.pemuda.detail', $data);
     }

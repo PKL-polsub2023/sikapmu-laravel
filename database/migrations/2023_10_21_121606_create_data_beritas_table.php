@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('data_beritas', function (Blueprint $table) {
             $table->id('id_berita');
             $table->string('judul')->nullable();
-            $table->string('isi')->nullable();
+            $table->text('isi')->nullable();
             $table->string('kategori')->nullable();
             $table->string('foto')->nullable();
             $table->string('upload')->nullable();

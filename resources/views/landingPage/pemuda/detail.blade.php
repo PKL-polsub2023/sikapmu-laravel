@@ -78,26 +78,39 @@
                     <a class="nav-link text-start p-0" id="profile" style="margin-left: 500px;">
                         <div class="position-relative"
                             style="width: 180px; height: 180px; overflow: hidden; border-radius: 50%; border: 5px solid white;">
-                            <img src="{{ asset('foto/pelopor/' . $pelopor->foto) }}" alt="profile-img"
-                                class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
+                            @if ($pelopor->foto != null)
+                                <img src="{{ asset('foto/pelopor/' . $pelopor->foto) }}" alt="profile-img"
+                                    class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
+                            @else
+                                <img src="{{ asset('foto/default.png') }}" alt="profile-img" class="img-fluid mb-n8"
+                                    style="object-fit: cover; width: 100%; height: 100%;" />
+                            @endif
                         </div>
                     </a>
                 </div>
                 <div class="container">
                     <div class="row mt-5">
-                        <div class="col-4 text-center">
+                        <div class="col-6 text-center">
                             <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                                 <h1 class="d-flex justify-content-center align-items-center"
                                     style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                    Joint Event : 20
+                                    Join Event
+                                </h1>
+                                <h1 class="d-flex justify-content-center align-items-center"
+                                    style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
+                                    {{ $join_event }}
                                 </h1>
                             </div>
                         </div>
-                        <div class="col-4 text-center">
+                        <div class="col-6 text-center">
                             <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                                 <h1 class="d-flex justify-content-center align-items-center"
                                     style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                    Joint Loker : 20
+                                    Join Event
+                                </h1>
+                                <h1 class="d-flex justify-content-center align-items-center"
+                                    style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
+                                    {{ $join_loker }}
                                 </h1>
                             </div>
                         </div>
