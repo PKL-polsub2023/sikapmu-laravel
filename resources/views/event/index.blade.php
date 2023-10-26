@@ -1,17 +1,17 @@
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
 
-    <x-navbars.sidebar activePage="user-profile"></x-navbars.sidebar>
+    <x-navbars.sidebar activePage="eventu"></x-navbars.sidebar>
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <!-- Navbar -->
-        <x-navbars.navs.auth titlePage='User Profile'></x-navbars.navs.auth>
+        <x-navbars.navs.auth titlePage='Event'></x-navbars.navs.auth>
         <!-- End Navbar -->
         <h1 class="text-start mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold; ">
             Event
             
         </h1>
-        {{-- <div class="col card-header text-right">
-            <a class="btn btn-primary float-right" href="{{ route('eventu.histori') }}">Lamaran Saya</a>
-        </div> --}}
+        <div class="d-flex justify-content-end" style="margin-right:2em">
+            <a class="btn btn-primary float-right" href="{{ route('eventu.histori') }}">Event Diikuti</a>
+        </div>
         
        
        
