@@ -8,6 +8,7 @@ use App\Models\data_loker;
 use App\Models\data_event;
 use App\Models\data_berita;
 use App\Models\wirausaha;
+use Str;
 
 class c_landing_page extends Controller
 {
@@ -26,6 +27,14 @@ class c_landing_page extends Controller
                  'loker' => $this->dl->allData(),
                  'event' => $this->de->allData(),
                  'berita' => $this->db->allData()];
+
+                 foreach ($data['event'] as &$event) { 
+                    $event->deskripsi = Str::limit($event->deskripsi, '25');
+                }
+        
+                foreach ($data['berita'] as &$berita) { 
+                    $berita->isi = Str::limit($berita->isi, '25');
+                }
         return view('pages.laravel-examples.landingpage', $data);
     }
     public function lwm()
@@ -70,5 +79,43 @@ class c_landing_page extends Controller
             'loker' => $this->dl->detailData($id),
         ];
         return view ('landingPage.loker.detail', $data);
+    }
+
+    public function event()
+    {
+        $data = [
+            'event' => $this->de->paginate(),
+        ];
+        foreach ($data['event'] as &$event) { 
+            $event->deskripsi = Str::limit($event->deskripsi, '25');
+        }
+        return view ('landingPage.event.index', $data);
+    }
+
+    public function eventDetail($id)
+    {
+        $data = [
+            'event' => $this->de->detailData($id),
+        ];
+        return view ('landingPage.event.detail', $data);
+    }
+
+    public function pemuda()
+    {
+        $data = [
+            'pemuda' => $this->dp->paginate(),
+        ];
+        foreach ($data['pemuda'] as &$pemuda) { 
+            $pemuda->deskripsi = Str::limit($pemuda->deskripsi, '25');
+        }
+        return view ('landingPage.pemuda.index', $data);
+    }
+
+    public function pemudaDetail($id)
+    {
+        $data = [
+            'pemuda' => $this->dp->detailData($id),
+        ];
+        return view ('landingPage.pemuda.detail', $data);
     }
 }

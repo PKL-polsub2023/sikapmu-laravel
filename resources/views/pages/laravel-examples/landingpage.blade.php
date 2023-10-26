@@ -33,29 +33,28 @@
             Data Kepemudaan
         </h1>
         @php
-            $sekarang = date("Y");
+            $sekarang = date('Y');
         @endphp
         <div class="container">
             <div class="card" style="width: 100%">
                 <center>
-                <div class="col col-md-1 mt-3">
-                    <select id="tahun" class="form-control" onchange="chart()">
-                        @foreach ($dp as $item)
-                            <option @if ($item->tahun == $sekarang)
-                            selected
-                            @endif  value="{{ $item->tahun }}">{{ $item->tahun }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </center>
-                
-            <div id="bar-chart-container" style="width: 100%; height: 800px;"></div>
+                    <div class="col col-md-1 mt-3">
+                        <select id="tahun" class="form-control" onchange="chart()">
+                            @foreach ($dp as $item)
+                                <option @if ($item->tahun == $sekarang) selected @endif value="{{ $item->tahun }}">
+                                    {{ $item->tahun }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </center>
+
+                <div id="bar-chart-container" style="width: 100%; height: 800px;"></div>
 
             </div>
         </div>
-       
 
-        
+
+
 
         {{-- <h1 class="text-center mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 28px; font-weight: bold; ">
             Lowongan Kerja
@@ -138,14 +137,13 @@
         </h1>
         <div class="container mt-3 position: relative;">
             <div class="scroll-container" style="width: 100%">
-               
-                    @foreach ($loker as $data)
+
+                @foreach ($loker as $data)
                     <div class="card col col-md-4">
                         <div class="profile-img"
                             style="height: 200px; display: flex; align-items: center; justify-content: center;">
                             <center>
-                                <img src="{{ asset('foto/loker/' . $data->foto) }}" alt="profile-img"
-                                    width="100%" />
+                                <img src="{{ asset('foto/loker/' . $data->foto) }}" alt="profile-img" width="100%" />
                             </center>
 
                         </div>
@@ -168,8 +166,8 @@
                         </div>
                     </div>
                 @endforeach
-                
-               
+
+
             </div>
             <div class="navigations">
                 <button id="back"
@@ -187,16 +185,14 @@
         <h1 class="text-center mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 28px; font-weight: bold; ">
             Event
         </h1>
- 
         <div class="container mt-3 position: relative;">
-            <div class="scroll-container2" style="width: 100%">
+            <div class="scroll-container2">
                 @foreach ($event as $data)
-                    <div class="card col col-md-4">
+                    <div class="card mx-2" style="border-radius: 10px; width: 324px;">
                         <div class="profile-img"
                             style="height: 200px; display: flex; align-items: center; justify-content: center;">
                             <center>
-                                <img src="{{ asset('foto/event/' . $data->foto) }}" alt="profile-img"
-                                    width="100%" />
+                                <img src="{{ asset('foto/event/' . $data->foto) }}" alt="profile-img" width="40%" />
                             </center>
 
                         </div>
@@ -237,7 +233,7 @@
         <div class="container mt-3 position: relative; mb-5">
             <div class="scroll-container3">
                 @foreach ($berita as $data)
-                    <div class="card col col-md-4">
+                    <div class="card mx-2" style="border-radius: 10px; width: 324px;">
                         <div class="profile-img"
                             style="height: 200px; display: flex; align-items: center; justify-content: center;">
                             <center>
@@ -288,44 +284,47 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 
 <script>
-$(document).ready(function () {
-   chart();
-});
-function chart()
-{
-    var tahun = $("#tahun").val();
-   var id = parseInt(tahun);
-    $.get("{{ url('chart') }}/" + id, {}, function(data, status) {
-        var isi = data;
-       Highcharts.chart('bar-chart-container', {
-           chart: {
-               type: 'bar'
-           },
-           title: {
-               text: 'Data Kepemudaan Subang'
-           },
-           xAxis: {
-               categories: ['Usia 16 - 19 Tahun', 'Usia 20 - 30 tahun', 'Pencari Kerja', 'Pasien TB HIV', 'OAT Dengan ARV', 'Wira Usaha Muda', 'Anggota Organisasi Kepemudaan', 'Oragnisasi Kepemudaan', 'Kriminal Curanmor', 'Kriminal Narkoba', 'Kriminal Pembunuhan', 'OSIS', 'BEM']
-           },
-           yAxis: {
-               title: {
-                   text: 'Nilai'
-               }
-           },
-           series: [{
-               name: 'Data Kepemudaan Subang',
-               data: isi
-           }]
-   });
+    $(document).ready(function() {
+        chart();
+    });
+
+    function chart() {
+        var tahun = $("#tahun").val();
+        var id = parseInt(tahun);
+        $.get("{{ url('chart') }}/" + id, {}, function(data, status) {
+            var isi = data;
+            Highcharts.chart('bar-chart-container', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Data Kepemudaan Subang'
+                },
+                xAxis: {
+                    categories: ['Usia 16 - 19 Tahun', 'Usia 20 - 30 tahun', 'Pencari Kerja',
+                        'Pasien TB HIV', 'OAT Dengan ARV', 'Wira Usaha Muda',
+                        'Anggota Organisasi Kepemudaan', 'Oragnisasi Kepemudaan',
+                        'Kriminal Curanmor', 'Kriminal Narkoba', 'Kriminal Pembunuhan', 'OSIS',
+                        'BEM'
+                    ]
+                },
+                yAxis: {
+                    title: {
+                        text: 'Nilai'
+                    }
+                },
+                series: [{
+                    name: 'Data Kepemudaan Subang',
+                    data: isi
+                }]
+            });
         });
-   
-}
+
+    }
 </script>
 
 
-<script>
-    
-</script>
+<script></script>
 
 <style>
     .cards {
