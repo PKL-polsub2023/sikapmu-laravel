@@ -1,23 +1,4 @@
-<x-layout bodyClass="g-sidenav-show  bg-gray-200">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-        <x-navbars.navs.navland titlePage="Landing"></x-navbars.navs.navland>
-        <div class="profile-img" style="display: flex; height: 400px; margin: 0; position: relative;">
-            <img src="{{ asset('assets/img/foto_1 (2).jpg') }}" alt="profile-img" width="100%" style="opacity: 0.9;" />
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                <h1 style="color: white; font-size: 38px; ">SELAMAT DATANG DI SIKAPMU</h1>
-                <h1 style="color: white; font-size: 24px; font-weight: 100;">Sistem Informasi Kepemudaan</h1>
-            </div>
-        </div>
-        <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">Supported By :</h1>
 
-        <div class="supp text-center mb-5">
-            <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
-        </div>
         <h1 class="text-center mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold;">Wirausaha Muda
         </h1>
       
@@ -49,7 +30,7 @@
                             style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">umur : {{ $item->umur }}
                         </h1>
                         <div class="text-start mx-1 mb-1">
-                            <a class="btn text-start align-items-center" href="#"
+                            <a class="btn text-start align-items-center" href="{{ route('wm.landing.detail', $item->id) }}"
                                 style="background-color: #4C6FFF; text-align: center;">
                                 <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
                                         class="fas fa-arrow-right"></i></i>
@@ -68,9 +49,7 @@
        
         <x-footers.footer></x-footers.guest>
     </main>
-    <x-plugins></x-plugins>
 
-</x-layout>
 <script>
     var data = {
         datasets: [{
