@@ -11,16 +11,20 @@ class data_usaha extends Model
 {
     use HasFactory;
 
-    public function detailData($id)
+    public function allData()
     {
-        return DB::table('usahas')->where('id_user', Auth::user()->id)->get();
+        return DB::table('data_usahas')->where('id_user', Auth::user()->id)->get();
     }
     public function addData($data)
     {
-        DB::table('usahas')->insert($data);
+        DB::table('data_usahas')->insert($data);
     }
-    public function ditData($id, $data)
+    public function detailData($id)
     {
-        DB::table('usahas')->where('id_usaha', $id)->update($data);
+        return DB::table('data_usahas')->where('id_usaha', $id)->first();
+    }
+    public function editData($id, $data)
+    {
+        DB::table('data_usahas')->where('id_usaha', $id)->update($data);
     }
 }
