@@ -55,4 +55,12 @@ class c_landing_page extends Controller
 
         return $data;
     }
+
+    public function loker()
+    {
+        $data = [
+            'loker' => $this->dl->paginate(),
+        ];
+        return view ('landingPage.loker', $data);
+    }
 }

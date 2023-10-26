@@ -40,6 +40,9 @@ use App\Http\Controllers\c_eventu;
 use App\Http\Controllers\c_landing_page;
 
 
+// Route::get('loker-utama', function () {
+//     return view('landingPage.loker');
+// })->name('landingloker');
 Route::get('landingokp', function () {
     return view('pages.laravel-examples.landingokp');
 })->name('landingokp');
@@ -310,6 +313,31 @@ Route::controller(c_landing_page::class)->group(function () {
     Route::get('/', 'home');
 	Route::get('chart/{id}', 'chart');
 	Route::get('lwm', 'lwm');
+
+	// Loker
+	Route::get('loker-utama', 'loker')->name('loker.landingPage');
+	Route::get('loker-utama/detail', 'lokerDetail')->name('loker.landingPage.detail');
+	// end Loker
+
+	// Pemuda
+	Route::get('pemuda-utama', 'pemuda')->name('pemuda.landingPage');
+	Route::get('pemuda-utama/detail', 'pemudaDetail')->name('pemuda.landingPage.detail');
+	// end Pemuda
+
+	// OKP
+	Route::get('okp-utama', 'okp')->name('okp.landingPage');
+	Route::get('okp-utama/detail', 'okpDetail')->name('okp.landingPage.detail');
+	// end OKP
+
+	// Event
+	Route::get('event-utama', 'event')->name('event.landingPage');
+	Route::get('event-utama/detail', 'eventDetail')->name('event.landingPage.detail');
+	// end Event
+
+	// berita
+	Route::get('berita-utama', 'berita')->name('berita.landingPage');
+	Route::get('berita-utama/detail', 'beritaDetail')->name('berita.landingPage.detail');
+	// end berita
 });
 
 
