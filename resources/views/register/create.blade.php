@@ -8,7 +8,7 @@
             <section>
                 <div class="page-header min-vh-100">
                     <div class="container">
-                        <h1 class="text-start mx-3" style="color: rgb(0, 0, 0); font-size: 18px;">Daftar SiPanda</h1>
+                        <h1 class="text-start mx-3" style="color: rgb(0, 0, 0); font-size: 18px;">Daftar SILAPEM</h1>
                         <div class="row">
                             <div class="col-12 col-md-6 col-lg-4">
                                 <div class="card card-plain">
@@ -71,7 +71,7 @@
                                             <div class="text-center">
                                                 <button type="submit" class="btn btn-lg btn-lg w-100 mt-4 mb-0"
                                                     style="background-color: #0057FF;"><i
-                                                        class="text-sm text-white">Sign Up</i>
+                                                        class="text-sm text-white">Daftar</i>
                                                 </button>
                                             </div>
 
@@ -80,7 +80,7 @@
                                             <a href="sign-in">
                                                 <button class="btn btn-lg bg- btn-lg w-100 mt-4 mb-0"
                                                     style="background-color: #000000;"><i
-                                                        class="text-sm text-white">Kembali Ke Login</i></button>
+                                                        class="text-sm text-white">Masuk</i></button>
                                             </a>
                                         </div>
                                     </div>

@@ -317,7 +317,7 @@ Route::controller(c_eventu::class)->group(function () {
 Route::controller(c_landing_page::class)->group(function () {
     Route::get('/', 'home');
 	Route::get('chart/{id}', 'chart');
-	Route::get('lwm', 'lwm');
+	Route::get('lwm', 'lwm')->name('wm.landingpage');
 	Route::get('lwm/detail/{id}', 'wirausahadetail')->name('wm.landing.detail');
 
 	// Loker

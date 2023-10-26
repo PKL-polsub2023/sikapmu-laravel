@@ -12,7 +12,7 @@
     <main class="main-content  mt-0">
         <div class="page-header min-vh-100">
             <div class="container">
-                <h1 class="text-start mx-3" style="color: rgb(0, 0, 0); font-size: 18px; ">Login SIPanda</h1>
+                <h1 class="text-start mx-3" style="color: rgb(0, 0, 0); font-size: 18px; ">Masuk SILAPEM</h1>
                 <div class="row">
                     <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column me-auto me-lg-auto">
                         <div class="card card-plain">
@@ -47,29 +47,15 @@
                                         <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
                                     </div>
                                     <div class="text-center">
-<<<<<<< HEAD
                                         <button type="submit" class="btn w-100 my-4 mb-2" style="background-color: #0057FF;">
-                                            <i class="text-sm text-white">Sign In</i>
+                                            <i class="text-sm text-white">Masuk</i>
                                         </button>
                                     </div>
                                     <div class="text-center">
-                                        <a href="{{ route('login') }}" class="btn btn-lg w-100 mt-4 mb-0" style="background-color: #000000;">
-                                            <i class="text-sm text-white">Kembali Ke Login</i>
+                                        <a href="{{ route('register') }}" class="btn btn-lg w-100 mt-4 mb-0" style="background-color: #000000;">
+                                            <i class="text-sm text-white">Daftar</i>
                                         </a>
                                     </div>
-=======
-                                        <button type="submit" class="btn w-100 my-4 mb-2"
-                                            style="background-color: #0057FF;"><i class="text-sm text-white">Sign
-                                                Up</i></button>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="close" class="btn btn-lg bg- btn-lg w-100 mt-4 mb-0"
-                                            style="background-color: #000000;"><i class="text-sm text-white">Kembali Ke
-                                                Login</i></button>
-                                    </div>
-
-
->>>>>>> e9f844f758529631fed83f110162cf2d0f54f957
                                 </form>
 
                             </div>

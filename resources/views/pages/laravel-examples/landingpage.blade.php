@@ -11,8 +11,8 @@
         <div class="profile-img" style="display: flex; height: 400px; margin: 0; position: relative;">
             <img src="{{ asset('assets/img/foto_1.jpg') }}" alt="profile-img" width="100%" style="opacity: 0.9;" />
             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                <h1 style="color: white; font-size: 38px; ">SELAMAT DATANG DI SIKAPMU</h1>
-                <h1 style="color: white; font-size: 24px; font-weight: 100;">Sistem Informasi Kepemudaan</h1>
+                <h1 style="color: white; font-size: 38px; ">SELAMAT DATANG DI SILAPEM</h1>
+                <h1 style="color: white; font-size: 24px; font-weight: 100;">Sistem Informasi Pelayanan Kepemudaan</h1>
             </div>
         </div>
         <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">Supported By :</h1>
@@ -158,7 +158,7 @@
                             s/d {{ $data->waktu_akhir }}
                         </h1>
                         <div class="text-start mb-5">
-                            <a class="btn text-start align-items-center" href="#"
+                            <a class="btn text-start align-items-center" href="{{ route('loker.landingPage.detail', $data->id_loker) }}"
                                 style="background-color: #4C6FFF; text-align: center;">
                                 <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
                                         class="fas fa-arrow-right"></i></i>
@@ -204,7 +204,7 @@
                             style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">{{ $data->deskripsi }}
                         </h1>
                         <div class="text-start mx-4 mb-5">
-                            <a class="btn text-start align-items-center" href="#"
+                            <a class="btn text-start align-items-center" href="{{ route('event.landingPage.detail', $data->id_event) }}"
                                 style="background-color: #4C6FFF; text-align: center;">
                                 <i class="text-white" style="text-transform: none; font-style: normal;">See more
                                     <i></i></i>
@@ -251,7 +251,7 @@
                             {{ $data->isi }}
                         </h1>
                         <div class="text-start mx-4 mb-5">
-                            <a class="btn text-start align-items-center" href="#"
+                            <a class="btn text-start align-items-center" href="{{ route('berita.landingPage.detail', $id_berita) }}"
                                 style="background-color: #4C6FFF; text-align: center;">
                                 <i class="text-white" style="text-transform: none; font-style: normal;">See more
                                     <i></i></i>
