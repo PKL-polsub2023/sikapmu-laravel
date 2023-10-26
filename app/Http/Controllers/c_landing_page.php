@@ -7,6 +7,7 @@ use App\Models\data_pemuda;
 use App\Models\data_loker;
 use App\Models\data_event;
 use App\Models\data_berita;
+use App\Models\wirausaha;
 
 class c_landing_page extends Controller
 {
@@ -16,6 +17,7 @@ class c_landing_page extends Controller
         $this->dl = new data_loker();
         $this->de = new data_event();
         $this->db = new data_berita();
+        $this->wm = new wirausaha();
     }
 
     public function home()
@@ -25,6 +27,13 @@ class c_landing_page extends Controller
                  'event' => $this->de->allData(),
                  'berita' => $this->db->allData()];
         return view('pages.laravel-examples.landingpage', $data);
+    }
+    public function lwm()
+    {
+        $sekarang = date("Y");
+        $data = ['wm' => $this->wm->allDatap(),
+                 'j' => $this->dp->tahunData($sekarang)];
+        return view('pages.laravel-examples.landingwm', $data);
     }
     public function chart($id)
     {

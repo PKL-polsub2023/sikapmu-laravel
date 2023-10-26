@@ -14,6 +14,10 @@ class wirausaha extends Model
     {
         return DB::table('users')->join('wirausahas', 'users.id', '=', 'wirausahas.id_user')->get();
     }
+    public function allDataP()
+    {
+        return DB::table('users')->join('wirausahas', 'users.id', '=', 'wirausahas.id_user')->paginate(3);
+    }
     public function detailData($id)
     {
         return DB::table('users')->join('wirausahas', 'users.id', '=', 'wirausahas.id_user')->where('users.id', $id)->first();

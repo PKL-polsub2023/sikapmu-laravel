@@ -308,7 +308,7 @@ Route::controller(c_eventu::class)->group(function () {
 Route::controller(c_landing_page::class)->group(function () {
     Route::get('/', 'home');
 	Route::get('chart/{id}', 'chart');
-	
+	Route::get('lwm', 'lwm');
 });
 
 

@@ -32,13 +32,18 @@
         <h1 class="text-center mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 28px; font-weight: bold; ">
             Data Kepemudaan
         </h1>
+        @php
+            $sekarang = date("Y");
+        @endphp
         <div class="container">
             <div class="card" style="width: 100%">
                 <center>
                 <div class="col col-md-1 mt-3">
                     <select id="tahun" class="form-control" onchange="chart()">
                         @foreach ($dp as $item)
-                            <option selected value="{{ $item->tahun }}">{{ $item->tahun }}</option>
+                            <option @if ($item->tahun == $sekarang)
+                            selected
+                            @endif  value="{{ $item->tahun }}">{{ $item->tahun }}</option>
                         @endforeach
                     </select>
                 </div>
