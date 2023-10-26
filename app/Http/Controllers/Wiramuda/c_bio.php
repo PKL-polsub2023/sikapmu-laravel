@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\m_user;
 use App\Models\wirausaha;
-use App\Models\usaha;
+use App\Models\data_usaha;
 
 class c_bio extends Controller
 {
@@ -16,7 +16,7 @@ class c_bio extends Controller
     {
         $this->user = new m_user();
         $this->wirausaha = new wirausaha();
-        $this->usaha = new usaha();
+        $this->usaha = new data_usaha();
     }
 
     public function index()
@@ -38,6 +38,33 @@ class c_bio extends Controller
     {
         $data = ['du' => $this->usaha->allData()];
         return view('Wiramuda.bio.daftar', $data);
+    }
+    public function create()
+    {
+        return view('Wiramuda.bio.create', $data);
+    }
+    public function store(Request $request)
+    {
+       $data = ['nama_usaha'=>$request->nama_usaha,
+                'jenis_produk'=>$request->jenis_produk,
+                'omset'=>$request->omset,
+                'modal'=>$request->modal];
+        $this->usaha->addData($data);
+        return redirect()->route('wiramuda.usaha');
+    }
+    public function edit($id)
+    {
+        $data = ['du' => $this->usaha->detailData($id)];
+        return view('Wiramuda.bio.edit', $data);
+    }
+    public function update(Request $request, $id)
+    {
+        $data = ['nama_usaha'=>$request->nama_usaha,
+                 'jenis_produk'=>$request->jenis_produk,
+                 'omset'=>$request->omset,
+                 'modal'=>$request->modal];
+        $this->usaha->editData($id,$data);
+        return redirect()->route('wiramuda.usaha');
     }
 
     public function updateBio(Request $request)
