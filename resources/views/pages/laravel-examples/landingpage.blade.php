@@ -4,7 +4,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <x-navbars.navs.navland titlePage="Landing"></x-navbars.navs.navland>
         <div class="profile-img" style="display: flex; height: 400px; margin: 0; position: relative;">
@@ -27,8 +28,19 @@
             Kependudukan
         </h1>
         <div class="container">
-            <div class="card">
-                <div id="bar-chart-container" style="width: 100%; height: 800px;"></div>
+            <div class="card" style="width: 100%">
+                <center>
+                <div class="col col-md-1 mt-3">
+                    <select id="tahun" class="form-control" onchange="chart()">
+                        @foreach ($dp as $item)
+                            <option selected value="{{ $item->tahun }}">{{ $item->tahun }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </center>
+                
+            <div id="bar-chart-container" style="width: 100%; height: 800px;"></div>
+
             </div>
         </div>
        
@@ -524,68 +536,50 @@
     <x-plugins></x-plugins>
 
 </x-layout>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
 <script>
-     Highcharts.chart('bar-chart-container', {
-    chart: {
-        type: 'bar' // Specify the chart type as 'bar'.
-    },
-    title: {
-        text: 'Data Pemuda'
-    },
-    xAxis: {
-        categories: ['Usia 16 - 19 Tahun', 'Usia 20 - 30 tahun', 'Pencari Kerja', 'Pasien TB HIV', 'OAT Dengan ARV', 'Wira Usaha Muda', 'Anggota Organisasi Kepemudaan', 'Oragnisasi Kepemudaan', 'Kriminal Curanmor', 'Kriminal Narkoba', 'Kriminal Pembunuhan', 'OSIS', 'BEM']
-    },
-    yAxis: {
-        title: {
-            text: 'Values'
-        }
-    },
-    series: [{
-        name: 'Data Series',
-        data: [10, 20, 15, 25, 30, 20, 15, 25, 30, 20, 15, 25, 30]
-    }]
+$(document).ready(function () {
+   chart();
 });
+function chart()
+{
+    var tahun = $("#tahun").val();
+   var id = parseInt(tahun);
+    $.get("{{ url('chart') }}/" + id, {}, function(data, status) {
+        var isi = data;
+       Highcharts.chart('bar-chart-container', {
+           chart: {
+               type: 'bar'
+           },
+           title: {
+               text: 'Grafik Batang dari Database'
+           },
+           xAxis: {
+               categories: ['Usia 16 - 19 Tahun', 'Usia 20 - 30 tahun', 'Pencari Kerja', 'Pasien TB HIV', 'OAT Dengan ARV', 'Wira Usaha Muda', 'Anggota Organisasi Kepemudaan', 'Oragnisasi Kepemudaan', 'Kriminal Curanmor', 'Kriminal Narkoba', 'Kriminal Pembunuhan', 'OSIS', 'BEM']
+           },
+           yAxis: {
+               title: {
+                   text: 'Nilai'
+               }
+           },
+           series: [{
+               name: 'Data Series',
+               data: isi
+           }]
+   });
+        });
+   
+}
 </script>
+
+
 <script>
-    var data = {
-        datasets: [{
-            label: "Donut Chart",
-            data: [36, 25, 25, 14],
-            backgroundColor: ["#F94144", "#FFB320", "#5D5FEF", "#55BEEB"],
-        }, ],
-    };
-    var ctx = document.getElementById("myChart").getContext("2d");
-    var myChart = new Chart(ctx, {
-        type: "doughnut",
-        data: data,
-    });
-
-    var data2 = {
-        datasets: [{
-            label: "Donut Chart",
-            data: [53, 32, 25, 12],
-            backgroundColor: ["#F94144", "#FFB320", "#5D5FEF", "#55BEEB"],
-        }, ],
-    };
-    var ctx2 = document.getElementById("myChart2").getContext("2d");
-    var myChart2 = new Chart(ctx2, {
-        type: "doughnut",
-        data: data2,
-    });
-
-    var data3 = {
-        datasets: [{
-            label: "Donut Chart",
-            data: [13, 42, 25, 70],
-            backgroundColor: ["#F94144", "#FFB320", "#5D5FEF", "#55BEEB"],
-        }, ],
-    };
-    var ctx3 = document.getElementById("myChart3").getContext("2d");
-    var myChart2 = new Chart(ctx3, {
-        type: "doughnut",
-        data: data3,
-    });
+    
 </script>
+
 <style>
     .cards {
         width: 10px;

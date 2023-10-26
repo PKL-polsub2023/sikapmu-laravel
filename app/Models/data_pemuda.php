@@ -26,6 +26,10 @@ class data_pemuda extends Model
     {
         return DB::table('data_pemudas')->where('id_data_pemuda', $id)->first();
     }
+    public function tahunData($id)
+    {
+        return DB::table('data_pemudas')->where('tahun', $id)->first();
+    }
     public function editData($id, $data)
     {
         DB::table('data_pemudas')->where('id_data_pemuda', $id)->update($data);

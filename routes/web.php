@@ -37,10 +37,9 @@ use App\Http\Controllers\c_data_pemuda;
 use App\Http\Controllers\c_okpu;
 use App\Http\Controllers\c_lokeru;
 use App\Http\Controllers\c_eventu;
+use App\Http\Controllers\c_landing_page;
 
-Route::get('/', function () {
-    return view('pages.laravel-examples.landingpage');
-})->name('/');
+
 Route::get('landingokp', function () {
     return view('pages.laravel-examples.landingokp');
 })->name('landingokp');
@@ -302,6 +301,12 @@ Route::controller(c_eventu::class)->group(function () {
 	Route::get('eventu/detail/{id}', 'detail')->name('eventu.detail');
 	Route::post('eventu/store/{id}', 'store')->name('eventu.store');
 	Route::get('eventu/histori', 'histori')->name('eventu.histori');
+});
+// Data Event
+Route::controller(c_landing_page::class)->group(function () {
+    Route::get('/', 'home');
+	Route::get('chart/{id}', 'chart');
+	
 });
 
 
