@@ -50,7 +50,7 @@ class c_user_umum extends Controller
             $data = ['foto' => $filename];
             $this->uu->editData($id, $data);
         }
-        return redirect()->route('umum.bio');
+        return redirect()->route('dashboard');
     }
 
    
