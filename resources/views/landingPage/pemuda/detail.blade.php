@@ -25,37 +25,40 @@
         </div> --}}
 
         <div class="container">
+            <div class="col col-md-12">
+
+            </div>
             <div class="col-3 text-start">
                 <h1 class="d-flex text-start align-items-start"
                     style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold; margin-right: 5px;">
                     Bio Pemuda Pelopor
                 </h1>
             </div>
-            <div class="card" style="border-radius: 10px; background-color: #293679; position:relative;">
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-4 mt-3">
+            <div class="card" style="border-radius: 10px; background-color: #293679; ">
+                <div class="row" style="height: 100px">
+                    <div class="col col-md-2 col-2"></div>
+                    <div class="col col-md-4 col-4 mt-3">
                         <h1 class="d-flex text-center align-items-center"
                             style="color: rgb(255, 255, 255); font-size: 24px; font-weight: bold;">
-                            {{ Auth::user()->nama }}
+                            {{ $pelopor->nama }}
                         </h1>
                         <h1 class="d-flex text-center align-items-center"
-                            style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">{{ $user->ttl }}
+                            style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">{{ $pelopor->ttl }}
                         </h1>
                     </div>
-                    <div class="col-6">
+                    <div class="col col-md-6 col-6">
                         <div class="row">
-                            <div class="col-2 d-flex align-items-center justify-content-center">
+                            <div class="col col-md-2 col-2 d-flex align-items-center justify-content-center">
                                 <!-- Menggunakan d-flex dan align-items-center untuk vertikal centering -->
                                 <div class="profile-img" style="height: 20px; width:20px;">
                                     <img src="{{ asset('assets/img/map.png') }}" alt="profile-img" width="100%" />
                                 </div>
                             </div>
-                            <div class="col-10">
+                            <div class="col col-md-10 col-10">
                                 <div class="container">
                                     <h1 class="text-start mb-4"
                                         style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
-                                        Lokasi Terkini : {{ $user->alamat }}
+                                        Lokasi Terkini : {{ $pelopor->alamat }}
                                     </h1>
                                 </div>
                             </div>
@@ -70,8 +73,8 @@
                 <a class="nav-link text-start p-0" id="profile" style="margin-left: 500px;">
                     <div class="position-relative"
                         style="width: 180px; height: 180px; overflow: hidden; border-radius: 50%; border: 5px solid white;">
-                        <img src="{{ asset('foto/pelopor/' . $user->foto) }}" alt="profile-img" class="img-fluid mb-n8"
-                            style="object-fit: cover; width: 100%; height: 100%;" />
+                        <img src="{{ asset('foto/pelopor/' . $pelopor->foto) }}" alt="profile-img"
+                            class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
                     </div>
                 </a>
             </div>

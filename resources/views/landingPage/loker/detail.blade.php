@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+
+
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <x-navbars.navs.navland titlePage="Landing"></x-navbars.navs.navland>
         <div class="profile-img" style="display: flex; height: 400px; margin: 0; position: relative;">
@@ -71,9 +73,14 @@
 
         <x-footers.footer></x-footers.guest>
     </main>
-    <x-plugins></x-plugins>
 
+
+    <x-plugins></x-plugins>
 </x-layout>
+
+
+
+
 <script>
     var data = {
         datasets: [{
