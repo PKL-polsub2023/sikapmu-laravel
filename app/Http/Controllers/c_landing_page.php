@@ -138,4 +138,23 @@ class c_landing_page extends Controller
         ];
         return view ('landingPage.pemuda.detail', $data);
     }
+
+    public function berita()
+    {
+        $data = [
+            'berita' => $this->db->paginate(),
+        ];
+        foreach ($data['berita'] as &$berita) { 
+            $berita->deskripsi = Str::limit($berita->deskripsi, '25');
+        }
+        return view ('landingPage.berita.index', $data);
+    }
+
+    public function beritaDetail($id)
+    {
+        $data = [
+            'berita' => $this->db->detailData($id),
+        ];
+        return view ('landingPage.berita.detail', $data);
+    }
 }

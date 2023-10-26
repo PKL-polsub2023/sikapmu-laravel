@@ -27,35 +27,29 @@
         <div class="supp text-center mb-5">
             <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
         </div>
-        <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">{{ $event->judul }}</h1>
-
+        <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">{{ $berita->judul }}</h1>
         <div class="supp text-center mb-5">
-            <img src="{{ asset('foto/event/' . $event->foto) }}" style="width:200px;height:200px" alt="profile-img"
+            <img src="{{ asset('foto/berita/' . $berita->foto) }}" style="width:200px;height:200px" alt="profile-img"
                 class="text-center" />
         </div>
         <div class="container">
             <div class="row">
-                <div class="col col-8 col-md-8">
+                <div class="col col-12 col-md-12">
                     <h1 class="text-start mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                        Deskripsi :</h1>
-                    <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px;overflow:hidden; ">
-                        {{ $event->deskripsi }} </h1>
-                    <h1 class="text-start mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                        Kategori :</h1>
-                    <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">{{ $event->kategori }} </h1>
-                    <h1 class="text-start mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                        Persyaratan : </h1>
-
-                    <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; overflow:hidden;  ">
-                        {{ $event->persyaratan }}
+                        Kategori : {{ $berita->kategori }}</h1>
+                    <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; "> </h1>
+                    <h1 class="text-start "
+                        style="color: rgb(0, 0, 0); font-size: 18px;  word-wrap: break-word; white-space: normal;  ">
+                        {{ $berita->isi }}
                         {{-- 
                         @php
                         echo $event->persyaratan;
                     @endphp --}}
                     </h1>
                 </div>
-                <div class="col-1"></div>
-                <div class="col col-3 col-md-3">
+                <br>
+                {{-- <div class="col-1"></div> --}}
+                {{-- <div class="col col-3 col-md-3">
                     <div class="text-start mx-1 mb-1">
                         <a class="btn text-start align-items-center" @guest href="{{ url('sign-in') }}" @endguest
                             style="background-color: #4C6FFF; text-align: center;">
@@ -63,7 +57,7 @@
                             </i>
                         </a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 
