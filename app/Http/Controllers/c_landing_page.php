@@ -22,6 +22,9 @@ class c_landing_page extends Controller
         $this->de = new data_event();
         $this->db = new data_berita();
         $this->wm = new wirausaha();
+        $this->file_event = new file_event();
+        $this->file_loker = new file_loker();
+        $this->data_usaha = new data_usaha();
     }
 
     public function home()
@@ -47,10 +50,10 @@ class c_landing_page extends Controller
     }
     public function wirausahadetail($id)
     {
-        $sekarang = date("Y");
-        $data = ['wm' => $this->wm->allDatap(),
-                 'j' => $this->dp->tahunData($sekarang)];
-        return view('pages.laravel-examples.landingwm', $data);
+        $data = ['wm' => $this->wm->detailData($id),
+                 'event' => $this->file_event->DetailDatau($id),
+                 'usaha' => $this->data_usaha->DetailDatau($id)];
+        return view('pages.laravel-examples.detailwm', $data);
     }
     public function chart($id)
     {
