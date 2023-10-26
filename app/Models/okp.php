@@ -11,6 +11,10 @@ class okp extends Model
 {
     use HasFactory;
 
+    public function paginate()
+    {
+        return DB::table('users')->join('okps', 'users.id', '=', 'okps.id_user')->paginate(3);
+    }
     public function allData()
     {
         return DB::table('users')->join('okps', 'users.id', '=', 'okps.id_user')->get();

@@ -36,7 +36,7 @@
                 <div class="col-3 text-start">
                     <h1 class="d-flex text-start align-items-start"
                         style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold; margin-right: 5px;">
-                        Bio Pemuda Pelopor
+                        Bio OKP
                     </h1>
                 </div>
                 <div class="card col col-md-12 py-4"
@@ -46,14 +46,15 @@
                         <div class="col-4 mt-3">
                             <h1 class="d-flex text-center align-items-center"
                                 style="color: rgb(255, 255, 255); font-size: 24px; font-weight: bold;">
-                                {{ $pelopor->nama }}
-                            </h1>
-                            <h1 class="d-flex text-center align-items-center"
-                                style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">{{ $pelopor->ttl }}
+                                {{ $okp->nama }}
                             </h1>
                             <h1 class="d-flex text-center align-items-center"
                                 style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">
-                                {{ $pelopor->agama }}
+                                <i style="color: red" class="fa fa-envelope"></i> {{ $okp->email }}
+                            </h1>
+                            <h1 class="d-flex text-center align-items-center"
+                                style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">
+                                <i class="fa fa-globe" style="color: red"></i> {{ $okp->website }}
                             </h1>
                         </div>
                         <div class="col-6">
@@ -63,7 +64,8 @@
                                         <h1 class="text-start mb-4"
                                             style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
                                             <i style="color: red" class="fa fa-map-marker"></i> Lokasi Terkini :
-                                            {{ $pelopor->alamat }}
+                                            {{ $okp->alamat_jln }}, {{ $okp->kota }}, {{ $okp->provinsi }},
+                                            {{ $okp->kode_pos }}
                                         </h1>
                                     </div>
                                 </div>
@@ -78,26 +80,23 @@
                     <a class="nav-link text-start p-0" id="profile" style="margin-left: 500px;">
                         <div class="position-relative"
                             style="width: 180px; height: 180px; overflow: hidden; border-radius: 50%; border: 5px solid white;">
-                            <img src="{{ asset('foto/pelopor/' . $pelopor->foto) }}" alt="profile-img"
-                                class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
+                            @if ($okp->logo != null)
+                                <img src="{{ asset('foto/okp/' . $okp->logo) }}" alt="profile-img"
+                                    class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
+                            @else
+                                <img src="{{ asset('foto/default.png') }}" alt="profile-img" class="img-fluid mb-n8"
+                                    style="object-fit: cover; width: 100%; height: 100%;" />
+                            @endif
                         </div>
                     </a>
                 </div>
                 <div class="container">
                     <div class="row mt-5">
-                        <div class="col-4 text-center">
+                        <div class="col-12 text-center">
                             <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                                 <h1 class="d-flex justify-content-center align-items-center"
                                     style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                    Joint Event : 20
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="col-4 text-center">
-                            <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                                <h1 class="d-flex justify-content-center align-items-center"
-                                    style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                    Joint Loker : 20
+                                    Join Event : 20
                                 </h1>
                             </div>
                         </div>
