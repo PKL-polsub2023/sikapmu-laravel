@@ -243,6 +243,11 @@ Route::controller(c_bio::class)->group(function () {
 	Route::get('wiramuda/bio', 'index')->name('wiramuda.bio');
 	Route::post('wiramuda/updatebio', 'updateBio')->name('wiramuda.updatebio');
 	Route::get('wiramuda/usaha', 'usaha')->name('wiramuda.usaha');
+	Route::get('wiramuda/create', 'create')->name('wiramuda.create');
+	Route::get('wiramuda/edit/{id}', 'edit')->name('wiramuda.edit');
+	Route::get('wiramuda/destroy{id}', 'destroy')->name('wiramuda.destroy');
+	Route::post('wiramuda/update{id}', 'update')->name('wiramuda.update');
+	Route::post('wiramuda/store', 'store')->name('wiramuda.store');
 });
 
 // END WIRAUSAHA MUDA
