@@ -8,7 +8,7 @@
             <div class="col-3 text-start">
                 <h1 class="d-flex text-start align-items-start"
                     style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold; margin-right: 5px;">
-                    Bio Pemuda Pelopor
+                    Bio Organisasi Kepemudaan
                 </h1>
             </div>
             <div class="card py-4 px-4" style="border-radius: 10px; background-color: #293679; position:relative;">
@@ -19,27 +19,23 @@
                             style="color: rgb(255, 255, 255); font-size: 24px; font-weight: bold;">
                             {{ Auth::user()->nama }}
                         </h1>
+                        @php
+                            $m = explode("-", $user->mulai_pengurusan);
+                            $a = explode("-", $user->akhir_pengurusan);
+                        @endphp
                         <h1 class="d-flex text-center align-items-center"
-                            style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">
+                            style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">Kepengurusan : {{ $m[0] }} S/D {{ $a[0] }}
                         </h1>
                     </div>
                     <div class="col-6">
-                        <div class="row">
-                            <div class="col-2 d-flex align-items-center justify-content-center">
-                                <!-- Menggunakan d-flex dan align-items-center untuk vertikal centering -->
-                                <div class="profile-img" style="height: 20px; width:20px;">
-                                    <img src="{{ asset('assets/img/map.png') }}" alt="profile-img" width="100%" />
-                                </div>
-                            </div>
-                            <div class="col-10">
+                       
                                 <div class="container" >
                                     <h1 class="text-start mb-4"
                                         style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
-                                        Lokasi Terkini : {{ $user->alamat_jln }},{{ $user->kota }}
+                                        Lokasi Terkini : {{ $user->alamat_jln }},{{ $user->kota }},{{ $user->provinsi }}
                                     </h1>
                                 </div>
-                            </div>
-                        </div>
+                         
 
                     </div>
                 </div>
@@ -57,45 +53,14 @@
             </div>
             <div class="container">
                 <div class="row mt-5">
-
+                    <div class="col-4"></div>
                     <div class="col-4 text-center">
                         <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                             <h1 class="d-flex justify-content-center align-items-center"
                                 style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Pencapaian : 10
+                                Joint Event : {{ $event }}
                             </h1>
                         </div>
-                    </div>
-                   
-                    <div class="col-4 text-center">
-                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                            <h1 class="d-flex justify-content-center align-items-center"
-                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Kelengkapan Data : 100 %
-                            </h1>
-                        </div>
-                    </div>
-
-                    <div class="col-4 text-center">
-                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                            <h1 class="d-flex justify-content-center align-items-center"
-                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Joint Event : 20
-                            </h1>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="row mt-5">
-
-                    <div class="col-4 text-center">
-
-                    </div>
-                    
-                    <div class="col-4 text-center">
-
                     </div>
 
                 </div>

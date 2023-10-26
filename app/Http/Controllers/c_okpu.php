@@ -8,6 +8,7 @@ use App\Models\okp;
 use App\Models\data_ketua_okp;
 use App\Models\data_bendahara_okp;
 use App\Models\data_sekretaris_okp;
+use App\Models\file_event;
 
 use Auth;
 
@@ -20,6 +21,7 @@ class c_okpu extends Controller
         $this->data_bendahara_okp = new data_bendahara_okp();
         $this->data_sekretaris_okp = new data_sekretaris_okp();
         $this->data_ketua_okp = new data_ketua_okp();
+        $this->file_event = new file_event();
     }
     //landingpage
     public function index()
@@ -63,7 +65,7 @@ class c_okpu extends Controller
             
         ];
         $this->data_ketua_okp->editData($okp->id_ket_umum, $data);
-        return redirect()->route('okp.dketua');
+        return redirect()->route('dashboard');
     }
 
     public function dsekretaris()
@@ -91,7 +93,7 @@ class c_okpu extends Controller
             
         ];
         $this->data_sekretaris_okp->editData($okp->id_skre_umum, $data);
-        return redirect()->route('okp.dsekretaris');
+        return redirect()->route('dashboard');
     }
 
     public function dbendahara()
@@ -119,7 +121,7 @@ class c_okpu extends Controller
             
         ];
         $this->data_bendahara_okp->editData($okp->id_bend_umum, $data);
-        return redirect()->route('okp.dbendahara');
+        return redirect()->route('dashboard');
     }
 
     //mengubah bio
@@ -152,7 +154,7 @@ class c_okpu extends Controller
             $data = ['logo' => $filename];
             $this->okp->editData($id, $data);
         }
-        return redirect()->route('okp.bio');
+        return redirect()->route('dashboard');
     }
     public function ulainya(Request $request)
     {
@@ -164,6 +166,6 @@ class c_okpu extends Controller
             'akhir_pengurusan' => $request->akhir_pengurusan,
         ];
         $this->okp->editData($id, $data);
-        return redirect()->route('okp.dlainya');
+        return redirect()->route('dashboard');
     }
 }

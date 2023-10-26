@@ -52,6 +52,6 @@ class c_pemuda_pelopor extends Controller
             $data = ['foto' => $filename];
             $this->pp->editData($id, $data);
         }
-        return redirect()->route('pelopor.bio');
+        return redirect()->route('dashboard');
     }
 }

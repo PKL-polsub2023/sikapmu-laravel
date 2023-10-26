@@ -60,6 +60,7 @@ class DashboardController extends Controller
        elseif(Auth::user()->role == "okp"){
         $data = [
             'user' => $this->okp->detailData(Auth::user()->id),
+            'event' => $jevent,
         ];
         return view ('okp.dashboard', $data);
        }
