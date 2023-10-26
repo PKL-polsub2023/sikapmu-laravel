@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-4">
-                <img src="{{ asset('logo.png') }}" width="100%">
+                <img src="{{ asset('logo.png') }}" width="60%">
             </div>
             <div class="col-4">
                 <h1 class="text-start mt-4 mb-4" style="color: rgb(255, 255, 255); font-size: 18px; font-weight ;">

@@ -27,12 +27,7 @@
         <div class="supp text-center mb-5">
             <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
         </div>
-        <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">{{ $loker->instansi }}</h1>
-
-        <div class="supp text-center mb-5">
-            <img src="{{ asset('foto/loker/' . $loker->foto) }}" style="width:50%" alt="profile-img"
-                class="text-center" />
-        </div>
+       
         <!-- End Navbar -->
         <div class="container-fluid py-4">
             <div class="col-3 text-start">
@@ -47,7 +42,7 @@
                     <div class="col-3 mt-3">
                         <h1 class="d-flex text-center align-items-center"
                             style="color: rgb(255, 255, 255); font-size: 24px; font-weight: bold;">
-                            {{ Auth::user()->nama }}
+                            {{ $wirausaha->nama }}
                         </h1>
                         <h1 class="d-flex text-center align-items-center"
                             style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 50;">
@@ -58,22 +53,14 @@
                         </h1>
                     </div>
                     <div class="col-7">
-                        <div class="row">
-                            <div class="col-1 d-flex align-items-center justify-content-center">
-                                <!-- Menggunakan d-flex dan align-items-center untuk vertikal centering -->
-                                <div class="profile-img" style="height: 20px; width:20px;">
-                                    <img src="{{ asset('assets/img/map.png') }}" alt="profile-img" width="100%" />
-                                </div>
-                            </div>
-                            <div class="col-11">
+                        
                                 <div class="container" style="max-width: 500px;">
                                     <h1 class="text-start mx-3 mb-4"
                                         style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
                                         Alamat : {{ $wirausaha->alamat }}
                                     </h1>
                                 </div>
-                            </div>
-                        </div>
+                            
 
                     </div>
                 </div>
@@ -115,75 +102,49 @@
 
                 </div>
             </div>
-            <div class="card-body px-0 pb-2">
-                <i class="text-sm text-black">Data Usaha</i>
+            <div class="card mt-3 mb-3">
+                {{-- <center>
+                    <i class="text text-black mt-3 mb-3">Data Usaha</i>
+                </center> --}}
+                
                 <div class="table-responsive p-0">
                     <table style="width:100%" id="umum" class="display">
                         <thead>
                             <tr>
                                 <th
-                                    class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
-                                    No
-                                </th>
-                                <th
-                                    class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
+                                    class="text-uppercase text-center text-secondary text font-weight-bolder opacity-7">
                                     Nama Usaha
                                 </th>
                                 <th
-                                    class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
+                                    class="text-uppercase text-center text-secondary text font-weight-bolder opacity-7">
                                     Jenis Produk</th>
                                 <th
-                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    class="text-center text-uppercase text-secondary text font-weight-bolder opacity-7">
                                     Modal</th>
                                 <th
-                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    class="text-center text-uppercase text-secondary text font-weight-bolder opacity-7">
                                     Omset</th>
-                                <th
-                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($usaha as $data)
                                 <tr>
-                                    <td class="align-middle text-center"></td>
-                                    <td class="align-middle text-center text-sm">
-                                        <p class="text-xs text-secondary mb-0">{{ $data->nama_usaha }}
+                                    <td class="align-middle text-center text">
+                                        <p class="text text-secondary mb-0">{{ $data->nama_usaha }}
                                         </p>
                                     </td>
                                     <td class="align-middle text-center">
                                         <span
-                                            class="text-secondary text-xs font-weight-bold">{{ $data->jenis_produk }}</span>
+                                            class="text-secondary text font-weight-bold">{{ $data->jenis_produk }}</span>
                                     </td>
                                     <td class="align-middle text-center">
                                         <span
-                                            class="text-secondary text-xs font-weight-bold">{{ $data->modal }}</span>
+                                            class="text-secondary text font-weight-bold">{{ $data->modal }}</span>
                                     </td>
                                     <td class="align-middle text-center">
                                         <span
-                                            class="text-secondary text-xs font-weight-bold">{{ $data->omset }}</span>
+                                            class="text-secondary text font-weight-bold">{{ $data->omset }}</span>
                                     </td>
-                                    <td class="align-middle text-center">
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <div class="me-n2 my-3 text-start">
-                                                    <a class="btn btn-sm bg-warning mb-0 w-100"
-                                                        href="{{ route('wiramuda.edit', $data->id_usaha) }}" style="background-color: #0057FF;">
-                                                        <i class="text-sm text-white">UBAH</i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="me-n2 my-3 text-start">
-                                                    <a class="btn btn-sm bg-danger mb-0 h-25 w-100"
-                                                        href="{{ route('wiramuda.destroy', $data->id_usaha) }}" style="background-color: #0057FF;">
-                                                        <i class="text-sm text-white">HAPUS</i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                  
                                 </tr>
                             @endforeach
                         </tbody>
