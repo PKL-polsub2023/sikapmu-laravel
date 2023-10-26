@@ -30,4 +30,8 @@ class data_event extends Model
     {
         DB::table('data_events')->where('id_event', $id)->delete();
     }
+    public function landingPage()
+    {
+        return DB::table('data_events')->orderBy('waktu_event', 'DESC')->get();
+    }
 }

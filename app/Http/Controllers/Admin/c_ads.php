@@ -55,7 +55,7 @@ class c_ads extends Controller
             return response()->json(['success' => false, 'errors' => $validator->errors()]);
         }else{
             $file = $request->foto;
-            $filename = "ads".$now.".".$file->extension();     
+            $filename = $id."ads".$now.".".$file->extension();     
             $file->move(public_path('foto/ads'),$filename);
             $data = [
                 'foto' => $filename,

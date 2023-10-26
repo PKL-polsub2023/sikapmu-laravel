@@ -29,4 +29,8 @@ class data_berita extends Model
     {
         DB::table('data_beritas')->where('id_berita', $id)->delete();
     }
+    public function landingPage()
+    {
+        return DB::table('data_beritas')->orderBy('upload', 'DESC')->get();
+    }
 }

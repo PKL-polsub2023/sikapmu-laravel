@@ -31,4 +31,9 @@ class m_user extends Model
     {
         return DB::table('users')->max('id');
     }
+
+    public function count()
+    {
+        return DB::table('users')->count();
+    }
 }

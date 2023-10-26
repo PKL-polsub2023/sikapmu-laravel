@@ -1,8 +1,8 @@
 <x-layout bodyClass="g-sidenav-show  bg-gray-200">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <x-navbars.navs.navland titlePage="Landing"></x-navbars.navs.navland>
@@ -15,9 +15,18 @@
         </div>
         <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">Supported By :</h1>
 
-        <div class="supp text-center mb-5">
-            <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
+
+        <div class="row text-center">
+            @foreach ($ads as $data)
+                <div class="col col-4 col-md-2 mb-5">
+                    <img class="mx-auto" src="{{ asset('foto/ads/' . $data->foto) }}" alt="" style="width:60%">
+                </div>
+            @endforeach
         </div>
+
+        {{-- <div class="supp text-center mb-5">
+            <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
+        </div> --}}
         <h1 class="text-start mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold;">Evaluasi
             Data
             Kependudukan :
@@ -273,7 +282,7 @@
                 </div>
                 <div class="col-6">
                     <h1 style="color: rgb(12, 12, 12); font-size: 28px; font-weight: 100;">Jumlah Jawara Muda Subang :
-                        3000 Terdaftar
+                        {{ $jumlah_user }} Terdaftar
                     </h1>
                 </div>
             </div>
@@ -285,196 +294,35 @@
         </h1>
         <div class="container mt-3 position: relative;">
             <div class="scroll-container">
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_1.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Company Name
-                    </h1>
-                    <h1 class="text-start mx-4 mb-2"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Deskripsi Pekerjaan
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Alamat Perusahaan
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
-                                    class="fas fa-arrow-right"></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_2.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Company Name
-                    </h1>
-                    <h1 class="text-start mx-4 mb-2"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Deskripsi Pekerjaan
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Alamat Perusahaan
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
-                                    class="fas fa-arrow-right"></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_3.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Company Name
-                    </h1>
-                    <h1 class="text-start mx-4 mb-2"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Deskripsi Pekerjaan
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Alamat Perusahaan
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
-                                    class="fas fa-arrow-right"></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_4.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Company Name
-                    </h1>
-                    <h1 class="text-start mx-4 mb-2"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Deskripsi Pekerjaan
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Alamat Perusahaan
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_5.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Company Name
-                    </h1>
-                    <h1 class="text-start mx-4 mb-2"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Deskripsi Pekerjaan
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Alamat Perusahaan
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_6.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Company Name
-                    </h1>
-                    <h1 class="text-start mx-4 mb-2"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Deskripsi Pekerjaan
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Alamat Perusahaan
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_7.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Company Name
-                    </h1>
-                    <h1 class="text-start mx-4 mb-2"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Deskripsi Pekerjaan
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Alamat Perusahaan
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_8.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Company Name
-                    </h1>
-                    <h1 class="text-start mx-4 mb-2"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Deskripsi Pekerjaan
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Alamat Perusahaan
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_9.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Company Name
-                    </h1>
-                    <h1 class="text-start mx-4 mb-2"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Deskripsi Pekerjaan
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Alamat Perusahaan
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
+                @foreach ($loker as $data)
+                    <div class="card mx-2" style="border-radius: 10px; width: 324px;">
+                        <div class="profile-img"
+                            style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                            <center>
+                                <img src="{{ asset('foto/loker/' . $data->foto) }}" alt="profile-img"
+                                    width="40%" />
+                            </center>
 
-                </div>
+                        </div>
+                        <h1 class="text-start mx-4 mb-4"
+                            style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">{{ $data->instansi }}
+                        </h1>
+                        <h1 class="text-start mx-4 mb-2"
+                            style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">{{ $data->deskripsi }}
+                        </h1>
+                        <h1 class="text-start mx-4 mb-4"
+                            style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">{{ $data->waktu_mulai }}
+                            s/d {{ $data->waktu_akhir }}
+                        </h1>
+                        <div class="text-start mx-4 mb-5">
+                            <a class="btn text-start align-items-center" href="#"
+                                style="background-color: #4C6FFF; text-align: center;">
+                                <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
+                                        class="fas fa-arrow-right"></i></i>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
             <div class="navigations">
                 <button id="back"
@@ -494,123 +342,32 @@
         </h1>
         <div class="container mt-3 position: relative;">
             <div class="scroll-container2">
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_4.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Seleksi Wirausaha Muda 2023
-                    </h1>
+                @foreach ($event as $data)
+                    <div class="card mx-2" style="border-radius: 10px; width: 324px;">
+                        <div class="profile-img"
+                            style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                            <center>
+                                <img src="{{ asset('foto/event/' . $data->foto) }}" alt="profile-img"
+                                    width="40%" />
+                            </center>
 
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Acara Seleksi wirausaha muda
-                        ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_5.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Seleksi Pemuda Pelopor 2023
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Acara seleksi pemuda pelopor
-                        2023 ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_6.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Webminar OKP 2023
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Acara webminar untuk anggota
-                        OKP ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_2.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Seleksi Wirausaha Muda 2023
-                    </h1>
+                        </div>
+                        <h1 class="text-start mx-4 mb-4"
+                            style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">{{ $data->judul }}
+                        </h1>
 
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Acara Seleksi wirausaha muda
-                        ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
+                        <h1 class="text-start mx-4 mb-4"
+                            style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">{{ $data->deskripsi }}
+                        </h1>
+                        <div class="text-start mx-4 mb-5">
+                            <a class="btn text-start align-items-center" href="#"
+                                style="background-color: #4C6FFF; text-align: center;">
+                                <i class="text-white" style="text-transform: none; font-style: normal;">See more
+                                    <i></i></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_1.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Seleksi Pemuda Pelopor 2023
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Acara seleksi pemuda pelopor
-                        2023 ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_3.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Webminar OKP 2023
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Acara webminar untuk anggota
-                        OKP ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
 
             <div class="navigation">
@@ -631,124 +388,33 @@
         </h1>
         <div class="container mt-3 position: relative; mb-5">
             <div class="scroll-container3">
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_7.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Acara Gathering Wirausaha
-                        Muda
-                    </h1>
+                @foreach ($berita as $data)
+                    <div class="card mx-2" style="border-radius: 10px; width: 324px;">
+                        <div class="profile-img"
+                            style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                            <center>
+                                <img src="{{ asset('foto/berita/' . $data->foto) }}" alt="profile-img"
+                                    width="40%" />
+                            </center>
 
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100; max-width: 50px;">Acara
-                        gathering wirausaha muda ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_8.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Pelaksanaan gather OKP 2023
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Pelaksanaan gather OKP
-                        berjalan ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_9.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Bazar UMKM Subang 2023
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Acara Bazar UMKM Subang akan
-                        ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_2.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Seleksi Wirausaha Muda 2023
-                    </h1>
+                        </div>
+                        <h1 class="text-start mx-4 mb-4"
+                            style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">{{ $data->judul }}
+                        </h1>
 
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Acara Seleksi wirausaha muda
-                        ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
+                        <h1 class="text-start mx-4 mb-4"
+                            style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100; max-width: 50px;">
+                            {{ $data->isi }}
+                        </h1>
+                        <div class="text-start mx-4 mb-5">
+                            <a class="btn text-start align-items-center" href="#"
+                                style="background-color: #4C6FFF; text-align: center;">
+                                <i class="text-white" style="text-transform: none; font-style: normal;">See more
+                                    <i></i></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_1.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Seleksi Pemuda Pelopor 2023
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">Acara seleksi pemuda pelopor
-                        ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card mx-2" style="border-radius: 10px; width: 324px;">
-                    <div class="profile-img" style="height: 200px;">
-                        <img src="{{ asset('assets/img/dum_3.png') }}" alt="profile-img" width="100%" />
-                    </div>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">Webminar OKP 2023
-                    </h1>
-                    <h1 class="text-start mx-4 mb-4"
-                        style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100; max-width: 100px;">Acara
-                        webminar untuk anggota ...
-                    </h1>
-                    <div class="text-start mx-4 mb-5">
-                        <a class="btn text-start align-items-center" href="#"
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                <i></i></i>
-                        </a>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
 
             <div class="navigation">

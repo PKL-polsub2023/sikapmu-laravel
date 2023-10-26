@@ -37,9 +37,9 @@ use App\Http\Controllers\c_data_pemuda;
 use App\Http\Controllers\c_okpu;
 use App\Http\Controllers\c_lokeru;
 
-Route::get('/', function () {
-    return view('pages.laravel-examples.landingpage');
-})->name('/');
+// Route::get('/', function () {
+//     return view('pages.laravel-examples.landingpage');
+// })->name('/');
 Route::get('landingokp', function () {
     return view('pages.laravel-examples.landingokp');
 })->name('landingokp');
@@ -59,6 +59,7 @@ Route::get('sign-up', function () {return redirect('sign-in');})->middleware('gu
 
 
 // Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
+Route::get('/', [SessionsController::class, 'landingPage'])->middleware('guest')->name('lp');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('sign-up', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('sign-up', [RegisterController::class, 'store'])->middleware('guest');
@@ -66,6 +67,7 @@ Route::get('sign-in', [SessionsController::class, 'create'])->middleware('guest'
 Route::post('sign-in', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('verify', [SessionsController::class, 'show'])->middleware('guest');
 Route::post('reset-password', [SessionsController::class, 'update'])->middleware('guest')->name('password.update');
+
 Route::get('verify', function () {
 	return view('sessions.password.verify');
 })->middleware('guest')->name('verify');
