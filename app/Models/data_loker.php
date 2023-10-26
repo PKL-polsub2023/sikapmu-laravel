@@ -30,4 +30,8 @@ class data_loker extends Model
     {
         DB::table('data_lokers')->where('id_loker', $id)->delete();
     }
+    public function landingPage()
+    {
+        return DB::table('data_lokers')->orderBy('waktu_mulai', 'DESC')->get();
+    }
 }

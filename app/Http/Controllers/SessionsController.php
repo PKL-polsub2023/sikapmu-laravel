@@ -6,12 +6,26 @@ Use Str;
 Use Hash;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Models\User;
+use App\Models\m_user;
+use App\Models\data_ads;
+use App\Models\data_loker;
+use App\Models\data_event;
+use App\Models\data_berita;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Password;
 
 class SessionsController extends Controller
 {
+    public function __construct()
+    {
+        $this->ads = new data_ads();
+        $this->user = new m_user();
+        $this->loker = new data_loker();
+        $this->event = new data_event();
+        $this->berita = new data_berita();
+    }
+
     public function create()
     {
         return view('sessions.create');
@@ -100,6 +114,28 @@ class SessionsController extends Controller
         auth()->logout();
 
         return redirect('/sign-in');
+    }
+
+    public function landingPage()
+    {
+        $data = [
+            'ads' => $this->ads->allData(),
+            'jumlah_user' => $this->user->count(),
+            'loker' => $this->loker->landingPage(),
+            'event' => $this->event->landingPage(),
+            'berita' => $this->berita->landingPage(),
+
+        ];
+
+        foreach ($data['event'] as &$event) { 
+            $event->deskripsi = Str::limit($event->deskripsi, '25');
+        }
+
+        foreach ($data['berita'] as &$berita) { 
+            $berita->isi = Str::limit($berita->isi, '25');
+        }
+
+        return view ('pages.laravel-examples.landingpage', $data);
     }
 
 }
