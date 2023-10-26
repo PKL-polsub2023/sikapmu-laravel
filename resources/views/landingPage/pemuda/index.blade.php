@@ -33,14 +33,14 @@
         </h1>
         <div class="container mt-3 position: relative;">
             <div class="row">
-                @foreach ($pemuda as $item)
+                @foreach ($pelopor as $item)
                     <div class="col-4 mb-5">
                         <div class="card mt-3 px-5 py-5" style="border-radius: 10px; ">
                             <a class="nav-link text-center p-0" id="profile">
                                 <div class="profile-img"
                                     style="height: 200px; display: flex; align-items: center; justify-content: center;">
                                     <center>
-                                        <img src="{{ asset('foto/pemuda/' . $item->foto) }}" alt="profile-img"
+                                        <img src="{{ asset('foto/pelopor/' . $item->foto) }}" alt="profile-img"
                                             width="100%" />
                                     </center>
 
@@ -48,11 +48,11 @@
                             </a>
                             <h1 class="text-start mx-1 mb-4 mt-5"
                                 style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">
-                                {{ $item->judul }}
+                                {{ $item->nama }}
                             </h1>
                             <h1 class="text-start mx-1 mb-2"
                                 style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">
-                                {{ $item->deskripsi }}
+                                {{ $item->pendidikan_akhir }}
                             </h1>
                             <div class="text-start mx-1 mb-1">
                                 <a class="btn text-start align-items-center"
@@ -68,7 +68,7 @@
                 @endforeach
             </div>
             <center>
-                {{ $pemuda->links() }}
+                {{ $pelopor->links() }}
             </center>
             {{-- <div class="navigations">
                 <button id="back"
