@@ -158,7 +158,8 @@
                             s/d {{ $data->waktu_akhir }}
                         </h1>
                         <div class="text-start mb-5">
-                            <a class="btn text-start align-items-center" href="{{ route('loker.landingPage.detail', $data->id_loker) }}"
+                            <a class="btn text-start align-items-center"
+                                href="{{ route('loker.landingPage.detail', $data->id_loker) }}"
                                 style="background-color: #4C6FFF; text-align: center;">
                                 <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
                                         class="fas fa-arrow-right"></i></i>
@@ -204,7 +205,8 @@
                             style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">{{ $data->deskripsi }}
                         </h1>
                         <div class="text-start mx-4 mb-5">
-                            <a class="btn text-start align-items-center" href="{{ route('event.landingPage.detail', $data->id_event) }}"
+                            <a class="btn text-start align-items-center"
+                                href="{{ route('event.landingPage.detail', $data->id_event) }}"
                                 style="background-color: #4C6FFF; text-align: center;">
                                 <i class="text-white" style="text-transform: none; font-style: normal;">See more
                                     <i></i></i>
@@ -251,7 +253,8 @@
                             {{ $data->isi }}
                         </h1>
                         <div class="text-start mx-4 mb-5">
-                            <a class="btn text-start align-items-center" href="{{ route('berita.landingPage.detail', $id_berita) }}"
+                            <a class="btn text-start align-items-center"
+                                href="{{ route('berita.landingPage.detail', $data->id_berita) }}"
                                 style="background-color: #4C6FFF; text-align: center;">
                                 <i class="text-white" style="text-transform: none; font-style: normal;">See more
                                     <i></i></i>
