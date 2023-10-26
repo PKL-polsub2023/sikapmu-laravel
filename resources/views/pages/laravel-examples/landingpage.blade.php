@@ -9,7 +9,7 @@
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <x-navbars.navs.navland titlePage="Landing"></x-navbars.navs.navland>
         <div class="profile-img" style="display: flex; height: 400px; margin: 0; position: relative;">
-            <img src="{{ asset('assets/img/foto_1.png') }}" alt="profile-img" width="100%" style="opacity: 0.9;" />
+            <img src="{{ asset('assets/img/foto_1.jpg') }}" alt="profile-img" width="100%" style="opacity: 0.9;" />
             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
                 <h1 style="color: white; font-size: 38px; ">SELAMAT DATANG DI SIKAPMU</h1>
                 <h1 style="color: white; font-size: 24px; font-weight: 100;">Sistem Informasi Kepemudaan</h1>
@@ -29,9 +29,8 @@
         <div class="supp text-center mb-5">
             <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
         </div>
-        <h1 class="text-start mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold;">Evaluasi
-            Data
-            Kependudukan :
+        <h1 class="text-center mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 28px; font-weight: bold; ">
+            Data Kepemudaan
         </h1>
         <div class="container">
             <div class="card" style="width: 100%">
@@ -129,18 +128,19 @@
 
         </div> --}}
 
-        <h1 class="text-start mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold; ">
+        <h1 class="text-center mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 28px; font-weight: bold; ">
             Lowongan Kerja
         </h1>
         <div class="container mt-3 position: relative;">
-            <div class="scroll-container">
-                @foreach ($loker as $data)
-                    <div class="card mx-2" style="border-radius: 10px; width: 324px;">
+            <div class="scroll-container" style="width: 100%">
+               
+                    @foreach ($loker as $data)
+                    <div class="card col col-md-4">
                         <div class="profile-img"
                             style="height: 200px; display: flex; align-items: center; justify-content: center;">
                             <center>
                                 <img src="{{ asset('foto/loker/' . $data->foto) }}" alt="profile-img"
-                                    width="50%" />
+                                    width="100%" />
                             </center>
 
                         </div>
@@ -154,7 +154,7 @@
                             style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">{{ $data->waktu_mulai }}
                             s/d {{ $data->waktu_akhir }}
                         </h1>
-                        <div class="text-start mx-4 mb-5">
+                        <div class="text-start mb-5">
                             <a class="btn text-start align-items-center" href="#"
                                 style="background-color: #4C6FFF; text-align: center;">
                                 <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
@@ -163,6 +163,8 @@
                         </div>
                     </div>
                 @endforeach
+                
+               
             </div>
             <div class="navigations">
                 <button id="back"
@@ -177,18 +179,19 @@
             </div>
         </div>
 
-        <h1 class="text-start mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold; ">
+        <h1 class="text-center mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 28px; font-weight: bold; ">
             Event
         </h1>
+ 
         <div class="container mt-3 position: relative;">
-            <div class="scroll-container2">
+            <div class="scroll-container2" style="width: 100%">
                 @foreach ($event as $data)
-                    <div class="card mx-2" style="border-radius: 10px; width: 324px;">
+                    <div class="card col col-md-4">
                         <div class="profile-img"
                             style="height: 200px; display: flex; align-items: center; justify-content: center;">
                             <center>
                                 <img src="{{ asset('foto/event/' . $data->foto) }}" alt="profile-img"
-                                    width="40%" />
+                                    width="100%" />
                             </center>
 
                         </div>
@@ -223,13 +226,13 @@
             </div>
         </div>
 
-        <h1 class="text-start mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold; ">
+        <h1 class="text-center mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 28px; font-weight: bold; ">
             Berita
         </h1>
         <div class="container mt-3 position: relative; mb-5">
             <div class="scroll-container3">
                 @foreach ($berita as $data)
-                    <div class="card mx-2" style="border-radius: 10px; width: 324px;">
+                    <div class="card col col-md-4">
                         <div class="profile-img"
                             style="height: 200px; display: flex; align-items: center; justify-content: center;">
                             <center>
