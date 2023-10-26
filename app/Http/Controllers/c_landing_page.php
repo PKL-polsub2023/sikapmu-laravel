@@ -58,7 +58,7 @@ class c_landing_page extends Controller
     public function wirausahadetail($id)
     {
        
-        $data = ['wm' => $this->wm->detailData($id),
+        $data = ['wirausaha' => $this->wm->detailData($id),
                  'event' => $this->file_event->DetailDatau($id),
                  'usaha' => $this->data_usaha->DetailDatau($id),
                 

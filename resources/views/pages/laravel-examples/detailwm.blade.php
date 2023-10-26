@@ -27,12 +27,7 @@
         <div class="supp text-center mb-5">
             <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
         </div>
-        <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">{{ $loker->instansi }}</h1>
-
-        <div class="supp text-center mb-5">
-            <img src="{{ asset('foto/loker/' . $loker->foto) }}" style="width:50%" alt="profile-img"
-                class="text-center" />
-        </div>
+       
         <!-- End Navbar -->
         <div class="container-fluid py-4">
             <div class="col-3 text-start">
