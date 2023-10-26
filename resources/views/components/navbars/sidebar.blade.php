@@ -65,7 +65,7 @@
     <div class="sidenav-header">
         <a href="{{ route('dashboard') }}" class="nav-link" id="dashboard">
             <div class="profile-img" style=" height: 60px; display: flex; justify-content: center; margin: 0 auto;">
-                <img src="{{ asset('assets/logo.png') }}" alt="profile-img" />
+                <img src="{{ asset('assets/img/icon_black.png') }}" alt="profile-img" />
             </div>
         </a>
     </div>
