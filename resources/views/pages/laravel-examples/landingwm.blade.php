@@ -49,7 +49,7 @@
                             style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">umur : {{ $item->umur }}
                         </h1>
                         <div class="text-start mx-1 mb-1">
-                            <a class="btn text-start align-items-center" href="{{ route('wm.landing.detail') }}"
+                            <a class="btn text-start align-items-center" href="{{ route('wm.landing.detail', $item->id) }}"
                                 style="background-color: #4C6FFF; text-align: center;">
                                 <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
                                         class="fas fa-arrow-right"></i></i>
