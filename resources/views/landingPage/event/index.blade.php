@@ -14,6 +14,20 @@
                 <h1 style="color: white; font-size: 24px; font-weight: 100;">Sistem Informasi Kepemudaan</h1>
             </div>
         </div>
+        <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">Supported By :</h1>
+
+
+        {{-- <div class="row text-center">
+            @foreach ($ads as $data)
+                <div class="col col-4 col-md-2 mb-5">
+                    <img class="mx-auto" src="{{ asset('foto/ads/' . $data->foto) }}" alt="" style="width:60%">
+                </div>
+            @endforeach
+        </div> --}}
+
+        <div class="supp text-center mb-5">
+            <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
+        </div>
         <h1 class="text-center mt-5 mb-2" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold;">Daftar
             Event
         </h1>
