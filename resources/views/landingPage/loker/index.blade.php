@@ -23,10 +23,13 @@
                     <div class="col-4 mb-5">
                         <div class="card mt-3 px-5 py-5" style="border-radius: 10px; ">
                             <a class="nav-link text-center p-0" id="profile">
-                                <div class="position-relative"
-                                    style="width: 170px; height: 170px; overflow: hidden; border-radius: 50%;">
-                                    <img src="{{ asset('foto/loker/' . $item->foto) }}" alt="profile-img"
-                                        class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
+                                <div class="profile-img"
+                                    style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                                    <center>
+                                        <img src="{{ asset('foto/loker/' . $item->foto) }}" alt="profile-img"
+                                            width="100%" />
+                                    </center>
+
                                 </div>
                             </a>
                             <h1 class="text-start mx-1 mb-4 mt-5"

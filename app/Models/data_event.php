@@ -34,4 +34,8 @@ class data_event extends Model
     {
         return DB::table('data_events')->orderBy('waktu_event', 'DESC')->get();
     }
+    public function paginate()
+    {
+        return DB::table('data_events')->orderBy('waktu_event', 'DESC')->paginate(3);
+    }
 }

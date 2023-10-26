@@ -321,27 +321,27 @@ Route::controller(c_landing_page::class)->group(function () {
 
 	// Loker
 	Route::get('loker-utama', 'loker')->name('loker.landingPage');
-	Route::get('loker-utama/detail', 'lokerDetail')->name('loker.landingPage.detail');
+	Route::get('loker-utama/detail/{id}', 'lokerDetail')->name('loker.landingPage.detail');
 	// end Loker
 
 	// Pemuda
 	Route::get('pemuda-utama', 'pemuda')->name('pemuda.landingPage');
-	Route::get('pemuda-utama/detail', 'pemudaDetail')->name('pemuda.landingPage.detail');
+	Route::get('pemuda-utama/detail/{id}', 'pemudaDetail')->name('pemuda.landingPage.detail');
 	// end Pemuda
 
 	// OKP
 	Route::get('okp-utama', 'okp')->name('okp.landingPage');
-	Route::get('okp-utama/detail', 'okpDetail')->name('okp.landingPage.detail');
+	Route::get('okp-utama/detail/{id}', 'okpDetail')->name('okp.landingPage.detail');
 	// end OKP
 
 	// Event
 	Route::get('event-utama', 'event')->name('event.landingPage');
-	Route::get('event-utama/detail', 'eventDetail')->name('event.landingPage.detail');
+	Route::get('event-utama/detail/{id}', 'eventDetail')->name('event.landingPage.detail');
 	// end Event
 
 	// berita
 	Route::get('berita-utama', 'berita')->name('berita.landingPage');
-	Route::get('berita-utama/detail', 'beritaDetail')->name('berita.landingPage.detail');
+	Route::get('berita-utama/detail/{id}', 'beritaDetail')->name('berita.landingPage.detail');
 	// end berita
 });
 
