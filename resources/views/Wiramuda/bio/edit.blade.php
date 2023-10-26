@@ -18,19 +18,19 @@
                         </div>
                     </div>
                     <div class="card-body p-3">
-                        <form method='POST' action='{{ route('pemuda.store') }}'>
+                        <form method='POST' action='{{ route('wiramuda.update', $du->id_usaha) }}'>
                             @csrf
                             <div class="row">
 
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Nama Usaha</label>
-                                    <input type="number" name="nama_usaha" class="form-control border border-2 p-2"
+                                    <input type="text" name="nama_usaha" class="form-control border border-2 p-2"
                                         value='{{ old('nama_usaha', $du->nama_usaha) }}'>
                                 </div>
                                 
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Jenis Produk</label>
-                                    <input type="number" name="jenis_produk" class="form-control border border-2 p-2"
+                                    <input type="text" name="jenis_produk" class="form-control border border-2 p-2"
                                         value='{{ old('jenis_produk', $du->jenis_produk) }}'>
                                     @error('jenis_produk')
                                         <p class='text-danger inputerror'>{{ $message }} </p>

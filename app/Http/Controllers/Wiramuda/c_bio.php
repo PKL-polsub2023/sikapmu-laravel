@@ -41,14 +41,15 @@ class c_bio extends Controller
     }
     public function create()
     {
-        return view('Wiramuda.bio.create', $data);
+        return view('Wiramuda.bio.create');
     }
     public function store(Request $request)
     {
        $data = ['nama_usaha'=>$request->nama_usaha,
                 'jenis_produk'=>$request->jenis_produk,
                 'omset'=>$request->omset,
-                'modal'=>$request->modal];
+                'modal'=>$request->modal,
+                'id_user'=>Auth::user()->id];
         $this->usaha->addData($data);
         return redirect()->route('wiramuda.usaha');
     }
@@ -103,5 +104,10 @@ class c_bio extends Controller
         $this->wirausaha->editData($id, $data1);
 
         return redirect()->route('wiramuda.bio')->with('success','Update Bio Berhasil');
+    }
+    public function destroy($id)
+    {
+        $this->usaha->hapusData($id);
+        return redirect()->route('wiramuda.usaha');
     }
 }

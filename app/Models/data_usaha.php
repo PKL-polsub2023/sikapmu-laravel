@@ -27,4 +27,8 @@ class data_usaha extends Model
     {
         DB::table('data_usahas')->where('id_usaha', $id)->update($data);
     }
+    public function hapusData($id)
+    {
+        DB::table('data_usahas')->where('id_usaha', $id)->delete();
+    }
 }

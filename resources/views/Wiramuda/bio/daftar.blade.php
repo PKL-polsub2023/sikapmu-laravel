@@ -20,7 +20,7 @@
                 <div class="col-12">
 
                     <div class="me-3 my-3 text-start">
-                        <a href="/pemuda/create" class="btn bg-0057FF mb-0"
+                        <a href="{{ route('wiramuda.create') }}" class="btn bg-0057FF mb-0"
                            style="background-color: #0057FF;">
                             <i class="text-sm text-white">Tambah Data</i>
                         </a>
@@ -79,7 +79,7 @@
                                                     <div class="col-4">
                                                         <div class="me-n2 my-3 text-start">
                                                             <a class="btn btn-sm bg-warning mb-0 w-100"
-                                                                href="{{ route('pemuda.edit', $data->id_usaha) }}" style="background-color: #0057FF;">
+                                                                href="{{ route('wiramuda.edit', $data->id_usaha) }}" style="background-color: #0057FF;">
                                                                 <i class="text-sm text-white">UBAH</i>
                                                             </a>
                                                         </div>
@@ -87,7 +87,7 @@
                                                     <div class="col-4">
                                                         <div class="me-n2 my-3 text-start">
                                                             <a class="btn btn-sm bg-danger mb-0 h-25 w-100"
-                                                                href="{{ route('pemuda.destroy', $data->id_usaha) }}" style="background-color: #0057FF;">
+                                                                href="{{ route('wiramuda.destroy', $data->id_usaha) }}" style="background-color: #0057FF;">
                                                                 <i class="text-sm text-white">HAPUS</i>
                                                             </a>
                                                         </div>
