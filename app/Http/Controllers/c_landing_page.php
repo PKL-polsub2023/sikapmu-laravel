@@ -11,12 +11,14 @@ use App\Models\wirausaha;
 use App\Models\file_event;
 use App\Models\file_loker;
 use App\Models\data_usaha;
+use App\Models\pemuda_pelopor;
 use Str;
 
 class c_landing_page extends Controller
 {
     public function __construct()
     {
+        $this->pp = new pemuda_pelopor();
         $this->dp = new data_pemuda();
         $this->dl = new data_loker();
         $this->de = new data_event();
@@ -32,7 +34,10 @@ class c_landing_page extends Controller
         $data = ['dp' => $this->dp->allData(),
                  'loker' => $this->dl->allData(),
                  'event' => $this->de->allData(),
-                 'berita' => $this->db->allData()];
+                 'pemuda' => $this->pp->allData(),
+                 'berita' => $this->db->allData()
+                
+                ];
 
                  foreach ($data['event'] as &$event) { 
                     $event->deskripsi = Str::limit($event->deskripsi, '25');
@@ -50,9 +55,12 @@ class c_landing_page extends Controller
     }
     public function wirausahadetail($id)
     {
+        $sekarang = date('Y');
         $data = ['wm' => $this->wm->detailData($id),
                  'event' => $this->file_event->DetailDatau($id),
-                 'usaha' => $this->data_usaha->DetailDatau($id)];
+                 'usaha' => $this->data_usaha->DetailDatau($id),
+                 'j' => $this->dp->tahunData($sekarang),
+    ];
         return view('pages.laravel-examples.detailwm', $data);
     }
     public function chart($id)
@@ -114,8 +122,9 @@ class c_landing_page extends Controller
     public function pemuda()
     {
         $data = [
-            'pemuda' => $this->dp->paginate(),
+            'pelopor' => $this->pp->paginate(),
         ];
+
         
         return view ('landingPage.pemuda.index', $data);
     }
@@ -123,7 +132,7 @@ class c_landing_page extends Controller
     public function pemudaDetail($id)
     {
         $data = [
-            'pemuda' => $this->dp->detailData($id),
+            'pelopor' => $this->pp->detailData($id),
         ];
         return view ('landingPage.pemuda.detail', $data);
     }

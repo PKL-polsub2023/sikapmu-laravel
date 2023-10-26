@@ -30,4 +30,8 @@ class pemuda_pelopor extends Model
     {
         DB::table('pemuda_pelopors')->where('id_user', $id)->delete();
     }
+    public function paginate()
+    {
+        return DB::table('users')->join('pemuda_pelopors', 'users.id', '=', 'pemuda_pelopors.id_user')->paginate(3);
+    }
 }

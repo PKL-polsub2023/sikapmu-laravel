@@ -24,47 +24,105 @@
             @endforeach
         </div> --}}
 
-        <div class="supp text-center mb-5">
-            <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
-        </div>
-        <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">{{ $event->judul }}</h1>
-
-        <div class="supp text-center mb-5">
-            <img src="{{ asset('foto/event/' . $event->foto) }}" style="width:50%" alt="profile-img"
-                class="text-center" />
-        </div>
         <div class="container">
-            <div class="row">
-                <div class="col col-8 col-md-8">
-                    <h1 class="text-start mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                        Deskripsi :</h1>
-                    <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px;overflow:hidden; ">
-                        {{ $event->deskripsi }} </h1>
-                    <h1 class="text-start mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                        Kategori :</h1>
-                    <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">{{ $event->kategori }} </h1>
-                    <h1 class="text-start mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                        Persyaratan : </h1>
+            <div class="col-3 text-start">
+                <h1 class="d-flex text-start align-items-start"
+                    style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold; margin-right: 5px;">
+                    Bio Pemuda Pelopor
+                </h1>
+            </div>
+            <div class="card" style="border-radius: 10px; background-color: #293679; position:relative;">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-4 mt-3">
+                        <h1 class="d-flex text-center align-items-center"
+                            style="color: rgb(255, 255, 255); font-size: 24px; font-weight: bold;">
+                            {{ Auth::user()->nama }}
+                        </h1>
+                        <h1 class="d-flex text-center align-items-center"
+                            style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">{{ $user->ttl }}
+                        </h1>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-2 d-flex align-items-center justify-content-center">
+                                <!-- Menggunakan d-flex dan align-items-center untuk vertikal centering -->
+                                <div class="profile-img" style="height: 20px; width:20px;">
+                                    <img src="{{ asset('assets/img/map.png') }}" alt="profile-img" width="100%" />
+                                </div>
+                            </div>
+                            <div class="col-10">
+                                <div class="container">
+                                    <h1 class="text-start mb-4"
+                                        style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
+                                        Lokasi Terkini : {{ $user->alamat }}
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
 
-                    <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; overflow:hidden;  ">
-                        {{ $event->persyaratan }}
-                        {{-- 
-                        @php
-                        echo $event->persyaratan;
-                    @endphp --}}
-                    </h1>
-                </div>
-                <div class="col-1"></div>
-                <div class="col col-3 col-md-3">
-                    <div class="text-start mx-1 mb-1">
-                        <a class="btn text-start align-items-center" @guest href="{{ url('sign-in') }}" @endguest
-                            style="background-color: #4C6FFF; text-align: center;">
-                            <i class="text-white py-5 px-5" style="text-transform: none; font-style: normal;">Join
-                            </i>
-                        </a>
                     </div>
                 </div>
+
             </div>
+
+            <div class="col-2 d-flex justify-content-end mt-n7">
+                <a class="nav-link text-start p-0" id="profile" style="margin-left: 500px;">
+                    <div class="position-relative"
+                        style="width: 180px; height: 180px; overflow: hidden; border-radius: 50%; border: 5px solid white;">
+                        <img src="{{ asset('foto/pelopor/' . $user->foto) }}" alt="profile-img" class="img-fluid mb-n8"
+                            style="object-fit: cover; width: 100%; height: 100%;" />
+                    </div>
+                </a>
+            </div>
+            <div class="container">
+                <div class="row mt-5">
+
+                    <div class="col-4 text-center">
+                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
+                            <h1 class="d-flex justify-content-center align-items-center"
+                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
+                                Pencapaian : 10
+                            </h1>
+                        </div>
+                    </div>
+
+                    <div class="col-4 text-center">
+                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
+                            <h1 class="d-flex justify-content-center align-items-center"
+                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
+                                Kelengkapan Data : 100 %
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
+                            <h1 class="d-flex justify-content-center align-items-center"
+                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
+                                Joint Event : 20
+                            </h1>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row mt-5">
+
+                    <div class="col-4 text-center">
+
+                    </div>
+
+                    <div class="col-4 text-center">
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <x-footers.auth></x-footers.auth>
         </div>
 
 
