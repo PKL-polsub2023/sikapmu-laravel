@@ -4,17 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\data_pemuda;
+use App\Models\data_loker;
+use App\Models\data_event;
+use App\Models\data_berita;
 
 class c_landing_page extends Controller
 {
     public function __construct()
     {
         $this->dp = new data_pemuda();
+        $this->dl = new data_loker();
+        $this->de = new data_event();
+        $this->db = new data_berita();
     }
 
     public function home()
     {
-        $data = ['dp' => $this->dp->allData()];
+        $data = ['dp' => $this->dp->allData(),
+                 'loker' => $this->dl->allData(),
+                 'event' => $this->de->allData(),
+                 'berita' => $this->db->allData()];
         return view('pages.laravel-examples.landingpage', $data);
     }
     public function chart($id)

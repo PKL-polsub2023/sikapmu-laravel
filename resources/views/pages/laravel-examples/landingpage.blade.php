@@ -18,17 +18,17 @@
         <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">Supported By :</h1>
 
 
-        <div class="row text-center">
+        {{-- <div class="row text-center">
             @foreach ($ads as $data)
                 <div class="col col-4 col-md-2 mb-5">
                     <img class="mx-auto" src="{{ asset('foto/ads/' . $data->foto) }}" alt="" style="width:60%">
                 </div>
             @endforeach
-        </div>
-
-        {{-- <div class="supp text-center mb-5">
-            <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
         </div> --}}
+
+        <div class="supp text-center mb-5">
+            <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
+        </div>
         <h1 class="text-start mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold;">Evaluasi
             Data
             Kependudukan :
@@ -53,7 +53,7 @@
 
         
 
-        <h1 class="text-center mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 28px; font-weight: bold; ">
+        {{-- <h1 class="text-center mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 28px; font-weight: bold; ">
             Lowongan Kerja
         </h1>
         <div class="container mt-3 position: relative;">
@@ -100,154 +100,6 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="col-4">
-                    <h1 class="text-center" style="color: rgb(0, 0, 0); font-size: 18px; font-weight: 100;">Data
-                        Organisasi Kepemudaan</h1>
-
-                    <canvas id="myChart2" width="400" height="400"></canvas>
-                    <div class="card mt-3" style="border-radius: 10px;">
-                        <div class="row mx-1 mt-3 mb-3">
-                            <div class="col-1">
-                                <div class="cards" style="background-color: #55BEEB; ">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <h1 style="color: rgb(12, 12, 12); font-size: 12px; font-weight: 100;">Utara 360 orang
-                                </h1>
-                            </div>
-                            <div class="col-1">
-                                <div class="cards" style="background-color: #F94144; ">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <h1 style="color: rgb(12, 12, 12); font-size: 12px; font-weight: 100;">Timur 260 orang
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="row mx-1 mt-1">
-                            <div class="col-1">
-                                <div class="cards" style="background-color: #FFB320; ">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <h1 style="color: rgb(12, 12, 12); font-size: 12px; font-weight: 100;">Selatan 320
-                                    orang
-                                </h1>
-                            </div>
-                            <div class="col-1">
-                                <div class="cards" style="background-color: #5D5FEF; ">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <h1 style="color: rgb(12, 12, 12); font-size: 12px; font-weight: 100;">Barat 60 orang
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="row mt-3 ">
-                            <div class="col-1"></div>
-                            <div class="col-5">
-                                <div class="text-start mx-4 mb-5">
-                                    <a class="btn text-start align-items-center" href="#"
-                                        style="background-color: #4C6FFF; text-align: center;">
-                                        <i class="text-white" style="text-transform: none; font-style: normal;">Detail
-                                            <i></i></i>
-                                    </a>
-                                </div>
-
-                            </div>
-
-                            <div class="col-5 ">
-                                <div class="row ">
-                                    <div class="col-2">
-                                        <i class="fas fa-user d-flex text-center align-items-center"
-                                            style="font-size: 1rem;"></i>
-                                    </div>
-                                    <div class="col-8 d-flex text-center align-items-center">
-                                        <h1 class="d-flex text-center align-items-center"
-                                            style="color: rgb(12, 12, 12); font-size: 12px; font-weight: bold;">100
-                                        </h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="col-4">
-                    <h1 class="text-center" style="color: rgb(0, 0, 0); font-size: 18px; font-weight: 100;">Data
-                        Kewirausahawan pemuda</h1>
-
-                    <canvas id="myChart3" width="400" height="400"></canvas>
-                    <div class="card mt-3" style="border-radius: 10px;">
-                        <div class="row mx-1 mt-3 mb-3">
-                            <div class="col-1">
-                                <div class="cards" style="background-color: #55BEEB; ">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <h1 style="color: rgb(12, 12, 12); font-size: 12px; font-weight: 100;">Utara 360 orang
-                                </h1>
-                            </div>
-                            <div class="col-1">
-                                <div class="cards" style="background-color: #F94144; ">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <h1 style="color: rgb(12, 12, 12); font-size: 12px; font-weight: 100;">Timur 260 orang
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="row mx-1 mt-1">
-                            <div class="col-1">
-                                <div class="cards" style="background-color: #FFB320; ">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <h1 style="color: rgb(12, 12, 12); font-size: 12px; font-weight: 100;">Selatan 320
-                                    orang
-                                </h1>
-                            </div>
-                            <div class="col-1">
-                                <div class="cards" style="background-color: #5D5FEF; ">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <h1 style="color: rgb(12, 12, 12); font-size: 12px; font-weight: 100;">Barat 60 orang
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="row mt-3 ">
-                            <div class="col-1"></div>
-                            <div class="col-5">
-                                <div class="text-start mx-4 mb-5">
-                                    <a class="btn text-start align-items-center" href="#"
-                                        style="background-color: #4C6FFF; text-align: center;">
-                                        <i class="text-white" style="text-transform: none; font-style: normal;">Detail
-                                            <i></i></i>
-                                    </a>
-                                </div>
-
-                            </div>
-
-                            <div class="col-5 ">
-                                <div class="row ">
-                                    <div class="col-2">
-                                        <i class="fas fa-user d-flex text-center align-items-center"
-                                            style="font-size: 1rem;"></i>
-                                    </div>
-                                    <div class="col-8 d-flex text-center align-items-center">
-                                        <h1 class="d-flex text-center align-items-center"
-                                            style="color: rgb(12, 12, 12); font-size: 12px; font-weight: bold;">100
-                                        </h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="text-center mx-5 mb-5">
@@ -256,9 +108,9 @@
                 <i class="text-white" style="text-transform: none; font-style: normal;">Selengkapnya <i
                         class="fas fa-arrow-right"></i></i>
             </a>
-        </div>
+        </div> --}}
 
-        <div class="card mt-3 mb-5 mx-5" style="border-radius: 10px; ">
+        {{-- <div class="card mt-3 mb-5 mx-5" style="border-radius: 10px; ">
             <div class="row mx-4 my-4">
                 <div class="col-5">
                     <h1 style="color: rgb(12, 12, 12); font-size: 28px; font-weight: 100;"> Jadilah Jawara Muda Subang
@@ -275,7 +127,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> --}}
 
         <h1 class="text-start mx-5 mt-3 mb-5" style="color: rgb(0, 0, 0); font-size: 22px; font-weight: bold; ">
             Lowongan Kerja
