@@ -87,9 +87,9 @@
                     </div>
                 @endforeach
             </div>
-            <center>
+            {{-- <center>
                 <a href="{{ route('event.selengkapnya') }}" class="default-button news-btn">Selengkapnya</a>
-            </center>
+            </center> --}}
         </div>
     </div>
 </section>

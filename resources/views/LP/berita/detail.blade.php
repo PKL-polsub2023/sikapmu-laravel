@@ -59,65 +59,31 @@
 <section class="berita ptb-50 bg-white" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
     data-aos-duration="1500">
     <div class="container">
-        <div class="default-section-title default-section-title-middle">
-            <h3>Lowongan Kerja</h3>
-            <p>Loker Terbaru</p>
-        </div>
-        <div class="section-content">
-            <div class="container mt-3 position: relative;">
-                <div class="row">
-                    @foreach ($loker as $item)
-                        <div class="col-4 mb-5">
-                            <div class="card mt-3 px-5 py-5" style="border-radius: 10px; ">
-                                <a class="nav-link text-center p-0" id="profile">
-                                    <div class="profile-img"
-                                        style="height: 200px; display: flex; align-items: center; justify-content: center;">
-                                        <center>
-                                            <img src="{{ asset('foto/loker/' . $item->foto) }}" alt="profile-img"
-                                                width="100%" />
-                                        </center>
-
-                                    </div>
-                                </a>
-                                <h1 class="text-start mx-1 mb-4 mt-5"
-                                    style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">
-                                    {{ $item->judul }}
-                                </h1>
-                                <h1 class="text-start mx-1 mb-2"
-                                    style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">
-                                    {{ $item->instansi }}
-                                </h1>
-                                <div class="text-start mx-1 mb-1">
-                                    <a class="btn text-start align-items-center"
-                                        href="{{ route('loker.landingPage.detail', $item->id_loker) }}"
-                                        style="background-color: #4C6FFF; text-align: center;">
-                                        <i class="text-white" style="text-transform: none; font-style: normal;">See more
-                                            <i class="fas fa-arrow-right"></i></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endforeach
-                </div>
-                <center>
-                    {{ $loker->links() }}
-                </center>
-                {{-- <div class="navigations">
-                    <button id="back"
-                        style="position: absolute; top: 45%; right: 92%; transform: translate(-50%, -50%); border: none; background-color: #fff; border-radius: 50%; width: 40px; height: 40px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-                        <i class="fas fa-arrow-left" style="color: #000;"></i>
-                    </button>
-    
-                    <button id="next"
-                        style="position: absolute; top: 45%; left: 98%; transform: translate(-50%, -50%); border: none; background-color: #fff; border-radius: 50%; width: 40px; height: 40px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-                        <i class="fas fa-arrow-right" style="color: #000;"></i>
-                    </button>
-                </div> --}}
+        <div class="row">
+            <div class="col col-12 col-md-12">
+                <h1 class="text-start mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
+                    Kategori : {{ $berita->kategori }}</h1>
+                <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; "> </h1>
+                <h1 class="text-start "
+                    style="color: rgb(0, 0, 0); font-size: 18px;  word-wrap: break-word; white-space: normal;  ">
+                    {{ $berita->isi }}
+                    {{-- 
+                    @php
+                    echo $event->persyaratan;
+                @endphp --}}
+                </h1>
             </div>
-            <center>
-                <a href="{{ route('loker.selengkapnya') }}" class="default-button news-btn">Selengkapnya</a>
-            </center>
+            <br>
+            {{-- <div class="col-1"></div> --}}
+            {{-- <div class="col col-3 col-md-3">
+                <div class="text-start mx-1 mb-1">
+                    <a class="btn text-start align-items-center" @guest href="{{ url('sign-in') }}" @endguest
+                        style="background-color: #4C6FFF; text-align: center;">
+                        <i class="text-white py-5 px-5" style="text-transform: none; font-style: normal;">Join
+                        </i>
+                    </a>
+                </div>
+            </div> --}}
         </div>
     </div>
 </section>

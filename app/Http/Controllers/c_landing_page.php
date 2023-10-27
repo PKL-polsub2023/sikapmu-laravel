@@ -153,7 +153,7 @@ class c_landing_page extends Controller
             'berita' => $this->db->paginate(),
         ];
         foreach ($data['berita'] as &$berita) { 
-            $berita->deskripsi = Str::limit($berita->deskripsi, '25');
+            $berita->isi = Str::limit($berita->isi, '25');
         }
         return view ('LP.berita.index', $data);
     }

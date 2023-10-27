@@ -88,9 +88,9 @@
                     </div>
                 @endforeach
             </div>
-            <center>
+            {{-- <center>
                 <a href="/loker" class="default-button news-btn">Selengkapnya</a>
-            </center>
+            </center> --}}
         </div>
     </div>
 </section>

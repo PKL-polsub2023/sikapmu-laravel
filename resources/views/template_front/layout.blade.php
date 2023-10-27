@@ -3,16 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-	<!-- CSRF Token -->
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta property="og:site_name" content="silapem.com"/>
-	<meta property="og:title" content="SILAPEM"/>
-	<meta property="og:description" content="SILAPEM">
-	<meta property="og:image" content="https://silapem.com/front/images/logo.png">
-	<meta property="og:url" content="https://silapem.com/home">
+    <meta property="og:site_name" content="silapem.com" />
+    <meta property="og:title" content="SILAPEM" />
+    <meta property="og:description" content="SILAPEM">
+    <meta property="og:image" content="https://silapem.com/front/images/logo.png">
+    <meta property="og:url" content="https://silapem.com/home">
     <meta property="og:type" content="website" />
 
     <link rel="stylesheet" href="{{ asset('') }}front/css/animate.min.css">
@@ -32,12 +32,12 @@
     <link rel="stylesheet" href="{{ asset('') }}front/css/aos.css">
     <script src="{{ asset('') }}front/js/jquery.min.js"></script>
     <!---Highchart-->
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="{{ asset('') }}plugin/hc/code/modules/series-label.js"></script>
-	<script src="{{ asset('') }}plugin/hc/code/modules/exporting.js"></script>
-	<script src="{{ asset('') }}plugin/hc/code/modules/offline-exporting.js"></script>
-	<script src="{{ asset('') }}plugin/hc/code/modules/export-data.js"></script>
-	<title>@yield('title','SILAPEM')</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="{{ asset('') }}plugin/hc/code/modules/series-label.js"></script>
+    <script src="{{ asset('') }}plugin/hc/code/modules/exporting.js"></script>
+    <script src="{{ asset('') }}plugin/hc/code/modules/offline-exporting.js"></script>
+    <script src="{{ asset('') }}plugin/hc/code/modules/export-data.js"></script>
+    <title>@yield('title', 'SILAPEM')</title>
     <!--- Favicon --->
     <link rel="icon" href="{{ asset('') }}front/images/favicon.png" type="image/x-icon" />
 </head>
@@ -51,7 +51,7 @@
     </div>
     @include('template_front.footer')
 
-    
+
     <script src="{{ asset('') }}front/js/jquery-ui.min.js"></script>
     <script src="{{ asset('') }}front/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('') }}front/js/meanmenu.js"></script>

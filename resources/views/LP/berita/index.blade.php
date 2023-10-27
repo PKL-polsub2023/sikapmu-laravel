@@ -60,70 +60,65 @@
     data-aos-duration="1500">
     <div class="container">
         <div class="default-section-title default-section-title-middle">
-            <h3>Event</h3>
+            <h3>Berita</h3>
+            <p>Berita Terbaru</p>
         </div>
         <div class="section-content">
-            <div class="row">
-                @foreach ($event as $item)
-                    <div class="col-4 mb-5">
-                        <div class="card mt-3 px-5 py-5" style="border-radius: 10px; ">
-                            <a class="nav-link text-center p-0" id="profile">
-                                <div class="profile-img"
-                                    style="height: 200px; display: flex; align-items: center; justify-content: center;">
-                                    <center>
-                                        @if ($item->foto != null)
-                                            <img src="{{ asset('foto/event/' . $item->foto) }}" alt="profile-img"
-                                                width="100%" />
-                                        @else
-                                            <img src="{{ asset('foto/default.png') }}" alt="profile-img"
-                                                width="100%" />
-                                        @endif
-                                    </center>
+            <div class="agenda-slider-area-1 owl-carousel">
 
-                                </div>
-                            </a>
-                            <h1 class="text-start mx-1 mb-4 mt-5"
-                                style="color: rgb(12, 12, 12); font-size: 18px; font-weight: bold;">
-                                {{ $item->judul }}
-                            </h1>
-                            <h1 class="text-start mx-1 mb-2"
-                                style="color: rgb(42, 42, 42); font-size: 18px; font-weight: 100;">
-                                {{ $item->deskripsi }}
-                            </h1>
-                            <div class="text-start mx-1 mb-1">
-                                <a class="btn text-start align-items-center"
-                                    href="{{ route('event.landingPage.detail', $item->id_event) }}"
-                                    style="background-color: #4C6FFF; text-align: center;">
-                                    <i class="text-white" style="text-transform: none; font-style: normal;">See more <i
-                                            class="fas fa-arrow-right"></i></i>
-                                </a>
-                            </div>
+                @foreach ($berita as $data)
+                    <div class="blog-card mlr-15 mb-30">
+                        <div class="blog-card-img">
+                            <a href="{{ route('berita.landingPage.detail', $data->id_berita) }}"><img
+                                    src="{{ asset('foto/berita/' . $data->foto) }}" alt="image"></a>
                         </div>
-
+                        <div class="blog-card-text-area">
+                            <div class="blog-date">
+                                <ul>
+                                    {{-- <li><i class="far fa-calendar-alt"></i> 25/10/2023</li> --}}
+                                    <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
+                                    <li><i class="far fa-folder"></i> Terkini</li>
+                                </ul>
+                            </div>
+                            <h4><a
+                                    href="{{ route('berita.landingPage.detail', $data->id_berita) }}">{{ $data->judul }}</a>
+                            </h4>
+                            <h5><a href="{{ route('berita.landingPage.detail', $data->id_berita) }}">Kategori :
+                                    {{ $data->kategori }}</a>
+                            </h5>
+                            <p>{{ $data->isi }}</p>
+                            <a class="read-more-btn"
+                                href="{{ route('berita.landingPage.detail', $data->id_berita) }}">Read More</a>
+                        </div>
                     </div>
                 @endforeach
-            </div>
-            <center>
-                {{ $event->links() }}
-            </center>
-            {{-- <div class="navigations">
-                    <button id="back"
-                        style="position: absolute; top: 45%; right: 92%; transform: translate(-50%, -50%); border: none; background-color: #fff; border-radius: 50%; width: 40px; height: 40px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-                        <i class="fas fa-arrow-left" style="color: #000;"></i>
-                    </button>
-    
-                    <button id="next"
-                        style="position: absolute; top: 45%; left: 98%; transform: translate(-50%, -50%); border: none; background-color: #fff; border-radius: 50%; width: 40px; height: 40px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
-                        <i class="fas fa-arrow-right" style="color: #000;"></i>
-                    </button>
+
+                {{-- <div class="blog-card mlr-15 mb-30">
+                    <div class="blog-card-img">
+                        <a href="/berita/pelaksanaan-gather-okp-2023"><img src="{{ asset('') }}front/images/berita/berita.jpg" alt="image"></a>
+                    </div>
+                    <div class="blog-card-text-area">
+                        <div class="blog-date">
+                            <ul>
+                            <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
+                            <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
+                            <li><i class="far fa-folder"></i> Terkini</li>
+                            </ul>
+                        </div>
+                        <h4><a href="/berita/pelaksanaan-gather-okp-2023">PELAKSANAAN GATHER OKP 2023</a></h4>
+                        <p>Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
+                        <a class="read-more-btn" href="/berita/pelaksanaan-gather-okp-2023">Read More</a>
+                    </div>
                 </div> --}}
+
+            </div>
         </div>
     </div>
 </section>
 
 
 
-
+{{-- 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
     $(document).ready(function() {
@@ -619,6 +614,6 @@
         });
 
     }
-</script>
+</script> --}}
 
 @endsection
