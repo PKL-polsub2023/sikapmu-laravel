@@ -196,9 +196,9 @@
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
-                
+                                <button type="submit" class="btn bg-gradient-dark">Submit</button>
+                                <a class="btn bg-gradient-dark" onclick="create()">Ubah Password</a>
                             </div>
-                            <button type="submit" class="btn bg-gradient-dark">Submit</button>
                         </form>
 
                     </div>
@@ -206,8 +206,38 @@
             </div>
 
         </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('password', $user->id) }}" method="POST">
+                            @csrf
+                            <label for="password">Kata Sandi</label>
+                            <input type="password" name="password" class="form-control border border-2 p-2">
+                        
+                            <label for="password_confirmation">Konfirmasi Kata Sandi</label>
+                            <input type="password" name="password_confirmation" class="form-control border border-2 p-2">
+                           
+                            <br>
+                            <button class="btn btn-success">Simpan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <x-footers.auth></x-footers.auth>
     </div>
     <x-plugins></x-plugins>
 
 </x-layout>
+<script>
+    function create() {
+               $("#exampleModalLabel").html('Ubah Password');
+               $("#exampleModal").modal('show');
+       }
+
+</script>
