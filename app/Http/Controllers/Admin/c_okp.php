@@ -38,7 +38,7 @@ class c_okp extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nama' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'kpassword' => 'required|same:password',
             'kontak' => 'required',
@@ -112,9 +112,8 @@ class c_okp extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'nama_depan' => 'required',
-            'nama_belakang' => 'required',
-            'kontak' => 'required',
+            'nama' => 'required',
+ 
         ]);
     
         if ($validator->fails()) {
@@ -129,7 +128,7 @@ class c_okp extends Controller
                 ];
             }else{
                 $data = [
-                    'nama' => $request->nama_depan." ".$request->nama_belakang,
+                    'nama' => $request->nama,
                     'email' => $request->email,
                     'kontak' => $request->kontak,
                 ];

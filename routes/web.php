@@ -151,10 +151,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::controller(c_wiramuda::class)->group(function () {
 		Route::get('wiramuda', 'index')->name('wiramuda.index');
 		Route::get('wiramuda/create', 'create')->name('wiramuda.create');
-		Route::post('wiramuda/store', 'store')->name('wiramuda.store');
+		Route::post('wiramuda/kirim', 'store')->name('wiramuda.store');
 		Route::get('wiramuda/edit/{id}', 'edit')->name('wiramuda.edit');
 		Route::post('wiramuda/update/{id}', 'update')->name('wiramuda.update');
 		Route::get('wiramuda/verifikasi/{id}', 'verifikasi')->name('wiramuda.verifikasi');
+		Route::get('wiramuda/destroy/{id}', 'destroy')->name('wiramuda.destroy');
 	});
 	// END DATA WIRAUSAHA MUDA ADMIN
 
@@ -166,6 +167,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('okp/edit/{id}', 'edit')->name('okp.edit');
 		Route::post('okp/update/{id}', 'update')->name('okp.update');
 		Route::get('okp/verifikasi/{id}', 'verifikasi')->name('okp.verifikasi');
+		Route::get('okp/destroy/{id}', 'destroy')->name('okp.destroy');
 	});
 	// END DATA OKP ADMIN
 
@@ -177,6 +179,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('pelopor/edit/{id}', 'edit')->name('pelopor.edit');
 		Route::post('pelopor/update/{id}', 'update')->name('pelopor.update');
 		Route::get('pelopor/verifikasi/{id}', 'verifikasi')->name('pelopor.verifikasi');
+		Route::get('pelopor/destroy/{id}', 'destroy')->name('pelopor.destroy');
 	});
 	// END DATA PELOPOR MUDA ADMIN
 
@@ -188,6 +191,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('umum/edit/{id}', 'edit')->name('umum.edit');
 		Route::post('umum/update/{id}', 'update')->name('umum.update');
 		Route::get('umum/verifikasi/{id}', 'verifikasi')->name('umum.verifikasi');
+		Route::get('umum/destroy/{id}', 'destroy')->name('umum.destroy');
 	});
 	// END DATA PELOPOR MUDA ADMIN
 
