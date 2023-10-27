@@ -31,4 +31,9 @@ class data extends Model
     {
         DB::table('data')->where('id_data', $id)->delete();
     }
+
+    public function deleteUser($id)
+    {
+        DB::table('data')->where('id_user', $id)->delete();
+    }
 }

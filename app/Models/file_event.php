@@ -51,4 +51,8 @@ class file_event extends Model
     {
         DB::table('file_events')->where('id_user', $id)->delete();
     }
+    public function deleteEvent($id)
+    {
+        DB::table('file_events')->where('id_event', $id)->delete();
+    }
 }

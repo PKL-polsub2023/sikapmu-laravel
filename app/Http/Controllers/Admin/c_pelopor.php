@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\m_user;
 use App\Models\pemuda_pelopor;
+use App\Models\file_loker;
+use App\Models\file_event;
+use App\Models\data;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -17,6 +20,9 @@ class c_pelopor extends Controller
     {
         $this->user = new m_user();
         $this->pelopor = new pemuda_pelopor();
+        $this->file_loker = new file_loker();
+        $this->file_event = new file_event();
+        $this->data = new data();
     }
 
     public function index()
@@ -109,4 +115,13 @@ class c_pelopor extends Controller
         return redirect()->back();
     }
     
+    public function destroy($id)
+    {
+        $this->data->deleteUser($id);
+        $this->file_event->deleteUser($id);
+        $this->file_loker->deleteUser($id);
+        $this->pelopor->deleteData($id);
+        $this->user->deleteData($id);
+        return redirect()->route('pelopor.index')->with('success', "Data Berhasil dihapus.");
+    }
 }
