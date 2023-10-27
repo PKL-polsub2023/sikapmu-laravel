@@ -28,22 +28,15 @@
                         </h1>
                     </div>
                     <div class="col-7">
-                        <div class="row">
-                            <div class="col-1 d-flex align-items-center justify-content-center">
-                                <!-- Menggunakan d-flex dan align-items-center untuk vertikal centering -->
-                                <div class="profile-img" style="height: 20px; width:20px;">
-                                    <img src="{{ asset('assets/img/map.png') }}" alt="profile-img" width="100%" />
-                                </div>
-                            </div>
-                            <div class="col-11">
+                       
                                 <div class="container" style="max-width: 500px;">
                                     <h1 class="text-start mx-3 mb-4"
                                         style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
-                                        Alamat : {{ $wirausaha->alamat }}
+             
+                                        <i style="color: red" class="fa fa-map-marker"></i>  Alamat : {{ $wirausaha->alamat }}
                                     </h1>
                                 </div>
-                            </div>
-                        </div>
+                           
 
                     </div>
                 </div>

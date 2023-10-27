@@ -33,22 +33,24 @@ class c_landing_page extends Controller
 
     public function home()
     {
-        $data = ['dp' => $this->dp->allData(),
-                 'loker' => $this->dl->allData(),
-                 'event' => $this->de->allData(),
-                 'pemuda' => $this->pp->allData(),
-                 'berita' => $this->db->allData()
+        $pages='LP.home.index';
+        return view('template_front.content', ['konten' => $pages]);
+        // $data = ['dp' => $this->dp->allData(),
+        //          'loker' => $this->dl->allData(),
+        //          'event' => $this->de->allData(),
+        //          'pemuda' => $this->pp->allData(),
+        //          'berita' => $this->db->allData()
                 
-                ];
+        //         ];
 
-                 foreach ($data['event'] as &$event) { 
-                    $event->deskripsi = Str::limit($event->deskripsi, '25');
-                }
+        //          foreach ($data['event'] as &$event) { 
+        //             $event->deskripsi = Str::limit($event->deskripsi, '25');
+        //         }
         
-                foreach ($data['berita'] as &$berita) { 
-                    $berita->isi = Str::limit($berita->isi, '25');
-                }
-        return view('pages.laravel-examples.landingpage', $data);
+        //         foreach ($data['berita'] as &$berita) { 
+        //             $berita->isi = Str::limit($berita->isi, '25');
+        //         }
+        // return view('pages.laravel-examples.landingpage', $data);
     }
     public function lwm()
     {
