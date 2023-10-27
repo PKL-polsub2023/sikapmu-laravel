@@ -179,24 +179,28 @@
             </div>
             <div class="section-content">
                 <div class="agenda-slider-area-1 owl-carousel">
+                    @foreach ($loker as $data)
                     <div class="blog-card mlr-15 mb-30">
                         <div class="blog-card-img">
-                            <a href="/loker/perusahaan-satu"><img src="{{ asset('') }}front/images/loker/job.jpg" alt="image"></a>
+                            <a href="/loker/perusahaan-satu"><img src="{{ asset('foto/loker/' . $data->foto) }}" alt="image"></a>
                         </div>
                         <div class="blog-card-text-area">
                             <div class="blog-date">
                                 <ul>
-                                <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
+                                <li><i class="far fa-calendar-alt"></i> {{ $data->waktu_mulai }}</li>
                                 <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
                                 <!-- <li><i class="far fa-folder"></i> Terkini</li> -->
                                 </ul>
                             </div>
-                            <h4><a href="/loker/perusahaan-satu">PERUSAHAAN SATU</a></h4>
-                            <p>Lowongan Kerja Terbaru dari Perusahaan Yang Bekerjasama dengan Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
-                            <a class="read-more-btn" href="/loker/perusahaan-satu">Read More</a>
+                            <h4><a href="/loker/perusahaan-satu">{{ $data->instansi }}</a></h4>
+                            <h5><a href="/loker/perusahaan-satu">Pekerjaan : {{ $data->judul }}</a></h5>
+                            <p>{{ $data->deskripsi }}</p>
+                            <a class="read-more-btn" href="#">Read More</a>
                         </div>
                     </div>
-                    <div class="blog-card mlr-15 mb-30">
+                    @endforeach
+
+                    {{-- <div class="blog-card mlr-15 mb-30">
                         <div class="blog-card-img">
                             <a href="/loker/perusahaan-dua"><img src="{{ asset('') }}front/images/loker/job.jpg" alt="image"></a>
                         </div>
@@ -212,45 +216,10 @@
                             <p>Lowongan Kerja Terbaru dari Perusahaan Yang Bekerjasama dengan Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
                             <a class="read-more-btn" href="/loker/perusahaan-dua">Read More</a>
                         </div>
-                    </div>
-                    <div class="blog-card mlr-15 mb-30">
-                        <div class="blog-card-img">
-                            <a href="/loker/perusahaan-tiga"><img src="{{ asset('') }}front/images/loker/job.jpg" alt="image"></a>
-                        </div>
-                        <div class="blog-card-text-area">
-                            <div class="blog-date">
-                                <ul>
-                                <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
-                                <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
-                                <!-- <li><i class="far fa-folder"></i> Terkini</li> -->
-                                </ul>
-                            </div>
-                            <h4><a href="/loker/perusahaan-tiga">PERUSAHAAN TIGA</a></h4>
-                            <p>Lowongan Kerja Terbaru dari Perusahaan Yang Bekerjasama dengan Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
-                            <a class="read-more-btn" href="/loker/perusahaan-tiga">Read More</a>
-                        </div>
-                    </div>
-                    <div class="blog-card mlr-15 mb-30">
-                        <div class="blog-card-img">
-                            <a href="/loker/perusahaan-empat"><img src="{{ asset('') }}front/images/loker/job.jpg" alt="image"></a>
-                        </div>
-                        <div class="blog-card-text-area">
-                            <div class="blog-date">
-                                <ul>
-                                <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
-                                <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
-                                <!-- <li><i class="far fa-folder"></i> Terkini</li> -->
-                                </ul>
-                            </div>
-                            <h4><a href="/loker/perusahaan-empat">PERUSAHAAN EMPAT</a></h4>
-                            <p>Lowongan Kerja Terbaru dari Perusahaan Yang Bekerjasama dengan Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
-                            <a class="read-more-btn" href="/berita/perusahaan-empat">Read More</a>
-                        </div>
-                    </div>
+                    </div> --}}
+                    
                 </div>
-                <center>
-                <a href="/loker" class="default-button news-btn">Selengkapnya</a>
-                </center>
+               
             </div>
         </div>
     </section>
@@ -263,78 +232,45 @@
             </div>
             <div class="section-content">
                 <div class="agenda-slider-area-1 owl-carousel">
+
+                    @foreach ($event as $data)
                     <div class="blog-card mlr-15 mb-30">
                         <div class="blog-card-img">
-                            <a href="/event/seleksi-wirausaha-muda-2023"><img src="{{ asset('') }}front/images/events/event1.jpg" alt="image"></a>
+                            <a href="/event/seleksi-wirausaha-muda-2023"><img src="{{ asset('foto/event/' . $data->foto) }}" alt="image"></a>
                         </div>
                         <div class="blog-card-text-area">
                             <div class="blog-date">
                                 <ul>
-                                <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
+                                <li><i class="far fa-calendar-alt"></i> {{ $data->waktu_event }}</li>
                                 <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
                                 <li><i class="far fa-folder"></i> Terkini</li>
                                 </ul>
                             </div>
-                            <h4><a href="/event/seleksi-wirausaha-muda-2023">SELEKSI WIRAUSAHA MUDA 2023</a></h4>
-                            <p>Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
+                            <h4><a href="/event/seleksi-wirausaha-muda-2023">{{ $data->judul }}</a></h4>
+                            <p>{{ $data->deskripsi }}</p>
                             <a class="read-more-btn" href="/event/seleksi-wirausaha-muda-2023">Read More</a>
                         </div>
                     </div>
-                    <div class="blog-card mlr-15 mb-30">
-                        <div class="blog-card-img">
-                            <a href="/event/seleksi-pemuda-pelopor-2023"><img src="{{ asset('') }}front/images/events/event1.jpg" alt="image"></a>
-                        </div>
-                        <div class="blog-card-text-area">
-                            <div class="blog-date">
-                                <ul>
-                                <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
-                                <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
-                                <li><i class="far fa-folder"></i> Terkini</li>
-                                </ul>
-                            </div>
-                            <h4><a href="/event/seleksi-pemuda-pelopor-2023">SELEKSI PEMUDA PELOPOR 2023</a></h4>
-                            <p>Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
-                            <a class="read-more-btn" href="/event/seleksi-pemuda-pelopor-2023">Read More</a>
-                        </div>
+                    @endforeach
+                {{-- <div class="blog-card mlr-15 mb-30">
+                    <div class="blog-card-img">
+                        <a href="/event/seleksi-pemuda-pelopor-2023"><img src="{{ asset('') }}front/images/events/event1.jpg" alt="image"></a>
                     </div>
-                    <div class="blog-card mlr-15 mb-30">
-                        <div class="blog-card-img">
-                            <a href="/event/webinar-okp-2023"><img src="{{ asset('') }}front/images/events/event1.jpg" alt="image"></a>
+                    <div class="blog-card-text-area">
+                        <div class="blog-date">
+                            <ul>
+                            <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
+                            <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
+                            <li><i class="far fa-folder"></i> Terkini</li>
+                            </ul>
                         </div>
-                        <div class="blog-card-text-area">
-                            <div class="blog-date">
-                                <ul>
-                                <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
-                                <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
-                                <li><i class="far fa-folder"></i> Terkini</li>
-                                </ul>
-                            </div>
-                            <h4><a href="/event/webinar-okp-2023">WEBINAR OKP 2023</a></h4>
-                            <p>Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
-                            <a class="read-more-btn" href="/event/webinar-okp-2023">Read More</a>
-                        </div>
+                        <h4><a href="/event/seleksi-pemuda-pelopor-2023">SELEKSI PEMUDA PELOPOR 2023</a></h4>
+                        <p>Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
+                        <a class="read-more-btn" href="/event/seleksi-pemuda-pelopor-2023">Read More</a>
                     </div>
-                    <div class="blog-card mlr-15 mb-30">
-                        <div class="blog-card-img">
-                            <a href="/event/seleksi-wirausaha-muda-2023"><img src="{{ asset('') }}front/images/events/event1.jpg" alt="image"></a>
-                        </div>
-                        <div class="blog-card-text-area">
-                            <div class="blog-date">
-                                <ul>
-                                <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
-                                <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
-                                <li><i class="far fa-folder"></i> Terkini</li>
-                                </ul>
-                            </div>
-                            <h4><a href="/event/seleksi-wirausaha-muda-2023">SELEKSI WIRAUSAHA MUDA 2023</a></h4>
-                            <p>Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
-                            <a class="read-more-btn" href="/event/seleksi-wirausaha-muda-2023">Read More</a>
-                        </div>
-                    </div>
+                </div> --}}
+                   
                 </div>
-                <center>
-                <a href="/event" class="default-button news-btn">Selengkapnya</a>
-                </center>
             </div>
         </div>
     </section>
@@ -347,24 +283,29 @@
             </div>
             <div class="section-content">
                 <div class="agenda-slider-area-1 owl-carousel">
+
+                    @foreach ($berita as $data)
                     <div class="blog-card mlr-15 mb-30">
                         <div class="blog-card-img">
-                            <a href="/berita/acara-gathering-wirausaha-muda"><img src="{{ asset('') }}front/images/berita/berita.jpg" alt="image"></a>
+                            <a href="/berita/acara-gathering-wirausaha-muda"><img src="{{ asset('foto/berita/' . $data->foto) }}" alt="image"></a>
                         </div>
                         <div class="blog-card-text-area">
                             <div class="blog-date">
                                 <ul>
-                                <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
+                                {{-- <li><i class="far fa-calendar-alt"></i> 25/10/2023</li> --}}
                                 <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
                                 <li><i class="far fa-folder"></i> Terkini</li>
                                 </ul>
                             </div>
-                            <h4><a href="/berita/acara-gathering-wirausaha-muda">ACARA GATHERING WIRAUSAHA MUDA</a></h4>
-                            <p>Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
+                            <h4><a href="/berita/acara-gathering-wirausaha-muda">{{ $data->judul }}</a></h4>
+                            <h5><a href="/berita/acara-gathering-wirausaha-muda">Kategori : {{ $data->kategori }}</a></h5>
+                            <p>{{ $data->isi }}</p>
                             <a class="read-more-btn" href="/berita/acara-gathering-wirausaha-muda">Read More</a>
                         </div>
                     </div>
-                    <div class="blog-card mlr-15 mb-30">
+                    @endforeach
+
+                    {{-- <div class="blog-card mlr-15 mb-30">
                         <div class="blog-card-img">
                             <a href="/berita/pelaksanaan-gather-okp-2023"><img src="{{ asset('') }}front/images/berita/berita.jpg" alt="image"></a>
                         </div>
@@ -380,52 +321,16 @@
                             <p>Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
                             <a class="read-more-btn" href="/berita/pelaksanaan-gather-okp-2023">Read More</a>
                         </div>
-                    </div>
-                    <div class="blog-card mlr-15 mb-30">
-                        <div class="blog-card-img">
-                            <a href="/berita/bazar-umkm-subang-2023"><img src="{{ asset('') }}front/images/berita/berita.jpg" alt="image"></a>
-                        </div>
-                        <div class="blog-card-text-area">
-                            <div class="blog-date">
-                                <ul>
-                                <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
-                                <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
-                                <li><i class="far fa-folder"></i> Terkini</li>
-                                </ul>
-                            </div>
-                            <h4><a href="/berita/bazar-umkm-subang-2023">BAZAR UMKM SUBANG 2023</a></h4>
-                            <p>Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
-                            <a class="read-more-btn" href="/berita/bazar-umkm-subang-2023">Read More</a>
-                        </div>
-                    </div>
-                    <div class="blog-card mlr-15 mb-30">
-                        <div class="blog-card-img">
-                            <a href="/berita/seleksi-wirausaha-muda-2023"><img src="{{ asset('') }}front/images/berita/berita.jpg" alt="image"></a>
-                        </div>
-                        <div class="blog-card-text-area">
-                            <div class="blog-date">
-                                <ul>
-                                <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
-                                <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
-                                <li><i class="far fa-folder"></i> Terkini</li>
-                                </ul>
-                            </div>
-                            <h4><a href="/berita/seleksi-wirausaha-muda-2023">SELEKSI WIRAUSAHA MUDA 2023</a></h4>
-                            <p>Dinas Kebudayaan Pariwisata Pemuda Dan Olah Raga Kabupaten Subang.</p>
-                            <a class="read-more-btn" href="/berita/seleksi-wirausaha-muda-2023">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <center>
-                <a href="/berita" class="default-button news-btn">Selengkapnya</a>
-                </center>
+                    </div> --}}
+                   
+                </div
             </div>
         </div>
     </section>
 
     
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+
 <script>
     $(document).ready(function() {
         chart();
@@ -437,485 +342,485 @@
         $.get("{{ url('chart') }}/" + id, {}, function(data, status) {
             var p1 = data[0];
             var p2 = data[1];
-    Highcharts.chart('pie1', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '<h2>Data Pemuda</h2>'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
-    },
-    legend: {
-        layout: 'horizontal',
-        backgroundColor: '',
-        floating: true,
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 0,
-        y: 0,
-        labelFormatter: function () {
-            return this.name + ' : '+this.options.y+' orang';
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                // format: '<b>{point.name}</b> : {point.y} orang',
-                // style: {
-                // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                // }
+            Highcharts.chart('pie1', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
             },
-            showInLegend: true,
-
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'Umur 16 S/D 19 Tahun',
-            y: p1,
-            sliced: true,
-            selected: true
-        }, {
-            name: 'Umur 20 S/D 30 Tahun',
-            y: p2
-        }]
-    }]
-});
-
-Highcharts.chart('pie2', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '<h2>Data Pesakitan Pemuda</h2>'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
-    },
-    legend: {
-        layout: 'horizontal',
-        backgroundColor: '',
-        floating: true,
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 0,
-        y: 0,
-        labelFormatter: function () {
-            return this.name + ' : '+this.options.y+' orang';
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                // format: '<b>{point.name}</b> : {point.y} orang',
-                // style: {
-                // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                // }
+            title: {
+                text: '<h2>Data Pemuda</h2>'
             },
-            showInLegend: true,
-
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'Pasien TB HIV Positif',
-            y: data[3],
-            sliced: true,
-            selected: true
-        }, {
-            name: 'OAT Dengan ARV',
-            y: data[4]
-        },]
-    }]
-});
-
-Highcharts.chart('pie3', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '<h2>Data Kriminal</h2>'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
-    },
-    legend: {
-        layout: 'horizontal',
-        backgroundColor: '',
-        floating: true,
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 0,
-        y: 0,
-        labelFormatter: function () {
-            return this.name + ' : '+this.options.y+' orang';
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                // format: '<b>{point.name}</b> : {point.y} orang',
-                // style: {
-                // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                // }
+            tooltip: {
+                pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
             },
-            showInLegend: true,
-
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'Curanmor',
-            y: data[8],
-            sliced: true,
-            selected: true
-        }, {
-            name: 'Narkoba',
-            y: data[9]
-        },{
-            name: 'Pembunuhan',
-            y: data[10]
-        },]
-    }]
-});
-
-Highcharts.chart('pie4', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '<h2>Data Data Pencari Kerja</h2>'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
-    },
-    legend: {
-        layout: 'horizontal',
-        backgroundColor: '',
-        floating: true,
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 0,
-        y: 0,
-        labelFormatter: function () {
-            return this.name + ' : '+this.options.y+' orang';
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                // format: '<b>{point.name}</b> : {point.y} orang',
-                // style: {
-                // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                // }
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '',
+                floating: true,
+                align: 'left',
+                verticalAlign: 'bottom',
+                x: 0,
+                y: 0,
+                labelFormatter: function () {
+                    return this.name + ' : '+this.options.y+' orang';
+                }
             },
-            showInLegend: true,
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        // format: '<b>{point.name}</b> : {point.y} orang',
+                        // style: {
+                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        // }
+                    },
+                    showInLegend: true,
 
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'Pencari Kerja',
-            y: data[2],
-            sliced: true,
-            selected: true
-        },]
-    }]
-});
-
-Highcharts.chart('pie5', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '<h2>Data Wira Usaha Muda</h2>'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
-    },
-    legend: {
-        layout: 'horizontal',
-        backgroundColor: '',
-        floating: true,
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 0,
-        y: 0,
-        labelFormatter: function () {
-            return this.name + ' : '+this.options.y+' orang';
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                // format: '<b>{point.name}</b> : {point.y} orang',
-                // style: {
-                // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                // }
+                }
             },
-            showInLegend: true,
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Umur 16 S/D 19 Tahun',
+                    y: p1,
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'Umur 20 S/D 30 Tahun',
+                    y: p2
+                }]
+            }]
+        });
 
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'Wira Usaha Muda',
-            y: data[5],
-            sliced: true,
-            selected: true
-        },]
-    }]
-});
-
-Highcharts.chart('pie6', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '<h2>Data Organisasi Kepemudaan</h2>'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
-    },
-    legend: {
-        layout: 'horizontal',
-        backgroundColor: '',
-        floating: true,
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 0,
-        y: 0,
-        labelFormatter: function () {
-            return this.name + ' : '+this.options.y+' orang';
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                // format: '<b>{point.name}</b> : {point.y} orang',
-                // style: {
-                // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                // }
+        Highcharts.chart('pie2', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
             },
-            showInLegend: true,
-
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'Organisasi Kepemudaan',
-            y: data[6],
-            sliced: true,
-            selected: true
-        },]
-    }]
-});
-
-Highcharts.chart('pie7', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '<h2>Data Anggota Organisasi Kepemudaan</h2>'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
-    },
-    legend: {
-        layout: 'horizontal',
-        backgroundColor: '',
-        floating: true,
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 0,
-        y: 0,
-        labelFormatter: function () {
-            return this.name + ' : '+this.options.y+' orang';
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                // format: '<b>{point.name}</b> : {point.y} orang',
-                // style: {
-                // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                // }
+            title: {
+                text: '<h2>Data Pesakitan Pemuda</h2>'
             },
-            showInLegend: true,
-
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'Anggota Organisasi Kepemudaan',
-            y: data[7],
-            sliced: true,
-            selected: true
-        },]
-    }]
-});
-
-Highcharts.chart('pie8', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '<h2>Data OSIS Di Kab.Subang</h2>'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
-    },
-    legend: {
-        layout: 'horizontal',
-        backgroundColor: '',
-        floating: true,
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 0,
-        y: 0,
-        labelFormatter: function () {
-            return this.name + ' : '+this.options.y+' orang';
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                // format: '<b>{point.name}</b> : {point.y} orang',
-                // style: {
-                // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                // }
+            tooltip: {
+                pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
             },
-            showInLegend: true,
-
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'OSIS',
-            y: data[11],
-            sliced: true,
-            selected: true
-        },]
-    }]
-});
-
-Highcharts.chart('pie9', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '<h2>Data BEM Di Kab.Subang</h2>'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
-    },
-    legend: {
-        layout: 'horizontal',
-        backgroundColor: '',
-        floating: true,
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 0,
-        y: 0,
-        labelFormatter: function () {
-            return this.name + ' : '+this.options.y+' orang';
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                // format: '<b>{point.name}</b> : {point.y} orang',
-                // style: {
-                // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                // }
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '',
+                floating: true,
+                align: 'left',
+                verticalAlign: 'bottom',
+                x: 0,
+                y: 0,
+                labelFormatter: function () {
+                    return this.name + ' : '+this.options.y+' orang';
+                }
             },
-            showInLegend: true,
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        // format: '<b>{point.name}</b> : {point.y} orang',
+                        // style: {
+                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        // }
+                    },
+                    showInLegend: true,
 
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'BEM',
-            y: data[12],
-            sliced: true,
-            selected: true
-        },]
-    }]
-});
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Pasien TB HIV Positif',
+                    y: data[3],
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'OAT Dengan ARV',
+                    y: data[4]
+                },]
+            }]
+        });
+
+        Highcharts.chart('pie3', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<h2>Data Kriminal</h2>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
+            },
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '',
+                floating: true,
+                align: 'left',
+                verticalAlign: 'bottom',
+                x: 0,
+                y: 0,
+                labelFormatter: function () {
+                    return this.name + ' : '+this.options.y+' orang';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        // format: '<b>{point.name}</b> : {point.y} orang',
+                        // style: {
+                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        // }
+                    },
+                    showInLegend: true,
+
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Curanmor',
+                    y: data[8],
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'Narkoba',
+                    y: data[9]
+                },{
+                    name: 'Pembunuhan',
+                    y: data[10]
+                },]
+            }]
+        });
+
+        Highcharts.chart('pie4', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<h2>Data Data Pencari Kerja</h2>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
+            },
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '',
+                floating: true,
+                align: 'left',
+                verticalAlign: 'bottom',
+                x: 0,
+                y: 0,
+                labelFormatter: function () {
+                    return this.name + ' : '+this.options.y+' orang';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        // format: '<b>{point.name}</b> : {point.y} orang',
+                        // style: {
+                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        // }
+                    },
+                    showInLegend: true,
+
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Pencari Kerja',
+                    y: data[2],
+                    sliced: true,
+                    selected: true
+                },]
+            }]
+        });
+
+        Highcharts.chart('pie5', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<h2>Data Wira Usaha Muda</h2>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
+            },
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '',
+                floating: true,
+                align: 'left',
+                verticalAlign: 'bottom',
+                x: 0,
+                y: 0,
+                labelFormatter: function () {
+                    return this.name + ' : '+this.options.y+' orang';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        // format: '<b>{point.name}</b> : {point.y} orang',
+                        // style: {
+                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        // }
+                    },
+                    showInLegend: true,
+
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Wira Usaha Muda',
+                    y: data[5],
+                    sliced: true,
+                    selected: true
+                },]
+            }]
+        });
+
+        Highcharts.chart('pie6', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<h2>Data Organisasi Kepemudaan</h2>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
+            },
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '',
+                floating: true,
+                align: 'left',
+                verticalAlign: 'bottom',
+                x: 0,
+                y: 0,
+                labelFormatter: function () {
+                    return this.name + ' : '+this.options.y+' orang';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        // format: '<b>{point.name}</b> : {point.y} orang',
+                        // style: {
+                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        // }
+                    },
+                    showInLegend: true,
+
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Organisasi Kepemudaan',
+                    y: data[6],
+                    sliced: true,
+                    selected: true
+                },]
+            }]
+        });
+
+        Highcharts.chart('pie7', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<h2>Data Anggota Organisasi Kepemudaan</h2>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
+            },
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '',
+                floating: true,
+                align: 'left',
+                verticalAlign: 'bottom',
+                x: 0,
+                y: 0,
+                labelFormatter: function () {
+                    return this.name + ' : '+this.options.y+' orang';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        // format: '<b>{point.name}</b> : {point.y} orang',
+                        // style: {
+                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        // }
+                    },
+                    showInLegend: true,
+
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Anggota Organisasi Kepemudaan',
+                    y: data[7],
+                    sliced: true,
+                    selected: true
+                },]
+            }]
+        });
+
+        Highcharts.chart('pie8', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<h2>Data OSIS Di Kab.Subang</h2>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
+            },
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '',
+                floating: true,
+                align: 'left',
+                verticalAlign: 'bottom',
+                x: 0,
+                y: 0,
+                labelFormatter: function () {
+                    return this.name + ' : '+this.options.y+' orang';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        // format: '<b>{point.name}</b> : {point.y} orang',
+                        // style: {
+                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        // }
+                    },
+                    showInLegend: true,
+
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'OSIS',
+                    y: data[11],
+                    sliced: true,
+                    selected: true
+                },]
+            }]
+        });
+
+        Highcharts.chart('pie9', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<h2>Data BEM Di Kab.Subang</h2>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
+            },
+            legend: {
+                layout: 'horizontal',
+                backgroundColor: '',
+                floating: true,
+                align: 'left',
+                verticalAlign: 'bottom',
+                x: 0,
+                y: 0,
+                labelFormatter: function () {
+                    return this.name + ' : '+this.options.y+' orang';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        // format: '<b>{point.name}</b> : {point.y} orang',
+                        // style: {
+                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        // }
+                    },
+                    showInLegend: true,
+
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'BEM',
+                    y: data[12],
+                    sliced: true,
+                    selected: true
+                },]
+            }]
+        });
 
         });
 
