@@ -71,11 +71,11 @@ class c_bio extends Controller
     public function updateBio(Request $request)
     {
         $id = Auth::user()->id;
-        
+        $ttl = $request->t.", ".$request->tl;
         if($request->foto == null)
         {
             $data1 = [
-                'ttl' => $request->ttl,
+                'ttl' => $ttl,
                 'umur' => $request->umur,
                 'nama_wirausaha' => $request->nama_wirausaha,
                 'alamat' => $request->alamat,
@@ -86,7 +86,7 @@ class c_bio extends Controller
             $filename = $id."foto".".".$file->extension();     
             $file->move(public_path('foto/wiramuda'),$filename);
             $data1 = [
-                'ttl' => $request->ttl,
+                'ttl' => $ttl,
                 'umur' => $request->umur,
                 'nama_wirausaha' => $request->nama_wirausaha,
                 'alamat' => $request->alamat,
@@ -96,14 +96,13 @@ class c_bio extends Controller
 
         $data2 = [
             'nama' => $request->namaDepan. " ". $request->namaBelakang,
-            'email' => $request->email,
             'kontak' => $request->kontak,
         ];
 
         $this->user->editData($id, $data2);
         $this->wirausaha->editData($id, $data1);
 
-        return redirect()->route('wiramuda.bio')->with('success','Update Bio Berhasil');
+        return redirect()->route('dashboard')->with('success','Update Bio Berhasil');
     }
     public function destroy($id)
     {

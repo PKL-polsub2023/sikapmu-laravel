@@ -22,99 +22,100 @@
                 <form method="POST" action="{{ route('wiramuda.updatebio') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-7">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="input-group input-group-outline mt-3">
-                                        <label class="form-label">Nama Depan</label>
-                                        <input type="text"
-                                            class="form-control @error('namaDepan') is-invalid @enderror"
-                                            name="namaDepan" value="{{ $namaDepan }}">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="input-group input-group-outline mt-3">
-                                        <label class="form-label">Nama Belakang</label>
-                                        <input type="text"
-                                            class="form-control @error('namaBelakang') is-invalid @enderror"
-                                            name="namaBelakang" value="{{ $namaBelakang }}">
-                                    </div>
-                                </div>
+                       
+
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="text" class="form-control border border-2 p-2"
+                                    value='{{ old('location', $wirausaha->email) }}' @readonly(true)>
                             </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="input-group input-group-outline mt-3">
-                                        <label class="form-label">Umur</label>
-                                        <input type="text" class="form-control @error('umur') is-invalid @enderror"
-                                            name="umur" value="{{ $wirausaha->umur }}">
-                                    </div>
-                                </div>
+
+                            <div class="col-md-6"></div>
+
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label">Nama Depan</label>
+                                <input type="text" name="namaDepan" class="form-control border border-2 p-2"
+                                    value='{{ old('namaDepan', $namaDepan) }}'>
+                                @error('namaDepan')
+                                    <p class='text-danger inputerror'>{{ $message }} </p>
+                                @enderror
                             </div>
-                            <div class="input-group input-group-outline mt-3">
+
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label">Nama Belakang</label>
+                                <input type="text" name="namaBelakang" class="form-control border border-2 p-2"
+                                    value='{{ old('namaBelakang', $namaBelakang) }}'>
+                                @error('namaBelakang')
+                                    <p class='text-danger inputerror'>{{ $message }} </p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3 col-md-6">
                                 <label class="form-label">TTL</label>
-                                <input type="text" class="form-control @error('ttl') is-invalid @enderror"
-                                    name="ttl" value="{{ $wirausaha->ttl }}">
-                            </div>
-                            <div class="input-group input-group-outline mt-3">
-                                <label class="form-label">Email Address</label>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ $wirausaha->email }}">
-                            </div>
-                            <div class="input-group input-group-outline mt-3">
-                                <label class="form-label">No Hp</label>
-                                <input type="text" class="form-control @error('kontak') is-invalid @enderror"
-                                    name="kontak" value="{{ $wirausaha->kontak }}">
+                                @php
+                                    $ttl = explode(", ", $wirausaha->ttl);
+                                @endphp
+                                <div class="input-group">
+                                    @if ($wirausaha->ttl<>"")
+                                    <input type="text" name="t" class="form-control border border-2 p-2"
+                                    value='{{ old('ttl', $ttl[0]) }}'>
+                                    <input type="date" name="tl" class="form-control border border-2 p-2"
+                                    value='{{ old('ttl', $ttl[1]) }}'>
+                                    @else
+                                    <input type="text" name="t" class="form-control border border-2 p-2"
+                                    value='{{ old('ttl') }}'>
+                                    <input type="date" name="tl" class="form-control border border-2 p-2"
+                                    value='{{ old('ttl') }}'>
+                                    @endif
+                                
+                                  </div>
+                               
+                                @error('ttl')
+                                    <p class='text-danger inputerror'>{{ $message }} </p>
+                                @enderror
                             </div>
 
-                            {{-- <div class="row">
-                                <div class="col-6">
-                                    <label class="form-label my-3">Nama Desa/Kelurahan :</label>
-                                    <div class="input-group input-group-outline ">
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label">Umur</label>
+                                <input type="text" name="umur" class="form-control border border-2 p-2"
+                                    value='{{ old('umur', $wirausaha->umur) }}'>
+                                @error('umur')
+                                    <p class='text-danger inputerror'>{{ $message }} </p>
+                                @enderror
+                            </div>
 
-                                        <select class="form-select" name="role" required>
-                                            <option value="">Pilih jenis...</option>
-                                            <option value="Pemuda Pelopor">Dangdeur 1</option>
-                                            <option value="Wirausaha Muda">dangdeur 2</option>
-                                            <option value="OKP">dangdeur 3</option>
-                                            <option value="Admin">dangdeur 4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label my-3">Kecamatan :</label>
-                                    <div class="input-group input-group-outline ">
+                            
 
-                                        <select class="form-select" name="role" required>
-                                            <option value="">Pilih jenis...</option>
-                                            <option value="Pemuda Pelopor">Subang 1</option>
-                                            <option value="Wirausaha Muda">Subang 2</option>
-                                            <option value="OKP">Subang 3</option>
-                                            <option value="Admin">Subang 4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            <div class="input-group input-group-outline mt-3 h-300px">
+                            <div class="mb-3 col-md-6">
                                 <label class="form-label">Alamat Lengkap</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror"
-                                    name="alamat" value="{{ $wirausaha->alamat }}">
+                                <input type="text" name="alamat" class="form-control border border-2 p-2"
+                                    value='{{ old('alamat', $wirausaha->alamat) }}'>
+                                @error('alamat')
+                                    <p class='text-danger inputerror'>{{ $message }} </p>
+                                @enderror
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label">No Hp</label>
+                                <input type="text" name="kontak" class="form-control border border-2 p-2"
+                                    value='{{ old('kontak', $wirausaha->kontak) }}'>
+                                @error('kontak')
+                                    <p class='text-danger inputerror'>{{ $message }} </p>
+                                @enderror
                             </div>
 
-                            <label class="form-label my-3">Foto Profile :</label>
-                            <div class="input-group input-group-outline ">
-                                <div class="d-flex align-items-center">
-                                    <input type="file" class="form-control" id="foto" name="foto"
-                                        accept=".jpg, .jpeg, .png">
-
-                                </div>
-
-                                <button type="submit" class="btn bg-gradient-dark">Submit</button>
-                                <a class="btn bg-gradient-dark" onclick="create()">Ubah Password</a>
+                           
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label">Foto</label>
+                                <input type="file" name="foto" class="form-control border border-2 p-2"
+                                    value='{{ old('foto') }}'>
+                                @error('foto')
+                                    <p class='text-danger inputerror'>{{ $message }} </p>
+                                @enderror
                             </div>
-
-
-
-                        </div>
+                            <button type="submit" class="btn bg-gradient-dark">Submit</button>
+                            <a class="btn bg-gradient-dark" onclick="create()">Ubah Password</a>
+                       
+                        
 
 
 
