@@ -38,6 +38,7 @@ use App\Http\Controllers\c_okpu;
 use App\Http\Controllers\c_lokeru;
 use App\Http\Controllers\c_eventu;
 use App\Http\Controllers\c_landing_page;
+use App\Http\Controllers\c_password;
 
 
 // Route::get('loker-utama', function () {
@@ -353,5 +354,10 @@ Route::controller(c_landing_page::class)->group(function () {
 	// end berita
 });
 
+// Data Event
+Route::controller(c_password::class)->group(function () {
 
+	Route::post('password/{id}', 'password')->name('password');
+
+});
 // END User Umum

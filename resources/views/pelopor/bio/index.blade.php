@@ -84,6 +84,9 @@
                                 </div>
                             </div>
                         @endif
+                        @error('password')
+                        <p class='text-danger inputerror'>{{ $message }} </p>
+                        @enderror
                         <form enctype="multipart/form-data" method='POST' action='{{ route('pelopor.updatebio') }}'>
                             @csrf
                             <div class="row">
@@ -204,11 +207,12 @@
                                         <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
                                 </div>
-                
+                                <button type="submit" class="btn bg-gradient-dark">Submit</button>
+                                <a class="btn bg-gradient-dark" onclick="create()">Ubah Password</a>
                             </div>
-                            <button type="submit" class="btn bg-gradient-dark">Submit</button>
+                           
                         </form>
-
+                        
                     </div>
                 </div>
             </div>
@@ -223,8 +227,17 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('ubah') }}"></form>
-                        <div id="page" class="p-2"></div>
+                        <form action="{{ route('password', $user->id) }}" method="POST">
+                            @csrf
+                            <label for="password">Kata Sandi</label>
+                            <input type="password" name="password" class="form-control border border-2 p-2">
+                        
+                            <label for="password_confirmation">Konfirmasi Kata Sandi</label>
+                            <input type="password" name="password_confirmation" class="form-control border border-2 p-2">
+                           
+                            <br>
+                            <button class="btn btn-success">Simpan</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -236,7 +249,7 @@
 </x-layout>
 
 <script>
-     function create(id) {
+     function create() {
                 $("#exampleModalLabel").html('Ubah Password');
                 $("#exampleModal").modal('show');
         }
