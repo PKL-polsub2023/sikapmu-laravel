@@ -182,7 +182,7 @@
                     @foreach ($loker as $data)
                     <div class="blog-card mlr-15 mb-30">
                         <div class="blog-card-img">
-                            <a href="/loker/perusahaan-satu"><img src="{{ asset('foto/loker/' . $data->foto) }}" alt="image"></a>
+                            <a href="{{ route('loker.landingPage.detail', $data->id_loker) }}"><img src="{{ asset('foto/loker/' . $data->foto) }}" alt="image"></a>
                         </div>
                         <div class="blog-card-text-area">
                             <div class="blog-date">
@@ -192,10 +192,10 @@
                                 <!-- <li><i class="far fa-folder"></i> Terkini</li> -->
                                 </ul>
                             </div>
-                            <h4><a href="/loker/perusahaan-satu">{{ $data->instansi }}</a></h4>
-                            <h5><a href="/loker/perusahaan-satu">Pekerjaan : {{ $data->judul }}</a></h5>
+                            <h4><a href="{{ route('loker.landingPage.detail', $data->id_loker) }}">{{ $data->instansi }}</a></h4>
+                            <h5><a href="{{ route('loker.landingPage.detail', $data->id_loker) }}">Pekerjaan : {{ $data->judul }}</a></h5>
                             <p>{{ $data->deskripsi }}</p>
-                            <a class="read-more-btn" href="#">Read More</a>
+                            <a class="{{ route('loker.landingPage.detail', $data->id_loker) }}" href="#">Read More</a>
                         </div>
                     </div>
                     @endforeach

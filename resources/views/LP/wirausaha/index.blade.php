@@ -47,10 +47,10 @@
          <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p> -->
       </div>
       <div class="section-content">
-         <div class="row justify-content-center">
+         <div class="agenda-slider-area-1 owl-carousel">
 
             @foreach ($wm as $item)
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+            <div class="blog-card mlr-15 mb-30">
                <div class="box-shadow rounded team-card bg-white">
                   <div class="team-card-img p-0">
                      <img src="{{ asset('foto/wiramuda/'.$item->foto) }}" alt="image" class="rounded" style="height: 240px; widht:100%">
@@ -66,7 +66,7 @@
                   <div class="team-card-text">
                      <h4>{{ $item->nama }}</h4>
                      <p>Umur {{ $item->umur }} Tahun</p>
-                     <a class="btn default-button" href="#">Selengkapnya <i class="fas fa-chevron-right"></i></a>
+                     <a class="btn default-button" href="{{ route('wm.landing.detail', $item->id) }}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
                   </div>
                </div>
             </div>
