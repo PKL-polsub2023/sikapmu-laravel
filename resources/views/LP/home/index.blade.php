@@ -195,7 +195,7 @@
                             <h4><a href="{{ route('loker.landingPage.detail', $data->id_loker) }}">{{ $data->instansi }}</a></h4>
                             <h5><a href="{{ route('loker.landingPage.detail', $data->id_loker) }}">Pekerjaan : {{ $data->judul }}</a></h5>
                             <p>{{ $data->deskripsi }}</p>
-                            <a class="{{ route('loker.landingPage.detail', $data->id_loker) }}" href="#">Read More</a>
+                            <a class="read-more-btn" href="{{ route('loker.landingPage.detail', $data->id_loker) }}">Read More</a>
                         </div>
                     </div>
                     @endforeach
@@ -287,7 +287,7 @@
                     @foreach ($berita as $data)
                     <div class="blog-card mlr-15 mb-30">
                         <div class="blog-card-img">
-                            <a href="/berita/acara-gathering-wirausaha-muda"><img src="{{ asset('foto/berita/' . $data->foto) }}" alt="image"></a>
+                            <a href="{{ route('berita.landingPage.detail', $data->id_berita) }}"><img src="{{ asset('foto/berita/' . $data->foto) }}" alt="image"></a>
                         </div>
                         <div class="blog-card-text-area">
                             <div class="blog-date">
@@ -297,10 +297,10 @@
                                 <li><i class="far fa-folder"></i> Terkini</li>
                                 </ul>
                             </div>
-                            <h4><a href="/berita/acara-gathering-wirausaha-muda">{{ $data->judul }}</a></h4>
-                            <h5><a href="/berita/acara-gathering-wirausaha-muda">Kategori : {{ $data->kategori }}</a></h5>
+                            <h4><a href="{{ route('berita.landingPage.detail', $data->id_berita) }}">{{ $data->judul }}</a></h4>
+                            <h5><a href="{{ route('berita.landingPage.detail', $data->id_berita) }}">Kategori : {{ $data->kategori }}</a></h5>
                             <p>{{ $data->isi }}</p>
-                            <a class="read-more-btn" href="/berita/acara-gathering-wirausaha-muda">Read More</a>
+                            <a class="read-more-btn" href="{{ route('berita.landingPage.detail', $data->id_berita) }}">Read More</a>
                         </div>
                     </div>
                     @endforeach

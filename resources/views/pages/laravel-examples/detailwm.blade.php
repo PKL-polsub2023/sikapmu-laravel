@@ -21,92 +21,100 @@
             <h3>Wirausaha Muda Subang</h3>
             <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p> -->
          </div>
-         <div class=""></div>
-
-        <div class="col-2 d-flex justify-content-end mt-n7">
-            <a class="nav-link text-start p-0" id="profile" style="margin-left: 500px;">
-                <div class="position-relative"
-                    style="width: 180px; height: 180px; overflow: hidden; border-radius: 50%; border: 5px solid white;">
-                    <img src="{{ asset('foto/wiramuda/' . $wirausaha->foto) }}" alt="profile-img"
-                        class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
-                </div>
-            </a>
-        </div>
-        @php
-            $je = count($event);
-            $ju = count($usaha);
-        @endphp
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-2"></div>
-                <div class="col-4 text-center">
-                    <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                        <h1 class="d-flex justify-content-center align-items-center"
-                            style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                            Banyak usaha : {{ $ju }}
-                        </h1>
+         <div class="row">
+            <div class="col col-12 col-md-6">
+                <div class="row">
+                    <div class="col col-2"></div>
+                    <div class="col col-8">
+                        <div class="blog-card-img">
+                            <a href="#"><img src="{{ asset('foto/wiramuda/' . $wirausaha->foto) }}" alt="image"></a>
+                        </div>
+                        <div class="card">
+                            <center><h4 class="mt-2">{{ $wirausaha->nama }}</h4></center>
+                            <div class="row">
+                                <div class="col col-1"></div>
+                                <div class="col col-10">
+                                    <p>Kontak : {{ $wirausaha->kontak }}</p>
+                                    <p>E-mail : {{ $wirausaha->email }}</p>
+                                    <p>Alamat : {{ $wirausaha->alamat }}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-4 text-center">
-                    <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                        <h1 class="d-flex justify-content-center align-items-center"
-                            style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                            Joint Event : {{ $je }}
-                        </h1>
-                    </div>
-                </div>
+                
 
+
+
+                @php
+                $je = count($event);
+                $ju = count($usaha);
+            @endphp
+            <div class="container">
+                <div class="row mt-5 mb-5">
+                    <div class="col col-1 col-md-2"></div>
+                    <div class="col col-5 col-md-4 text-center">
+                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
+                            <h1 class="d-flex justify-content-center align-items-center"
+                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
+                                Banyak usaha : {{ $ju }}
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="col col-5 col-md-4 text-center">
+                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
+                            <h1 class="d-flex justify-content-center align-items-center"
+                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
+                                Joint Event : {{ $je }}
+                            </h1>
+                        </div>
+                    </div>
+    
+                </div>
             </div>
-        </div>
-        <div class="card mt-3 mb-3">
-            {{-- <center>
-                <i class="text text-black mt-3 mb-3">Data Usaha</i>
-            </center> --}}
-            
-            <div class="table-responsive p-0">
-                <table style="width:100%" id="umum" class="display">
-                    <thead>
-                        <tr>
-                            <th
-                                class="text-uppercase text-center text-secondary text font-weight-bolder opacity-7">
-                                Nama Usaha
-                            </th>
-                            <th
-                                class="text-uppercase text-center text-secondary text font-weight-bolder opacity-7">
-                                Jenis Produk</th>
-                            <th
-                                class="text-center text-uppercase text-secondary text font-weight-bolder opacity-7">
-                                Modal</th>
-                            <th
-                                class="text-center text-uppercase text-secondary text font-weight-bolder opacity-7">
-                                Omset</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($usaha as $data)
+            </div>
+            <div class="col col-12 col-md-6">
+                <div class="card">
+                    <div class="table-responsive mt-2 ml-1">
+                        <table class="table">
+                          <thead>
                             <tr>
-                                <td class="align-middle text-center text">
-                                    <p class="text text-secondary mb-0">{{ $data->nama_usaha }}
-                                    </p>
-                                </td>
-                                <td class="align-middle text-center">
-                                    <span
-                                        class="text-secondary text font-weight-bold">{{ $data->jenis_produk }}</span>
-                                </td>
-                                <td class="align-middle text-center">
-                                    <span
-                                        class="text-secondary text font-weight-bold">{{ $data->modal }}</span>
-                                </td>
-                                <td class="align-middle text-center">
-                                    <span
-                                        class="text-secondary text font-weight-bold">{{ $data->omset }}</span>
-                                </td>
+                              <th>Nama Usaha</th>
+                              <th>Jenis Produk</th>
+                              <th>Modal</th>
+                              <th>Omset</th>
                             </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($usaha as $data)
+                            <tr>
+                              <td>{{ $data->nama_usaha }}</td>
+                              <td>{{ $data->jenis_produk }}</td>
+                              <td>{{ $data->modal }}</td>
+                              <td>{{ $data->omset }}</td>
+                            </tr>
+                            @endforeach
+                            <!-- Tambahkan baris data lain di sini -->
+                          </tbody>
+                        </table>
+                      </div>
+                      
+                    {{-- <div class="row mt-2 text-center">
+                        <div class="col col-3"><h6>Nama Usaha</h6></div>
+                        <div class="col col-3"><h6>Jenis Produk</h6></div>
+                        <div class="col col-3"><h6>Modal</h6></div>
+                        <div class="col col-3"><h6>Omset</h6></div>
+
+                        @foreach ($usaha as $data)
+                        <div class="col col-3"><p>{{ $data->nama_usaha }}</p></div>
+                        <div class="col col-3"><p>{{ $data->jenis_produk }}</p></div>
+                        <div class="col col-3"><p>{{ $data->modal }}</p></div>
+                        <div class="col col-3"><p>{{ $data->omset }}</p></div>
                         @endforeach
-                    </tbody>
-                </table>
+                    </div> --}}
+                </div>
             </div>
-        </div>
+         </div>
     </div>
   
 </section>
