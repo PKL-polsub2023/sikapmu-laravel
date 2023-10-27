@@ -14,7 +14,7 @@
    </div>
 </section>
 @include('template_front.support')
-<section class="services service-2 ptb-100 bg-white" data-aos="fade-down">
+{{-- <section class="services service-2 ptb-100 bg-white" data-aos="fade-down">
    <div class="container" data-aos="flip-up">
       <div class="default-section-title default-section-title-middle">
             <h3 class="text-black">Pemuda Pelopor Subang</h3>
@@ -32,14 +32,19 @@
                <div class="col-md-3">
                   <div class="card card-white-box">
                      <div class="p-2">
-                        <h5 class="ms-3 mt-2 text-center"> Pemuda Pelopor <br> {{ $j->wira_usaha_muda }}</h5>
+                        <h5 class="ms-3 mt-2 text-center">Umur 16 S/D 19 Tahun <br> {{ $j->pemuda_satu }}</h5>
+                     </div>
+                  </div>
+                  <div class="card card-white-box">
+                     <div class="p-2">
+                        <h5 class="ms-3 mt-2 text-center">Umur 20 S/D 30 Tahun <br> {{ $j->pemuda_dua }}</h5>
                      </div>
                   </div>
                </div>
             </div>
       </div>
    </div>
-</section>
+</section> --}}
 <section class="team ptb-100 bg-f9fbfe">
    <div class="container">
       <div class="default-section-title default-section-title-middle">
@@ -49,11 +54,11 @@
       <div class="section-content">
          <div class="agenda-slider-area-1 owl-carousel">
 
-            @foreach ($wm as $item)
+            @foreach ($pelopor as $item)
             <div class="blog-card mlr-15 mb-30">
                <div class="box-shadow rounded team-card bg-white">
                   <div class="team-card-img p-0">
-                     <img src="{{ asset('foto/wiramuda/'.$item->foto) }}" alt="image" class="rounded" style="height: 240px; widht:100%">
+                     <img src="{{ asset('foto/pelopor/'.$item->foto) }}" alt="image" class="rounded" style="height: 240px; widht:100%">
                      <!-- <div class="team-social-icons">
                         <ul>
                            <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
@@ -65,8 +70,8 @@
                   </div>
                   <div class="team-card-text">
                      <h4>{{ $item->nama }}</h4>
-                     <p>Umur {{ $item->umur }} Tahun</p>
-                     <a class="btn default-button" href="{{ route('wm.landing.detail', $item->id) }}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
+                     <p>Alamat : {{ $item->alamat }} Tahun</p>
+                     <a class="btn default-button" href="{{ route('pemuda.landingPage.detail', $item->id) }}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
                   </div>
                </div>
             </div>
@@ -75,81 +80,8 @@
       </div>
    </div>
 
-   @php
-   $sekarang = date('Y');
-   @endphp
-   <input type="text" id="tahun" value="{{ $sekarang }}" hidden>
+   
 </section>
 
-<script>
-   $(document).ready(function() {
-       chart();
-   });
 
-   function chart() {
-       var tahun = $("#tahun").val();
-       var id = parseInt(tahun);
-       $.get("{{ url('chart') }}/" + id, {}, function(data, status) {
-           Highcharts.chart('pie1', {
-           chart: {
-               plotBackgroundColor: null,
-               plotBorderWidth: null,
-               plotShadow: false,
-               type: 'pie'
-           },
-           title: {
-               text: '<h2>Data Pemuda Pelopor</h2>'
-           },
-           tooltip: {
-               pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
-           },
-           legend: {
-               layout: 'horizontal',
-               backgroundColor: '',
-               floating: true,
-               align: 'left',
-               verticalAlign: 'bottom',
-               x: 0,
-               y: 0,
-               labelFormatter: function () {
-                   return this.name + ' : '+this.options.y+' orang';
-               }
-           },
-           plotOptions: {
-               pie: {
-                   allowPointSelect: true,
-                   cursor: 'pointer',
-                   dataLabels: {
-                       enabled: true,
-                       // format: '<b>{point.name}</b> : {point.y} orang',
-                       // style: {
-                       // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                       // }
-                   },
-                   showInLegend: true,
-
-               }
-           },
-           series: [{
-               name: 'Brands',
-               colorByPoint: true,
-               data: [{
-                   name: 'Usia 16 S/D 19 Tahun',
-                   y: data[0],
-                   sliced: true,
-                   selected: true
-               },{
-                   name: 'Usia 20 S/D 30 Tahun',
-                   y: data[1]
-               },]
-           }]
-       });
-
-
-
-
-       });
-
-}
-</script>
 @endsection

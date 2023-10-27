@@ -24,22 +24,16 @@
                         </h1>
                     </div>
                     <div class="col-6">
-                        <div class="row">
-                            <div class="col-2 d-flex align-items-center justify-content-center">
-                                <!-- Menggunakan d-flex dan align-items-center untuk vertikal centering -->
-                                <div class="profile-img" style="height: 20px; width:20px;">
-                                    <img src="{{ asset('assets/img/map.png') }}" alt="profile-img" width="100%" />
-                                </div>
-                            </div>
-                            <div class="col-10">
+                       
+                       
                                 <div class="container" >
                                     <h1 class="text-start mb-4"
                                         style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
+                                        <i style="color: red" class="fa fa-map-marker"></i>  Alamat : {{ $user->alamat }}
                                         Lokasi Terkini : {{ $user->alamat }}
                                     </h1>
                                 </div>
-                            </div>
-                        </div>
+                            
 
                     </div>
                 </div>
@@ -57,21 +51,12 @@
             </div>
             <div class="container">
                 <div class="row mt-5">
-
+                   <div class="col-2"></div>
                     <div class="col-4 text-center">
                         <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                             <h1 class="d-flex justify-content-center align-items-center"
                                 style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Pencapaian : 10
-                            </h1>
-                        </div>
-                    </div>
-                   
-                    <div class="col-4 text-center">
-                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                            <h1 class="d-flex justify-content-center align-items-center"
-                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Kelengkapan Data : 100 %
+                                Lamaran Saya : {{ $loker }}
                             </h1>
                         </div>
                     </div>
@@ -79,7 +64,7 @@
                         <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                             <h1 class="d-flex justify-content-center align-items-center"
                                 style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Joint Event : 20
+                                Joint Event : {{ $event }}
                             </h1>
                         </div>
                     </div>
@@ -87,17 +72,6 @@
                 </div>
 
 
-                <div class="row mt-5">
-
-                    <div class="col-4 text-center">
-
-                    </div>
-                    
-                    <div class="col-4 text-center">
-
-                    </div>
-
-                </div>
             </div>
 
 
