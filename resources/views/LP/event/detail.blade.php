@@ -56,72 +56,60 @@
 
 @include('template_front.support')
 
-<section class="berita ptb-50 bg-white" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-    data-aos-duration="1500">
+<section class="blog-details ptb-100">
     <div class="container">
-        <div class="default-section-title default-section-title-middle">
-            <h3>Detail Lowongan</h3>
-        </div>
-        <div class="section-content">
-            <div class="container mt-3 position: relative;">
-                <h1 class="text-center mt-5 mb-3" style="color: rgb(78, 78, 78); font-size: 22px; ">
-                    {{ $loker->instansi }}</h1>
-                <div class="supp text-center mb-5">
-                    <img src="{{ asset('foto/loker/' . $loker->foto) }}" style="width:100px;height:100px"
-                        alt="profile-img" class="text-center" />
-                </div>
+        <div class="row">
+            <div class="col-lg-8">
                 <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-8">
-                        <div class="container">
-
-                            <h1 class="text-start mb-2"
-                                style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                                Judul :</h1>
-
-                            <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">
-                                {{ $loker->judul }} </h1>
-
-                            <h1 class="text-start mb-2"
-                                style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                                Deskripsi :</h1>
-
-                            <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">
-                                {{ $loker->deskripsi }} </h1>
-
-
-
-
-
-                            <h1 class="text-start mt-5 mb-2"
-                                style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                                Persyaratan : </h1>
-
-                            <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">
-                                {{ $loker->persyaratan }}
-                                {{-- 
-                            @php
-                            echo $loker->persyaratan;
-                        @endphp --}}
-                            </h1>
-
-                            <div class="text-start mx- mt-3 mb-1">
-                                <a class="btn text-start align-items-center"
-                                    @guest href="{{ url('sign-in') }}" @endguest
-                                    style="background-color: #4C6FFF; text-align: center;">
-                                    <i class="text-white py-5 px-5"
-                                        style="text-transform: none; font-style: normal;">Apply
-                                        Lamaran
-                                    </i>
-                                </a>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="blog-details-text-area details-text-area">
+                            <h3 class="mt-0">{{ $event->judul ?? '' }}</h3>
+                            <div class="blog-date">
+                                <ul>
+                                    <li><i class="far fa-calendar-alt"></i> {{ $event->waktu_event }}</li>
+                                    <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
+                                    <li><i class="far fa-folder"></i> Terkini</li>
+                                </ul>
+                            </div>
+                            <img src="{{ asset('foto/event/' . $event->foto) }}" alt="image"
+                                class="img-fluid img-responsive" style="height:300px" />
+                            <div class="mt-3">
+                                <?php echo $event->kategori ?? ''; ?>
+                            </div>
+                        </div>
+                        <div class="blog-text-footer mt-30">
+                            <div class="tag-area">
+                                <ul>
+                                    <li><i class="fas fa-tags"></i></li>
+                                    <li><a href="/tag/terkini">Terkini,</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-
                 </div>
 
-
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar-area pl-20 pt-30">
+                    <div class="sidebar-card sidebar-category mt-30">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-angle-right"></i> Terkini</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-card recent-news mt-30">
+                        <h3>Popular Posts</h3>
+                        @foreach ($allEvent as $data)
+                            <div class="recent-news-card">
+                                <img src="{{ asset('foto/event/' . $data->foto) }}" alt="image">
+                                <h5><a href="/event/acara-gathering-wirausaha-muda">{{ $data->judul }}</a>
+                                </h5>
+                                <p></p>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>

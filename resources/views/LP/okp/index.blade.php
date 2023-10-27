@@ -56,69 +56,49 @@
 
 @include('template_front.support')
 
-<section class="blog-details ptb-100">
+<section class="berita ptb-50 bg-white" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+    data-aos-duration="1500">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="blog-details-text-area details-text-area">
-                            <h3 class="mt-0">{{ $berita->judul ?? '' }}</h3>
-                            <div class="blog-date">
-                                <ul>
-                                    <li><i class="far fa-calendar-alt"></i> {{ $berita->upload }}</li>
-                                    <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
-                                    <li><i class="far fa-folder"></i> Terkini</li>
-                                </ul>
-                            </div>
-                            <img src="{{ asset('foto/berita/' . $berita->foto) }}" alt="image"
-                                class="img-fluid img-responsive" style="width:100%" />
-                            <div class="mt-3">
-                                <?php echo $berita->isi ?? ''; ?>
-                            </div>
+        <div class="default-section-title default-section-title-middle">
+            <h3>OKP</h3>
+        </div>
+        <div class="section-content">
+            <div class="agenda-slider-area-1 owl-carousel">
+                @foreach ($okp as $data)
+                    <div class="blog-card mlr-15 mb-30">
+                        <div class="blog-card-img">
+                            <a href="{{ route('okp.landingPage.detail', $data->id_user) }}">
+                                @if ($data->logo != null)
+                                    <img src="{{ asset('foto/okp/' . $data->logo) }}" style="height: 300px"
+                                        alt="image">
+                                @else
+                                    <img src="{{ asset('foto/default.png') }}" style="height: 300px" alt="image">
+                                @endif
+                            </a>
                         </div>
-                        <div class="blog-text-footer mt-30">
-                            <div class="tag-area">
-                                <ul>
-                                    <li><i class="fas fa-tags"></i></li>
-                                    <li><a href="/tag/terkini">Terkini,</a></li>
-                                </ul>
-                            </div>
+                        <div class="blog-card-text-area">
+                            <h4><a href="{{ route('okp.landingPage.detail', $data->id_user) }}">{{ $data->nama }}
+                                    @if ($data->singkatan != null)
+                                        ({{ $data->singkatan }})
+                                    @endif
+                                </a></h4>
+                            <p>{{ $data->kategori_org }}</p>
+                            <a class="read-more-btn" href="{{ route('okp.landingPage.detail', $data->id_user) }}">Read
+                                More</a>
                         </div>
                     </div>
-
-                </div>
-
+                @endforeach
             </div>
-            <div class="col-lg-4">
-                <div class="sidebar-area pl-20 pt-30">
-                    <div class="sidebar-card sidebar-category mt-30">
-                        <h3>Categories</h3>
-                        <ul>
-                            <li><a href="#"><i class="fas fa-angle-right"></i> Terkini</a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-card recent-news mt-30">
-                        <h3>Popular Posts</h3>
-                        @foreach ($allBerita as $data)
-                            <div class="recent-news-card">
-                                <a href="{{ route('berita.landingPage.detail', $data->id_berita) }}"><img
-                                        src="{{ asset('foto/berita/' . $data->foto) }}" alt="image"></a>
-                                <h5><a href="/berita/acara-gathering-wirausaha-muda">{{ $data->judul }}</a>
-                                </h5>
-                                <p>{{ $data->upload }}</p>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
+            {{-- <center>
+                <a href="/loker" class="default-button news-btn">Selengkapnya</a>
+            </center> --}}
         </div>
     </div>
 </section>
 
 
 
-
+{{-- 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
     $(document).ready(function() {
@@ -614,6 +594,6 @@
         });
 
     }
-</script>
+</script> --}}
 
 @endsection
