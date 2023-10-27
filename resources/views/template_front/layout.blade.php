@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="{{ asset('') }}front/css/aos.css">
     <script src="{{ asset('') }}front/js/jquery.min.js"></script>
     <!---Highchart-->
-	<script src="{{ asset('') }}plugin/hc/code/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="{{ asset('') }}plugin/hc/code/modules/series-label.js"></script>
 	<script src="{{ asset('') }}plugin/hc/code/modules/exporting.js"></script>
 	<script src="{{ asset('') }}plugin/hc/code/modules/offline-exporting.js"></script>
