@@ -56,34 +56,63 @@
 
 @include('template_front.support')
 
-<section class="berita ptb-50 bg-white" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-    data-aos-duration="1500">
+<section class="blog-details ptb-100">
     <div class="container">
         <div class="row">
-            <div class="col col-12 col-md-12">
-                <h1 class="text-start mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                    Kategori : {{ $berita->kategori }}</h1>
-                <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; "> </h1>
-                <h1 class="text-start "
-                    style="color: rgb(0, 0, 0); font-size: 18px;  word-wrap: break-word; white-space: normal;  ">
-                    {{ $berita->isi }}
-                    {{-- 
-                    @php
-                    echo $event->persyaratan;
-                @endphp --}}
-                </h1>
-            </div>
-            <br>
-            {{-- <div class="col-1"></div> --}}
-            {{-- <div class="col col-3 col-md-3">
-                <div class="text-start mx-1 mb-1">
-                    <a class="btn text-start align-items-center" @guest href="{{ url('sign-in') }}" @endguest
-                        style="background-color: #4C6FFF; text-align: center;">
-                        <i class="text-white py-5 px-5" style="text-transform: none; font-style: normal;">Join
-                        </i>
-                    </a>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="blog-details-text-area details-text-area">
+                            <h3 class="mt-0">{{ $judul ?? '' }}</h3>
+                            <div class="blog-date">
+                                <ul>
+                                    <li><i class="far fa-calendar-alt"></i> {{ $berita->upload }}</li>
+                                    <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
+                                    <li><i class="far fa-folder"></i> Terkini</li>
+                                </ul>
+                            </div>
+                            <h1>{{ $berita->judul }}</h1>
+                            <img src="{{ asset('foto/berita/' . $berita->foto) }}" alt="image"
+                                class="img-fluid img-responsive" style="width:100%" />
+                            <div class="mt-3">
+                                <?php echo $berita->isi ?? ''; ?>
+                            </div>
+                        </div>
+                        <div class="blog-text-footer mt-30">
+                            <div class="tag-area">
+                                <ul>
+                                    <li><i class="fas fa-tags"></i></li>
+                                    <li><a href="/tag/terkini">Terkini,</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div> --}}
+
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar-area pl-20 pt-30">
+                    <div class="sidebar-card sidebar-category mt-30">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-angle-right"></i> Terkini</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-card recent-news mt-30">
+                        <h3>Popular Posts</h3>
+                        @foreach ($allBerita as $data)
+                            <div class="recent-news-card">
+                                <a href="{{ route('berita.landingPage.detail', $data->id_berita) }}"><img
+                                        src="{{ asset('foto/berita/' . $data->foto) }}" alt="image"></a>
+                                <h5><a href="/berita/acara-gathering-wirausaha-muda">{{ $data->judul }}</a>
+                                </h5>
+                                <p>{{ $data->upload }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

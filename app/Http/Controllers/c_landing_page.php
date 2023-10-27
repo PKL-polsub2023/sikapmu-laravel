@@ -120,6 +120,7 @@ class c_landing_page extends Controller
     public function eventDetail($id)
     {
         $data = [
+            'allEvent' => $this->de->paginate(),
             'event' => $this->de->detailData($id),
         ];
         return view ('LP.event.detail', $data);
@@ -161,6 +162,7 @@ class c_landing_page extends Controller
     public function beritaDetail($id)
     {
         $data = [
+            'allBerita' => $this->db->paginate(),
             'berita' => $this->db->detailData($id),
         ];
         return view ('LP.berita.detail', $data);
