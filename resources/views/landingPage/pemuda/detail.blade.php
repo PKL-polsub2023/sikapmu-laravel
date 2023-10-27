@@ -62,7 +62,7 @@
                                     <div class="container">
                                         <h1 class="text-start mb-4"
                                             style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
-                                            <i style="color: red" class="fa fa-map-marker"></i> Lokasi Terkini :
+                                            <i style="color: red" class="fa fa-map-marker"></i> Alamat :
                                             {{ $pelopor->alamat }}
                                         </h1>
                                     </div>
@@ -106,7 +106,7 @@
                             <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                                 <h1 class="d-flex justify-content-center align-items-center"
                                     style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                    Join Event
+                                    Jumlah Lamaran
                                 </h1>
                                 <h1 class="d-flex justify-content-center align-items-center"
                                     style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">

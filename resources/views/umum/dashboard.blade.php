@@ -15,7 +15,7 @@
             <div class="card py-4 px-4" style="border-radius: 10px; background-color: #293679; position:relative;">
                 <div class="row">
                     <div class="col-2"></div>
-                    <div class="col-4 mt-3">
+                    <div class="col-3 mt-3">
                         <h1 class="d-flex text-center align-items-center"
                             style="color: rgb(255, 255, 255); font-size: 24px; font-weight: bold;">
                             {{ Auth::user()->nama }}
@@ -24,23 +24,16 @@
                             style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">{{ $user->ttl }}
                         </h1>
                     </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-2 d-flex align-items-center justify-content-center">
-                                <!-- Menggunakan d-flex dan align-items-center untuk vertikal centering -->
-                                <div class="profile-img" style="height: 20px; width:20px;">
-                                    <img src="{{ asset('assets/img/map.png') }}" alt="profile-img" width="100%" />
-                                </div>
-                            </div>
-                            <div class="col-10">
+                    <div class="col-7">
+                        
                                 <div class="container" >
                                     <h1 class="text-start mb-4"
+                                    
                                         style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
-                                        Lokasi Terkini : {{ $user->alamat }}
+                                        <i style="color: red" class="fa fa-map-marker"></i>  Alamat : {{ $user->alamat }}
                                     </h1>
                                 </div>
-                            </div>
-                        </div>
+                    
 
                     </div>
                 </div>
@@ -53,26 +46,20 @@
                         style="width: 180px; height: 180px; overflow: hidden; border-radius: 50%; border: 5px solid white;">
                         <img src="{{ asset('foto/umum/' . $user->foto) }}" alt="profile-img"
                             class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
+                           
                     </div>
                 </a>
             </div>
             <div class="container">
                 <div class="row mt-5">
 
-                    <div class="col-4 text-center">
-                        <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                            <h1 class="d-flex justify-content-center align-items-center"
-                                style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Pencapaian : 10
-                            </h1>
-                        </div>
-                    </div>
+                   <div class="col-2"></div>
                     
                     <div class="col-4 text-center">
                         <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                             <h1 class="d-flex justify-content-center align-items-center"
                                 style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Kelengkapan Data : 100 %
+                                Jumlah Lamaran : {{ $loker }}
                             </h1>
                         </div>
                     </div>
@@ -80,25 +67,13 @@
                         <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
                             <h1 class="d-flex justify-content-center align-items-center"
                                 style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                                Joint Event : 20
+                                Joint Event : {{ $event }}
                             </h1>
                         </div>
                     </div>
 
                 </div>
 
-
-                <div class="row mt-5">
-
-                    <div class="col-4 text-center">
-
-                    </div>
-                    
-                    <div class="col-4 text-center">
-
-                    </div>
-
-                </div>
             </div>
 
 

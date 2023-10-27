@@ -49,11 +49,15 @@ class DashboardController extends Controller
        }elseif(Auth::user()->role == "uu"){
         $data = [
             'user' => $this->user_umum->detailData(Auth::user()->id),
+            'event' => $jevent,
+            'loker' => $jloker,
         ];
         return view ('umum.dashboard', $data);
        }elseif(Auth::user()->role == "pp"){
         $data = [
             'user' => $this->pemuda_pelopor->detailData(Auth::user()->id),
+            'event' => $jevent,
+            'loker' => $jloker,
         ];
         return view ('pelopor.dashboard', $data);
        }
