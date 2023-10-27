@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id('id_loker');
             $table->string('judul')->nullable();
             $table->string('instansi')->nullable();
-            $table->string('deskripsi')->nullable();
-            $table->string('persyaratan')->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->text('persyaratan')->nullable();
             $table->string('foto')->nullable();
             $table->string('waktu_mulai')->nullable();
             $table->string('waktu_akhir')->nullable();
