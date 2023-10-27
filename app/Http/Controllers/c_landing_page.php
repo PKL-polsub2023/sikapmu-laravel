@@ -94,7 +94,7 @@ class c_landing_page extends Controller
         $data = [
             'loker' => $this->dl->paginate(),
         ];
-        return view ('landingPage.loker.index', $data);
+        return view ('LP.loker.index', $data);
     }
 
     public function lokerDetail($id)
@@ -102,7 +102,7 @@ class c_landing_page extends Controller
         $data = [
             'loker' => $this->dl->detailData($id),
         ];
-        return view ('landingPage.loker.detail', $data);
+        return view ('LP.loker.detail', $data);
     }
 
     public function event()
@@ -113,7 +113,7 @@ class c_landing_page extends Controller
         foreach ($data['event'] as &$event) { 
             $event->deskripsi = Str::limit($event->deskripsi, '25');
         }
-        return view ('landingPage.event.index', $data);
+        return view ('LP.event.index', $data);
     }
 
     public function eventDetail($id)
@@ -121,7 +121,7 @@ class c_landing_page extends Controller
         $data = [
             'event' => $this->de->detailData($id),
         ];
-        return view ('landingPage.event.detail', $data);
+        return view ('LP.event.detail', $data);
     }
 
     public function pemuda()
@@ -131,7 +131,7 @@ class c_landing_page extends Controller
         ];
 
         
-        return view ('landingPage.pemuda.index', $data);
+        return view ('LP.pemuda.index', $data);
     }
 
     public function pemudaDetail($id)
@@ -143,7 +143,7 @@ class c_landing_page extends Controller
             'join_loker' => $this->file_loker->joinLoker($id),
             'join_event' => $this->file_event->joinEvent($id),
         ];
-        return view ('landingPage.pemuda.detail', $data);
+        return view ('LP.pemuda.detail', $data);
     }
 
     public function berita()
@@ -154,7 +154,7 @@ class c_landing_page extends Controller
         foreach ($data['berita'] as &$berita) { 
             $berita->deskripsi = Str::limit($berita->deskripsi, '25');
         }
-        return view ('landingPage.berita.index', $data);
+        return view ('LP.berita.index', $data);
     }
 
     public function beritaDetail($id)
@@ -162,7 +162,7 @@ class c_landing_page extends Controller
         $data = [
             'berita' => $this->db->detailData($id),
         ];
-        return view ('landingPage.berita.detail', $data);
+        return view ('LP.berita.detail', $data);
     }
 
     public function okp()
@@ -171,7 +171,7 @@ class c_landing_page extends Controller
             'okp' => $this->okp->paginate(),
         ];
       
-        return view ('landingPage.okp.index', $data);
+        return view ('LP.okp.index', $data);
     }
 
     public function okpDetail($id)
@@ -179,6 +179,6 @@ class c_landing_page extends Controller
         $data = [
             'okp' => $this->okp->detailData($id),
         ];
-        return view ('landingPage.okp.detail', $data);
+        return view ('LP.okp.detail', $data);
     }
 }
