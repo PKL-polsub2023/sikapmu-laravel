@@ -227,11 +227,11 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-white {{ $activePage == 'wiramuda.bio' ? ' active-page' : '' }}  "
-                    href="{{ route('wiramuda.bio') }}">
-                    <div class="card {{ $activePage == 'wiramuda.bio' ? 'bg-4FD1C5' : 'bg-white' }}">
+                <a class="nav-link text-white {{ $activePage == 'wiramuda.usaha' ? ' active-page' : '' }}  "
+                    href="{{ route('wiramuda.usaha') }}">
+                    <div class="card {{ $activePage == 'wiramuda.usaha' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center  d-flex align-items-center justify-content-center">
-                            <i class="fas fa-rocket {{ $activePage == 'wiramuda.bio' ? 'text-white' : 'text-4FD1C5' }}"
+                            <i class="fas fa-rocket {{ $activePage == 'wiramuda.usaha' ? 'text-white' : 'text-4FD1C5' }}"
                                 style="font-size: 1rem;"></i>
                         </div>
                     </div>
