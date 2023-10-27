@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\m_user;
 use App\Models\data_loker;
+use App\Models\file_loker;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -17,7 +18,8 @@ class c_loker extends Controller
     {
         $this->user = new m_user();
         $this->loker = new data_loker();
-    }
+        $this->file_loker = new file_loker(); 
+       }
 
     public function index()
     {
@@ -157,6 +159,13 @@ class c_loker extends Controller
         ];
        
         return view ('Admin.loker.detail', $data);
+    }
+
+    public function destroy ($id)
+    {
+        $this->file_loker->deleteLoker($id);
+        $this->loker->deleteData($id);
+        return redirect()->route('loker.index')->with('success', "Data Berhasil dihapus.");
     }
 
 

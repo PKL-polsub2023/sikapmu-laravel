@@ -149,49 +149,49 @@ Route::group(['middleware' => 'auth'], function () {
 // KHUSUS ADMIN
 	// DATA WIRAUSAHA MUDA ADMIN
 	Route::controller(c_wiramuda::class)->group(function () {
-		Route::get('wiramuda', 'index')->name('wiramuda.index');
-		Route::get('wiramuda/create', 'create')->name('wiramuda.create');
-		Route::post('wiramuda/kirim', 'store')->name('wiramuda.store');
-		Route::get('wiramuda/edit/{id}', 'edit')->name('wiramuda.edit');
-		Route::post('wiramuda/update/{id}', 'update')->name('wiramuda.update');
-		Route::get('wiramuda/verifikasi/{id}', 'verifikasi')->name('wiramuda.verifikasi');
-		Route::get('wiramuda/destroy/{id}', 'destroy')->name('wiramuda.destroy');
+		Route::get('wiramuda', 'index')->name('admin.wiramuda.index');
+		Route::get('wiramuda/create', 'create')->name('admin.wiramuda.create');
+		Route::post('wiramuda/kirim', 'store')->name('admin.wiramuda.store');
+		Route::get('wiramuda/edit/{id}', 'edit')->name('admin.wiramuda.edit');
+		Route::post('wiramuda/update/{id}', 'update')->name('admin.wiramuda.update');
+		Route::get('wiramuda/verifikasi/{id}', 'verifikasi')->name('admin.wiramuda.verifikasi');
+		Route::get('wiramuda/destroy/{id}', 'destroy')->name('admin.wiramuda.destroy');
 	});
 	// END DATA WIRAUSAHA MUDA ADMIN
 
 	// DATA OKP ADMIN
 	Route::controller(c_okp::class)->group(function () {
-		Route::get('okp', 'index')->name('okp.index');
-		Route::get('okp/create', 'create')->name('okp.create');
-		Route::post('okp/store', 'store')->name('okp.store');
-		Route::get('okp/edit/{id}', 'edit')->name('okp.edit');
-		Route::post('okp/update/{id}', 'update')->name('okp.update');
-		Route::get('okp/verifikasi/{id}', 'verifikasi')->name('okp.verifikasi');
-		Route::get('okp/destroy/{id}', 'destroy')->name('okp.destroy');
+		Route::get('okp', 'index')->name('admin.okp.index');
+		Route::get('okp/create', 'create')->name('admin.okp.create');
+		Route::post('okp/store', 'store')->name('admin.okp.store');
+		Route::get('okp/edit/{id}', 'edit')->name('admin.okp.edit');
+		Route::post('okp/update/{id}', 'update')->name('admin.okp.update');
+		Route::get('okp/verifikasi/{id}', 'verifikasi')->name('admin.okp.verifikasi');
+		Route::get('okp/destroy/{id}', 'destroy')->name('admin.okp.destroy');
 	});
 	// END DATA OKP ADMIN
 
 	// DATA PELOPOR MUDA ADMIN
 	Route::controller(c_pelopor::class)->group(function () {
-		Route::get('pelopor', 'index')->name('pelopor.index');
-		Route::get('pelopor/create', 'create')->name('pelopor.create');
-		Route::post('pelopor/store', 'store')->name('pelopor.store');
-		Route::get('pelopor/edit/{id}', 'edit')->name('pelopor.edit');
-		Route::post('pelopor/update/{id}', 'update')->name('pelopor.update');
-		Route::get('pelopor/verifikasi/{id}', 'verifikasi')->name('pelopor.verifikasi');
-		Route::get('pelopor/destroy/{id}', 'destroy')->name('pelopor.destroy');
+		Route::get('pelopor', 'index')->name('admin.pelopor.index');
+		Route::get('pelopor/create', 'create')->name('admin.pelopor.create');
+		Route::post('pelopor/store', 'store')->name('admin.pelopor.store');
+		Route::get('pelopor/edit/{id}', 'edit')->name('admin.pelopor.edit');
+		Route::post('pelopor/update/{id}', 'update')->name('admin.pelopor.update');
+		Route::get('pelopor/verifikasi/{id}', 'verifikasi')->name('admin.pelopor.verifikasi');
+		Route::get('pelopor/destroy/{id}', 'destroy')->name('admin.pelopor.destroy');
 	});
 	// END DATA PELOPOR MUDA ADMIN
 
 	// DATA PELOPOR MUDA ADMIN
 	Route::controller(c_umum::class)->group(function () {
-		Route::get('umum', 'index')->name('umum.index');
-		Route::get('umum/create', 'create')->name('umum.create');
-		Route::post('umum/store', 'store')->name('umum.store');
-		Route::get('umum/edit/{id}', 'edit')->name('umum.edit');
-		Route::post('umum/update/{id}', 'update')->name('umum.update');
-		Route::get('umum/verifikasi/{id}', 'verifikasi')->name('umum.verifikasi');
-		Route::get('umum/destroy/{id}', 'destroy')->name('umum.destroy');
+		Route::get('umum', 'index')->name('admin.umum.index');
+		Route::get('umum/create', 'create')->name('admin.umum.create');
+		Route::post('umum/store', 'store')->name('admin.umum.store');
+		Route::get('umum/edit/{id}', 'edit')->name('admin.umum.edit');
+		Route::post('umum/update/{id}', 'update')->name('admin.umum.update');
+		Route::get('umum/verifikasi/{id}', 'verifikasi')->name('admin.umum.verifikasi');
+		Route::get('umum/destroy/{id}', 'destroy')->name('admin.umum.destroy');
 	});
 	// END DATA PELOPOR MUDA ADMIN
 
@@ -203,6 +203,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('loker/edit/{id}', 'edit')->name('loker.edit');
 		Route::post('loker/update/{id}', 'update')->name('loker.update');
 		Route::get('loker/detail/{id}', 'detail')->name('loker.detail');
+		Route::get('loker/destroy/{id}', 'destroy')->name('loker.destroy');
 	});
 	// END DATA LOKER ADMIN
 
@@ -214,6 +215,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('event/edit/{id}', 'edit')->name('event.edit');
 		Route::post('event/update/{id}', 'update')->name('event.update');
 		Route::get('event/detail/{id}', 'detail')->name('event.detail');
+		Route::get('event/destroy/{id}', 'destroy')->name('event.destroy');
 	});
 	// END DATA EVENT ADMIN
 
@@ -225,6 +227,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('berita/edit/{id}', 'edit')->name('berita.edit');
 		Route::post('berita/update/{id}', 'update')->name('berita.update');
 		Route::get('berita/detail/{id}', 'detail')->name('berita.detail');
+		Route::get('berita/destroy/{id}', 'destroy')->name('berita.destroy');
 	});
 	// END DATA BERITA ADMIN
 
@@ -286,7 +289,7 @@ Route::controller(c_okpu::class)->group(function () {
 
 // Data Pendukung
 Route::controller(c_data::class)->group(function () {
-    Route::get('data', 'index')->name('data');
+    Route::get('datau', 'index')->name('data');
 	Route::get('data/destroy/{id}', 'destroy')->name('data.destroy');
 	Route::post('data/store', 'store')->name('data.store');
 });

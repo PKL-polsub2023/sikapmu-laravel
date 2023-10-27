@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\m_user;
 use App\Models\user_umum;
+use App\Models\file_loker;
+use App\Models\file_event;
+use App\Models\data;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -17,6 +20,9 @@ class c_umum extends Controller
     {
         $this->user = new m_user();
         $this->umum = new user_umum();
+        $this->file_loker = new file_loker();
+        $this->file_event = new file_event();
+        $this->data = new data();
     }
 
     public function index()
@@ -107,6 +113,16 @@ class c_umum extends Controller
         ];
         $this->user->editData($id, $data);
         return redirect()->back();
+    }
+
+    public function destroy($id)
+    {
+        $this->data->deleteUser($id);
+        $this->file_event->deleteUser($id);
+        $this->file_loker->deleteUser($id);
+        $this->umum->deleteData($id);
+        $this->user->deleteData($id);
+        return redirect()->route('umum.index')->with('success', "Data Berhasil dihapus.");
     }
     
 }

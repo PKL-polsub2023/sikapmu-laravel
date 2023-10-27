@@ -52,4 +52,8 @@ class file_loker extends Model
     {
         DB::table('file_lokers')->where('id_user', $id)->delete();
     }
+    public function deleteLoker($id)
+    {
+        DB::table('file_lokers')->where('id_loker', $id)->delete();
+    }
 }

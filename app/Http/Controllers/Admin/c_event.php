@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\m_user;
 use App\Models\data_event;
+use App\Models\file_event;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -17,7 +18,8 @@ class c_event extends Controller
     {
         $this->user = new m_user();
         $this->event = new data_event();
-    }
+        $this->file_event = new file_event(); 
+       }
 
     public function index()
     {
@@ -153,6 +155,13 @@ class c_event extends Controller
         ];
        
         return view ('Admin.eventt.detail', $data);
+    }
+
+    public function destroy ($id)
+    {
+        $this->file_event->deleteEvent($id);
+        $this->event->deleteData($id);
+        return redirect()->route('event.index')->with('success', "Data Berhasil dihapus.");
     }
 
     

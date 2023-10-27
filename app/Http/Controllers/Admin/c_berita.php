@@ -146,6 +146,12 @@ class c_berita extends Controller
         return view ('Admin.berita.detail', $data);
     }
 
+    public function destroy ($id)
+    {
+        $this->berita->deleteData($id);
+        return redirect()->route('event.index')->with('success', "Data Berhasil dihapus.");
+    }
+
 
 
 

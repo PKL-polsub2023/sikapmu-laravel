@@ -35,4 +35,9 @@ class data_usaha extends Model
     {
         DB::table('data_usahas')->where('id_usaha', $id)->delete();
     }
+
+    public function deleteUser($id)
+    {
+        DB::table('data_usahas')->where('id_user', $id)->delete();
+    }
 }

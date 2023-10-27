@@ -10,6 +10,9 @@ use App\Models\okp;
 use App\Models\data_ketua_okp;
 use App\Models\data_sekretaris_okp;
 use App\Models\data_bendahara_okp;
+use App\Models\file_loker;
+use App\Models\file_event;
+use App\Models\data;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -23,6 +26,9 @@ class c_okp extends Controller
         $this->ketua = new data_ketua_okp();
         $this->sekretaris = new data_sekretaris_okp();
         $this->bendahara = new data_bendahara_okp();
+        $this->file_loker = new file_loker();
+        $this->file_event = new file_event();
+        $this->data = new data();
     }
 
     public function index()
@@ -145,6 +151,16 @@ class c_okp extends Controller
         ];
         $this->user->editData($id, $data);
         return redirect()->back();
+    }
+
+    public function destroy($id)
+    {
+        $this->data->deleteUser($id);
+        $this->file_event->deleteUser($id);
+        $this->file_loker->deleteUser($id);
+        $this->okp->deleteData($id);
+        $this->user->deleteData($id);
+        return redirect()->route('okp.index')->with('success', "Data Berhasil dihapus.");
     }
     
 }

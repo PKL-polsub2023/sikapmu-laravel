@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\m_user;
 use App\Models\wirausaha;
+use App\Models\file_loker;
+use App\Models\file_event;
+use App\Models\data_usaha;
+use App\Models\data;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -17,6 +21,11 @@ class c_wiramuda extends Controller
     {
         $this->user = new m_user();
         $this->wirausaha = new wirausaha();
+        $this->file_loker = new file_loker();
+        $this->file_event = new file_event();
+        $this->data_usaha = new data_usaha();
+        $this->data = new data();
+
     }
 
     public function index()
@@ -111,10 +120,13 @@ class c_wiramuda extends Controller
 
     public function delete($id)
     {
+        $this->data->deleteUser($id);
+        $this->data_usaha->deleteUser($id);
+        $this->file_event->deleteUser($id);
+        $this->file_loker->deleteUser($id);
+        $this->wiramuda->deleteData($id);
         $this->user->deleteData($id);
-        $this->wiramuda->deleteData($id);
-        $this->wiramuda->deleteData($id);
-
+        return redirect()->route('admin.wiramuda.index')->with('success', "Data Berhasil dihapus.");
     }
     
 }
