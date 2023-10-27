@@ -60,36 +60,35 @@
     data-aos-duration="1500">
     <div class="container">
         <div class="default-section-title default-section-title-middle">
-            <h3>Lowongan Kerja</h3>
-            <p>Loker Terbaru</p>
+            <h3>Event</h3>
         </div>
         <div class="section-content">
             <div class="agenda-slider-area-1 owl-carousel">
-                @foreach ($loker as $data)
+                @foreach ($event as $data)
                     <div class="blog-card mlr-15 mb-30">
                         <div class="blog-card-img">
-                            <a href="{{ route('loker.landingPage.detail', $data->id_loker) }}"><img
-                                    src="{{ asset('foto/loker/' . $data->foto) }}" style="height: 300px"
+                            <a href="{{ route('event.landingPage.detail', $data->id_event) }}"><img
+                                    src="{{ asset('foto/event/' . $data->foto) }}" style="height: 300px"
                                     alt="image"></a>
                         </div>
                         <div class="blog-card-text-area">
                             <div class="blog-date">
                                 <ul>
-                                    <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
+                                    <li><i class="far fa-calendar-alt"></i> {{ $data->waktu_event }}</li>
                                     <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
                                     <!-- <li><i class="far fa-folder"></i> Terkini</li> -->
                                 </ul>
                             </div>
                             <h4><a href="#">{{ $data->judul }}</a></h4>
-                            <p>{{ $data->instansi }}</p>
+                            <p>{{ $data->deskripsi }}</p>
                             <a class="read-more-btn"
-                                href="{{ route('loker.landingPage.detail', $data->id_loker) }}">Read More</a>
+                                href="{{ route('event.landingPage.detail', $data->id_event) }}">Read More</a>
                         </div>
                     </div>
                 @endforeach
             </div>
             <center>
-                <a href="/loker" class="default-button news-btn">Selengkapnya</a>
+                <a href="{{ route('event.selengkapnya') }}" class="default-button news-btn">Selengkapnya</a>
             </center>
         </div>
     </div>
