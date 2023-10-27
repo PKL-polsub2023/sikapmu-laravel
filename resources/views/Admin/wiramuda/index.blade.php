@@ -20,8 +20,8 @@
                 <div class="col-12">
 
                     <div class="me-3 my-3 text-start">
-                        <a onclick="reset()" class="btn bg-0057FF mb-0" href="javascript:;" data-bs-toggle="modal"
-                            data-bs-target="#add" style="background-color: #0057FF;">
+                        <a class="btn bg-0057FF mb-0" href="javascript:;" data-bs-toggle="modal" data-bs-target="#add"
+                            style="background-color: #0057FF;">
                             <i class="text-sm text-white">Tambah Data</i>
                         </a>
                     </div>
@@ -153,7 +153,7 @@
 
                 <div id="error-messages" class="alert alert-primary alert-dismissible text-white" style="display: none">
                 </div>
-                <form id="validationForm">
+                <form method="POST" id="validationForm">
                     @csrf
                     <div class="row">
                         <div class="col-5">

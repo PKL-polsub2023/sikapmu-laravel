@@ -37,7 +37,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: 'wiramuda/store',
+            url: 'wiramuda/kirim',
             data: data,
             headers: {
                 'X-CSRF-TOKEN': CSRF_TOKEN,

@@ -47,4 +47,8 @@ class file_event extends Model
     {
         return DB::table('file_events')->where('id_user', $id)->count();
     }
+    public function deleteUser($id)
+    {
+        DB::table('file_events')->where('id_user', $id)->delete();
+    }
 }

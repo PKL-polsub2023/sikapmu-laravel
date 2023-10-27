@@ -48,4 +48,8 @@ class file_loker extends Model
     {
         return DB::table('file_lokers')->where('id_user', $id)->count();
     }
+    public function deleteUser($id)
+    {
+        DB::table('file_lokers')->where('id_user', $id)->delete();
+    }
 }

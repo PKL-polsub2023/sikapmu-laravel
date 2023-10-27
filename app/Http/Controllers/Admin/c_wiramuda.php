@@ -40,7 +40,7 @@ class c_wiramuda extends Controller
         $validator = Validator::make($request->all(), [
             'nama_depan' => 'required',
             'nama_belakang' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'kpassword' => 'required|same:password',
             'kontak' => 'required',
@@ -107,6 +107,14 @@ class c_wiramuda extends Controller
         ];
         $this->user->editData($id, $data);
         return redirect()->back();
+    }
+
+    public function delete($id)
+    {
+        $this->user->deleteData($id);
+        $this->wiramuda->deleteData($id);
+        $this->wiramuda->deleteData($id);
+
     }
     
 }
