@@ -66,7 +66,7 @@ class c_landing_page extends Controller
                  'usaha' => $this->data_usaha->DetailDatau($id),
                 
     ];
-        return view('pages.laravel-examples.detailwm', $data);
+        return view('LP.wirausaha.detail', $data);
     }
     public function chart($id)
     {
@@ -128,8 +128,10 @@ class c_landing_page extends Controller
 
     public function pemuda()
     {
+        $sekarang = date('Y');
         $data = [
             'pelopor' => $this->pp->paginate(),
+            'j' => $this->dp->tahunData($sekarang),
         ];
 
         
