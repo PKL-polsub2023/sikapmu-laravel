@@ -426,7 +426,75 @@
     
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+    $(document).ready(function() {
+        chart();
+    });
 
+    function chart() {
+        var tahun = $("#tahun").val();
+        var id = parseInt(tahun);
+        $.get("{{ url('chart') }}/" + id, {}, function(data, status) {
+            var p1 = data[0];
+            var p2 = data[1];
+            Highcharts.chart('pie1', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: '<h2>Data Pemuda</h2>'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: {point.y} : {point.percentage:.1f}%'
+    },
+    legend: {
+        layout: 'horizontal',
+        backgroundColor: '',
+        floating: true,
+        align: 'left',
+        verticalAlign: 'bottom',
+        x: 0,
+        y: 0,
+        labelFormatter: function () {
+            return this.name + ' : '+this.options.y+' orang';
+        }
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                // format: '<b>{point.name}</b> : {point.y} orang',
+                // style: {
+                // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                // }
+            },
+            showInLegend: true,
+
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Umur 16 S/D 19 Tahun',
+            y: p1,
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Umur 20 S/D 30 Tahun',
+            y: p2
+        }]
+    }]
+});
+        });
+
+}
+</script>
     
 <script type="text/javascript">
 // Build the chart
