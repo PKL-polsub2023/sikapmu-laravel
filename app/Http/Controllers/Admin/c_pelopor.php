@@ -122,6 +122,6 @@ class c_pelopor extends Controller
         $this->file_loker->deleteUser($id);
         $this->pelopor->deleteData($id);
         $this->user->deleteData($id);
-        return redirect()->route('pelopor.index')->with('success', "Data Berhasil dihapus.");
+        return redirect()->route('admin.pelopor.index')->with('success', "Data Berhasil dihapus.");
     }
 }

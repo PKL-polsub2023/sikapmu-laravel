@@ -165,7 +165,7 @@ class c_loker extends Controller
     {
         $this->file_loker->deleteLoker($id);
         $this->loker->deleteData($id);
-        return redirect()->route('loker.index')->with('success', "Data Berhasil dihapus.");
+        return redirect()->route('admin.loker.index')->with('success', "Data Berhasil dihapus.");
     }
 
 

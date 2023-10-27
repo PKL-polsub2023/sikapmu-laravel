@@ -296,7 +296,7 @@
                 </div>
                 <div class="modal-body align-middle text-center">
                     <h6>Apakah Anda Yakin? Ini akan menghapus seluruh data pengguna.</h6>
-                    <a href="{{ route('wiramuda.destroy', $data->id_user) }}" class="btn btn-success">Hapus</a>
+                    <a href="{{ route('admin.wiramuda.destroy', $data->id_user) }}" class="btn btn-success">Hapus</a>
                     <a href="#" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Batalkan</a>
                 </div>
             </div>

@@ -161,7 +161,7 @@ class c_event extends Controller
     {
         $this->file_event->deleteEvent($id);
         $this->event->deleteData($id);
-        return redirect()->route('event.index')->with('success', "Data Berhasil dihapus.");
+        return redirect()->route('admin.event.index')->with('success', "Data Berhasil dihapus.");
     }
 
     

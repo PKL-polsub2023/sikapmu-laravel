@@ -118,6 +118,8 @@
                                                     <div class="col-4">
                                                         <div class="me-n2 my-3 text-start">
                                                             <a class="btn btn-sm bg-danger mb-0 h-25 w-100"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#hapus{{ $data->id_user }}"
                                                                 href="javascript:;" style="background-color: #0057FF;">
                                                                 <i class="text-sm text-white">HAPUS</i>
                                                             </a>
@@ -272,7 +274,7 @@
                 </div>
                 <div class="modal-body align-middle text-center">
                     <h6>Apakah Anda Yakin?</h6>
-                    <a href="{{ route('umum.verifikasi', $data->id) }}" class="btn btn-success">Verifikasi</a>
+                    {{-- <a href="{{ route('umum.verifikasi', $data->id) }}" class="btn btn-success">Verifikasi</a> --}}
                     <a href="#" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Batalkan</a>
                 </div>
             </div>
@@ -280,5 +282,27 @@
     </div>
 @endforeach
 {{-- End Modal Verifikasi --}}
+
+{{-- Modal Hapus --}}
+@foreach ($umum as $data)
+    <div class="modal fade" id="hapus{{ $data->id_user }}" tabindex="-1" aria-labelledby="add"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adddoc">Hapus {{ $data->nama }}</h5>
+                    <button type="button" id="closed2" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body align-middle text-center">
+                    <h6>Apakah Anda Yakin? Ini akan menghapus seluruh data pengguna.</h6>
+                    <a href="{{ route('admin.umum.destroy', $data->id_user) }}" class="btn btn-success">Hapus</a>
+                    <a href="#" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Batalkan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
+{{-- End Modal Hapus --}}
 
 <script src="{{ asset('assets/js/pribadi/umum-admin.js') }}"></script>

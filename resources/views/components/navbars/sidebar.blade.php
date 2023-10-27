@@ -88,7 +88,7 @@
         @if (Auth::user()->role == 'Admin')
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'DataWiraMuda' ? ' active-page' : '' }} "
-                    href="{{ route('wiramuda.index') }}">
+                    href="{{ route('admin.wiramuda.index') }}">
                     <div class="card {{ $activePage == 'DataWiraMuda' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center d-flex align-items-center justify-content-center">
                             <i class="fas fa-users {{ $activePage == 'DataWiraMuda' ? 'text-white' : 'text-4FD1C5' }}"
@@ -99,7 +99,7 @@
                 </a>
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'dataOKP' ? ' active-page' : '' }} "
-                    href="{{ route('okp.index') }}">
+                    href="{{ route('admin.okp.index') }}">
                     <div class="card {{ $activePage == 'dataOKP' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center d-flex align-items-center justify-content-center">
                             <i class="fas fa-users {{ $activePage == 'dataOKP' ? 'text-white' : 'text-4FD1C5' }}"
@@ -111,7 +111,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'Pemuda Pelopor' ? ' active-page' : '' }} "
-                    href="{{ route('pelopor.index') }}">
+                    href="{{ route('admin.pelopor.index') }}">
                     <div class="card {{ $activePage == 'Pemuda Pelopor' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center d-flex align-items-center justify-content-center">
                             <i class="fas fa-users {{ $activePage == 'Pemuda Pelopor' ? 'text-white' : 'text-4FD1C5' }}"
@@ -123,7 +123,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'DataUmum' ? ' active-page' : '' }} "
-                    href="{{ route('umum.index') }}">
+                    href="{{ route('admin.umum.index') }}">
                     <div class="card {{ $activePage == 'DataUmum' ? 'bg-4FD1C5' : 'bg-white' }}">
                         <div class="text-white text-center  d-flex align-items-center justify-content-center">
                             <i class="fas fa-users {{ $activePage == 'DataUmum' ? 'text-white' : 'text-4FD1C5' }}"

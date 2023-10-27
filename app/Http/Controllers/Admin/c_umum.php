@@ -122,7 +122,7 @@ class c_umum extends Controller
         $this->file_loker->deleteUser($id);
         $this->umum->deleteData($id);
         $this->user->deleteData($id);
-        return redirect()->route('umum.index')->with('success', "Data Berhasil dihapus.");
+        return redirect()->route('admin.umum.index')->with('success', "Data Berhasil dihapus.");
     }
     
 }

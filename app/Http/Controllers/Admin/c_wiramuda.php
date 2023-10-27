@@ -118,13 +118,13 @@ class c_wiramuda extends Controller
         return redirect()->back();
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         $this->data->deleteUser($id);
         $this->data_usaha->deleteUser($id);
         $this->file_event->deleteUser($id);
         $this->file_loker->deleteUser($id);
-        $this->wiramuda->deleteData($id);
+        $this->wirausaha->deleteData($id);
         $this->user->deleteData($id);
         return redirect()->route('admin.wiramuda.index')->with('success', "Data Berhasil dihapus.");
     }

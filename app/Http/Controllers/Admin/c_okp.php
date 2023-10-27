@@ -160,7 +160,7 @@ class c_okp extends Controller
         $this->file_loker->deleteUser($id);
         $this->okp->deleteData($id);
         $this->user->deleteData($id);
-        return redirect()->route('okp.index')->with('success', "Data Berhasil dihapus.");
+        return redirect()->route('admin.okp.index')->with('success', "Data Berhasil dihapus.");
     }
     
 }

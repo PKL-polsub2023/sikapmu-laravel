@@ -149,7 +149,7 @@ class c_berita extends Controller
     public function destroy ($id)
     {
         $this->berita->deleteData($id);
-        return redirect()->route('event.index')->with('success', "Data Berhasil dihapus.");
+        return redirect()->route('admin.event.index')->with('success', "Data Berhasil dihapus.");
     }
 
 
