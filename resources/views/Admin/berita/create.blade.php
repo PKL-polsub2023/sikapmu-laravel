@@ -37,6 +37,10 @@
                         <div class="mb-3">
                             <textarea type="text" class="form-control" id="isi" name="isi" required style="border: 2px solid #92929D;"
                                 placeholder="Isi Berita"></textarea>
+                            {{-- <label class="form-label">Isi Berita</label>
+                            <div class="col-md-16">
+                                <textarea name="isi" class="my-editor form-control " id="isi" cols="30" rows="10">{{ old('isi') }}</textarea>
+                            </div> --}}
 
                         </div>
                         <div class="mb-3">
@@ -66,4 +70,12 @@
     </main>
     <x-plugins></x-plugins>
     <script src="{{ asset('assets/js/pribadi/berita-admin.js') }}"></script>
+    {{-- <script src="https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+
+    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('isi');
+        CKEDITOR.replace('my-editor1');
+        CKEDITOR.replace('my-editor2');
+    </script> --}}
 </x-layout>

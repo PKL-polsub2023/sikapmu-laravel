@@ -22,28 +22,30 @@
                             <a href="/" class="nav-link @if (request()->segment(1) == '' || request()->segment(1) == 'home') active @endif">Home</a>
                         </li>
                         <li class="nav-item ">
-                            <a href="#" class="nav-link @if (request()->segment(1) == 'wirausaha_muda') active @endif">Wirausaha
+                            <a href="{{ url('lwm') }}"
+                                class="nav-link @if (request()->segment(1) == 'lwm') active @endif">Wirausaha
                                 Muda</a>
                         </li>
                         <li class="nav-item ">
-                            <a href="#" class="nav-link @if (request()->segment(1) == 'pemuda_pelopor') active @endif">Pemuda
+                            <a href="{{ url('pemuda-utama') }}"
+                                class="nav-link @if (request()->segment(1) == 'pemuda-utama') active @endif">Pemuda
                                 Pelopor</a>
                         </li>
                         <li class="nav-item ">
                             <a href="{{ url('okp-utama') }}"
-                                class="nav-link @if (request()->segment(1) == 'pemuda_okp') active @endif">Pemuda OKP</a>
+                                class="nav-link @if (request()->segment(1) == 'okp-utama') active @endif">Pemuda OKP</a>
                         </li>
                         <li class="nav-item ">
                             <a href="{{ url('event-utama') }}"
-                                class="nav-link @if (request()->segment(1) == 'event') active @endif">Event</a>
+                                class="nav-link @if (request()->segment(1) == 'event-utama') active @endif">Event</a>
                         </li>
                         <li class="nav-item ">
                             <a href="{{ url('loker-utama') }}"
-                                class="nav-link @if (request()->segment(1) == 'loker') active @endif">Loker</a>
+                                class="nav-link @if (request()->segment(1) == 'loker-utama') active @endif">Loker</a>
                         </li>
                         <li class="nav-item ">
                             <a href="{{ url('berita-utama') }}"
-                                class="nav-link @if (request()->segment(1) == 'berita') active @endif">Berita</a>
+                                class="nav-link @if (request()->segment(1) == 'berita-utama') active @endif">Berita</a>
                         </li>
                         <!-- <li class="nav-item ">
        <a href="#" class="nav-link dropdown-toggle">Tentang</a>

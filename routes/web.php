@@ -72,6 +72,8 @@ Route::post('sign-in', [SessionsController::class, 'store'])->middleware('guest'
 Route::post('verify', [SessionsController::class, 'show'])->middleware('guest');
 Route::post('reset-password', [SessionsController::class, 'update'])->middleware('guest')->name('password.update');
 
+Route::get('/detail/{jenis}/{id}', [DashboardController::class, 'detail'])->name('admin.detail');
+
 Route::get('verify', function () {
 	return view('sessions.password.verify');
 })->middleware('guest')->name('verify');

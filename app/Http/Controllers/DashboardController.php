@@ -69,4 +69,33 @@ class DashboardController extends Controller
         return view ('okp.dashboard', $data);
        }
     }
+
+    public function detail($jenis, $id)
+    {
+        if($jenis == "wiramuda")
+        {
+            $data = [
+                'user' => $this->wirausaha->detailData($id),
+            ];
+            return view ('Admin.wiramuda.detail', $data);
+        }else if ($jenis == "umum")
+        {
+            $data = [
+                'user' => $this->user_umum->detailData($id),
+            ];
+            return view ('Admin.umum.detail', $data);
+        }else if ($jenis == "okp")
+        {
+            $data = [
+                'user' => $this->okp->detailData($id),
+            ];
+            return view ('Admin.okp.detail', $data);
+        }else if ($jenis == "pelopor")
+        {
+            $data = [
+                'user' => $this->pemuda_pelopor->detailData($id),
+            ];
+            return view ('Admin.pelopor.detail', $data);
+        }
+    }
 }

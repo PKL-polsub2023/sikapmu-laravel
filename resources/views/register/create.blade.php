@@ -15,7 +15,7 @@
                                     <div class="card-body">
                                         <form method="POST" action="{{ route('register') }}">
                                             @csrf
-                                           
+
                                             <div class="input-group input-group-outline mt-3">
                                                 <label class="form-label">Nama</label>
                                                 <input type="text" class="form-control" name="nama"

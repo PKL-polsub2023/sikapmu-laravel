@@ -1,17 +1,17 @@
 @extends('template_front.layout')
 
 @section('content')
-@section('title', 'Pemuda Pelopor')   
+@section('title', 'Pemuda Pelopor')
 <section class="uni-banner">
-   <div class="container">
-      <div class="uni-banner-text-area">
-         <h1>Pemuda Pelopor</h1>
-         <ul>
-            <li><a href="/">Home</a></li>
-            <li>Pemuda Pelopor</li>
-         </ul>
-      </div>
-   </div>
+    <div class="container">
+        <div class="uni-banner-text-area">
+            <h1>Pemuda Pelopor</h1>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>Pemuda Pelopor</li>
+            </ul>
+        </div>
+    </div>
 </section>
 @include('template_front.support')
 {{-- <section class="services service-2 ptb-100 bg-white" data-aos="fade-down">
@@ -46,20 +46,26 @@
    </div>
 </section> --}}
 <section class="team ptb-100 bg-f9fbfe">
-   <div class="container">
-      <div class="default-section-title default-section-title-middle">
-         <h3>Pemuda Pelopor Subang</h3>
-         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p> -->
-      </div>
-      <div class="section-content">
-         <div class="agenda-slider-area-1 owl-carousel">
+    <div class="container">
+        <div class="default-section-title default-section-title-middle">
+            <h3>Pemuda Pelopor Subang</h3>
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p> -->
+        </div>
+        <div class="section-content">
+            <div class="agenda-slider-area-1 owl-carousel">
 
-            @foreach ($pelopor as $item)
-            <div class="blog-card mlr-15 mb-30">
-               <div class="box-shadow rounded team-card bg-white">
-                  <div class="team-card-img p-0">
-                     <img src="{{ asset('foto/pelopor/'.$item->foto) }}" alt="image" class="rounded" style="height: 240px; widht:100%">
-                     <!-- <div class="team-social-icons">
+                @foreach ($pelopor as $item)
+                    <div class="blog-card mlr-15 mb-30">
+                        <div class="box-shadow rounded team-card bg-white">
+                            <div class="team-card-img p-0">
+                                @if ($item->foto != null)
+                                    <img src="{{ asset('foto/pelopor/' . $item->foto) }}" alt="image" class="rounded"
+                                        style="height: 240px; widht:100%">
+                                @else
+                                    <img src="{{ asset('foto/default.png') }}" alt="image" class="rounded"
+                                        style="height: 240px; widht:100%">
+                                @endif
+                                <!-- <div class="team-social-icons">
                         <ul>
                            <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                            <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
@@ -67,20 +73,22 @@
                            <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                      </div> -->
-                  </div>
-                  <div class="team-card-text">
-                     <h4>{{ $item->nama }}</h4>
-                     <p>Alamat : {{ $item->alamat }} Tahun</p>
-                     <a class="btn default-button" href="{{ route('pemuda.landingPage.detail', $item->id) }}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                  </div>
-               </div>
+                            </div>
+                            <div class="team-card-text">
+                                <h4>{{ $item->nama }}</h4>
+                                <p>Alamat : {{ $item->alamat }} Tahun</p>
+                                <a class="btn default-button"
+                                    href="{{ route('pemuda.landingPage.detail', $item->id) }}">Selengkapnya <i
+                                        class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            @endforeach
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
 
-   
+
 </section>
 
 

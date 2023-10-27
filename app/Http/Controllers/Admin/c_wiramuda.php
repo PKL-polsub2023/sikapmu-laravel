@@ -129,4 +129,12 @@ class c_wiramuda extends Controller
         return redirect()->route('admin.wiramuda.index')->with('success', "Data Berhasil dihapus.");
     }
     
+
+    // public function detail($id)
+    // {
+    //     $data = [
+    //         'user' => $this->wirausaha->detailData($id),
+    //     ];
+    //     return view ('Admin.wiramuda.detail', $data);
+    // }
 }

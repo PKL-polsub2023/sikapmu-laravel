@@ -106,6 +106,15 @@
                                                     @endif --}}
                                                     <div class="col-4">
                                                         <div class="me-n2 my-3 text-start">
+                                                            <a class="btn btn-sm bg-primary mb-0 w-100"
+                                                                href="{{ route('admin.detail', ['jenis' => 'wiramuda', 'id' => $data->id]) }}"
+                                                                style="background-color: #0057FF;">
+                                                                <i class="text-sm text-white">DETAIL</i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="me-n2 my-3 text-start">
                                                             <a onclick="reset()"
                                                                 class="btn btn-sm bg-warning mb-0 w-100" href="#"
                                                                 data-bs-toggle="modal"
