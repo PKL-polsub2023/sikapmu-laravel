@@ -60,44 +60,76 @@
     data-aos-duration="1500">
     <div class="container">
         <div class="default-section-title default-section-title-middle">
-            <h3>Lowongan Kerja</h3>
-            <p>Loker Terbaru</p>
+            <h3>Detail Lowongan</h3>
         </div>
         <div class="section-content">
-            <div class="agenda-slider-area-1 owl-carousel">
-                @foreach ($loker as $data)
-                    <div class="blog-card mlr-15 mb-30">
-                        <div class="blog-card-img">
-                            <a href="{{ route('loker.landingPage.detail', $data->id_loker) }}"><img
-                                    src="{{ asset('foto/loker/' . $data->foto) }}" style="height: 300px"
-                                    alt="image"></a>
-                        </div>
-                        <div class="blog-card-text-area">
-                            <div class="blog-date">
-                                <ul>
-                                    <li><i class="far fa-calendar-alt"></i> 25/10/2023</li>
-                                    <li><i class="fas fa-user"></i> By <a href="#">Admin</a></li>
-                                    <!-- <li><i class="far fa-folder"></i> Terkini</li> -->
-                                </ul>
+            <div class="container mt-3 position: relative;">
+                <h1 class="text-center mt-5 mb-3" style="color: rgb(78, 78, 78); font-size: 22px; ">
+                    {{ $loker->instansi }}</h1>
+                <div class="supp text-center mb-5">
+                    <img src="{{ asset('foto/loker/' . $loker->foto) }}" style="width:100px;height:100px"
+                        alt="profile-img" class="text-center" />
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="container">
+
+                            <h1 class="text-start mb-2"
+                                style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
+                                Judul :</h1>
+
+                            <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">
+                                {{ $loker->judul }} </h1>
+
+                            <h1 class="text-start mb-2"
+                                style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
+                                Deskripsi :</h1>
+
+                            <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">
+                                {{ $loker->deskripsi }} </h1>
+
+
+
+
+
+                            <h1 class="text-start mt-5 mb-2"
+                                style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
+                                Persyaratan : </h1>
+
+                            <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">
+                                {{ $loker->persyaratan }}
+                                {{-- 
+                            @php
+                            echo $loker->persyaratan;
+                        @endphp --}}
+                            </h1>
+
+                            <div class="text-start mx- mt-3 mb-1">
+                                <a class="btn text-start align-items-center"
+                                    @guest href="{{ url('sign-in') }}" @endguest
+                                    style="background-color: #4C6FFF; text-align: center;">
+                                    <i class="text-white py-5 px-5"
+                                        style="text-transform: none; font-style: normal;">Apply
+                                        Lamaran
+                                    </i>
+                                </a>
                             </div>
-                            <h4><a href="#">{{ $data->judul }}</a></h4>
-                            <p>{{ $data->instansi }}</p>
-                            <a class="read-more-btn"
-                                href="{{ route('loker.landingPage.detail', $data->id_loker) }}">Read More</a>
                         </div>
                     </div>
-                @endforeach
+
+
+                </div>
+
+
             </div>
-            <center>
-                <a href="/loker" class="default-button news-btn">Selengkapnya</a>
-            </center>
         </div>
     </div>
 </section>
 
 
 
-{{-- 
+
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
     $(document).ready(function() {
@@ -593,6 +625,6 @@
         });
 
     }
-</script> --}}
+</script>
 
 @endsection

@@ -29,8 +29,8 @@
         <div class="supp text-center mb-5">
             <img src="{{ asset('assets/img/supported.png') }}" alt="profile-img" class="text-center" />
         </div>
-        <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">{{ $loker->instansi }}</h1>
 
+        <h1 class="text-center mt-5 mb-5" style="color: rgb(78, 78, 78); font-size: 22px; ">{{ $loker->instansi }}</h1>
         <div class="supp text-center mb-5">
             <img src="{{ asset('foto/loker/' . $loker->foto) }}" style="width:50%" alt="profile-img"
                 class="text-center" />
@@ -39,39 +39,39 @@
             <div class="col-2"></div>
             <div class="col-8">
                 <div class="container">
-            
+
                     <h1 class="text-start mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
                         Deskripsi :</h1>
 
                     <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">{{ $loker->deskripsi }} </h1>
 
-               
-                   
-               
 
-                <h1 class="text-start mt-5 mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
-                    Persyaratan : </h1>
 
-                <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">{{ $loker->persyaratan }}
-                    {{-- 
+
+
+                    <h1 class="text-start mt-5 mb-2" style="color: rgb(0, 0, 0); font-size: 18px; font-weight:bold; ">
+                        Persyaratan : </h1>
+
+                    <h1 class="text-start " style="color: rgb(0, 0, 0); font-size: 18px; ">{{ $loker->persyaratan }}
+                        {{-- 
                     @php
                     echo $loker->persyaratan;
                 @endphp --}}
-                </h1>
-            
-            <div class="text-start mx- mt-3 mb-1">
-                <a class="btn text-start align-items-center" @guest href="{{ url('sign-in') }}" @endguest
-                    style="background-color: #4C6FFF; text-align: center;">
-                    <i class="text-white py-5 px-5" style="text-transform: none; font-style: normal;">Apply
-                        Lamaran
-                    </i>
-                </a>
+                    </h1>
+
+                    <div class="text-start mx- mt-3 mb-1">
+                        <a class="btn text-start align-items-center" @guest href="{{ url('sign-in') }}" @endguest
+                            style="background-color: #4C6FFF; text-align: center;">
+                            <i class="text-white py-5 px-5" style="text-transform: none; font-style: normal;">Apply
+                                Lamaran
+                            </i>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+
         </div>
-            </div>
-        
-        
-    </div>
 
 
         <x-footers.footer></x-footers.guest>
