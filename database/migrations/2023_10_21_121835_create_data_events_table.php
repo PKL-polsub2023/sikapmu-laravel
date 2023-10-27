@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('data_events', function (Blueprint $table) {
             $table->id('id_event');
             $table->string('judul')->nullable();
-            $table->string('deskripsi')->nullable();
-            $table->string('persyaratan')->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->text('persyaratan')->nullable();
             $table->string('foto')->nullable();
             $table->string('waktu_event')->nullable();
             $table->string('kategori')->nullable();
