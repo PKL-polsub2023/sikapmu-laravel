@@ -33,10 +33,13 @@
     <script src="{{ asset('') }}front/js/jquery.min.js"></script>
     <!---Highchart-->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="{{ asset('') }}plugin/hc/code/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    {{-- <script src="{{ asset('') }}plugin/hc/code/modules/series-label.js"></script>
     <script src="{{ asset('') }}plugin/hc/code/modules/exporting.js"></script>
     <script src="{{ asset('') }}plugin/hc/code/modules/offline-exporting.js"></script>
-    <script src="{{ asset('') }}plugin/hc/code/modules/export-data.js"></script>
+    <script src="{{ asset('') }}plugin/hc/code/modules/export-data.js"></script> --}}
     <title>@yield('title', 'SILAPEM')</title>
     <!--- Favicon --->
     <link rel="icon" href="{{ asset('') }}front/images/favicon.png" type="image/x-icon" />
