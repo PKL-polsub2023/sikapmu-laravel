@@ -59,7 +59,7 @@
                     <div class="menu-sidebar">
                         <ul>
                             <li><button class="popup-button"><i class="fas fa-search"></i></button></li>
-                            <li><a class="default-button" href="#">Daftar</a></li>
+                            <li><a class="default-button" href="{{ route('login') }}">Masuk</a></li>
                         </ul>
                     </div>
                 </div>
