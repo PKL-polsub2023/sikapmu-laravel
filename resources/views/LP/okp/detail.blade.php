@@ -1,5 +1,5 @@
 @extends('template_front.layout')
-
+<link rel="stylesheet" href="{{ asset('assets/css/detail.css') }}">
 @section('content')
 @section('title', 'Home')
 <div id="carouselHome" class="carousel slide " data-bs-ride="false">
@@ -60,96 +60,53 @@
     {{-- <!-- Navbar -->
     <x-navbars.navs.auth titlePage='dashboard'></x-navbars.navs.auth>
     <!-- End Navbar --> --}}
-    <div class="container-fluid py-4">
-        <div class="col-12 text-center">
-            <h1 class="text-center" style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold; margin-right: 5px;">
-                Bio OKP
-            </h1>
-        </div>
-        <div class="card col col-md-12 py-4" style="border-radius: 10px; background-color: #293679; position:relative;">
-            <div class="row">
-                <div class="col-2">
-                    <div style="position:relative" class="col-12 d-flex justify-content-end mt-n1">
-                        <a class="nav-link text-start p-0" id="profile" style="margin-left: 500px;">
-                            <div class="position-relative"
-                                style="width: 180px; height: 180px; overflow: hidden; border-radius: 50%; border: 5px solid white;">
-                                @if ($okp->logo != null)
-                                    <img src="{{ asset('logo/okp/' . $okp->logo) }}" alt="profile-img"
-                                        class="img-fluid mb-n8" style="object-fit: cover; width: 100%; height: 100%;" />
-                                @else
-                                    <img src="{{ asset('foto/default.png') }}" alt="profile-img" class="img-fluid mb-n8"
-                                        style="object-fit: cover; width: 100%; height: 100%;" />
-                                @endif
-                            </div>
-                        </a>
-                    </div>
-
-
-                </div>
-                <div class="col-4 mt-3">
-                    <h1 class="d-flex text-center align-items-center"
-                        style="color: rgb(255, 255, 255); font-size: 24px; font-weight: bold;">
-                        {{ $okp->nama }}
-                    </h1>
-                    <h1 class="d-flex text-center align-items-center"
-                        style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">
-                        <i style="color: red" class="fa fa-envelope"></i> {{ $okp->email }}
-                    </h1>
-                    <h1 class="d-flex text-center align-items-center"
-                        style="color: rgb(255, 255, 255); font-size:18px; font-weight: 100;">
-                        <i class="fa fa-globe" style="color: red"></i> {{ $okp->website }}
-                    </h1>
-                </div>
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col-11">
-                            <div class="container">
-                                <h1 class="text-start mb-4"
-                                    style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
-                                    <i style="color: red" class="fa fa-map-marker"></i> Lokasi Terkini :
-                                    {{ $okp->alamat_jln }}, {{ $okp->kota }}, {{ $okp->provinsi }},
-                                    {{ $okp->kode_pos }}
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+    <div class="col col-12 col-md-12">
+        <div class="card">
+            <div class="img">
+                @if ($okp->logo != null)
+                    <img src="{{ asset('logo/okp/' . $okp->logo) }}">
+                @else
+                    <img src="{{ asset('foto/default.png') }}">
+                @endif
             </div>
-
-        </div>
-
-
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-12 text-center">
-                    <div class="card text-center" style="border-radius: 10px; background-color: #293679;">
-                        <h1 class="d-flex justify-content-center align-items-center"
-                            style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold; height: 50px;">
-                            Join Event : 20
-                        </h1>
-                    </div>
+            <div class="infos">
+                <div class="name">
+                    <h2>{{ $okp->nama }} @if ($okp->singkatan != null)
+                            ({{ $okp->singkatan }})
+                        @endif
+                    </h2>
+                    <h4>{{ $okp->kategori_org }}</h4>
+                    <h4>{{ $okp->email }}</h4>
                 </div>
-            </div>
-
-
-            <div class="row mt-5">
-
-                <div class="col-4 text-center">
-
-                </div>
-
-                <div class="col-4 text-center">
-
-                </div>
-
+                <p class="text">
+                    {{ $okp->alamat_jln }} @if ($okp->kota != null)
+                        ,
+                        {{ $okp->kota }}
+                        @endif @if ($okp->provinsi != null)
+                            ,
+                            {{ $okp->provinsi }}
+                            @endif @if ($okp->kode_pos != null)
+                                , {{ $okp->kode_pos }}
+                            @endif
+                </p>
+                <ul class="stats">
+                    <li>
+                        <h3>{{ $join_event }}</h3>
+                        <h4>Join Event</h4>
+                    </li>
+                    <li>
+                        <h3>{{ $join_loker }}</h3>
+                        <h4>Join Lamaran</h4>
+                    </li>
+                </ul>
+                {{-- <div class="links">
+                    <button class="follow">Follow</button>
+                    <button class="view">View profile</button>
+                </div> --}}
             </div>
         </div>
-
-
-
-        {{-- <x-footers.auth></x-footers.auth> --}}
     </div>
+
 </main>
 
 
