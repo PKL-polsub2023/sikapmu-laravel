@@ -47,7 +47,7 @@ class c_data_pemuda extends Controller
     public function edit($id)
     {
         $data =['dp' =>$this->dp->detailData($id)];
-        return view('admin.pemuda.edit', $data);
+        return view('Admin.pemuda.edit', $data);
     }
 
     public function update(Request $request, $id)
