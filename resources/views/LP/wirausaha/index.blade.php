@@ -149,7 +149,7 @@
                     colorByPoint: true,
                     data: [{
                         name: 'Wira Usaha Muda',
-                        y: id,
+                        y: isi,
                         sliced: true,
                         selected: true
                     }, ]
