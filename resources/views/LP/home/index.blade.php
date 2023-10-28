@@ -442,12 +442,12 @@
                 colorByPoint: true,
                 data: [{
                     name: 'Pasien TB HIV Positif',
-                    y: data[3],
+                    y: parseInt(data[3]),
                     sliced: true,
                     selected: true
                 }, {
                     name: 'OAT Dengan ARV',
-                    y: data[4]
+                    y: parseInt(data[4])
                 },]
             }]
         });
@@ -497,15 +497,15 @@
                 colorByPoint: true,
                 data: [{
                     name: 'Curanmor',
-                    y: data[8],
+                    y: parseInt(data[8]),
                     sliced: true,
                     selected: true
                 }, {
                     name: 'Narkoba',
-                    y: data[9]
+                    y: parseInt(data[9])
                 },{
                     name: 'Pembunuhan',
-                    y: data[10]
+                    y: parseInt(data[10])
                 },]
             }]
         });
@@ -555,7 +555,7 @@
                 colorByPoint: true,
                 data: [{
                     name: 'Pencari Kerja',
-                    y: data[2],
+                    y: parseInt(data[2]),
                     sliced: true,
                     selected: true
                 },]
@@ -607,7 +607,7 @@
                 colorByPoint: true,
                 data: [{
                     name: 'Wira Usaha Muda',
-                    y: data[5],
+                    y: parseInt(data[5]),
                     sliced: true,
                     selected: true
                 },]
@@ -659,7 +659,7 @@
                 colorByPoint: true,
                 data: [{
                     name: 'Organisasi Kepemudaan',
-                    y: data[6],
+                    y: parseInt(data[6]),
                     sliced: true,
                     selected: true
                 },]
@@ -711,7 +711,7 @@
                 colorByPoint: true,
                 data: [{
                     name: 'Anggota Organisasi Kepemudaan',
-                    y: data[7],
+                    y: parseInt(data[7]),
                     sliced: true,
                     selected: true
                 },]
@@ -763,7 +763,7 @@
                 colorByPoint: true,
                 data: [{
                     name: 'OSIS',
-                    y: data[11],
+                    y: parseInt(data[11]),
                     sliced: true,
                     selected: true
                 },]
@@ -815,7 +815,7 @@
                 colorByPoint: true,
                 data: [{
                     name: 'BEM',
-                    y: data[12],
+                    y: parseInt(data[12]),
                     sliced: true,
                     selected: true
                 },]
