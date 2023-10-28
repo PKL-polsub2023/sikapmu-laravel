@@ -148,7 +148,7 @@
                     colorByPoint: true,
                     data: [{
                         name: 'Wira Usaha Muda',
-                        y: data[5],
+                        y: 5,
                         sliced: true,
                         selected: true
                     }, ]
