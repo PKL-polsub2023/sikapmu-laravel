@@ -6,7 +6,7 @@
             </div>
             <div class="col-8 col-md-3">
                 <div class="text-center">
-                <a href="/daftar" class="default-button px-5 mt-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Daftar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a href="{{ route('register') }}" class="default-button px-5 mt-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Daftar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                 </div>
             </div>
         </div>
