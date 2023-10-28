@@ -387,12 +387,12 @@
                 colorByPoint: true,
                 data: [{
                     name: 'Umur 16 S/D 19 Tahun',
-                    y: p1,
+                    y: parseInt(p1),
                     sliced: true,
                     selected: true
                 }, {
                     name: 'Umur 20 S/D 30 Tahun',
-                    y: p2
+                    y: parseInt(p2)
                 }]
             }]
         });
