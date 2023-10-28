@@ -93,7 +93,7 @@ class c_landing_page extends Controller
     public function loker()
     {
         $data = [
-            'loker' => $this->dl->paginate(),
+            'loker' => $this->dl->allData(),
         ];
         return view ('LP.loker.index', $data);
     }
@@ -109,7 +109,7 @@ class c_landing_page extends Controller
     public function event()
     {
         $data = [
-            'event' => $this->de->paginate(),
+            'event' => $this->de->allData(),
         ];
         foreach ($data['event'] as &$event) { 
             $event->deskripsi = Str::limit($event->deskripsi, '25');
@@ -130,7 +130,7 @@ class c_landing_page extends Controller
     {
         $sekarang = date('Y');
         $data = [
-            'pelopor' => $this->pp->paginate(),
+            'pelopor' => $this->pp->allData(),
             'j' => $this->dp->tahunData($sekarang),
         ];
 
@@ -153,7 +153,7 @@ class c_landing_page extends Controller
     public function berita()
     {
         $data = [
-            'berita' => $this->db->paginate(),
+            'berita' => $this->db->allData(),
         ];
         foreach ($data['berita'] as &$berita) { 
             $berita->isi = Str::limit($berita->isi, '25');
@@ -173,7 +173,7 @@ class c_landing_page extends Controller
     public function okp()
     {
         $data = [
-            'okp' => $this->okp->paginate(),
+            'okp' => $this->okp->allData(),
         ];
       
         return view ('LP.okp.index', $data);
