@@ -79,8 +79,8 @@
                     <h4>{{ $okp->email }}</h4>
                 </div>
                 <p class="text">
-                    @if ($okp->alamat_jalan != null)
-                        {{ $okp->alamat_jalan }},
+                    @if ($okp->alamat_jln != null)
+                        {{ $okp->alamat_jln }},
                         @endif @if ($okp->kota != null)
                             {{ $okp->kota }}
                             @endif @if ($okp->provinsi != null)
