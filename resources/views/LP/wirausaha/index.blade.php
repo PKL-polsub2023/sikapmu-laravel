@@ -33,7 +33,11 @@
                 <div class="col-md-3">
                     <div class="card card-white-box">
                         <div class="p-2">
-                            <h5 class="ms-3 mt-2 text-center"> Wirausaha Muda <br> {{ $j->wira_usaha_muda }}</h5>
+                            <h5 class="ms-3 mt-2 text-center"> Wirausaha Muda <br>@if ($j == null)
+                                0
+                            @else
+                            {{ $j->wira_usaha_muda }}
+                            @endif</h5>
                         </div>
                     </div>
                 </div>
