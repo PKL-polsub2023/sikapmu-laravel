@@ -69,7 +69,7 @@
                         <div class="blog-card-img">
                             <a href="{{ route('okp.landingPage.detail', $data->id_user) }}">
                                 @if ($data->logo != null)
-                                    <img src="{{ asset('foto/okp/' . $data->logo) }}" style="height: 300px"
+                                    <img src="{{ asset('logo/okp/' . $data->logo) }}" style="height: 300px"
                                         alt="image">
                                 @else
                                     <img src="{{ asset('foto/default.png') }}" style="height: 300px" alt="image">
