@@ -103,6 +103,7 @@
         var tahun = $("#tahun").val();
         var id = parseInt(tahun);
         $.get("{{ url('chart') }}/" + id, {}, function(data, status) {
+            var isi = data[5];
             Highcharts.chart('pie1', {
                 chart: {
                     plotBackgroundColor: null,
@@ -148,7 +149,7 @@
                     colorByPoint: true,
                     data: [{
                         name: 'Wira Usaha Muda',
-                        y: 5,
+                        y: isi,
                         sliced: true,
                         selected: true
                     }, ]
