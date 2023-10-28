@@ -79,15 +79,16 @@
                     <h4>{{ $okp->email }}</h4>
                 </div>
                 <p class="text">
-                    {{ $okp->alamat_jln }} @if ($okp->kota != null)
-                        ,
-                        {{ $okp->kota }}
-                        @endif @if ($okp->provinsi != null)
-                            ,
-                            {{ $okp->provinsi }}
-                            @endif @if ($okp->kode_pos != null)
-                                , {{ $okp->kode_pos }}
-                            @endif
+                    @if ($okp->alamat_jalan != null)
+                        {{ $okp->alamat_jalan }},
+                        @endif @if ($okp->kota != null)
+                            {{ $okp->kota }}
+                            @endif @if ($okp->provinsi != null)
+                                ,
+                                {{ $okp->provinsi }}
+                                @endif @if ($okp->kode_pos != null)
+                                    , {{ $okp->kode_pos }}
+                                @endif
                 </p>
                 <ul class="stats">
                     <li>
