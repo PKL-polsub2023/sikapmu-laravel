@@ -103,7 +103,7 @@
         var tahun = $("#tahun").val();
         var id = parseInt(tahun);
         $.get("{{ url('chart') }}/" + id, {}, function(data, status) {
-            var isi = data[5];
+            var isi = parseInt(data[5]);
             Highcharts.chart('pie1', {
                 chart: {
                     plotBackgroundColor: null,

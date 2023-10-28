@@ -71,7 +71,7 @@ class c_landing_page extends Controller
     public function chart($id)
     {
         $dp = $this->dp->tahunData($id);
-        $j = $dp->pemuda_satu + $dp->pemuda_dua;
+        // $j = $dp->pemuda_satu + $dp->pemuda_dua;
         $data[0] = $dp->pemuda_satu;
         $data[1] = $dp->pemuda_dua;
         $data[2] = $dp->penc_kerja;
@@ -85,7 +85,7 @@ class c_landing_page extends Controller
         $data[10] = $dp->pembunuhan;
         $data[11] = $dp->osis;
         $data[12] = $dp->bem;
-        $data[13] = $j - $dp->wira_usaha_muda;
+        // $data[13] = $j - $dp->wira_usaha_muda;
 
         return $data;
     }
