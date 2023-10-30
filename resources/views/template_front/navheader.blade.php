@@ -21,6 +21,10 @@
                         <li class="nav-item ">
                             <a href="/" class="nav-link @if (request()->segment(1) == '' || request()->segment(1) == 'home') active @endif">Home</a>
                         </li>
+                         <li class="nav-item ">
+                            <a href="{{ url('lwm') }}"
+                                class="nav-link @if (request()->segment(1) == 'lwm') active @endif">Profil</a>
+                        </li>
                         <li class="nav-item ">
                             <a href="{{ url('lwm') }}"
                                 class="nav-link @if (request()->segment(1) == 'lwm') active @endif">Wirausaha
