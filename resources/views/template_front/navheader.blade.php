@@ -22,8 +22,8 @@
                             <a href="/" class="nav-link @if (request()->segment(1) == '' || request()->segment(1) == 'home') active @endif">Home</a>
                         </li>
                          <li class="nav-item ">
-                            <a href="{{ url('lwm') }}"
-                                class="nav-link @if (request()->segment(1) == 'lw') active @endif">Profil</a>
+                            <a href="{{ url('profil') }}"
+                                class="nav-link @if (request()->segment(1) == 'profil') active @endif">Profil</a>
                         </li>
                         <li class="nav-item ">
                             <a href="{{ url('lwm') }}"
