@@ -33,7 +33,7 @@
                         </li>
                         <li class="nav-item ">
                             <a href="{{ url('okp-utama') }}"
-                                class="nav-link @if (request()->segment(1) == 'okp-utama') active @endif">Pemuda OKP</a>
+                                class="nav-link @if (request()->segment(1) == 'okp-utama') active @endif">OKP</a>
                         </li>
                         <li class="nav-item ">
                             <a href="{{ url('event-utama') }}"
