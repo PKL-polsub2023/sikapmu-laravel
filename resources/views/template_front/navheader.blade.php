@@ -47,6 +47,7 @@
                             <a href="{{ url('berita-utama') }}"
                                 class="nav-link @if (request()->segment(1) == 'berita-utama') active @endif">Berita</a>
                         </li>
+                        <li><a class="default-button" href="{{ route('login') }}">Masuk</a></li>
                         <!-- <li class="nav-item ">
        <a href="#" class="nav-link dropdown-toggle">Tentang</a>
        <ul class="dropdown-menu">
@@ -56,12 +57,12 @@
        </ul>
       </li> -->
                     </ul>
-                    <div class="menu-sidebar">
+                    {{-- <div class="menu-sidebar">
                         <ul>
                             <li><button class="popup-button"><i class="fas fa-search"></i></button></li>
                             <li><a class="default-button" href="{{ route('login') }}">Masuk</a></li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </nav>
         </div>

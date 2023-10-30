@@ -73,7 +73,9 @@
                                                     <div class="col-4">
                                                         <div class="me-n2 my-3 text-start">
                                                             <a class="btn btn-sm bg-danger mb-0 h-25 w-100"
-                                                                href="{{ route('pemuda.destroy', $data->id_data_pemuda) }}" style="background-color: #0057FF;">
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#hapus{{ $data->id_data_pemuda }}"
+                                                            href="javascript:;" style="background-color: #0057FF;">
                                                                 <i class="text-sm text-white">HAPUS</i>
                                                             </a>
                                                         </div>
@@ -94,6 +96,25 @@
         </div>
     </main>
     <x-plugins></x-plugins>
+    @foreach ($dp as $data)
+    <div class="modal fade" id="hapus{{ $data->id_data_pemuda }}" tabindex="-1" aria-labelledby="add"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adddoc">Hapus {{ $data->tahun }}</h5>
+                    <button type="button" id="closed2" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body align-middle text-center">
+                    <h6>Apakah Anda Yakin? Ini akan menghapus seluruh data</h6>
+                    <a href="{{ route('pemuda.destroy', $data->id_data_pemuda) }}" class="btn btn-success">Hapus</a>
+                    <a href="#" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Batalkan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
 
 </x-layout>
 
