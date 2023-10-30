@@ -122,7 +122,7 @@
                                 </div>
 
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Kategori Organisasi Pernikahan</label>
+                                    <label class="form-label">Kategori Organisasi</label>
                                    <select name="kategori_org" class="form-control border border-2 p-2">
                                     <option selected disabled>Kategori Organisasi</option>
                                     <option @if ($user->kategori_org == "Kemahasiswaan")
