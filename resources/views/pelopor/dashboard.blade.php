@@ -30,7 +30,6 @@
                                     <h1 class="text-start mb-4"
                                         style="color: rgb(255, 255, 255); font-size: 18px; font-weight: 100; white-space: pre-line;">
                                         <i style="color: red" class="fa fa-map-marker"></i>  Alamat : {{ $user->alamat }}
-                                        Lokasi Terkini : {{ $user->alamat }}
                                     </h1>
                                 </div>
                             
