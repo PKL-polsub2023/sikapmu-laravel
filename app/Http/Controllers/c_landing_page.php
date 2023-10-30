@@ -37,6 +37,11 @@ class c_landing_page extends Controller
         $this->bendahara = new data_bendahara_okp();
     }
 
+    public function profil()
+    {
+        return view('LP.profil.index');
+    }
+
     public function home()
     {
        

@@ -330,6 +330,9 @@ Route::controller(c_landing_page::class)->group(function () {
 	Route::get('lwm', 'lwm')->name('wm.landingpage');
 	Route::get('lwm/detail/{id}', 'wirausahadetail')->name('wm.landing.detail');
 
+	//profil
+	route::get('profil', 'ptofil')->name('profil');
+
 	// Loker
 	Route::get('loker-utama', 'loker')->name('loker.landingPage');
 	Route::get('loker-utama/detail/{id}', 'lokerDetail')->name('loker.landingPage.detail');
