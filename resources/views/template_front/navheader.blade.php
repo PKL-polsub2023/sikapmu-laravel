@@ -23,7 +23,7 @@
                         </li>
                          <li class="nav-item ">
                             <a href="{{ url('lwm') }}"
-                                class="nav-link @if (request()->segment(1) == 'lwm') active @endif">Profil</a>
+                                class="nav-link @if (request()->segment(1) == 'lw') active @endif">Profil</a>
                         </li>
                         <li class="nav-item ">
                             <a href="{{ url('lwm') }}"
