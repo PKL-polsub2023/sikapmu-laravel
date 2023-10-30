@@ -12,6 +12,11 @@ use App\Models\file_event;
 use App\Models\file_loker;
 use App\Models\data_usaha;
 use App\Models\okp;
+use App\Models\data_berita;
+use App\Models\data_ads;
+use App\Models\data_ketua_okp;
+use App\Models\data_sekretaris_okp;
+use App\Models\data_bendahara_okp;
 
 class DashboardController extends Controller
 {
@@ -25,7 +30,12 @@ class DashboardController extends Controller
         $this->file_event = new file_event();
         $this->file_loker = new file_loker();
         $this->data_usaha = new data_usaha();
-    }
+        $this->berita = new data_berita();
+        $this->ads = new data_ads();
+        $this->ketua = new data_ketua_okp();
+        $this->sekretaris = new data_sekretaris_okp();
+        $this->bendahara = new data_bendahara_okp();
+        }
 
     public function index()
     {
@@ -33,9 +43,34 @@ class DashboardController extends Controller
         $jevent = count($event);
         $loker =  $this->file_loker->allDataUser();
         $jloker = count($loker);
+        $okp = $this->okp->allData();
+        $jokp = count($okp);
+        $pelopor = $this->pemuda_pelopor->allData();
+        $jpelopor = count($pelopor);
+        $wirausaha = $this->wirausaha->allData();
+        $jwirausaha = count($wirausaha);
+        $usaha =  $this->data_usaha->allData();
+        $jusaha = count($usaha);
+        $umum = $this->user_umum->allData();
+        $jumum = count($umum);
+        $berita = $this->berita->allData();
+        $jberita = count($berita);
+        $ads = $this->ads->allData();
+        $jads = count($ads);
        if(Auth::user()->role == "Admin")
        {
-        return view ('Admin.dashboard');
+        $data = [
+            'event' => $jevent,
+            'usaha' => $jusaha,
+            'okp' => $jokp,
+            'pelopor' => $jpelopor,
+            'wirausaha' => $jwirausaha,
+            'umum' => $jumum,
+            'loker' => $jloker,
+            'berita' => $jberita,
+            'ads' => $jads,
+        ];
+        return view ('Admin.dashboard', $data);
        }elseif(Auth::user()->role == "wm")
        {
         $usaha =  $this->data_usaha->allData();
@@ -76,6 +111,7 @@ class DashboardController extends Controller
         {
             $data = [
                 'user' => $this->wirausaha->detailData($id),
+                'usaha' => $this->data_usaha->DetailDatau($id),
             ];
             return view ('Admin.wiramuda.detail', $data);
         }else if ($jenis == "umum")
@@ -86,8 +122,15 @@ class DashboardController extends Controller
             return view ('Admin.umum.detail', $data);
         }else if ($jenis == "okp")
         {
+            $cari = $this->okp->detailData($id);
+            $ambilKetua = $this->ketua->getNama($cari->id_ket_umum);
+            $ambilSekretaris = $this->sekretaris->getNama($cari->id_skre_umum);
+            $ambilBendahara = $this->bendahara->getNama($cari->id_bend_umum);
             $data = [
                 'user' => $this->okp->detailData($id),
+                'ketua' => $ambilKetua,
+                'bendahara' => $ambilBendahara,
+                'sekretaris' => $ambilSekretaris,
             ];
             return view ('Admin.okp.detail', $data);
         }else if ($jenis == "pelopor")

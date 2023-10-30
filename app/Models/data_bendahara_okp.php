@@ -32,4 +32,11 @@ class data_bendahara_okp extends Model
     {
         DB::table('data_bendahara_okps')->insert($data);
     }
+
+    public function getNama($id)
+    {
+        return DB::table('data_bendahara_okps')
+        ->join('okps', 'data_bendahara_okps.id_bend_umum','=','okps.id_bend_umum')
+        ->where('data_bendahara_okps.id_bend_umum', $id)->first();
+    }
 }

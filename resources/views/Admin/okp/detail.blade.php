@@ -1,4 +1,5 @@
 <x-layout bodyClass="g-sidenav-show  bg-gray-200">
+    <link rel="stylesheet" href="{{ asset('assets/css/kepengurusan.css') }}">
     <x-navbars.sidebar activePage='dataOKP'></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
@@ -58,6 +59,52 @@
                     </div>
                 </a>
             </div>
+
+            <div class="isi-struktur">
+                <div class="col-12 text-start">
+                    <h1 class="d-flex text-start align-items-start"
+                        style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold; margin-right: 5px;">
+                        Struktur Kepengurusan OKP
+                    </h1>
+                </div>
+                <div style="background: #293679" class="struktur h-100 border-radius-lg ">
+                    <div class="org-chart">
+                        <div class="node mt-2">
+                            <div class="title">Ketua</div>
+                            <p>
+                                @if ($ketua->nama_ketua != null)
+                                    {{ $ketua->nama_ketua }}
+                                @else
+                                    Tidak Terdefinisi
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                    <div class="org-chart">
+                        <div class="node">
+                            <div class="title">Sekretaris</div>
+                            <p>
+                                @if ($sekretaris->nama_skre != null)
+                                    {{ $sekretaris->nama_skre }}
+                                @else
+                                    Tidak Terdefinisi
+                                @endif
+                            </p>
+                        </div>
+                        <div class="node">
+                            <div class="title">Bendahara</div>
+                            <p>
+                                @if ($bendahara->nama_bend != null)
+                                    {{ $bendahara->nama_bend }}
+                                @else
+                                    Tidak Terdefinisi
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {{-- <div class="container">
                 <div class="row mt-5">
                     <div class="col-2"></div>

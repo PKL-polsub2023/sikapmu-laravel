@@ -40,4 +40,9 @@ class data_usaha extends Model
     {
         DB::table('data_usahas')->where('id_user', $id)->delete();
     }
+
+    public function getUser($id)
+    {
+        return DB::table('data_usahas')->join('users', 'users.id','=','data_usahas.id_user')->where('data_usahas.id_user', $id)->first();
+    }
 }

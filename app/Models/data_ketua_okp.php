@@ -32,4 +32,11 @@ class data_ketua_okp extends Model
     {
         DB::table('data_ketua_okps')->insert($data);
     }
+
+    public function getNama($id)
+    {
+        return DB::table('data_ketua_okps')
+        ->join('okps', 'data_ketua_okps.id_ket_umum','=','okps.id_ket_umum')
+        ->where('data_ketua_okps.id_ket_umum', $id)->first();
+    }
 }

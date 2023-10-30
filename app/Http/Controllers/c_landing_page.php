@@ -13,6 +13,9 @@ use App\Models\file_event;
 use App\Models\file_loker;
 use App\Models\data_usaha;
 use App\Models\pemuda_pelopor;
+use App\Models\data_ketua_okp;
+use App\Models\data_sekretaris_okp;
+use App\Models\data_bendahara_okp;
 use Str;
 
 class c_landing_page extends Controller
@@ -29,6 +32,9 @@ class c_landing_page extends Controller
         $this->file_event = new file_event();
         $this->file_loker = new file_loker();
         $this->data_usaha = new data_usaha();
+        $this->ketua = new data_ketua_okp();
+        $this->sekretaris = new data_sekretaris_okp();
+        $this->bendahara = new data_bendahara_okp();
     }
 
     public function home()
@@ -181,10 +187,17 @@ class c_landing_page extends Controller
 
     public function okpDetail($id)
     {
+        $cari = $this->okp->detailData($id);
+        $ambilKetua = $this->ketua->getNama($cari->id_ket_umum);
+        $ambilSekretaris = $this->sekretaris->getNama($cari->id_skre_umum);
+        $ambilBendahara = $this->bendahara->getNama($cari->id_bend_umum);
         $data = [
             'okp' => $this->okp->detailData($id),
             'join_loker' => $this->file_loker->joinLoker($id),
             'join_event' => $this->file_event->joinEvent($id),
+            'ketua' => $ambilKetua,
+            'bendahara' => $ambilBendahara,
+            'sekretaris' => $ambilSekretaris,
         ];
         return view ('LP.okp.detail', $data);
     }

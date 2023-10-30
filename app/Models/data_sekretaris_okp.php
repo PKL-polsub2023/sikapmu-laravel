@@ -32,4 +32,11 @@ class data_sekretaris_okp extends Model
     {
         DB::table('data_sekretaris_okps')->insert($data);
     }
+
+    public function getNama($id)
+    {
+        return DB::table('data_sekretaris_okps')
+        ->join('okps', 'data_sekretaris_okps.id_skre_umum','=','okps.id_skre_umum')
+        ->where('data_sekretaris_okps.id_skre_umum', $id)->first();
+    }
 }

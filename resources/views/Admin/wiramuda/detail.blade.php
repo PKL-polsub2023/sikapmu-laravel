@@ -55,6 +55,39 @@
                     </div>
                 </a>
             </div>
+
+            <div class="detail">
+                <div class="col-12 text-start">
+                    <h1 class="d-flex text-start align-items-start"
+                        style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold;">
+                        Data Usaha Milik {{ $user->nama }}
+                    </h1>
+                </div>
+                <div class="col col-md-12 col-12">
+                    <table style="width:100%" id="data-usaha" class="display">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Usaha</th>
+                                <th>Jenis</th>
+                                <th>Modal</th>
+                                <th>Omset</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($usaha as $data)
+                                <tr>
+                                    <td></td>
+                                    <td>{{ $data->nama_usaha }}</td>
+                                    <td>{{ $data->jenis_produk }}</td>
+                                    <td>{{ $data->modal }}</td>
+                                    <td>{{ $data->omset }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             {{-- <div class="container">
                 <div class="row mt-5">
                     <div class="col-2"></div>
@@ -94,3 +127,5 @@
     </style>
 
 </x-layout>
+
+<script src="{{ asset('assets/js/pribadi/table-edit.js') }}"></script>

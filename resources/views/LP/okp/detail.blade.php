@@ -1,5 +1,6 @@
 @extends('template_front.layout')
 <link rel="stylesheet" href="{{ asset('assets/css/detail.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/kepengurusan.css') }}">
 @section('content')
 @section('title', 'Home')
 <div id="carouselHome" class="carousel slide " data-bs-ride="false">
@@ -60,50 +61,98 @@
     {{-- <!-- Navbar -->
     <x-navbars.navs.auth titlePage='dashboard'></x-navbars.navs.auth>
     <!-- End Navbar --> --}}
-    <div class="col col-12 col-md-12">
-        <div class="card">
-            <div class="img">
-                @if ($okp->logo != null)
-                    <img src="{{ asset('logo/okp/' . $okp->logo) }}">
-                @else
-                    <img src="{{ asset('foto/default.png') }}">
-                @endif
-            </div>
-            <div class="infos">
-                <div class="name">
-                    <h2>{{ $okp->nama }} @if ($okp->singkatan != null)
-                            ({{ $okp->singkatan }})
+    <div class="row">
+        <div class="col col-12 col-md-6">
+            <div class="col col-12 col-md-12">
+                <div class="card">
+                    <h4 class="text-center">Biodata OKP</h4>
+                    <div class="img">
+                        @if ($okp->logo != null)
+                            <img src="{{ asset('logo/okp/' . $okp->logo) }}">
+                        @else
+                            <img src="{{ asset('foto/default.png') }}">
                         @endif
-                    </h2>
-                    <h4>{{ $okp->kategori_org }}</h4>
-                    <h4>{{ $okp->email }}</h4>
-                </div>
-                <p class="text">
-                    @if ($okp->alamat_jln != null)
-                        {{ $okp->alamat_jln }},
-                        @endif @if ($okp->kota != null)
-                            {{ $okp->kota }}
-                            @endif @if ($okp->provinsi != null)
-                                ,
-                                {{ $okp->provinsi }}
-                                @endif @if ($okp->kode_pos != null)
-                                    , {{ $okp->kode_pos }}
+                    </div>
+                    <div class="infos">
+                        <div class="name">
+                            <h2>{{ $okp->nama }} @if ($okp->singkatan != null)
+                                    ({{ $okp->singkatan }})
                                 @endif
-                </p>
-                <ul class="stats">
-                    <li>
-                        <h3>{{ $join_event }}</h3>
-                        <h4>Join Event</h4>
-                    </li>
-                    <li>
-                        <h3>{{ $join_loker }}</h3>
-                        <h4>Join Lamaran</h4>
-                    </li>
-                </ul>
-                {{-- <div class="links">
-                    <button class="follow">Follow</button>
-                    <button class="view">View profile</button>
-                </div> --}}
+                            </h2>
+                            <h4>{{ $okp->kategori_org }}</h4>
+                            <h4>{{ $okp->email }}</h4>
+                        </div>
+                        <p class="text">
+                            @if ($okp->alamat_jln != null)
+                                {{ $okp->alamat_jln }},
+                                @endif @if ($okp->kota != null)
+                                    {{ $okp->kota }}
+                                    @endif @if ($okp->provinsi != null)
+                                        ,
+                                        {{ $okp->provinsi }}
+                                        @endif @if ($okp->kode_pos != null)
+                                            , {{ $okp->kode_pos }}
+                                        @endif
+                        </p>
+                        <ul class="stats">
+                            <li>
+                                <h3>{{ $join_event }}</h3>
+                                <h4>Join Event</h4>
+                            </li>
+                            <li>
+                                <h3>{{ $join_loker }}</h3>
+                                <h4>Join Lamaran</h4>
+                            </li>
+                        </ul>
+                        {{-- <div class="links">
+                            <button class="follow">Follow</button>
+                            <button class="view">View profile</button>
+                        </div> --}}
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="col col-12 col-md-6">
+            <div class="card">
+                <h4 class="text-center">Struktur Organisasi</h4>
+                <div class="org-chart">
+                    <div class="node mt-2">
+                        <div style="color: black" class="title">Ketua</div>
+                        <p>
+                            @if ($ketua->nama_ketua != null)
+                                {{ $ketua->nama_ketua }}
+                            @else
+                                Tidak Terdefinisi
+                            @endif
+                        </p>
+                    </div>
+                </div>
+                <div class="org-chart">
+                    <div class="node">
+                        <div style="color: black" class="title">Sekretaris</div>
+                        <p>
+                            @if ($sekretaris->nama_skre != null)
+                                {{ $sekretaris->nama_skre }}
+                            @else
+                                Tidak Terdefinisi
+                            @endif
+                        </p>
+                    </div>
+                    <div class="node">
+                        <div style="color: black" class="title">Bendahara</div>
+                        <p>
+                            @if ($bendahara->nama_bend != null)
+                                {{ $bendahara->nama_bend }}
+                            @else
+                                Tidak Terdefinisi
+                            @endif
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

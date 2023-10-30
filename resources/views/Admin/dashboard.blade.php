@@ -11,14 +11,15 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="text-start">
-                                    <p class="text-sm mb-0 text-capitalize">Userrs Online</p>
-                                    <h4 class="mb-0">$53,000<span class="text-success  font-weight-bolder fs-5"> +55%
+                                    <p class="text-sm mb-0 text-capitalize">Jumlah Wirausaha</p>
+                                    <h4 class="mb-0">{{ $wirausaha }}<span
+                                            class="text-success  font-weight-bolder fs-5">
                                         </span></h4>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="profile-img" style="width: 30px; height: 30px;">
-                                    <img src="{{ asset('assets/img/icons/icon_ewallet.png') }}" alt="profile-img" />
+                                    <img src="{{ asset('assets/img/icons/icon_event.png') }}" alt="profile-img" />
                                 </div>
                             </div>
                         </div>
@@ -30,14 +31,15 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="text-start">
-                                    <p class="text-sm mb-0 text-capitalize">New Users</p>
-                                    <h4 class="mb-0">2,300<span class="text-success  font-weight-bolder fs-5"> +5%
+                                    <p class="text-sm mb-0 text-capitalize">Jumlah Pem. Pelopor</p>
+                                    <h4 class="mb-0">{{ $pelopor }}<span
+                                            class="text-success  font-weight-bolder fs-5">
                                         </span></h4>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="profile-img" style="width: 30px; height: 30px;">
-                                    <img src="{{ asset('assets/img/icons/icon_earth.png') }}" alt="profile-img" />
+                                    <img src="{{ asset('assets/img/icons/icon_event.png') }}" alt="profile-img" />
                                 </div>
                             </div>
                         </div>
@@ -49,8 +51,8 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="text-start">
-                                    <p class="text-sm mb-0 text-capitalize">New Event</p>
-                                    <h4 class="mb-0">+3</h4>
+                                    <p class="text-sm mb-0 text-capitalize">Jumlah OKP</p>
+                                    <h4 class="mb-0">{{ $okp }}</h4>
                                 </div>
                             </div>
                             <div class="col-2">
@@ -67,13 +69,85 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="text-start">
-                                    <p class="text-sm mb-0 text-capitalize">New Loker</p>
-                                    <h4 class="mb-0">4</h4>
+                                    <p class="text-sm mb-0 text-capitalize">Jumlah Umum</p>
+                                    <h4 class="mb-0">{{ $umum }}</h4>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="profile-img" style="width: 30px; height: 30px;">
-                                    <img src="{{ asset('assets/img/icons/icon_loker.png') }}" alt="profile-img" />
+                                    <img src="{{ asset('assets/img/icons/icon_event.png') }}" alt="profile-img" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mt-2">
+                    <div class="card p-2">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="text-start">
+                                    <p class="text-sm mb-0 text-capitalize">Jumlah Loker</p>
+                                    <h4 class="mb-0">{{ $loker }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="profile-img" style="width: 30px; height: 30px;">
+                                    <img src="{{ asset('assets/img/icons/icon_event.png') }}" alt="profile-img" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mt-2">
+                    <div class="card p-2">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="text-start">
+                                    <p class="text-sm mb-0 text-capitalize">Jumlah Event</p>
+                                    <h4 class="mb-0">{{ $event }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="profile-img" style="width: 30px; height: 30px;">
+                                    <img src="{{ asset('assets/img/icons/icon_earth.png') }}" alt="profile-img" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mt-2">
+                    <div class="card p-2">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="text-start">
+                                    <p class="text-sm mb-0 text-capitalize">Jumlah Berita</p>
+                                    <h4 class="mb-0">{{ $berita }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="profile-img" style="width: 30px; height: 30px;">
+                                    <img src="{{ asset('assets/img/icons/icon_earth.png') }}" alt="profile-img" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mt-2">
+                    <div class="card p-2">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="text-start">
+                                    <p class="text-sm mb-0 text-capitalize">Jumlah Ads</p>
+                                    <h4 class="mb-0">{{ $ads }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="profile-img" style="width: 30px; height: 30px;">
+                                    <img src="{{ asset('assets/img/icons/icon_earth.png') }}" alt="profile-img" />
                                 </div>
                             </div>
                         </div>
@@ -81,7 +155,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-4">
+            {{-- <div class="row mt-4">
                 <div class="col-lg-6 col-md-6 mt-4 mb-4">
                     <div class="card z-index-2" style="margin: 0; padding: 0;">
                         <div class="card-header p-0 position-relative z-index-2 bg-transparent">
@@ -215,7 +289,8 @@
                         <div class="card-header p-0 position-relative z-index-2 bg-transparent">
                             <div class="card-body">
                                 <h6 class="mb-0">Activity</h6>
-                                <p class="text-sm"><span class="text-success  font-weight-bolder">(5+) more</span> In 2021
+                                <p class="text-sm"><span class="text-success  font-weight-bolder">(5+) more</span> In
+                                    2021
                                 </p>
                             </div>
                             <div class="bg-white shadow-dark border-radius-lg py-3 pe-1">
@@ -227,7 +302,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <x-footers.auth></x-footers.auth>
         </div>
     </main>
@@ -254,7 +329,7 @@
                         borderRadius: 4,
                         borderSkipped: false,
                         backgroundColor: "rgba(255, 255, 255, .8)",
-                        data: [50, 20, 10, 22, 50, 10, 40,5,10],
+                        data: [50, 20, 10, 22, 50, 10, 40, 5, 10],
                         maxBarThickness: 6
                     }, ],
                 },
@@ -325,94 +400,90 @@
 
             var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
 
-new Chart(ctx3, {
-    type: "line",
-    data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [
-            {
-                label: "Kurva 1",
-                tension: 0.4,
-                borderWidth: 2,
-                borderColor: "rgba(0, 0, 0, 0)", // Gunakan warna transparan untuk menghilangkan garis
-                backgroundColor: "rgba(0, 0, 0, 0.5)", // Memberikan gradasi ke dalam kurva
-                fill: true,
-                data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-            },
-            {
-                label: "Kurva 2",
-                tension: 0.4,
-                borderWidth: 2,
-                borderColor: "rgba(0, 0, 0, 0)", // Gunakan warna transparan untuk menghilangkan garis
-                backgroundColor: "rgba(79, 209, 197, 0.5)", // Memberikan gradasi ke dalam kurva
-                fill: true,
-                data: [30, 60, 200, 180, 480, 220, 350, 200, 450],
-            },
-        ],
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                display: true,
-            }
-        },
-        interaction: {
-            intersect: false,
-            mode: 'index',
-        },
-        scales: {
-            y: {
-                grid: {
-                    drawBorder: false,
-                    display: true,
-                    drawOnChartArea: true,
-                    drawTicks: false,
-                    borderDash: [5, 5],
-                    color: 'rgba(255, 255, 255, .2)'
+            new Chart(ctx3, {
+                type: "line",
+                data: {
+                    labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    datasets: [{
+                            label: "Kurva 1",
+                            tension: 0.4,
+                            borderWidth: 2,
+                            borderColor: "rgba(0, 0, 0, 0)", // Gunakan warna transparan untuk menghilangkan garis
+                            backgroundColor: "rgba(0, 0, 0, 0.5)", // Memberikan gradasi ke dalam kurva
+                            fill: true,
+                            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                        },
+                        {
+                            label: "Kurva 2",
+                            tension: 0.4,
+                            borderWidth: 2,
+                            borderColor: "rgba(0, 0, 0, 0)", // Gunakan warna transparan untuk menghilangkan garis
+                            backgroundColor: "rgba(79, 209, 197, 0.5)", // Memberikan gradasi ke dalam kurva
+                            fill: true,
+                            data: [30, 60, 200, 180, 480, 220, 350, 200, 450],
+                        },
+                    ],
                 },
-                ticks: {
-                    display: true,
-                    padding: 10,
-                    color: '#f8f9fa',
-                    font: {
-                        size: 14,
-                        weight: 300,
-                        family: "Roboto",
-                        style: 'normal',
-                        lineHeight: 2
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                        }
                     },
-                }
-            },
-            x: {
-                grid: {
-                    drawBorder: false,
-                    display: true,
-                    drawOnChartArea: true,
-                    drawTicks: false,
-                    borderDash: [5, 5],
-                    color: 'rgba(255, 255, 255, .2)'
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                    scales: {
+                        y: {
+                            grid: {
+                                drawBorder: false,
+                                display: true,
+                                drawOnChartArea: true,
+                                drawTicks: false,
+                                borderDash: [5, 5],
+                                color: 'rgba(255, 255, 255, .2)'
+                            },
+                            ticks: {
+                                display: true,
+                                padding: 10,
+                                color: '#f8f9fa',
+                                font: {
+                                    size: 14,
+                                    weight: 300,
+                                    family: "Roboto",
+                                    style: 'normal',
+                                    lineHeight: 2
+                                },
+                            }
+                        },
+                        x: {
+                            grid: {
+                                drawBorder: false,
+                                display: true,
+                                drawOnChartArea: true,
+                                drawTicks: false,
+                                borderDash: [5, 5],
+                                color: 'rgba(255, 255, 255, .2)'
+                            },
+                            ticks: {
+                                display: true,
+                                color: '#f8f9fa',
+                                padding: 10,
+                                font: {
+                                    size: 14,
+                                    weight: 300,
+                                    family: "Roboto",
+                                    style: 'normal',
+                                    lineHeight: 2
+                                },
+                            }
+                        },
+                    },
                 },
-                ticks: {
-                    display: true,
-                    color: '#f8f9fa',
-                    padding: 10,
-                    font: {
-                        size: 14,
-                        weight: 300,
-                        family: "Roboto",
-                        style: 'normal',
-                        lineHeight: 2
-                    },
-                }
-            },
-        },
-    },
-});
-
-
-
+            });
         </script>
     @endpush
 </x-layout>
