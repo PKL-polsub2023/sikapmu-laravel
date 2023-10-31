@@ -16,7 +16,7 @@
                 <img src="{{ asset('') }}front/images/slider/slider-1.png" class="d-block w-100" alt="..." >
                 <div class="carousel-caption d-none d-md-block mt--4 half-black">
                 <h5 class="fw-bold">SELAMAT DATANG DI SILAPEM</h5>
-                <h1>Sistem Informasi Layanan Kepemudaan</h1>
+                <h1>Sistem Informasi Pelayanan Kepemudaan</h1>
                 <!-- <p class="text-white">Lorem ipsum dolor sit amet consectetuer adipiscing phasellus hendrerit lorem dolor sit amet
                     magna nibh nec urna in nisi neque aliquet ve, dapibus id dolor sit amet magna aliqu amet.
                 </p>
