@@ -1,6 +1,6 @@
 <x-layout bodyClass="g-sidenav-show  bg-gray-200">
 
-    <x-navbars.sidebar activePage="addloker"></x-navbars.sidebar>
+    <x-navbars.sidebar activePage="DataLoker"></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
         <x-navbars.navs.auth titlePage="Tambah Post Lamaran Kerja"></x-navbars.navs.auth>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="jumlah_pelamar" name="jumlah_pelamar"
+                                    <input type="number" class="form-control" id="jumlah_pelamar" name="jumlah_pelamar"
                                         required style="border: 2px solid #92929D;" placeholder="Kuota Pelamar">
                                 </div>
                             </div>
@@ -66,6 +66,7 @@
                             <div class="d-flex align-items-center">
                                 <input type="file" class="form-control" id="foto" name="foto"
                                     accept=".jpg, .jpeg, .png">
+                                <small>JPEG, JPG, ATAU PNG MAKSIMAL 2056KB</small>
 
                             </div>
 

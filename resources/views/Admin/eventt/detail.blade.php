@@ -6,7 +6,6 @@
         <x-navbars.navs.auth titlePage="Edit Post Lamaran Kerja"></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid py-4">
-
             <div class="card ">
                 <div class="card-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -25,7 +24,7 @@
                                 <label for="">Waktu Awal</label>
                                 <input type="date" class="form-control" id="waktu_mulai" name="waktu_mulai" required
                                     style="border: 2px solid #92929D;" placeholder="Waktu"
-                                    value="{{ $event->waktu_event }}">
+                                    value="{{ $event->waktu_event }}" readonly>
                             </div>
                         </div>
                     </div>
@@ -34,44 +33,73 @@
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="judul" name="judul" required
                                     style="border: 2px solid #92929D;" placeholder="Judul Lamaran"
-                                    value="{{ $event->judul }}">
+                                    value="{{ $event->judul }}" readonly>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="jumlah_pelamar" name="jumlah_pelamar"
                                     required style="border: 2px solid #92929D;" placeholder="Kuota Pelamar"
-                                    value="{{ $event->jumlah_pendaftar }}">
+                                    value="{{ $event->jumlah_pendaftar }}" readonly>
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control" id="instansi" name="instansi" required
                             style="border: 2px solid #92929D;" placeholder="Nama Perusahaan"
-                            value="{{ $event->kategori }}">
+                            value="{{ $event->kategori }}" readonly>
                     </div>
                     <div class="mb-3">
                         <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" required
-                            style="border: 2px solid #92929D;" placeholder="Deskripsi Lamaran">{{ $event->deskripsi }}</textarea>
+                            style="border: 2px solid #92929D;" placeholder="Deskripsi Lamaran" readonly>{{ $event->deskripsi }}</textarea>
 
                     </div>
                     <div class="mb-3">
                         <textarea type="text" class="form-control" id="persyaratan" name="persyaratan" required
-                            style="border: 2px solid #92929D;" placeholder="Persyaratan">{{ $event->persyaratan }}</textarea>
+                            style="border: 2px solid #92929D;" placeholder="Persyaratan" readonly>{{ $event->persyaratan }}</textarea>
                     </div>
 
 
                 </div>
             </div>
 
+            <div class="pelamar mt-4">
+                <h1 class="text-center mt-5 mb-3" style="color: rgb(78, 78, 78); font-size: 22px; ">
+                    Data Pendaftar</h1>
+                <h1 class="text-center mb-3" style="color: rgb(78, 78, 78); font-size: 16px; ">
+                    Kuota Pendaftar : {{ $loker->jumlah_pendaftar }}</h1>
+                <div class="row">
+                    <center>
+                        <div class="col col-6 col-md-6">
+                            <table style="width:100%" id="data-event" class="display">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Pendaftar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($pendaftar as $data)
+                                        <tr>
+                                            <td></td>
+                                            <td>{{ $data->user->nama }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </center>
+
+                </div>
+
+            </div>
 
 
-        </div>
-        </div>
+
+
         </div>
         <x-footers.auth></x-footers.auth>
-        </div>
     </main>
     <x-plugins></x-plugins>
-    <script src="{{ asset('assets/js/pribadi/event-admin.js') }}"></script>
+    <script src="{{ asset('assets/js/pribadi/table-edit.js') }}"></script>
 </x-layout>

@@ -9,6 +9,7 @@ use App\Models\m_user;
 use App\Models\data_event;
 use App\Models\file_event;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 
 
@@ -23,9 +24,19 @@ class c_event extends Controller
 
     public function index()
     {
-        
+        $data_event = $this->event->allData();
+        foreach ($data_event as $data) {
+            $pendaftar = DB::table('file_events')->where('id_event', $data->id_event)->count();
+            $persentase = ($pendaftar/$data->jumlah_pendaftar)*100;
+
+            if($persentase > 100){
+                $data->persentase_pendaftar = 100;
+            }else{
+                $data->persentase_pendaftar = $persentase;
+            }
+        }
         $data = [
-            'event' => $this->event->allData(),
+            'event' => $data_event,
         ];
 
         return view ('Admin.eventt.index', $data);
@@ -150,8 +161,16 @@ class c_event extends Controller
 
     public function detail(Request $request, $id)
     {
+        $data_event = $this->event->detailData($id);
+
+        $pendaftar = $this->file_event->allDataEvent($id);
+        foreach ($pendaftar as $data) {
+            $user = DB::table('users')->where('id', $data->id_user);
+            $data->user = $user;
+        }
         $data = [
-            'event' => $this->event->detailData($id),
+            'event' => $data_event,
+            'pendaftar' => $pendaftar,
         ];
        
         return view ('Admin.eventt.detail', $data);

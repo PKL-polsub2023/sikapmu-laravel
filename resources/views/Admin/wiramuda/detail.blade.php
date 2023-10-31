@@ -56,7 +56,7 @@
                 </a>
             </div>
 
-            <div class="detail">
+            <div class="detail mt-4">
                 <div class="col-12 text-start">
                     <h1 class="d-flex text-start align-items-start"
                         style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold;">
@@ -82,6 +82,36 @@
                                     <td>{{ $data->jenis_produk }}</td>
                                     <td>{{ $data->modal }}</td>
                                     <td>{{ $data->omset }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="pendukung mt-4">
+                <div class="col-12 text-start">
+                    <h1 class="d-flex text-start align-items-start"
+                        style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold;">
+                        Data Pendukung {{ $user->nama }}
+                    </h1>
+                </div>
+                <div class="col col-md-12 col-12">
+                    <table style="width:100%" id="data-pendukung" class="display">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Data Pendukung</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pendukung as $data)
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <a href="{{ asset('data') }}/{{ $data->dokumen }} "
+                                            download>{{ $data->dokumen }}</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

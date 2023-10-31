@@ -65,12 +65,14 @@
 
 
                                                 <div class="progress-wrapper w-50 mx-auto text-center">
-                                                    <span style="color: #4FD1C5;">60%</span>
+                                                    <span
+                                                        style="color: #4FD1C5;">{{ $data->persentase_pendaftar }}%</span>
                                                     <div class="progress-info text-center">
                                                     </div>
                                                     <div class="progress">
                                                         <div class="progress-bar bg-4FD1C5 w-60" role="progressbar"
-                                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                                            aria-valuenow="{{ $data->persentase_pendaftar }}"
+                                                            aria-valuemin="0" aria-valuemax="100">
                                                         </div>
                                                     </div>
                                                 </div>

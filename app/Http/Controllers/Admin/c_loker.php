@@ -9,6 +9,7 @@ use App\Models\m_user;
 use App\Models\data_loker;
 use App\Models\file_loker;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 
 
@@ -23,11 +24,23 @@ class c_loker extends Controller
 
     public function index()
     {
+        $jumlahLoker = $this->loker->allData();
+
+        foreach ($jumlahLoker as $data) {
+            $Kouta = $data->jumlah_pelamar;
+            $totalPelamar = DB::table('file_lokers')->where('id_loker', $data->id_loker)->count();
+            $persentase = ($totalPelamar/$Kouta)*100;
+            if($persentase > 100)
+            {
+                $data->persentase_pelamar = 100;
+            }else{
+                $data->persentase_pelamar = $persentase;
+            }
+        }
         
         $data = [
-            'loker' => $this->loker->allData(),
+            'loker' => $jumlahLoker,
         ];
-
         return view ('Admin.loker.index', $data);
     }
 
@@ -45,8 +58,18 @@ class c_loker extends Controller
             'instansi' => 'required',
             'deskripsi' => 'required',
             'persyaratan' => 'required',
-            'foto' => 'required',
-            'jumlah_pelamar' => 'required',
+            'foto' => 'required|file|mimes:jpeg,jpg,png|max:2056',
+            'jumlah_pelamar' => 'required|numeric|min:1',
+        ],[
+            'waktu_mulai.required' => "Waktu Mulai Wajib Diisi.",
+            'waktu_akhir.required' => "Waktu Akhir Wajib Diisi.",
+            'judul.required' => "Judul Wajib Diisi.",
+            'instansi.required' => "Instansi Wajib Diisi.",
+            'deskripsi.required' => "Deskripsi Wajib Diisi.",
+            'persyaratan.required' => "Persyaratan Wajib Diisi.",
+            'foto.required' => "Foto Wajib Diisi.",
+            'foto.mimes' => "Format Foto harus JPEG, JPG atau PNG.",
+            'jumlah_pelamar' => "Kouta Pelamar Minimal 1",
         ]);
     
         if ($validator->fails()) {
@@ -89,7 +112,17 @@ class c_loker extends Controller
             'instansi' => 'required',
             'deskripsi' => 'required',
             'persyaratan' => 'required',
-            'jumlah_pelamar' => 'required',
+            'foto' => 'file|mimes:jpeg,jpg,png|max:2056',
+            'jumlah_pelamar' => 'required|numeric|min:1',
+        ],[
+            'waktu_mulai.required' => "Waktu Mulai Wajib Diisi.",
+            'waktu_akhir.required' => "Waktu Akhir Wajib Diisi.",
+            'judul.required' => "Judul Wajib Diisi.",
+            'instansi.required' => "Instansi Wajib Diisi.",
+            'deskripsi.required' => "Deskripsi Wajib Diisi.",
+            'persyaratan.required' => "Persyaratan Wajib Diisi.",
+            'foto.mimes' => "Format Foto harus JPEG, JPG atau PNG.",
+            'jumlah_pelamar' => "Kouta Pelamar Minimal 1",
         ]);
     
         // if ($validator->fails()) {
@@ -154,9 +187,19 @@ class c_loker extends Controller
 
     public function detail(Request $request, $id)
     {
+        $data_loker = $this->loker->detailData($id);
+        $file_loker = $this->file_loker->allDataLoker($id);
+        foreach ($file_loker as $data) {
+            $user = DB::table('users')->where('id', $data->id_user)->first();
+            $data->user = $user;
+        }
+       
+   
         $data = [
-            'loker' => $this->loker->detailData($id),
+            'loker' => $data_loker,
+            'pelamar' => $file_loker,
         ];
+
        
         return view ('Admin.loker.detail', $data);
     }

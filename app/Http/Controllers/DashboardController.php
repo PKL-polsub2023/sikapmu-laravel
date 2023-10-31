@@ -17,6 +17,7 @@ use App\Models\data_ads;
 use App\Models\data_ketua_okp;
 use App\Models\data_sekretaris_okp;
 use App\Models\data_bendahara_okp;
+use App\Models\data;
 
 class DashboardController extends Controller
 {
@@ -35,6 +36,7 @@ class DashboardController extends Controller
         $this->ketua = new data_ketua_okp();
         $this->sekretaris = new data_sekretaris_okp();
         $this->bendahara = new data_bendahara_okp();
+        $this->data = new data();
         }
 
     public function index()
@@ -107,17 +109,20 @@ class DashboardController extends Controller
 
     public function detail($jenis, $id)
     {
+        $dataPendukung = $this->data->dataPendukung($id);
         if($jenis == "wiramuda")
         {
             $data = [
                 'user' => $this->wirausaha->detailData($id),
                 'usaha' => $this->data_usaha->DetailDatau($id),
+                'pendukung' => $dataPendukung,
             ];
             return view ('Admin.wiramuda.detail', $data);
         }else if ($jenis == "umum")
         {
             $data = [
                 'user' => $this->user_umum->detailData($id),
+                'pendukung' => $dataPendukung,
             ];
             return view ('Admin.umum.detail', $data);
         }else if ($jenis == "okp")
@@ -131,12 +136,14 @@ class DashboardController extends Controller
                 'ketua' => $ambilKetua,
                 'bendahara' => $ambilBendahara,
                 'sekretaris' => $ambilSekretaris,
+                'pendukung' => $dataPendukung,
             ];
             return view ('Admin.okp.detail', $data);
         }else if ($jenis == "pelopor")
         {
             $data = [
                 'user' => $this->pemuda_pelopor->detailData($id),
+                'pendukung' => $dataPendukung,
             ];
             return view ('Admin.pelopor.detail', $data);
         }

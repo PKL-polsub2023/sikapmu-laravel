@@ -79,13 +79,40 @@
 
             </div> --}}
 
-
-
-            <x-footers.auth></x-footers.auth>
+            <div class="pendukung mt-4">
+                <div class="col-12 text-start">
+                    <h1 class="d-flex text-start align-items-start"
+                        style="color: rgb(0, 0, 0); font-size: 24px; font-weight: bold;">
+                        Data Pendukung {{ $user->nama }}
+                    </h1>
+                </div>
+                <div class="col col-md-12 col-12">
+                    <table style="width:100%" id="data-pendukung" class="display">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Data Pendukung</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pendukung as $data)
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <a href="{{ asset('data') }}/{{ $data->dokumen }} "
+                                            download>{{ $data->dokumen }}</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+        <x-footers.auth></x-footers.auth>
     </main>
     <x-plugins></x-plugins>
-    </div>
+
     <style>
         .bg-gradient-primary {
             background: linear-gradient(90deg, #B7ECE7 0%, #B0BDF0 100%);
@@ -93,3 +120,4 @@
     </style>
 
 </x-layout>
+<script src="{{ asset('assets/js/pribadi/table-edit.js') }}"></script>

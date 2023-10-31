@@ -1,93 +1,96 @@
 <x-layout bodyClass="g-sidenav-show  bg-gray-200">
 
-    <x-navbars.sidebar activePage="editloker"></x-navbars.sidebar>
+    <x-navbars.sidebar activePage="DataLoker"></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <x-navbars.navs.auth titlePage="Edit Post Lamaran Kerja"></x-navbars.navs.auth>
+        <x-navbars.navs.auth titlePage="Detail Post Lamaran Kerja"></x-navbars.navs.auth>
         <!-- End Navbar -->
-        <div class="container-fluid py-4">
-
-            <div class="card ">
-                <div class="card-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <center>
-                        <img src="{{ asset('foto/loker/' . $loker->foto) }}" alt="" style="width:20%">
-                    </center>
-                    <div id="error-messages" class="alert alert-primary alert-dismissible text-white"
-                        style="display: none">
-                    </div>
-                    <a href="{{ route('loker.index') }}" id="back" class="back" hidden> back</a>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="mb-3">
-                                <label for="">Waktu Awal</label>
-                                <input type="date" class="form-control" id="waktu_mulai" name="waktu_mulai" required
-                                    style="border: 2px solid #92929D;" placeholder="Waktu"
-                                    value="{{ $loker->waktu_mulai }}">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-3">
-                                <label for="">Waktu Akhir</label>
-                                <input type="date" class="form-control" id="waktu_akhir" name="waktu_akhir" required
-                                    style="border: 2px solid #92929D;" placeholder="Waktu"
-                                    value="{{ $loker->waktu_akhir }}">
-                            </div>
-                        </div>
+        <div class="section-content">
+            <div class="container mt-3 position: relative;">
+                <div class="DetailLoker">
+                    <h1 class="text-center mt-5 mb-3" style="color: rgb(78, 78, 78); font-size: 22px; ">
+                        {{ $loker->instansi }}</h1>
+                    <div class="supp text-center mb-5">
+                        <img src="{{ asset('foto/loker/' . $loker->foto) }}" style="width:100px;height:100px"
+                            alt="profile-img" class="text-center" />
                     </div>
                     <div class="row">
-                        <div class="col-9">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="judul" name="judul" required
-                                    style="border: 2px solid #92929D;" placeholder="Judul Lamaran"
-                                    value="{{ $loker->judul }}">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <div class="container">
+
+                                <h5 class="text-start mb-2"
+                                    style="color: rgb(0, 0, 0); font-size: 14px; font-weight:bold; ">
+                                    Judul :</h5>
+
+                                <h5 class="text-start " style="color: rgb(0, 0, 0); font-size: 14px;font-weight:100; ">
+                                    {{ $loker->judul }} </h5>
+
+                                <h5 class="text-start mb-2"
+                                    style="color: rgb(0, 0, 0); font-size: 14px; font-weight:bold; ">
+                                    Deskripsi :</h5>
+
+                                <h5 class="text-start " style="color: rgb(0, 0, 0); font-size: 14px;;font-weight:100; ">
+                                    {{ $loker->deskripsi }} </h5>
+
+                                <h5 class="text-start mt-5 mb-2"
+                                    style="color: rgb(0, 0, 0); font-size: 14px; font-weight:bold; ">
+                                    Persyaratan : </h5>
+
+                                <h5 class="text-start " style="color: rgb(0, 0, 0); font-size: 14px;;font-weight:100; ">
+                                    {{ $loker->persyaratan }}
+                                    {{-- 
+                                @php
+                                echo $loker->persyaratan;
+                            @endphp --}}
+                                </h5>
+
                             </div>
                         </div>
-                        <div class="col-3">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="jumlah_pelamar" name="jumlah_pelamar"
-                                    required style="border: 2px solid #92929D;" placeholder="Kuota Pelamar"
-                                    value="{{ $loker->jumlah_pelamar }}">
+
+
+                    </div>
+                </div>
+
+                <div class="pelamar mt-4">
+                    <h1 class="text-center mt-5 mb-3" style="color: rgb(78, 78, 78); font-size: 22px; ">
+                        Data Pelamar</h1>
+                    <h1 class="text-center mb-3" style="color: rgb(78, 78, 78); font-size: 16px; ">
+                        Kuota Pelamar : {{ $loker->jumlah_pelamar }}</h1>
+                    <div class="row">
+                        <center>
+                            <div class="col col-6 col-md-6">
+                                <table style="width:100%" id="data-loker" class="display">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Pelamar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($pelamar as $data)
+                                            <tr>
+                                                <td></td>
+                                                <td>{{ $data->user->nama }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="instansi" name="instansi" required
-                            style="border: 2px solid #92929D;" placeholder="Nama Perusahaan"
-                            value="{{ $loker->instansi }}">
-                    </div>
-                    <div class="mb-3">
-                        <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" required
-                            style="border: 2px solid #92929D;" placeholder="Deskripsi Lamaran">{{ $loker->deskripsi }}</textarea>
+                        </center>
 
                     </div>
-                    <div class="mb-3">
-                        <textarea type="text" class="form-control" id="persyaratan" name="persyaratan" required
-                            style="border: 2px solid #92929D;" placeholder="Persyaratan">{{ $loker->persyaratan }}</textarea>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex align-items-center">
-                            <input type="file" class="form-control" id="foto" name="foto"
-                                accept=".jpg, .jpeg, .png">
-                            <small>Masukkan foto baru jika ingin mengubah</small>
-                        </div>
-
-                    </div>
-
 
                 </div>
+
+
+
+
             </div>
-
-
-
         </div>
-        </div>
-        </div>
+
         <x-footers.auth></x-footers.auth>
-        </div>
     </main>
     <x-plugins></x-plugins>
-    <script src="{{ asset('assets/js/pribadi/loker-admin.js') }}"></script>
+    <script src="{{ asset('assets/js/pribadi/table-edit.js') }}"></script>
 </x-layout>

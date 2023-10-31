@@ -46,9 +46,9 @@
                                         {{-- <th
                                             class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Status</th> --}}
-                                        <th
+                                        {{-- <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Kelengkapan Data</th>
+                                            Kelengkapan Data</th> --}}
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action</th>
@@ -75,7 +75,7 @@
                                                         Terverifikasi</span>
                                                 @endif
                                             </td> --}}
-                                            <td class="">
+                                            {{-- <td class="">
                                                 <div class="progress-wrapper w-50 mx-auto text-center">
                                                     <span style="color: #4FD1C5;">60%</span>
                                                     <div class="progress-info text-center">
@@ -86,7 +86,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </td>
+                                            </td> --}}
                                             <td class="align-middle text-center">
                                                 <div class="row">
                                                     {{-- @if ($data->status_akun != 'Terverifikasi')
