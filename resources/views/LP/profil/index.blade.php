@@ -5,10 +5,10 @@
 <section class="uni-banner">
    <div class="container">
       <div class="uni-banner-text-area">
-         <h1>Prodil</h1>
+         <h1>Profil</h1>
          <ul>
             <li><a href="/">Home</a></li>
-            <li>Prodil</li>
+            <li>Profil</li>
          </ul>
       </div>
    </div>
